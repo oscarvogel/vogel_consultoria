@@ -16,6 +16,8 @@
           :src="automationAssistant"
           alt="Asistente interno con IA coordinando automatizaciones, respuestas y sistemas conectados"
           class="aspect-[16/10] w-full rounded-2xl object-cover"
+          loading="lazy"
+          decoding="async"
         />
         <div class="p-4">
           <h3 class="font-display text-lg font-semibold text-white">Enfoque de negocio</h3>
@@ -29,5 +31,5 @@
 </template>
 
 <script setup>
-import automationAssistant from "../assets/ia/ai-automation-assistant.png";
+import automationAssistant from "../assets/ia/ai-automation-assistant.webp";
 </script>

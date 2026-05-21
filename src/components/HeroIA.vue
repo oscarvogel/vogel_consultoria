@@ -1,10 +1,18 @@
 <template>
-  <section id="hero" class="relative isolate overflow-hidden pb-20 pt-14 sm:pt-20">
+  <section
+    id="hero"
+    class="relative isolate overflow-hidden pb-20 pt-14 sm:pt-20"
+    data-analytics-view="ia_entry"
+    data-analytics-funnel="lead_journey"
+    data-analytics-step="ia"
+  >
     <img
       :src="aiOperations"
       alt=""
       class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       aria-hidden="true"
+      fetchpriority="high"
+      decoding="async"
     />
     <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(15,42,68,0.98)_0%,rgba(15,42,68,0.82)_48%,rgba(11,32,53,0.18)_100%)]"></div>
     <div class="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-vogel-deep to-transparent"></div>
@@ -26,6 +34,9 @@
             target="_blank"
             rel="noopener noreferrer"
             class="mt-8 inline-flex rounded-full border border-vogel-blue bg-vogel-blue px-7 py-3.5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:border-vogel-amber hover:bg-vogel-amber hover:text-vogel-deep"
+            data-analytics-cta="ia_hero_whatsapp"
+            data-analytics-funnel="lead_journey"
+            data-analytics-step="ia"
           >
             Hablar por WhatsApp
           </a>
@@ -48,7 +59,7 @@
 </template>
 
 <script setup>
-import aiOperations from "../assets/ia/ai-operations.png";
+import aiOperations from "../assets/ia/ai-operations.webp";
 
 const waLink = "https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa";
 

@@ -21,6 +21,8 @@
             :src="useCasesImage"
             alt="IA analizando Excel, PDF, bases de datos y reportes para generar alertas e indicadores"
             class="aspect-[16/10] w-full rounded-2xl object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="pointer-events-none absolute inset-3 rounded-2xl bg-gradient-to-t from-vogel-deep/65 via-transparent to-transparent"></div>
         </div>
@@ -30,7 +32,7 @@
 </template>
 
 <script setup>
-import useCasesImage from "../assets/ia/ai-use-cases.png";
+import useCasesImage from "../assets/ia/ai-use-cases.webp";
 
 const useCases = [
   "Consultás tus ventas y la IA te responde en segundos",

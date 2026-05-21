@@ -15,6 +15,8 @@
             :src="servicesOverview"
             alt="Servicios integrales conectando sistemas a medida, dashboards, automatizaciones, inteligencia artificial y capacitación"
             class="aspect-[16/10] w-full rounded-2xl object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="pointer-events-none absolute inset-3 rounded-2xl bg-gradient-to-t from-vogel-deep/55 via-transparent to-transparent"></div>
         </div>
@@ -24,16 +26,31 @@
         <article
           v-for="(service, i) in services"
           :key="service.title"
-          class="card-hover reveal group p-6"
+          class="card-hover reveal group relative isolate min-h-[220px] overflow-hidden p-0"
           :class="[`reveal-d${(i % 3) + 1}`]"
         >
-          <div
-            class="relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full border border-vogel-blue/50 text-vogel-amber transition duration-300 group-hover:border-vogel-amber/70 group-hover:bg-vogel-amber/10"
-          >
-            <component :is="service.icon" class="h-5 w-5" />
+          <img
+            :src="service.image"
+            alt=""
+            class="absolute inset-0 h-full w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
+          <div class="absolute inset-0 bg-gradient-to-br from-vogel-navy/90 via-vogel-deep/62 to-vogel-navy/25"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-vogel-navy/92 via-vogel-navy/20 to-transparent"></div>
+
+          <div class="relative z-10 flex min-h-[220px] flex-col justify-between p-6">
+            <div
+              class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-vogel-blue/60 bg-vogel-navy/45 text-vogel-amber shadow-glow backdrop-blur-sm transition duration-300 group-hover:border-vogel-amber/75 group-hover:bg-vogel-amber/10"
+            >
+              <component :is="service.icon" class="h-5 w-5" />
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white drop-shadow">{{ service.title }}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-vogel-gray/85">{{ service.description }}</p>
+            </div>
           </div>
-          <h3 class="font-display text-lg font-bold text-white">{{ service.title }}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-vogel-muted">{{ service.description }}</p>
         </article>
       </div>
 
@@ -75,7 +92,7 @@
               <div class="flex items-start justify-between gap-3">
                 <div>
                   <p class="font-display text-base font-bold text-white">{{ example.name }}</p>
-                  <p class="mt-1 text-xs uppercase tracking-[0.16em] text-vogel-blue-light">{{ example.type }}</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.16em] text-vogel-blueLight">{{ example.type }}</p>
                 </div>
                 <span
                   class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-vogel-blue/40 text-vogel-amber transition duration-300 group-hover:border-vogel-amber/70 group-hover:bg-vogel-amber/10"
@@ -89,13 +106,43 @@
           </div>
         </div>
       </div>
+
+      <div class="mt-10 rounded-3xl border border-vogel-gray/15 bg-vogel-navy/55 p-5 sm:p-7">
+        <p class="text-center text-xs font-bold uppercase tracking-[0.22em] text-vogel-amber">Empresas y organizaciones que confiaron en nuestro desarrollo web</p>
+        <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
+          <a
+            v-for="logo in clientLogos"
+            :key="logo.domain"
+            :href="logo.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 rounded-xl border border-vogel-gray/15 bg-white/5 px-3 py-2.5 transition hover:border-vogel-amber/45 hover:bg-vogel-amber/5"
+            :aria-label="`Visitar sitio de ${logo.name}`"
+          >
+            <img
+              :src="logo.logoUrl"
+              :alt="`Logo de ${logo.name}`"
+              class="h-7 w-7 rounded-md object-contain"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="line-clamp-1 text-xs font-medium text-vogel-gray">{{ logo.name }}</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 import SectionHeading from "./SectionHeading.vue";
-import servicesOverview from "../assets/services/services-overview.png";
+import servicesOverview from "../assets/services/services-overview.webp";
+import sistemasCard from "../assets/services/cards/sistemas-a-medida.webp";
+import dashboardsCard from "../assets/services/cards/dashboards-ejecutivos.webp";
+import automatizacionCard from "../assets/services/cards/automatizacion-procesos.webp";
+import iaCard from "../assets/services/cards/ia-aplicada.webp";
+import talleresCard from "../assets/services/cards/talleres-capacitacion-ia.webp";
+import webCard from "../assets/services/cards/desarrollo-web.webp";
 
 const IconCode = {
   template:
@@ -131,31 +178,37 @@ const services = [
     title: "Sistemas a medida",
     description: "Plataformas diseñadas para tu operación, eliminando fricción entre áreas y mejorando trazabilidad.",
     icon: IconCode,
+    image: sistemasCard,
   },
   {
     title: "Dashboards ejecutivos",
     description: "Indicadores críticos del negocio en una sola vista para decidir con rapidez y precisión.",
     icon: IconChart,
+    image: dashboardsCard,
   },
   {
     title: "Automatización de procesos",
     description: "Menos tareas repetitivas y más foco en trabajo de valor para equipos administrativos y operativos.",
     icon: IconFlow,
+    image: automatizacionCard,
   },
   {
     title: "Inteligencia artificial aplicada",
     description: "Modelos y asistentes que optimizan ventas, soporte, análisis y gestión interna en contextos reales.",
     icon: IconAi,
+    image: iaCard,
   },
   {
     title: "Talleres y capacitación IA",
     description: "Entrenamiento práctico para líderes y equipos con adopción gradual y resultados concretos.",
     icon: IconWorkshop,
+    image: talleresCard,
   },
   {
     title: "Desarrollo de páginas web",
     description: "Sitios institucionales y comerciales con diseño responsive, foco en conversión y administración simple.",
     icon: IconWeb,
+    image: webCard,
   },
 ];
 
@@ -207,6 +260,37 @@ const webExamples = [
     type: "Gobierno",
     domain: "garuhape.gob.ar",
     url: "https://garuhape.gob.ar/",
+  },
+];
+
+const clientLogos = [
+  {
+    ...webExamples[0],
+    logoUrl: "https://anasociados.com.ar/assets/images/logo_almada_neri.png",
+  },
+  {
+    ...webExamples[1],
+    logoUrl: "https://indufor.com.ar/assets/images/logo_indufor.jpeg",
+  },
+  {
+    ...webExamples[2],
+    logoUrl: "https://forestalparaguay.com/assets/images/fgpy.png",
+  },
+  {
+    ...webExamples[3],
+    logoUrl: "https://servinlgsm.com.ar/assets/images/hero/slide-2-large.jpg",
+  },
+  {
+    ...webExamples[4],
+    logoUrl: "https://h21.ar/assets/images/logo.png",
+  },
+  {
+    ...webExamples[5],
+    logoUrl: "https://amitrac.ar/assets/images/logo_amitrac.png",
+  },
+  {
+    ...webExamples[6],
+    logoUrl: "https://www.google.com/s2/favicons?domain=garuhape.gob.ar&sz=128",
   },
 ];
 </script>

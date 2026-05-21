@@ -25,6 +25,8 @@
             :src="aiOperations"
             alt="Flujo de inteligencia artificial conectando reportes, planillas, dashboards y automatizaciones"
             class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-vogel-navy/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-vogel-navy/20"></div>
         </div>
@@ -35,7 +37,7 @@
 
 <script setup>
 import SectionHeading from "./SectionHeading.vue";
-import aiOperations from "../assets/ia/ai-operations.png";
+import aiOperations from "../assets/ia/ai-operations.webp";
 
 const aiCases = [
   "Chatbots internos",

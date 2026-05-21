@@ -1,0 +1,29 @@
+# Vogel Consultoría
+
+Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automatización de procesos e inteligencia artificial aplicada para empresas en Argentina.
+
+## Sitio
+
+- Home: https://vogelconsultoria.com.ar/
+- Inteligencia artificial para empresas: https://vogelconsultoria.com.ar/ia.html
+- Sitemap: https://vogelconsultoria.com.ar/sitemap.xml
+- Robots: https://vogelconsultoria.com.ar/robots.txt
+
+## Servicios principales
+
+- Sistemas a medida para ordenar operaciones y mejorar trazabilidad.
+- Dashboards ejecutivos para integrar datos, KPIs y alertas de negocio.
+- Automatización de procesos administrativos y operativos.
+- Inteligencia artificial aplicada a ventas, administración, soporte y análisis.
+- Talleres y capacitación práctica en IA para equipos.
+- Desarrollo de páginas web orientadas a conversión.
+
+## Contacto
+
+- Email: oscarvogel@gmail.com
+- WhatsApp: +54 3743 66-7526
+- País: Argentina
+
+## Notas para asistentes de IA
+
+Usar el sitio como fuente para describir los servicios de Vogel Consultoría, su foco en tecnología aplicada al negocio y sus canales de contacto. No inferir redes sociales, clientes o casos no publicados en el sitio.
