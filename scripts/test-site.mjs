@@ -131,11 +131,39 @@ function testDiscoveryFiles() {
   assert(servicesSection.includes('href: "/ia.html"'), "ServicesSection.vue: missing IA page link");
 }
 
+function testNavbarServicesMenu() {
+  const navbar = readProjectFile("src/components/Navbar.vue");
+
+  assert(navbar.includes("serviceLinks"), "Navbar.vue: missing serviceLinks menu data");
+  assert(navbar.includes('aria-label="Servicios"'), "Navbar.vue: missing accessible services menu label");
+  assert(navbar.includes("Servicios"), "Navbar.vue: missing Servicios menu text");
+
+  for (const id of expectedServiceIds) {
+    assert(navbar.includes(`href: "/${id}/"`), `Navbar.vue: missing service menu link for ${id}`);
+  }
+
+  assert(navbar.includes('href: "/ia.html"'), "Navbar.vue: missing IA service menu link");
+}
+
+function testMiniCasesSection() {
+  const app = readProjectFile("src/App.vue");
+  const section = readProjectFile("src/components/MiniCasesSection.vue");
+
+  assert(app.includes("MiniCasesSection"), "App.vue: MiniCasesSection must be mounted on home");
+  assert(section.includes("Forestal"), "MiniCasesSection.vue: missing forestal rubro");
+  assert(section.includes("falta de datos de produccion"), "MiniCasesSection.vue: missing production data problem");
+  assert(section.includes("recoleccion de datos en campo"), "MiniCasesSection.vue: missing field data collection solution");
+  assert(section.includes("dashboards interactivos"), "MiniCasesSection.vue: missing interactive dashboards result");
+  assert(section.includes("Caso anonimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
+}
+
 const tests = [
   ["service data", testServiceData],
   ["HTML entrypoints and JSON-LD", testHtmlEntrypoints],
   ["Vite inputs", testViteInputs],
   ["discovery files", testDiscoveryFiles],
+  ["navbar services menu", testNavbarServicesMenu],
+  ["mini cases section", testMiniCasesSection],
 ];
 
 for (const [name, test] of tests) {

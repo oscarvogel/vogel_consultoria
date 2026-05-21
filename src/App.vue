@@ -11,6 +11,7 @@
       <SolutionsSectionAsync />
       <ProcessSectionAsync />
       <AISectionAsync />
+      <MiniCasesSectionAsync />
       <AboutSectionAsync />
       <CTASectionAsync />
     </main>
@@ -34,6 +35,7 @@ const ProblemsSectionAsync = defineAsyncComponent(() => import("./components/Pro
 const SolutionsSectionAsync = defineAsyncComponent(() => import("./components/SolutionsSection.vue"));
 const ProcessSectionAsync = defineAsyncComponent(() => import("./components/ProcessSection.vue"));
 const AISectionAsync = defineAsyncComponent(() => import("./components/AISection.vue"));
+const MiniCasesSectionAsync = defineAsyncComponent(() => import("./components/MiniCasesSection.vue"));
 const AboutSectionAsync = defineAsyncComponent(() => import("./components/AboutSection.vue"));
 const CTASectionAsync = defineAsyncComponent(() => import("./components/CTASection.vue"));
 
