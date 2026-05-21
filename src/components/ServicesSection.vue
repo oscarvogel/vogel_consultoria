@@ -23,9 +23,10 @@
       </div>
 
       <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        <article
+        <a
           v-for="(service, i) in services"
           :key="service.title"
+          :href="service.href"
           class="card-hover reveal group relative isolate min-h-[220px] overflow-hidden p-0"
           :class="[`reveal-d${(i % 3) + 1}`]"
         >
@@ -51,7 +52,7 @@
               <p class="mt-3 text-sm leading-relaxed text-vogel-gray/85">{{ service.description }}</p>
             </div>
           </div>
-        </article>
+        </a>
       </div>
 
       <div class="mt-16 overflow-hidden rounded-3xl border border-vogel-gray/20 bg-vogel-deep/45 p-5 shadow-glow reveal sm:p-7 lg:p-8">
@@ -76,6 +77,12 @@
                 <span>{{ highlight }}</span>
               </div>
             </div>
+            <a
+              href="/desarrollo-web/"
+              class="mt-6 inline-flex items-center justify-center rounded-full border border-vogel-amber/50 px-5 py-2.5 text-sm font-bold text-vogel-amber transition hover:bg-vogel-amber hover:text-vogel-navy"
+            >
+              Ver servicio de desarrollo web
+            </a>
           </div>
 
           <div class="grid gap-3 sm:grid-cols-2">
@@ -179,36 +186,42 @@ const services = [
     description: "Plataformas diseñadas para tu operación, eliminando fricción entre áreas y mejorando trazabilidad.",
     icon: IconCode,
     image: sistemasCard,
+    href: "/sistemas-a-medida/",
   },
   {
     title: "Dashboards ejecutivos",
     description: "Indicadores críticos del negocio en una sola vista para decidir con rapidez y precisión.",
     icon: IconChart,
     image: dashboardsCard,
+    href: "/dashboards-ejecutivos/",
   },
   {
     title: "Automatización de procesos",
     description: "Menos tareas repetitivas y más foco en trabajo de valor para equipos administrativos y operativos.",
     icon: IconFlow,
     image: automatizacionCard,
+    href: "/automatizacion-de-procesos/",
   },
   {
     title: "Inteligencia artificial aplicada",
     description: "Modelos y asistentes que optimizan ventas, soporte, análisis y gestión interna en contextos reales.",
     icon: IconAi,
     image: iaCard,
+    href: "/ia.html",
   },
   {
     title: "Talleres y capacitación IA",
     description: "Entrenamiento práctico para líderes y equipos con adopción gradual y resultados concretos.",
     icon: IconWorkshop,
     image: talleresCard,
+    href: "/talleres-ia/",
   },
   {
     title: "Desarrollo de páginas web",
     description: "Sitios institucionales y comerciales con diseño responsive, foco en conversión y administración simple.",
     icon: IconWeb,
     image: webCard,
+    href: "/desarrollo-web/",
   },
 ];
 
