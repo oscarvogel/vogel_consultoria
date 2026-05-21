@@ -6,17 +6,22 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 
 - Home: https://vogelconsultoria.com.ar/
 - Inteligencia artificial para empresas: https://vogelconsultoria.com.ar/ia.html
+- Sistemas a medida: https://vogelconsultoria.com.ar/sistemas-a-medida/
+- Dashboards ejecutivos: https://vogelconsultoria.com.ar/dashboards-ejecutivos/
+- Automatización de procesos: https://vogelconsultoria.com.ar/automatizacion-de-procesos/
+- Desarrollo web: https://vogelconsultoria.com.ar/desarrollo-web/
+- Talleres IA: https://vogelconsultoria.com.ar/talleres-ia/
 - Sitemap: https://vogelconsultoria.com.ar/sitemap.xml
 - Robots: https://vogelconsultoria.com.ar/robots.txt
 
 ## Servicios principales
 
-- Sistemas a medida para ordenar operaciones y mejorar trazabilidad.
-- Dashboards ejecutivos para integrar datos, KPIs y alertas de negocio.
-- Automatización de procesos administrativos y operativos.
+- Sistemas a medida para ordenar operaciones, conectar áreas y mejorar trazabilidad.
+- Dashboards ejecutivos para integrar datos, KPIs y alertas de negocio en una vista accionable.
+- Automatización de procesos administrativos y operativos para reducir tareas manuales y errores repetitivos.
 - Inteligencia artificial aplicada a ventas, administración, soporte y análisis.
 - Talleres y capacitación práctica en IA para equipos.
-- Desarrollo de páginas web orientadas a conversión.
+- Desarrollo de páginas web orientadas a conversión, SEO técnico y presentación clara de servicios.
 
 ## Contacto
 
