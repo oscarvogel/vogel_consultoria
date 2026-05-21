@@ -9,14 +9,14 @@
     <meta name="description" content="Implementamos inteligencia artificial en tu empresa sin complicaciones: automatización de tareas, análisis de datos, chatbots y asistentes internos. Diagnóstico gratuito." />
     <meta name="keywords" content="inteligencia artificial para empresas, IA empresas Argentina, automatización con IA, chatbots empresariales, asistentes con IA, análisis de datos con IA, implementación IA PYME" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://vogelconsultoria.com.ar/ia" />
+    <link rel="canonical" href="https://vogelconsultoria.com.ar/ia.html" />
     <meta name="author" content="Vogel Consultoría" />
     <meta name="geo.region" content="AR" />
     <meta name="geo.country" content="Argentina" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://vogelconsultoria.com.ar/ia" />
+    <meta property="og:url" content="https://vogelconsultoria.com.ar/ia.html" />
     <meta property="og:title" content="Inteligencia Artificial para Empresas | Vogel Consultoría" />
     <meta property="og:description" content="Automatizá tareas, analizá tus datos y tomá mejores decisiones con soluciones de IA reales. Sin tecnicismos. Con resultados." />
     <meta property="og:image" content="https://vogelconsultoria.com.ar/og-ia.png" />
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="https://vogelconsultoria.com.ar/og-ia.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/src/assets/logo-vogel.png" />
+    <link rel="icon" type="image/png" href="/logo-vogel.png" />
 
     <!-- Font preconnect + Syne (display) + DM Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,22 +47,49 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": ["Organization", "ProfessionalService"],
           "@id": "https://vogelconsultoria.com.ar/#organization",
           "name": "Vogel Consultoría",
-          "url": "https://vogelconsultoria.com.ar",
-          "logo": "https://vogelconsultoria.com.ar/src/assets/logo-vogel.png",
+          "url": "https://vogelconsultoria.com.ar/",
+          "logo": "https://vogelconsultoria.com.ar/logo-vogel.png",
           "email": "oscarvogel@gmail.com",
           "telephone": "+543743667526",
-          "address": { "@type": "PostalAddress", "addressCountry": "AR" }
+          "areaServed": "AR",
+          "address": { "@type": "PostalAddress", "addressCountry": "AR" },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "consultas comerciales",
+            "email": "oscarvogel@gmail.com",
+            "telephone": "+543743667526",
+            "availableLanguage": ["es-AR"]
+          },
+          "knowsAbout": [
+            "inteligencia artificial para empresas",
+            "automatización con IA",
+            "asistentes internos con IA",
+            "análisis de datos",
+            "capacitación en IA"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://vogelconsultoria.com.ar/ia.html#webpage",
+          "url": "https://vogelconsultoria.com.ar/ia.html",
+          "name": "Inteligencia Artificial para Empresas en Argentina | Vogel Consultoría",
+          "description": "Implementamos inteligencia artificial en empresas: automatización, asistentes internos, análisis de datos y capacitación para equipos.",
+          "inLanguage": "es-AR",
+          "about": { "@id": "https://vogelconsultoria.com.ar/ia.html#service" },
+          "isPartOf": { "@id": "https://vogelconsultoria.com.ar/#website" }
         },
         {
           "@type": "Service",
+          "@id": "https://vogelconsultoria.com.ar/ia.html#service",
           "name": "Implementación de Inteligencia Artificial para Empresas",
-          "url": "https://vogelconsultoria.com.ar/ia",
+          "url": "https://vogelconsultoria.com.ar/ia.html",
           "provider": { "@id": "https://vogelconsultoria.com.ar/#organization" },
           "description": "Implementamos inteligencia artificial en empresas: automatización, asistentes internos, análisis de datos y capacitación para equipos.",
           "areaServed": "AR",
+          "inLanguage": "es-AR",
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Servicios IA",
@@ -77,11 +104,13 @@
         },
         {
           "@type": "FAQPage",
+          "@id": "https://vogelconsultoria.com.ar/ia.html#faq",
+          "inLanguage": "es-AR",
           "mainEntity": [
             {
               "@type": "Question",
               "name": "¿Necesito saber de tecnología para implementar IA?",
-              "acceptedAnswer": { "@type": "Answer", "text": "No. Nosotros traducimos todo a lenguaje de negocio y te guíamos paso a paso." }
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Nosotros traducimos todo a lenguaje de negocio y te guiamos paso a paso." }
             },
             {
               "@type": "Question",
@@ -104,6 +133,23 @@
     }
     </script>
     <div id="ia-app"></div>
+    <noscript>
+      <main style="max-width: 880px; margin: 2rem auto; padding: 0 1rem; font-family: DM Sans, Arial, sans-serif; color: #e5e7eb;">
+        <h1 style="color: #ffffff;">Inteligencia artificial para empresas</h1>
+        <p>Implementamos IA en procesos concretos de ventas, administración y operaciones para automatizar tareas, analizar datos y tomar decisiones más rápidas.</p>
+        <h2 style="color: #ffffff;">Casos de uso</h2>
+        <ul>
+          <li>Asistentes internos para consultar ventas, stock, reportes o documentos.</li>
+          <li>Análisis automático de Excel, PDF y bases de datos.</li>
+          <li>Automatización de respuestas y tareas repetitivas.</li>
+          <li>Reportes con alertas y oportunidades de mejora.</li>
+        </ul>
+        <h2 style="color: #ffffff;">Preguntas frecuentes</h2>
+        <p><strong>¿Necesito saber de tecnología?</strong> No. Traducimos todo a lenguaje de negocio y guiamos la implementación.</p>
+        <p><strong>¿Tengo que cambiar mis sistemas?</strong> En la mayoría de los casos no. Integramos la IA con lo que ya usás.</p>
+        <p><a href="https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa">Hablar por WhatsApp</a></p>
+      </main>
+    </noscript>
     <script type="module" src="/src/ia.js"></script>
   </body>
 </html>

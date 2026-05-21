@@ -11,6 +11,7 @@ export default {
         vogel: {
           deep: "#0F2A44",
           blue: "#1E5FA8",
+          blueLight: "#8BC5FF",
           bright: "#196ECF",
           gray: "#E5E7EB",
           amber: "#F2A900",

@@ -1,31 +1,35 @@
 <template>
   <div class="relative overflow-x-hidden">
-    <main>
+    <a class="skip-link" href="#main-content-ia">Saltar al contenido principal</a>
+    <main id="main-content-ia" role="main" tabindex="-1">
       <HeroIA />
-      <ProblemIA />
-      <SolutionIA />
-      <UseCasesIA />
-      <ServicesIA />
-      <ProcessIA />
-      <OfferIA />
-      <FAQIA />
-      <CTAIA />
+      <ProblemIAAsync />
+      <SolutionIAAsync />
+      <UseCasesIAAsync />
+      <ServicesIAAsync />
+      <ProcessIAAsync />
+      <OfferIAAsync />
+      <FAQIAAsync />
+      <CTAIAAsync />
     </main>
     <WhatsAppButton />
   </div>
 </template>
 
 <script setup>
+import { defineAsyncComponent } from "vue";
 import { useScrollReveal } from "./composables/useScrollReveal.js";
 import HeroIA from "./components/HeroIA.vue";
-import ProblemIA from "./components/ProblemIA.vue";
-import SolutionIA from "./components/SolutionIA.vue";
-import UseCasesIA from "./components/UseCasesIA.vue";
-import ServicesIA from "./components/ServicesIA.vue";
-import ProcessIA from "./components/ProcessIA.vue";
-import OfferIA from "./components/OfferIA.vue";
-import FAQIA from "./components/FAQIA.vue";
-import CTAIA from "./components/CTAIA.vue";
 import WhatsAppButton from "./components/WhatsAppButton.vue";
+
+const ProblemIAAsync = defineAsyncComponent(() => import("./components/ProblemIA.vue"));
+const SolutionIAAsync = defineAsyncComponent(() => import("./components/SolutionIA.vue"));
+const UseCasesIAAsync = defineAsyncComponent(() => import("./components/UseCasesIA.vue"));
+const ServicesIAAsync = defineAsyncComponent(() => import("./components/ServicesIA.vue"));
+const ProcessIAAsync = defineAsyncComponent(() => import("./components/ProcessIA.vue"));
+const OfferIAAsync = defineAsyncComponent(() => import("./components/OfferIA.vue"));
+const FAQIAAsync = defineAsyncComponent(() => import("./components/FAQIA.vue"));
+const CTAIAAsync = defineAsyncComponent(() => import("./components/CTAIA.vue"));
+
 useScrollReveal();
 </script>

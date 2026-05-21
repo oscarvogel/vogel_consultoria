@@ -3,7 +3,7 @@
     :href="href"
     :target="external ? '_blank' : undefined"
     :rel="external ? 'noopener noreferrer' : undefined"
-    class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300"
+    class="inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep"
     :class="variantClass"
   >
     {{ label }}

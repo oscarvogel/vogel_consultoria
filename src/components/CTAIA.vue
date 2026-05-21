@@ -17,6 +17,9 @@
             target="_blank"
             rel="noopener noreferrer"
             class="mt-10 inline-flex rounded-full border border-vogel-amber bg-vogel-amber px-8 py-3.5 text-base font-semibold text-vogel-deep transition hover:-translate-y-0.5 hover:bg-white"
+            data-analytics-cta="ia_final_whatsapp"
+            data-analytics-funnel="lead_journey"
+            data-analytics-step="ia"
           >
             Hablar por WhatsApp
           </a>

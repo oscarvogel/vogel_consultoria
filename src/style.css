@@ -14,6 +14,26 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 9999px;
+  border: 1px solid rgba(242, 169, 0, 0.85);
+  background: #0b2035;
+  color: #ffffff;
+  padding: 0.6rem 0.95rem;
+  font-weight: 600;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 body {
   font-family: var(--font-body);
   background-color: #0b2035;
@@ -48,6 +68,15 @@ body::before {
 
 img {
   max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #f2a900;
+  outline-offset: 3px;
 }
 
 /* ─── Typography ─────────────────────────────────────────────────────────── */

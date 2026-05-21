@@ -7,6 +7,8 @@
           alt=""
           class="absolute inset-0 -z-10 h-full w-full object-cover opacity-55"
           aria-hidden="true"
+          loading="lazy"
+          decoding="async"
         />
         <div class="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(30,95,168,0.58),rgba(15,42,68,0.86)_48%,rgba(11,32,53,0.9))]"></div>
 
@@ -23,6 +25,9 @@
             target="_blank"
             rel="noopener noreferrer"
             class="mt-8 inline-flex rounded-full border border-vogel-amber bg-vogel-amber px-7 py-3 text-sm font-semibold text-vogel-deep transition hover:-translate-y-0.5 hover:bg-white"
+            data-analytics-cta="ia_offer_diagnostic_whatsapp"
+            data-analytics-funnel="lead_journey"
+            data-analytics-step="ia"
           >
             Solicitar diagnóstico por WhatsApp
           </a>
@@ -33,7 +38,7 @@
 </template>
 
 <script setup>
-import diagnosticRoadmap from "../assets/ia/ai-diagnostic-roadmap.png";
+import diagnosticRoadmap from "../assets/ia/ai-diagnostic-roadmap.webp";
 
 const waLink = "https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa";
 

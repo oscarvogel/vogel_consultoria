@@ -3,8 +3,11 @@
     :href="waLink"
     target="_blank"
     rel="noopener noreferrer"
-    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-green-400 bg-green-500 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-green-400 sm:h-auto sm:w-auto sm:px-4 sm:py-3"
+    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-green-400 bg-green-500 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-green-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep sm:h-auto sm:w-auto sm:px-4 sm:py-3"
     aria-label="Hablar por WhatsApp"
+    data-analytics-cta="floating_whatsapp"
+    data-analytics-funnel="lead_journey"
+    data-analytics-step="contact"
   >
     <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
       <path

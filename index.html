@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="https://vogelconsultoria.com.ar/og-image.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/src/assets/logo-vogel.png" />
+    <link rel="icon" type="image/png" href="/logo-vogel.png" />
 
     <!-- Font preconnect + Syne (display) + DM Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,26 +47,52 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": ["Organization", "ProfessionalService"],
           "@id": "https://vogelconsultoria.com.ar/#organization",
           "name": "Vogel Consultoría",
-          "url": "https://vogelconsultoria.com.ar",
-          "logo": "https://vogelconsultoria.com.ar/src/assets/logo-vogel.png",
+          "url": "https://vogelconsultoria.com.ar/",
+          "logo": "https://vogelconsultoria.com.ar/logo-vogel.png",
           "description": "Consultoría tecnológica especializada en sistemas a medida, dashboards ejecutivos, automatización de procesos e inteligencia artificial para empresas en Argentina.",
           "email": "oscarvogel@gmail.com",
           "telephone": "+543743667526",
+          "areaServed": "AR",
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "AR"
           },
-          "sameAs": []
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "consultas comerciales",
+            "email": "oscarvogel@gmail.com",
+            "telephone": "+543743667526",
+            "availableLanguage": ["es-AR"]
+          },
+          "knowsAbout": [
+            "sistemas a medida",
+            "dashboards ejecutivos",
+            "automatización de procesos",
+            "inteligencia artificial aplicada",
+            "capacitación en IA",
+            "desarrollo web"
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://vogelconsultoria.com.ar/#website",
-          "url": "https://vogelconsultoria.com.ar",
+          "url": "https://vogelconsultoria.com.ar/",
           "name": "Vogel Consultoría",
+          "inLanguage": "es-AR",
           "publisher": { "@id": "https://vogelconsultoria.com.ar/#organization" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://vogelconsultoria.com.ar/#webpage",
+          "url": "https://vogelconsultoria.com.ar/",
+          "name": "Vogel Consultoría | Sistemas, Dashboards e IA para Empresas en Argentina",
+          "description": "Sistemas a medida, dashboards ejecutivos, automatización de procesos e inteligencia artificial para empresas en Argentina.",
+          "inLanguage": "es-AR",
+          "isPartOf": { "@id": "https://vogelconsultoria.com.ar/#website" },
+          "about": { "@id": "https://vogelconsultoria.com.ar/#organization" }
         },
         {
           "@type": "ItemList",
@@ -76,13 +102,30 @@
             { "@type": "ListItem", "position": 2, "name": "Dashboards ejecutivos" },
             { "@type": "ListItem", "position": 3, "name": "Automatización de procesos" },
             { "@type": "ListItem", "position": 4, "name": "Inteligencia artificial aplicada" },
-            { "@type": "ListItem", "position": 5, "name": "Talleres y capacitación en IA" }
+            { "@type": "ListItem", "position": 5, "name": "Talleres y capacitación en IA" },
+            { "@type": "ListItem", "position": 6, "name": "Desarrollo de páginas web" }
           ]
         }
       ]
     }
     </script>
     <div id="app"></div>
+    <noscript>
+      <main style="max-width: 880px; margin: 2rem auto; padding: 0 1rem; font-family: DM Sans, Arial, sans-serif; color: #e5e7eb;">
+        <h1 style="color: #ffffff;">Vogel Consultoría</h1>
+        <p>Implementamos sistemas a medida, dashboards ejecutivos, automatización de procesos e inteligencia artificial para aumentar la rentabilidad de empresas en Argentina.</p>
+        <h2 style="color: #ffffff;">Servicios principales</h2>
+        <ul>
+          <li>Sistemas a medida para ordenar operaciones.</li>
+          <li>Dashboards ejecutivos para decidir con datos confiables.</li>
+          <li>Automatización de tareas administrativas y operativas.</li>
+          <li>Inteligencia artificial aplicada a ventas, administración y gestión.</li>
+          <li>Talleres y capacitación práctica en IA.</li>
+        </ul>
+        <p><a href="/ia.html">Ver soluciones de inteligencia artificial para empresas</a></p>
+        <p>Contacto: <a href="mailto:oscarvogel@gmail.com">oscarvogel@gmail.com</a> | <a href="https://wa.me/543743667526">WhatsApp</a></p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
