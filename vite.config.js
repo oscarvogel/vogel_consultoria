@@ -26,6 +26,11 @@ export default defineConfig({
       input: {
         main: "index.html",
         ia: "ia.html",
+        sistemas: "sistemas-a-medida/index.html",
+        dashboards: "dashboards-ejecutivos/index.html",
+        automatizacion: "automatizacion-de-procesos/index.html",
+        web: "desarrollo-web/index.html",
+        talleres: "talleres-ia/index.html",
       },
     },
   },
