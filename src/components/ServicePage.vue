@@ -32,10 +32,10 @@ const relatedServices = computed(() => getRelatedServices(props.page));
             Volver al sitio principal
           </a>
 
-          <div class="grid gap-10 pt-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:pt-16">
-            <div class="max-w-3xl">
+          <div class="grid min-w-0 gap-10 pt-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:pt-16">
+            <div class="min-w-0 max-w-3xl">
               <p class="text-xs font-bold uppercase tracking-[0.32em] text-vogel-amber">{{ page.eyebrow }}</p>
-              <h1 class="mt-5 font-display text-4xl font-bold leading-[0.98] text-white sm:text-5xl lg:text-6xl">
+              <h1 class="mt-5 max-w-full break-words font-display text-[2.55rem] font-bold leading-[1.02] text-white sm:text-5xl lg:text-6xl">
                 {{ page.title }}
               </h1>
               <p class="mt-6 max-w-2xl text-lg leading-relaxed text-vogel-gray sm:text-xl">
@@ -63,7 +63,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
               </div>
             </div>
 
-            <div class="relative">
+            <div class="relative min-w-0 max-w-full">
               <div class="overflow-hidden rounded-3xl border border-vogel-gray/20 bg-white/5 p-3 shadow-glow">
                 <img
                   :src="page.image"
