@@ -41,6 +41,9 @@ const relatedServices = computed(() => getRelatedServices(props.page));
               <p class="mt-6 max-w-2xl text-lg leading-relaxed text-vogel-gray sm:text-xl">
                 {{ page.summary }}
               </p>
+              <p v-if="page.intro" class="mt-4 max-w-2xl text-base leading-relaxed text-vogel-muted sm:text-lg">
+                {{ page.intro }}
+              </p>
 
               <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -55,10 +58,10 @@ const relatedServices = computed(() => getRelatedServices(props.page));
                   {{ page.ctaLabel }}
                 </a>
                 <a
-                  href="/#servicios"
+                  :href="page.secondaryCtaUrl || '/#servicios'"
                   class="inline-flex items-center justify-center rounded-full border border-vogel-gray/25 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:border-vogel-blue/70 hover:bg-vogel-blue/15"
                 >
-                  Ver otros servicios
+                  {{ page.secondaryCtaLabel || "Ver otros servicios" }}
                 </a>
               </div>
             </div>
@@ -98,6 +101,63 @@ const relatedServices = computed(() => getRelatedServices(props.page));
                 class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-5 text-sm leading-relaxed text-vogel-gray"
               >
                 {{ problem }}
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section v-if="page.benefits" class="py-8 sm:py-12" aria-labelledby="beneficios-heading">
+        <div class="section-shell">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Beneficios</p>
+              <h2 id="beneficios-heading" class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+                Una capa fiscal pensada para equipos tecnicos
+              </h2>
+            </div>
+          </div>
+          <div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <article
+              v-for="benefit in page.benefits"
+              :key="benefit.title"
+              class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-5 transition hover:border-vogel-blue/45 hover:bg-vogel-blue/10"
+            >
+              <p class="font-display text-lg font-bold text-white">{{ benefit.title }}</p>
+              <p class="mt-3 text-sm leading-relaxed text-vogel-muted">{{ benefit.description }}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section v-if="page.apiExamples" id="documentacion-tecnica" class="py-8 sm:py-12" aria-labelledby="api-heading">
+        <div class="section-shell">
+          <div class="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-blueLight">Respuesta API</p>
+              <h2 id="api-heading" class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
+                Manda el comprobante. Recibi una respuesta lista para usar.
+              </h2>
+              <p class="mt-4 text-sm leading-relaxed text-vogel-muted sm:text-base">
+                La documentacion tecnica queda preparada para revisar el caso de uso, validar el circuito de emision y definir los campos necesarios antes de integrar.
+              </p>
+            </div>
+
+            <div class="grid gap-4">
+              <article class="overflow-hidden rounded-2xl border border-vogel-blue/35 bg-vogel-navy/70 shadow-glow">
+                <div class="flex items-center justify-between border-b border-vogel-gray/10 px-4 py-3">
+                  <p class="text-xs font-bold uppercase tracking-[0.2em] text-vogel-amber">Autorizado</p>
+                  <span class="rounded-full border border-vogel-blue/35 px-3 py-1 text-xs font-semibold text-vogel-blueLight">200 OK</span>
+                </div>
+                <pre class="overflow-x-auto p-4 text-xs leading-relaxed text-vogel-gray sm:text-sm"><code>{{ page.apiExamples.success }}</code></pre>
+              </article>
+
+              <article class="overflow-hidden rounded-2xl border border-vogel-gray/20 bg-white/[0.04]">
+                <div class="flex items-center justify-between border-b border-vogel-gray/10 px-4 py-3">
+                  <p class="text-xs font-bold uppercase tracking-[0.2em] text-vogel-amber">Rechazado</p>
+                  <span class="rounded-full border border-vogel-gray/20 px-3 py-1 text-xs font-semibold text-vogel-muted">Error detallado</span>
+                </div>
+                <pre class="overflow-x-auto p-4 text-xs leading-relaxed text-vogel-gray sm:text-sm"><code>{{ page.apiExamples.error }}</code></pre>
               </article>
             </div>
           </div>

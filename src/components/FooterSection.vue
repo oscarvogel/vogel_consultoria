@@ -6,7 +6,7 @@
         <p class="mt-2">Soluciones integrales</p>
       </div>
       <address class="not-italic">
-        <p>Email: <a href="mailto:oscarvogel@gmail.com" class="hover:text-white" data-analytics-cta="footer_email" data-analytics-funnel="lead_journey" data-analytics-step="contact">oscarvogel@gmail.com</a></p>
+        <p>Email: <a href="mailto:oscar@vogelconsultoria.com.ar" class="hover:text-white" data-analytics-cta="footer_email" data-analytics-funnel="lead_journey" data-analytics-step="contact">oscar@vogelconsultoria.com.ar</a></p>
         <p class="mt-1">WhatsApp: <a href="https://wa.me/543743667526" class="hover:text-white" data-analytics-cta="footer_whatsapp" data-analytics-funnel="lead_journey" data-analytics-step="contact">+54 3743 66-7526</a></p>
         <p class="mt-1">Argentina</p>
       </address>
@@ -15,6 +15,7 @@
         <div class="mt-2 flex flex-wrap gap-4">
           <a href="#inicio" class="hover:text-white">Inicio</a>
           <a href="#servicios" class="hover:text-white">Servicios</a>
+          <a href="/recursos/" class="hover:text-white" data-analytics-cta="footer_resources" data-analytics-funnel="content_discovery" data-analytics-step="footer">Recursos</a>
           <a href="#soluciones" class="hover:text-white">Soluciones</a>
           <a href="#contacto" class="hover:text-white" data-analytics-cta="footer_contact_link" data-analytics-funnel="lead_journey" data-analytics-step="contact">Contacto</a>
         </div>
