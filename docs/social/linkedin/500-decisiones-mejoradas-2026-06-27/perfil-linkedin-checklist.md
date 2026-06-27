@@ -16,6 +16,14 @@ Validacion visual:
 - [ ] Incluye "sistemas", "dashboards" e "IA aplicada".
 - [ ] Incluye una promesa editorial: "Tecnologia clara para gestion real".
 
+## Verificacion operativa
+
+Antes de dar por aplicado el cambio, comprobar que el headline visible coincide con:
+
+```text
+Sistemas, dashboards e IA aplicada para mejorar decisiones de empresa | Tecnologia clara para gestion real
+```
+
 ## Cambio 2: accion principal Seguir
 
 Ruta LinkedIn:
