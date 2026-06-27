@@ -1,4 +1,4 @@
-semana,fecha_inicio,fecha_fin,seguidores_inicio,seguidores_fin,seguidores_netos,contactos_visibles,posts_foto,posts_aprendizaje,videos_heygen,bloques_interaccion,post_mas_impresiones,post_mas_interacciones,visitas_perfil,aprendizaje,decision_siguiente_semana
+semana,fecha_inicio,fecha_fin,seguidores_inicio,seguidores_fin,seguidores_netos,contactos_visibles_referencia_no_kpi,posts_foto,posts_aprendizaje,videos_heygen,bloques_interaccion,post_mas_impresiones,post_mas_interacciones,visitas_perfil,aprendizaje,decision_siguiente_semana
 0,2026-06-27,2026-06-27,281,281,0,270,0,0,0,0,"linea base","linea base","","Se aprueba sprint 60 dias; medir seguidores y no contactos","Lanzar semana 1"
 1,2026-06-28,2026-07-04,281,,,,,,,,,,,,
 2,2026-07-05,2026-07-11,,,,,,,,,,,,,
@@ -8,4 +8,4 @@ semana,fecha_inicio,fecha_fin,seguidores_inicio,seguidores_fin,seguidores_netos,
 6,2026-08-02,2026-08-08,,,,,,,,,,,,,
 7,2026-08-09,2026-08-15,,,,,,,,,,,,,
 8,2026-08-16,2026-08-22,,,,,,,,,,,,,
-9,2026-08-23,2026-08-26,,,,,,,,,,,,,
+9,2026-08-23,2026-08-25,,,,,,,,,,,,,
