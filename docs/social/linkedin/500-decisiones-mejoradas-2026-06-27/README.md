@@ -16,6 +16,8 @@ Pasar de 281 a 500 seguidores en 60 dias.
 
 La medicion oficial del sprint es seguidores, no contactos.
 
+"500 decisiones mejoradas" es el nombre editorial de la serie; no es una metrica de decisiones efectivamente medidas.
+
 ## Posicionamiento
 
 Oscar es la cara experta de Vogel Consultoria: tecnologia clara para mejorar decisiones de empresa.
