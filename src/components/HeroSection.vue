@@ -29,10 +29,27 @@
 
         <div class="mt-9 flex flex-wrap items-center gap-4">
           <ActionButton
+            label="Responder encuesta IA para contadores"
+            href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+            :external="true"
+            variant="accent"
+            data-analytics-cta="hero_accountants_ai_survey"
+            data-analytics-funnel="accountants_survey"
+            data-analytics-step="home"
+          />
+          <ActionButton
             label="Ver soluciones"
             href="#soluciones"
             data-analytics-cta="hero_view_solutions"
             data-analytics-funnel="lead_journey"
+            data-analytics-step="home"
+          />
+          <ActionButton
+            label="Ingresar al portal"
+            href="https://portal.vogelconsultoria.com.ar"
+            :external="true"
+            data-analytics-cta="hero_portal_access"
+            data-analytics-funnel="portal_access"
             data-analytics-step="home"
           />
           <ActionButton
@@ -45,6 +62,22 @@
             data-analytics-step="home"
           />
         </div>
+
+        <a
+          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-7 block max-w-xl rounded-2xl border border-vogel-amber/45 bg-vogel-navy/78 p-4 shadow-glow backdrop-blur transition hover:-translate-y-0.5 hover:border-vogel-amber hover:bg-vogel-navy focus-visible:ring-2 focus-visible:ring-vogel-amber"
+          data-analytics-cta="hero_accountants_ai_survey_panel"
+          data-analytics-funnel="accountants_survey"
+          data-analytics-step="home"
+        >
+          <span class="text-xs font-bold uppercase tracking-[0.22em] text-vogel-amber">Encuesta abierta</span>
+          <span class="mt-2 block text-base font-bold text-white">IA en estudios contables</span>
+          <span class="mt-1 block text-sm leading-relaxed text-vogel-gray/85">
+            Ayudanos a entender que tareas administrativas y contables conviene automatizar primero.
+          </span>
+        </a>
       </div>
 
       <div class="fade-up-delay relative min-w-0 overflow-hidden">

@@ -1,7 +1,7 @@
 <template>
-  <section id="servicios" class="py-20 sm:py-24" aria-labelledby="servicios-heading">
+  <section id="servicios" class="py-10 sm:py-12" aria-labelledby="servicios-heading">
     <div class="section-shell">
-      <div class="grid items-center gap-10 lg:grid-cols-[0.86fr_1.14fr]">
+      <div class="grid items-start gap-7 lg:grid-cols-[0.94fr_1.06fr]">
         <SectionHeading
           id="servicios-heading"
           eyebrow="Servicios"
@@ -10,19 +10,19 @@
           class="reveal"
         />
 
-        <div class="reveal reveal-d1 relative overflow-hidden rounded-3xl border border-vogel-gray/20 bg-white/5 p-3 shadow-glow">
+        <div class="reveal reveal-d1 relative hidden overflow-hidden rounded-2xl border border-vogel-gray/20 bg-white/5 p-2 shadow-glow lg:block">
           <img
             :src="servicesOverview"
             alt="Servicios integrales conectando sistemas a medida, dashboards, automatizaciones, inteligencia artificial y capacitación"
-            class="aspect-[16/10] w-full rounded-2xl object-cover"
+            class="aspect-[21/8] w-full rounded-xl object-cover"
             loading="lazy"
             decoding="async"
           />
-          <div class="pointer-events-none absolute inset-3 rounded-2xl bg-gradient-to-t from-vogel-deep/55 via-transparent to-transparent"></div>
+          <div class="pointer-events-none absolute inset-2 rounded-xl bg-gradient-to-t from-vogel-deep/55 via-transparent to-transparent"></div>
         </div>
       </div>
 
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <a
           v-for="(service, i) in services"
           :key="service.title"
@@ -53,6 +53,31 @@
             </div>
           </div>
         </a>
+      </div>
+
+      <div class="mt-8 overflow-hidden rounded-3xl border border-vogel-amber/35 bg-gradient-to-r from-vogel-amber/16 via-white/[0.06] to-vogel-blue/12 p-5 shadow-glow reveal sm:p-7">
+        <div class="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-amber">Nuevo para estudios contables</p>
+            <h3 class="mt-3 font-display text-2xl font-bold text-white sm:text-3xl">
+              Automatizaciones ARCA con IA aplicada y control humano
+            </h3>
+            <p class="mt-3 max-w-3xl text-sm leading-relaxed text-vogel-gray/90 sm:text-base">
+              Implementamos flujos mensuales para retenciones, percepciones, clientes delegados y evidencia por CUIT, sin pedir claves fiscales de clientes.
+            </p>
+          </div>
+          <a
+            href="/automatizaciones/"
+            class="inline-flex items-center justify-center rounded-full border border-vogel-amber/60 bg-vogel-amber px-5 py-3 text-sm font-bold text-vogel-navy transition hover:-translate-y-0.5 hover:bg-white"
+            data-analytics-cta="home_automatizaciones_arca"
+            data-analytics-label="automatizaciones-arca"
+            data-analytics-location="home_services_promo"
+            data-analytics-funnel="lead_journey"
+            data-analytics-step="home"
+          >
+            Ver automatizaciones ARCA
+          </a>
+        </div>
       </div>
 
       <div class="mt-16 overflow-hidden rounded-3xl border border-vogel-gray/20 bg-vogel-deep/45 p-5 shadow-glow reveal sm:p-7 lg:p-8">
@@ -116,7 +141,7 @@
 
       <div class="mt-10 rounded-3xl border border-vogel-gray/15 bg-vogel-navy/55 p-5 sm:p-7">
         <p class="text-center text-xs font-bold uppercase tracking-[0.22em] text-vogel-amber">Empresas y organizaciones que confiaron en nuestro desarrollo web</p>
-        <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
+        <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
           <a
             v-for="logo in clientLogos"
             :key="logo.domain"
@@ -150,6 +175,7 @@ import automatizacionCard from "../assets/services/cards/automatizacion-procesos
 import iaCard from "../assets/services/cards/ia-aplicada.webp";
 import talleresCard from "../assets/services/cards/talleres-capacitacion-ia.webp";
 import webCard from "../assets/services/cards/desarrollo-web.webp";
+import contaflowCard from "../assets/services/cards/automatizacion-procesos.webp";
 
 const IconCode = {
   template:
@@ -174,6 +200,10 @@ const IconWorkshop = {
 const IconWeb = {
   template:
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M12 3a15 15 0 0 1 0 18"/><path d="M12 3a15 15 0 0 0 0 18"/></svg>',
+};
+const IconApi = {
+  template:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 8l-3 4 3 4"/><path d="M17 8l3 4-3 4"/><path d="M10 19l4-14"/><path d="M8 3h8"/><path d="M9 21h6"/></svg>',
 };
 const IconExternal = {
   template:
@@ -207,7 +237,15 @@ const services = [
     description: "Modelos y asistentes que optimizan ventas, soporte, análisis y gestión interna en contextos reales.",
     icon: IconAi,
     image: iaCard,
-    href: "/ia.html",
+    href: "/inteligencia-artificial/",
+  },
+  {
+    title: "ContaFlow API de Facturación Electrónica",
+    description:
+      "API de facturacion electronica para desarrolladores. Emiti comprobantes, obtene CAE, numero de factura, vencimiento o errores detallados sin pelearte con AFIP/ARCA.",
+    icon: IconApi,
+    image: contaflowCard,
+    href: "/contaflow-api-facturacion-electronica/",
   },
   {
     title: "Talleres y capacitación IA",
@@ -251,6 +289,12 @@ const webExamples = [
     url: "https://forestalparaguay.com/",
   },
   {
+    name: "Forestal Garuhape",
+    type: "Forestal",
+    domain: "forestalgaruhape.com.ar",
+    url: "https://forestalgaruhape.com.ar/",
+  },
+  {
     name: "Servin LGSM",
     type: "Servicios",
     domain: "servinlgsm.com.ar",
@@ -291,18 +335,22 @@ const clientLogos = [
   },
   {
     ...webExamples[3],
-    logoUrl: "https://servinlgsm.com.ar/assets/images/hero/slide-2-large.jpg",
+    logoUrl: "https://forestalgaruhape.com.ar/images/logo-30.png",
   },
   {
     ...webExamples[4],
-    logoUrl: "https://h21.ar/assets/images/logo.png",
+    logoUrl: "https://servinlgsm.com.ar/assets/images/hero/slide-2-large.jpg",
   },
   {
     ...webExamples[5],
-    logoUrl: "https://amitrac.ar/assets/images/logo_amitrac.png",
+    logoUrl: "https://h21.ar/assets/images/logo.png",
   },
   {
     ...webExamples[6],
+    logoUrl: "https://amitrac.ar/assets/images/logo_amitrac.png",
+  },
+  {
+    ...webExamples[7],
     logoUrl: "https://www.google.com/s2/favicons?domain=garuhape.gob.ar&sz=128",
   },
 ];

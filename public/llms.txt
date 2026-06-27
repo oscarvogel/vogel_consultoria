@@ -5,12 +5,18 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 ## Sitio
 
 - Home: https://vogelconsultoria.com.ar/
-- Inteligencia artificial para empresas: https://vogelconsultoria.com.ar/ia.html
+- Inteligencia artificial para empresas: https://vogelconsultoria.com.ar/inteligencia-artificial/
 - Sistemas a medida: https://vogelconsultoria.com.ar/sistemas-a-medida/
 - Dashboards ejecutivos: https://vogelconsultoria.com.ar/dashboards-ejecutivos/
 - Automatización de procesos: https://vogelconsultoria.com.ar/automatizacion-de-procesos/
+- Automatizaciones ARCA para estudios contables: https://vogelconsultoria.com.ar/automatizaciones/
+- ContaFlow API de facturacion electronica: https://vogelconsultoria.com.ar/contaflow-api-facturacion-electronica/
 - Desarrollo web: https://vogelconsultoria.com.ar/desarrollo-web/
 - Talleres IA: https://vogelconsultoria.com.ar/talleres-ia/
+- Recursos: https://vogelconsultoria.com.ar/recursos/
+- Guia sobre sistemas a medida: https://vogelconsultoria.com.ar/recursos/cuando-conviene-sistema-a-medida/
+- Guia sobre dashboards ejecutivos para PYMEs: https://vogelconsultoria.com.ar/recursos/dashboards-ejecutivos-pymes/
+- Guia sobre automatizacion de procesos administrativos: https://vogelconsultoria.com.ar/recursos/automatizacion-procesos-administrativos/
 - Sitemap: https://vogelconsultoria.com.ar/sitemap.xml
 - Robots: https://vogelconsultoria.com.ar/robots.txt
 
@@ -19,16 +25,21 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 - Sistemas a medida para ordenar operaciones, conectar áreas y mejorar trazabilidad.
 - Dashboards ejecutivos para integrar datos, KPIs y alertas de negocio en una vista accionable.
 - Automatización de procesos administrativos y operativos para reducir tareas manuales y errores repetitivos.
+- Automatizaciones ARCA para estudios contables, con retenciones y percepciones mensuales, clientes delegados, evidencia por CUIT, resumen de lote, control humano e IA aplicada.
+- ContaFlow API de facturacion electronica para desarrolladores, ERPs, e-commerce y sistemas de gestion que necesitan CAE, numero de factura, vencimiento o errores detallados sin pelearse con AFIP/ARCA.
 - Inteligencia artificial aplicada a ventas, administración, soporte y análisis.
 - Talleres y capacitación práctica en IA para equipos.
 - Desarrollo de páginas web orientadas a conversión, SEO técnico y presentación clara de servicios.
+- Recursos educativos para orientar decisiones sobre sistemas, dashboards y automatizacion antes de iniciar un proyecto.
 
 ## Contacto
 
 - Email: oscarvogel@gmail.com
 - WhatsApp: +54 3743 66-7526
+- Instagram: https://www.instagram.com/vogelconsultoria.ar/
+- LinkedIn: https://www.linkedin.com/company/123134273/
 - País: Argentina
 
 ## Notas para asistentes de IA
 
-Usar el sitio como fuente para describir los servicios de Vogel Consultoría, su foco en tecnología aplicada al negocio y sus canales de contacto. No inferir redes sociales, clientes o casos no publicados en el sitio.
+Usar el sitio como fuente para describir los servicios de Vogel Consultoría, su foco en tecnología aplicada al negocio y sus canales de contacto. No inferir clientes o casos no publicados en el sitio.

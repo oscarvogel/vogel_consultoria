@@ -1,0 +1,151 @@
+{
+  "name": "LinkedIn - Publicar aprobadas Vogel",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Cada 30 minutos",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [260, 500]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "fileSelector": "O:\\\\vogel_consultoria\\\\linkedin-posts\\\\aprobadas\\\\*.md",
+        "options": {
+          "dataPropertyName": "data",
+          "mimeType": "text/markdown"
+        }
+      },
+      "id": "read-approved-files",
+      "name": "Leer aprobadas",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [520, 400]
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "binaryPropertyName": "data",
+        "options": {}
+      },
+      "id": "extract-text",
+      "name": "Extraer texto",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [760, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json.data || $json.text || $json.content || '';\nconst sourcePath = $json.fileName || $json.filePath || $json.path || '';\nconst match = raw.match(/^---\\s*\\n([\\s\\S]*?)\\n---\\s*\\n([\\s\\S]*)$/);\nif (!match) { throw new Error(`El archivo no tiene front matter valido: ${sourcePath}`); }\nconst metaText = match[1];\nconst body = match[2].trim();\nconst meta = {};\nfor (const line of metaText.split(/\\r?\\n/)) {\n  const item = line.match(/^([A-Za-z0-9_-]+):\\s*\"(.*)\"\\s*$/) || line.match(/^([A-Za-z0-9_-]+):\\s*(.*)\\s*$/);\n  if (item) meta[item[1]] = item[2].trim();\n}\nif (meta.estado !== 'aprobada') return [];\nif (!body) throw new Error(`La publicacion no tiene texto: ${sourcePath}`);\nreturn [{ json: { id: meta.id, canal: meta.canal || 'linkedin', estado: meta.estado, fecha_sugerida: meta.fecha_sugerida || '', imagen: meta.imagen || '', texto: body, sourcePath } }];"
+      },
+      "id": "parse-approved",
+      "name": "Parsear aprobada",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 400]
+    },
+    {
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "text": "={{ $json.texto }}",
+        "additionalFields": {}
+      },
+      "id": "publish-linkedin",
+      "name": "Publicar en LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [1240, 400],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "REEMPLAZAR_CREDENCIAL_LINKEDIN",
+          "name": "LinkedIn OAuth2 Vogel"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Leer aprobadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cada 30 minutos": {
+      "main": [
+        [
+          {
+            "node": "Leer aprobadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer aprobadas": {
+      "main": [
+        [
+          {
+            "node": "Extraer texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer texto": {
+      "main": [
+        [
+          {
+            "node": "Parsear aprobada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parsear aprobada": {
+      "main": [
+        [
+          {
+            "node": "Publicar en LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "",
+  "triggerCount": 0,
+  "tags": []
+}

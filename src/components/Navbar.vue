@@ -55,7 +55,27 @@
         </template>
       </nav>
 
-      <div class="hidden lg:block">
+      <div class="hidden items-center gap-3 lg:flex">
+        <ActionButton
+          label="Encuesta IA"
+          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+          :external="true"
+          variant="accent"
+          data-analytics-cta="navbar_accountants_ai_survey_desktop"
+          data-analytics-funnel="accountants_survey"
+          data-analytics-step="home"
+        />
+        <div class="hidden 2xl:block">
+          <ActionButton
+            label="Ingresar al portal"
+            href="https://portal.vogelconsultoria.com.ar"
+            :external="true"
+            variant="secondary"
+            data-analytics-cta="navbar_portal_access_desktop"
+            data-analytics-funnel="portal_access"
+            data-analytics-step="home"
+          />
+        </div>
         <ActionButton
           label="Agendar reunión"
           href="#contacto"
@@ -111,10 +131,28 @@
           </div>
         </div>
         <ActionButton
+          label="Responder encuesta IA para contadores"
+          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+          :external="true"
+          variant="accent"
+          data-analytics-cta="navbar_accountants_ai_survey_mobile"
+          data-analytics-funnel="accountants_survey"
+          data-analytics-step="home"
+        />
+        <ActionButton
           label="Agendar reunión"
           href="#contacto"
           data-analytics-cta="navbar_schedule_mobile"
           data-analytics-funnel="lead_journey"
+          data-analytics-step="home"
+        />
+        <ActionButton
+          label="Ingresar al portal"
+          href="https://portal.vogelconsultoria.com.ar"
+          :external="true"
+          variant="secondary"
+          data-analytics-cta="navbar_portal_access_mobile"
+          data-analytics-funnel="portal_access"
           data-analytics-step="home"
         />
       </div>
@@ -149,8 +187,20 @@ const serviceLinks = [
     analyticsCta: "navbar_service_automatizacion",
   },
   {
+    label: "Automatizaciones ARCA",
+    href: "/automatizaciones/",
+    description: "Flujos mensuales para estudios contables.",
+    analyticsCta: "navbar_service_automatizaciones_arca",
+  },
+  {
+    label: "ContaFlow API",
+    href: "/contaflow-api-facturacion-electronica/",
+    description: "Facturacion electronica por API para desarrolladores.",
+    analyticsCta: "navbar_service_contaflow",
+  },
+  {
     label: "Inteligencia artificial",
-    href: "/ia.html",
+    href: "/inteligencia-artificial/",
     description: "IA aplicada a tareas, datos y decisiones.",
     analyticsCta: "navbar_service_ia",
   },
@@ -170,7 +220,7 @@ const serviceLinks = [
 
 const links = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Charla IA", href: "#charla-ia-2026" },
+  { label: "Capacitaciones", href: "#charla-ia-2026" },
   {
     label: "Servicios",
     href: "#servicios",
@@ -181,11 +231,25 @@ const links = [
   },
   { label: "Soluciones", href: "#soluciones" },
   {
+    label: "Automatizaciones",
+    href: "/automatizaciones/",
+    analyticsCta: "navbar_automatizaciones_arca",
+    analyticsFunnel: "lead_journey",
+    analyticsStep: "home",
+  },
+  {
     label: "IA",
-    href: "/ia.html",
+    href: "/inteligencia-artificial/",
     analyticsCta: "navbar_go_to_ia",
     analyticsFunnel: "lead_journey",
     analyticsStep: "home",
+  },
+  {
+    label: "Recursos",
+    href: "/recursos/",
+    analyticsCta: "navbar_resources",
+    analyticsFunnel: "content_discovery",
+    analyticsStep: "navbar",
   },
   { label: "Nosotros", href: "#nosotros" },
   {

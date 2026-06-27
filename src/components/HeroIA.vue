@@ -22,7 +22,7 @@
 
       <div class="mt-8 grid min-w-0 items-center gap-12 lg:grid-cols-2">
         <div class="fade-up min-w-0">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">vogelconsultoria.com.ar/ia</p>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">vogelconsultoria.com.ar/inteligencia-artificial</p>
           <h1 class="max-w-[10.4em] text-[2.15rem] font-bold leading-[1.08] text-white sm:max-w-none sm:text-5xl lg:text-6xl">
             Implementá inteligencia artificial en tu empresa sin complicarte con tecnología
           </h1>

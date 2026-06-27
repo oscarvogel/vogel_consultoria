@@ -193,7 +193,7 @@ function resetForm() {
               <div class="flex flex-wrap items-center gap-3">
                 <ActionButton
                   label="Agendar por email"
-                  href="mailto:oscarvogel@gmail.com?subject=Quiero%20agendar%20una%20reuni%C3%B3n"
+                  href="mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20una%20reuni%C3%B3n"
                   data-analytics-cta="contact_email_schedule"
                   data-analytics-funnel="lead_journey"
                   data-analytics-step="contact"

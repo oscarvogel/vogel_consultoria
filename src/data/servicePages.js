@@ -1,6 +1,7 @@
 import sistemasImage from "../assets/services/cards/sistemas-a-medida.webp";
 import dashboardsImage from "../assets/services/cards/dashboards-ejecutivos.webp";
 import automatizacionImage from "../assets/services/cards/automatizacion-procesos.webp";
+import contaflowImage from "../assets/services/cards/automatizacion-procesos.webp";
 import webImage from "../assets/services/cards/desarrollo-web.webp";
 import talleresImage from "../assets/services/cards/talleres-capacitacion-ia.webp";
 
@@ -167,6 +168,106 @@ export const servicePages = {
       },
     ],
     related: ["dashboards-ejecutivos", "sistemas-a-medida", "talleres-ia"],
+  },
+  "contaflow-api-facturacion-electronica": {
+    id: "contaflow-api-facturacion-electronica",
+    path: "/contaflow-api-facturacion-electronica/",
+    eyebrow: "ContaFlow API de Facturacion Electronica",
+    title: "ContaFlow: facturación electrónica por API sin pelearte con AFIP/ARCA",
+    shortTitle: "ContaFlow API",
+    metaTitle: "ContaFlow API de Facturación Electrónica | Vogel Consultoría",
+    metaDescription:
+      "API de facturacion electronica para desarrolladores. Emiti comprobantes con AFIP/ARCA y recibi CAE, numero de factura, vencimiento o errores detallados.",
+    summary:
+      "Una API pensada para desarrolladores que necesitan emitir comprobantes electronicos de forma simple, estable y con respuestas claras.",
+    image: contaflowImage,
+    imageAlt: "Interfaz tecnica de API para facturacion electronica con respuestas claras",
+    ctaLabel: "Quiero integrar ContaFlow",
+    ctaUrl: whatsappUrl("Hola, quiero consultar por ContaFlow, la API de facturación electrónica para integrar con mi sistema."),
+    secondaryCtaLabel: "Consultar documentación técnica",
+    secondaryCtaUrl: "#documentacion-tecnica",
+    intro:
+      "Integramos la complejidad fiscal por vos. Tu sistema envia los datos del comprobante y ContaFlow responde con el CAE, el numero de factura generado, el vencimiento del CAE o el error detallado en caso de rechazo.",
+    problems: [
+      "Equipos que pierden dias interpretando servicios, errores y validaciones de AFIP/ARCA.",
+      "Sistemas de gestion, ERPs o e-commerce que necesitan emitir comprobantes sin sumar friccion fiscal al producto.",
+      "Integraciones que requieren respuestas claras para operar en produccion, auditar solicitudes y resolver rechazos.",
+    ],
+    benefits: [
+      {
+        title: "Para desarrolladores",
+        description: "Evita perder tiempo interpretando servicios, errores y validaciones de AFIP/ARCA.",
+      },
+      {
+        title: "Respuesta clara",
+        description: "Cada solicitud devuelve estado, CAE, numero de factura, vencimiento o error detallado.",
+      },
+      {
+        title: "Integracion simple",
+        description: "Ideal para sistemas de gestion, ERPs, e-commerce, apps internas y plataformas administrativas.",
+      },
+      {
+        title: "Menos friccion",
+        description: "Tu equipo se enfoca en el producto. Nosotros resolvemos la capa fiscal.",
+      },
+      {
+        title: "Pensado para produccion",
+        description: "API keys, trazabilidad de solicitudes, control de errores y monitoreo operativo.",
+      },
+      {
+        title: "Listo para crecer",
+        description: "Disenado para integrarse con multiples clientes, sistemas externos y asistentes GPT personalizados.",
+      },
+    ],
+    includes: [
+      "Endpoint de emision para enviar los datos necesarios del comprobante.",
+      "Respuesta normalizada con estado, CAE, numero de factura y vencimiento cuando AFIP/ARCA autoriza.",
+      "Errores detallados cuando la operacion es rechazada, para mostrarlos o registrarlos sin interpretar respuestas crudas.",
+      "Gestion de API keys, trazabilidad de solicitudes y monitoreo operativo para uso en produccion.",
+    ],
+    process: [
+      "Revisamos el caso de uso, tipo de comprobantes y sistema que necesita integrarse.",
+      "Definimos el flujo de autenticacion, datos requeridos y manejo de respuestas.",
+      "Probamos emisiones y rechazos controlados para validar la integracion del lado cliente.",
+      "Dejamos el circuito listo para operar con seguimiento y soporte tecnico.",
+    ],
+    deliverables: ["API de emision", "CAE y numero de factura", "Errores normalizados", "Trazabilidad operativa"],
+    apiExamples: {
+      success: `{
+  "ok": true,
+  "estado": "AUTORIZADO",
+  "cae": "74382910456789",
+  "numero_factura": "0001-00001234",
+  "vencimiento_cae": "2026-06-25",
+  "mensaje": "Comprobante autorizado"
+}`,
+      error: `{
+  "ok": false,
+  "estado": "RECHAZADO",
+  "error": {
+    "codigo": "1003",
+    "mensaje": "CUIT receptor invalido"
+  }
+}`,
+    },
+    faqs: [
+      {
+        question: "Para que tipo de sistemas sirve ContaFlow?",
+        answer:
+          "Sirve para ERPs, sistemas de gestion, e-commerce, apps internas, plataformas administrativas y software factories que necesitan emitir facturas electronicas desde su propio producto.",
+      },
+      {
+        question: "Que devuelve la API cuando AFIP/ARCA autoriza?",
+        answer:
+          "Devuelve una respuesta lista para usar con estado de la operacion, CAE autorizado, numero de factura generado, fecha de vencimiento del CAE y mensaje de autorizacion.",
+      },
+      {
+        question: "Que pasa si AFIP/ARCA rechaza la operacion?",
+        answer:
+          "ContaFlow responde con estado rechazado y un error detallado para que el sistema pueda registrarlo, mostrarlo o disparar el circuito de correccion correspondiente.",
+      },
+    ],
+    related: ["automatizacion-de-procesos", "sistemas-a-medida", "dashboards-ejecutivos"],
   },
   "desarrollo-web": {
     id: "desarrollo-web",

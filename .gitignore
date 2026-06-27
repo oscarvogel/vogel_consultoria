@@ -14,3 +14,9 @@ yarn-error.log*
 pnpm-debug.log*
 .DS_Store
 Thumbs.db
+linkedin-posts/
+.playwright-cli/
+.vite-preview.log
+outputs/
+docs/ftp-backups/
+docs/heygen/auditoria-futuro-local/
