@@ -275,6 +275,22 @@ function testPortalAccessLinks() {
   assert(hero.includes("Ingresar al portal"), "HeroSection.vue: portal access CTA must be clearly labeled");
 }
 
+function testAboutCvSection() {
+  const about = readProjectFile("src/components/AboutSection.vue");
+  const navbar = readProjectFile("src/components/Navbar.vue");
+  const footer = readProjectFile("src/components/FooterSection.vue");
+  const cvPath = path.join(root, "public", "cv-jose-oscar-vogel.pdf");
+
+  assert(about.includes('eyebrow="Quién soy"'), "AboutSection.vue: section must present the personal profile");
+  assert(about.includes("Oscar Vogel, tecnología con criterio de negocio"), "AboutSection.vue: missing personal heading");
+  assert(about.includes("/cv-jose-oscar-vogel.pdf"), "AboutSection.vue: missing CV download link");
+  assert(about.includes("about_download_cv"), "AboutSection.vue: missing CV analytics marker");
+  assert(navbar.includes("Quién soy"), "Navbar.vue: missing Quién soy navigation label");
+  assert(footer.includes("Quién soy"), "FooterSection.vue: missing Quién soy footer link");
+  assert(fs.existsSync(cvPath), "public/cv-jose-oscar-vogel.pdf: missing downloadable CV asset");
+  assert(fs.statSync(cvPath).size > 5000, "public/cv-jose-oscar-vogel.pdf: CV asset looks unexpectedly small");
+}
+
 const tests = [
   ["service data", testServiceData],
   ["HTML entrypoints and JSON-LD", testHtmlEntrypoints],
@@ -286,6 +302,7 @@ const tests = [
   ["resources content", testResourcesContent],
   ["mini cases section", testMiniCasesSection],
   ["portal access links", testPortalAccessLinks],
+  ["about CV section", testAboutCvSection],
 ];
 
 for (const [name, test] of tests) {

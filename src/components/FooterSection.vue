@@ -17,6 +17,7 @@
           <a href="#servicios" class="hover:text-white">Servicios</a>
           <a href="/recursos/" class="hover:text-white" data-analytics-cta="footer_resources" data-analytics-funnel="content_discovery" data-analytics-step="footer">Recursos</a>
           <a href="#soluciones" class="hover:text-white">Soluciones</a>
+          <a href="#nosotros" class="hover:text-white">Quién soy</a>
           <a href="#contacto" class="hover:text-white" data-analytics-cta="footer_contact_link" data-analytics-funnel="lead_journey" data-analytics-step="contact">Contacto</a>
         </div>
       </div>

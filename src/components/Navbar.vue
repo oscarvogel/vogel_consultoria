@@ -251,7 +251,7 @@ const links = [
     analyticsFunnel: "content_discovery",
     analyticsStep: "navbar",
   },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Quién soy", href: "#nosotros" },
   {
     label: "Contacto",
     href: "#contacto",
