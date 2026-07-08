@@ -1,20 +1,20 @@
 <template>
   <header class="sticky top-0 z-50 border-b border-vogel-gray/10 bg-vogel-deep/85 backdrop-blur" role="banner" @keydown.esc="isOpen = false">
-    <div class="section-shell flex h-20 items-center justify-between">
-      <a href="#inicio" class="flex items-center gap-3">
-        <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-11 w-auto rounded-sm" loading="eager" decoding="async" />
-        <div class="hidden sm:block">
+    <div class="section-shell flex h-20 items-center justify-between gap-4">
+      <a href="#inicio" class="flex shrink-0 items-center gap-3">
+        <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-auto rounded-sm 2xl:h-11" loading="eager" decoding="async" />
+        <div class="hidden min-[1700px]:block">
           <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoría</p>
           <p class="text-xs text-vogel-gray/70">Soluciones integrales para empresas</p>
         </div>
       </a>
 
-      <nav class="hidden items-center gap-7 lg:flex" role="navigation" aria-label="Navegación principal">
+      <nav class="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-5" role="navigation" aria-label="Navegación principal">
         <template v-for="item in links" :key="item.href">
           <div v-if="item.children" class="group relative">
             <a
               :href="item.href"
-              class="inline-flex items-center gap-1 text-sm font-medium text-vogel-gray transition hover:text-white"
+              class="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-vogel-gray transition hover:text-white 2xl:text-sm"
               aria-label="Servicios"
               :data-analytics-cta="item.analyticsCta"
               :data-analytics-funnel="item.analyticsFunnel"
@@ -45,7 +45,7 @@
           <a
             v-else
             :href="item.href"
-            class="text-sm font-medium text-vogel-gray transition hover:text-white"
+            class="whitespace-nowrap text-[13px] font-medium text-vogel-gray transition hover:text-white 2xl:text-sm"
             :data-analytics-cta="item.analyticsCta"
             :data-analytics-funnel="item.analyticsFunnel"
             :data-analytics-step="item.analyticsStep"
@@ -55,7 +55,7 @@
         </template>
       </nav>
 
-      <div class="hidden items-center gap-3 lg:flex">
+      <div class="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
         <ActionButton
           label="Encuesta IA"
           href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
@@ -65,7 +65,7 @@
           data-analytics-funnel="accountants_survey"
           data-analytics-step="home"
         />
-        <div class="hidden 2xl:block">
+        <div class="hidden">
           <ActionButton
             label="Ingresar al portal"
             href="https://portal.vogelconsultoria.com.ar"
@@ -87,7 +87,7 @@
 
       <button
         type="button"
-        class="inline-flex rounded-md border border-vogel-gray/30 p-2 text-vogel-gray lg:hidden"
+        class="inline-flex rounded-md border border-vogel-gray/30 p-2 text-vogel-gray xl:hidden"
         @click="isOpen = !isOpen"
         :aria-expanded="isOpen ? 'true' : 'false'"
         aria-controls="mobile-nav"
@@ -99,7 +99,7 @@
       </button>
     </div>
 
-    <div v-if="isOpen" id="mobile-nav" class="border-t border-vogel-gray/15 bg-vogel-navy lg:hidden" role="navigation" aria-label="Navegación móvil">
+    <div v-if="isOpen" id="mobile-nav" class="border-t border-vogel-gray/15 bg-vogel-navy xl:hidden" role="navigation" aria-label="Navegación móvil">
       <div class="section-shell flex flex-col gap-3 py-5">
         <a
           v-for="item in links"
