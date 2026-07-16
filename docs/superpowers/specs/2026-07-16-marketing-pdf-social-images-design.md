@@ -45,6 +45,27 @@ Se utilizará un sistema visual ejecutivo y coherente, cercano a las tres refere
 
 La opción aprobada combina una base ejecutiva con recursos tecnológicos demostrativos cuando aportan claridad y un tono más conversacional en WhatsApp.
 
+### Revisión visual v2 aprobada
+
+La campaña completa se regenerará con una dirección híbrida más tecnológica, inspirada en las piezas de fechas patrias de Vogel donde un elemento físico reconocible se transforma en un gemelo digital cinematográfico.
+
+- Cada pieza tendrá una escena física protagonista, no solamente tarjetas de interfaz sobre fondo azul.
+- La tecnología aparecerá integrada en arquitectura, espacios de trabajo, archivos, centros de decisión y flujos operativos.
+- Se usarán ondas de datos, mallas de nodos, circuitos luminosos, capas de información y profundidad ambiental.
+- El retrato se integrará como consultor dentro de la escena, con iluminación y perspectiva coherentes, sin texto ni transparencias sobre el rostro.
+- Automatización se representará mediante oficinas, operaciones o espacios empresariales recorridos por flujos que eliminan duplicaciones y ordenan procesos.
+- IA aplicada se representará mediante centros de decisión, redes neuronales sobrias, ondas de datos y visualización de conocimiento, sin robots ni cerebros genéricos.
+- Automatizaciones ARCA se representarán mediante un estudio contable, archivo documental o espacio administrativo convertido en sistema trazable, sin copiar marcas ni interfaces oficiales.
+- Las placas intermedias del carrusel usarán escenas físicas diferentes conectadas visualmente por una corriente de datos común.
+- Se preservan la paleta Vogel, los textos aprobados, los CTA ampliados, el logo oficial y las dimensiones por plataforma.
+
+Referencias visuales directas:
+
+- `C:/Users/Ventas/Documents/Codex/2026-05-21/en-casda-fecha-patria-de-argentina/outputs/dia-de-la-independencia-2026/vogel-consultoria/contact-sheet-vogel-independencia-2026.jpg`
+- `C:/Users/Ventas/Documents/Codex/2026-05-21/en-casda-fecha-patria-de-argentina/assets/photos/estela-independencia-premium/estela-premium-03-casa-tucuman.png`
+
+Las referencias definen intensidad tecnológica, profundidad y fusión entre objeto físico y datos; no autorizan copiar símbolos patrios en una campaña comercial no vinculada a efemérides.
+
 ## Sistema de marca
 
 ### Paleta
