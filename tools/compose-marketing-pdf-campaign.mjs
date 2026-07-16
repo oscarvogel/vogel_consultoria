@@ -4,8 +4,8 @@ import sharp from 'sharp';
 import { getCtaMetrics, getOptionalProtectedLayout } from './marketing-layout.mjs';
 
 const base = String.raw`\\notebook-oscar\programacion\vogel_consultoria\n8n-social-approval\generated\campana-marketing-pdf-2026-07`;
-const source = path.join(base, 'source');
-const logoPath = path.join(source, 'logo-vogel.png');
+const source = path.join(base, 'source-v2');
+const logoPath = path.join(base, 'source', 'logo-vogel.png');
 
 const assets = [
   { id:'instagram-01-portada', platform:'instagram', input:'instagram-01-base.png', output:'instagram/carrusel-5-senales/01-portada.png', w:1080, h:1080, n:'1/7', title:['5 señales de que','tu empresa necesita','automatizar un proceso'], body:['Problemas cotidianos que consumen','tiempo y generan errores.'] },
