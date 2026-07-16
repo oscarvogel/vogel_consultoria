@@ -49,3 +49,8 @@ export function getOptionalProtectedLayout(id) {
 export function intersects(a,b) {
   return a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y;
 }
+
+export function getCtaMetrics(platform, availableWidth) {
+  if (platform === 'whatsapp') return {height:110,fontSize:42,domainSize:28,radius:22,width:Math.min(820,availableWidth)};
+  return {height:96,fontSize:32,domainSize:23,radius:20,width:Math.min(720,availableWidth)};
+}

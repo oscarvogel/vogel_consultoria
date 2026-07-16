@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { getProtectedLayout, intersects } from './marketing-layout.mjs';
+import { getCtaMetrics, getProtectedLayout, intersects } from './marketing-layout.mjs';
 
 const personAssets = [
   'instagram-01-portada',
@@ -18,3 +18,16 @@ for (const id of personAssets) {
 }
 
 console.log('ok - portrait-safe text and transparency zones');
+
+const storyCta = getCtaMetrics('whatsapp', 936);
+assert.ok(storyCta.height >= 104, 'WhatsApp CTA must be at least 104 px high');
+assert.ok(storyCta.fontSize >= 40, 'WhatsApp CTA text must be at least 40 px');
+assert.ok(storyCta.domainSize >= 28, 'WhatsApp domain must be at least 28 px');
+
+for (const platform of ['instagram','facebook']) {
+  const cta = getCtaMetrics(platform, 936);
+  assert.ok(cta.height >= 88, `${platform} CTA must be at least 88 px high`);
+  assert.ok(cta.fontSize >= 30, `${platform} CTA text must be at least 30 px`);
+}
+
+console.log('ok - CTA minimum sizes by platform');

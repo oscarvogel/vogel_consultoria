@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
-import { getOptionalProtectedLayout } from './marketing-layout.mjs';
+import { getCtaMetrics, getOptionalProtectedLayout } from './marketing-layout.mjs';
 
 const base = String.raw`\\notebook-oscar\programacion\vogel_consultoria\n8n-social-approval\generated\campana-marketing-pdf-2026-07`;
 const source = path.join(base, 'source');
@@ -25,6 +25,10 @@ const assets = [
 
 const esc = (s='') => s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const lines = (items, x, y, size, step, weight=700, fill='#FFFFFF') => items.map((t,i) => `<text x="${x}" y="${y+i*step}" font-family="Arial, sans-serif" font-size="${size}" font-weight="${weight}" fill="${fill}">${esc(t)}</text>`).join('');
+const splitCta = (text) => {
+  const words=text.split(' '); const cut=Math.ceil(words.length/2);
+  return [words.slice(0,cut).join(' '),words.slice(cut).join(' ')];
+};
 
 function overlay(a) {
   const isStory = a.platform === 'whatsapp';
@@ -36,13 +40,21 @@ function overlay(a) {
   const bodyY = protectedLayout?.bodyY ?? (top + a.title.length * titleStep + 36);
   const bodySize = protectedLayout?.bodySize ?? (isStory ? 30 : 27);
   const bodyStep = protectedLayout?.bodyStep ?? (isStory ? 40 : 36);
-  const bottom = isStory ? 1660 : a.platform === 'facebook' ? 1125 : 910;
+  const bottom = isStory ? 1630 : a.platform === 'facebook' ? 1115 : 875;
   const panelHeight = isStory ? 560 : a.platform === 'facebook' ? 430 : 430;
   const ctaX = protectedLayout?.ctaX ?? 72;
-  const ctaWidth = Math.min(760, a.w-ctaX-72, Math.max(390,a.cta?.length*22 ?? 0));
-  const compactCta = ctaWidth < 520;
-  const cta = a.cta ? `<rect x="${ctaX}" y="${bottom}" width="${ctaWidth}" height="72" rx="18" fill="#F2A900"/><text x="${ctaX+32}" y="${bottom+48}" font-family="Arial, sans-serif" font-size="${compactCta?21:30}" font-weight="700" fill="#0B2035">${esc(a.cta)}</text>` : '';
-  const domain = a.domain ? `<text x="${ctaX}" y="${bottom+112}" font-family="Arial, sans-serif" font-size="${compactCta?16:24}" font-weight="600" fill="#E5E7EB">${esc(a.domain)}</text>` : '';
+  const availableWidth = a.w-ctaX-72;
+  const metrics = getCtaMetrics(a.platform,availableWidth);
+  const desiredWidth = Math.max(a.platform==='whatsapp'?720:520,(a.cta?.length ?? 0)*metrics.fontSize*0.58+72);
+  const ctaWidth = Math.min(metrics.width,desiredWidth);
+  const compactCta = ctaWidth < desiredWidth;
+  const ctaLines = compactCta ? splitCta(a.cta ?? '') : [a.cta ?? ''];
+  const ctaFont = compactCta ? Math.max(28,metrics.fontSize-4) : metrics.fontSize;
+  const ctaText = ctaLines.length===1
+    ? `<text x="${ctaX+36}" y="${bottom+Math.round(metrics.height*0.66)}" font-family="Arial, sans-serif" font-size="${ctaFont}" font-weight="700" fill="#0B2035">${esc(ctaLines[0])}</text>`
+    : lines(ctaLines,ctaX+32,bottom+43,ctaFont,34,700,'#0B2035');
+  const cta = a.cta ? `<rect x="${ctaX}" y="${bottom}" width="${ctaWidth}" height="${metrics.height}" rx="${metrics.radius}" fill="#F2A900"/>${ctaText}` : '';
+  const domain = a.domain ? `<text x="${ctaX}" y="${bottom+metrics.height+42}" font-family="Arial, sans-serif" font-size="${metrics.domainSize}" font-weight="600" fill="#E5E7EB">${esc(a.domain)}</text>` : '';
   const number = a.n ? `<text x="960" y="82" text-anchor="end" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8BC5FF">${esc(a.n)}</text>` : '';
   const panel = protectedLayout ? '' : `<rect x="0" y="0" width="${a.w}" height="${panelHeight}" fill="url(#shade)"/>`;
   return Buffer.from(`<svg width="${a.w}" height="${a.h}" xmlns="http://www.w3.org/2000/svg">
