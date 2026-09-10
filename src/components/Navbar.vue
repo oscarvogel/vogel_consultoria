@@ -216,6 +216,18 @@ const serviceLinks = [
     description: "Sitios claros, rapidos y orientados a conversion.",
     analyticsCta: "navbar_service_web",
   },
+  {
+    label: "Mantenimiento de equipos",
+    href: "/mantenimiento-de-equipos/",
+    description: "Preventivo, correctivo e historial por equipo.",
+    analyticsCta: "navbar_service_mantenimiento",
+  },
+  {
+    label: "Integraciones WhatsApp",
+    href: "/integraciones-whatsapp/",
+    description: "Procesos y sistemas conectados a WhatsApp.",
+    analyticsCta: "navbar_service_whatsapp",
+  },
 ];
 
 const links = [

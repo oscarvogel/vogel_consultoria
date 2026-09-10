@@ -35,6 +35,8 @@ export default defineConfig({
         contaflow: "contaflow-api-facturacion-electronica/index.html",
         web: "desarrollo-web/index.html",
         talleres: "talleres-ia/index.html",
+        mantenimientoEquipos: "mantenimiento-de-equipos/index.html",
+        integracionesWhatsapp: "integraciones-whatsapp/index.html",
         recursos: "recursos/index.html",
         recursoSistema: "recursos/cuando-conviene-sistema-a-medida/index.html",
         recursoDashboards: "recursos/dashboards-ejecutivos-pymes/index.html",

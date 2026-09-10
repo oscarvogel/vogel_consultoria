@@ -13,6 +13,8 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 - ContaFlow API de facturacion electronica: https://vogelconsultoria.com.ar/contaflow-api-facturacion-electronica/
 - Desarrollo web: https://vogelconsultoria.com.ar/desarrollo-web/
 - Talleres IA: https://vogelconsultoria.com.ar/talleres-ia/
+- Gestión de mantenimiento de equipos: https://vogelconsultoria.com.ar/mantenimiento-de-equipos/
+- Integraciones con WhatsApp: https://vogelconsultoria.com.ar/integraciones-whatsapp/
 - Recursos: https://vogelconsultoria.com.ar/recursos/
 - Guia sobre sistemas a medida: https://vogelconsultoria.com.ar/recursos/cuando-conviene-sistema-a-medida/
 - Guia sobre dashboards ejecutivos para PYMEs: https://vogelconsultoria.com.ar/recursos/dashboards-ejecutivos-pymes/
@@ -30,6 +32,8 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 - Inteligencia artificial aplicada a ventas, administración, soporte y análisis.
 - Talleres y capacitación práctica en IA para equipos.
 - Desarrollo de páginas web orientadas a conversión, SEO técnico y presentación clara de servicios.
+- Gestión de mantenimiento de equipos para flotas y operaciones, con mantenimiento preventivo y correctivo, lecturas, planes, órdenes, alertas e historial.
+- Integraciones y automatizaciones con WhatsApp conectadas a sistemas y procesos empresariales para centralizar consultas, notificaciones y seguimiento.
 - Recursos educativos para orientar decisiones sobre sistemas, dashboards y automatizacion antes de iniciar un proyecto.
 
 ## Contacto

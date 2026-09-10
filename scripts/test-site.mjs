@@ -13,6 +13,8 @@ const expectedServiceIds = [
   "contaflow-api-facturacion-electronica",
   "desarrollo-web",
   "talleres-ia",
+  "mantenimiento-de-equipos",
+  "integraciones-whatsapp",
 ];
 
 const expectedResourceIds = [
@@ -47,6 +49,8 @@ function loadServicePagesForTest() {
     contaflowImage: "contaflow-api-facturacion-electronica.webp",
     webImage: "desarrollo-web.webp",
     talleresImage: "talleres-capacitacion-ia.webp",
+    mantenimientoImage: "sistemas-a-medida.webp",
+    whatsappImage: "automatizacion-procesos.webp",
     encodeURIComponent,
   };
 
@@ -255,6 +259,7 @@ function testResourcesContent() {
 function testMiniCasesSection() {
   const app = readProjectFile("src/App.vue");
   const section = readProjectFile("src/components/MiniCasesSection.vue");
+  const clientsSection = readProjectFile("src/components/ClientCasesSection.vue");
 
   assert(app.includes("MiniCasesSection"), "App.vue: MiniCasesSection must be mounted on home");
   assert(section.includes("Forestal"), "MiniCasesSection.vue: missing forestal rubro");
@@ -262,6 +267,9 @@ function testMiniCasesSection() {
   assert(section.includes("recoleccion de datos en campo"), "MiniCasesSection.vue: missing field data collection solution");
   assert(section.includes("dashboards interactivos"), "MiniCasesSection.vue: missing interactive dashboards result");
   assert(section.includes("Caso anonimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
+  assert(clientsSection.includes("FEMAG"), "ClientCasesSection.vue: missing FEMAG client");
+  assert(clientsSection.includes("femag.com.ar"), "ClientCasesSection.vue: missing FEMAG website");
+  assert(clientsSection.includes("Sistema a medida en desarrollo"), "ClientCasesSection.vue: missing custom system status");
 }
 
 function testPortalAccessLinks() {

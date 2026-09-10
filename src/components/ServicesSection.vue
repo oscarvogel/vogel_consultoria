@@ -176,6 +176,8 @@ import iaCard from "../assets/services/cards/ia-aplicada.webp";
 import talleresCard from "../assets/services/cards/talleres-capacitacion-ia.webp";
 import webCard from "../assets/services/cards/desarrollo-web.webp";
 import contaflowCard from "../assets/services/cards/automatizacion-procesos.webp";
+import mantenimientoCard from "../assets/services/cards/sistemas-a-medida.webp";
+import whatsappCard from "../assets/services/cards/automatizacion-procesos.webp";
 
 const IconCode = {
   template:
@@ -260,6 +262,20 @@ const services = [
     icon: IconWeb,
     image: webCard,
     href: "/desarrollo-web/",
+  },
+  {
+    title: "Gestión de mantenimiento de equipos",
+    description: "Mantenimiento preventivo y correctivo con equipos, lecturas, órdenes, alertas e historial trazable.",
+    icon: IconCode,
+    image: mantenimientoCard,
+    href: "/mantenimiento-de-equipos/",
+  },
+  {
+    title: "Integraciones con WhatsApp",
+    description: "Conectamos WhatsApp con sistemas y procesos para centralizar consultas, notificaciones y seguimiento.",
+    icon: IconFlow,
+    image: whatsappCard,
+    href: "/integraciones-whatsapp/",
   },
 ];
 
