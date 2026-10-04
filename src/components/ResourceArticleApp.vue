@@ -28,7 +28,7 @@ const relatedServices = computed(() => getRelatedServices(props.service));
 
     <main id="article-content" tabindex="-1">
       <article>
-        <header class="relative isolate overflow-hidden py-14 sm:py-20" data-story-reveal>
+        <header class="relative isolate overflow-hidden py-14 sm:py-20" data-chapter="resources">
           <div class="ambient-blob left-[-8rem] top-[-8rem] h-72 w-72 bg-vogel-blue/25"></div>
           <div class="section-shell max-w-5xl">
             <a href="/recursos/" class="text-sm font-bold text-vogel-amber hover:text-white">Recursos</a>
@@ -50,7 +50,7 @@ const relatedServices = computed(() => getRelatedServices(props.service));
         <section data-story-reveal class="py-8 sm:py-12">
           <div class="section-shell grid gap-12 lg:grid-cols-[minmax(0,44rem)_20rem] lg:justify-center lg:items-start">
             <div class="space-y-8">
-              <section data-story-reveal
+              <section data-chapter="reading"
                 v-for="section in resource.sections"
                 :key="section.heading"
                 class="border-b border-vogel-gray/15 pb-8"

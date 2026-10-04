@@ -1,7 +1,7 @@
 <template>
-  <section id="nosotros" class="section-space" aria-labelledby="nosotros-heading">
+  <section data-chapter="about" id="nosotros" class="section-space" aria-labelledby="nosotros-heading">
     <div class="section-shell">
-      <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div data-chapter-outro class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div class="reveal rounded-3xl border border-vogel-gray/20 bg-vogel-deep/70 p-8 shadow-glow sm:p-10">
           <SectionHeading id="nosotros-heading" title="Tecnología con criterio de negocio" />
           <p class="mt-5 text-base leading-relaxed text-vogel-gray/90">

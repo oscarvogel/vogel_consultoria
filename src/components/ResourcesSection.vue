@@ -3,7 +3,7 @@ import { resources } from '../data/resources.js';
 </script>
 
 <template>
-  <section id="recursos" class="section-space" aria-labelledby="recursos-heading">
+  <section data-chapter="resources" id="recursos" class="section-space" aria-labelledby="recursos-heading">
     <div class="section-shell">
       <div class="resources-heading">
         <div>

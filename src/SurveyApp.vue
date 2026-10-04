@@ -25,7 +25,7 @@
     </header>
 
     <main id="survey-content" role="main" tabindex="-1">
-      <section data-story-reveal class="relative py-12 sm:py-16 lg:py-20" data-analytics-view="survey_hero" data-analytics-funnel="accountants_survey" data-analytics-step="intro">
+      <section data-chapter="neutral" class="relative py-12 sm:py-16 lg:py-20" data-analytics-view="survey_hero" data-analytics-funnel="accountants_survey" data-analytics-step="intro">
 
         <div class="section-shell grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
           <div class="max-w-2xl" data-story-reveal>
@@ -108,7 +108,7 @@
         </div>
       </section>
 
-      <section data-story-reveal class="border-y border-white/10 bg-white/[0.035] py-10">
+      <section data-chapter="neutral" class="border-y border-white/10 bg-white/[0.035] py-10">
         <div class="section-shell grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-vogel-amber">Newsletter</p>

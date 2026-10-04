@@ -7,6 +7,7 @@
 
 
 import { useEffect, useRef } from "react"
+import { getScene } from "../../lib/sceneController.js"
 
 // Adapted from the official 21st.dev “Waves shader” prompt by fan.
 // The source listing declares MIT: https://21st.dev/@sifan.s.f.zhao/components/waves-shader
@@ -420,6 +421,7 @@ export function ShaderBackground({ className }: { className?: string }) {
     let inView = true
     let disposed = false
     let idleTimer = 0
+    const sceneMotion = { intensityDelta: 0, offsetXDelta: 0, offsetYDelta: 0 }
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
     const start = performance.now()
     const hasTimeAnimation = Math.abs(UNIFORMS.timeScale) > 0.0001
@@ -536,6 +538,13 @@ export function ShaderBackground({ className }: { className?: string }) {
       const dt = lastNow === null ? 0 : Math.min((now - lastNow) / 1000, 0.1)
       lastNow = now
       const follow = 1 - Math.exp(-12 * dt)
+      // Read presentation state without rerendering React or recreating WebGL.
+      const scene = !reducedMotion.matches && innerWidth >= 1024 && innerHeight >= 800
+        ? getScene() : { intensityDelta: 0, offsetXDelta: 0, offsetYDelta: 0 }
+      const sceneFollow = reducedMotion.matches ? 1 : 1 - Math.exp(-dt / .267)
+      for (const key of Object.keys(sceneMotion) as (keyof typeof sceneMotion)[]) {
+        sceneMotion[key] += (scene[key] - sceneMotion[key]) * sceneFollow
+      }
       mouseX += (targetX - mouseX) * follow
       mouseY += (targetY - mouseY) * follow
       cursorPresence += (targetPresence - cursorPresence) * follow
@@ -550,9 +559,16 @@ export function ShaderBackground({ className }: { className?: string }) {
         UNIFORMS.colorCount,
       )
       gl.uniform4f(
+        uni.shape,
+        UNIFORMS.scale,
+        UNIFORMS.intensity + sceneMotion.intensityDelta,
+        UNIFORMS.paramA,
+        UNIFORMS.warp,
+      )
+      gl.uniform4f(
         uni.space,
-        UNIFORMS.offsetX,
-        UNIFORMS.offsetY,
+        UNIFORMS.offsetX + sceneMotion.offsetXDelta,
+        UNIFORMS.offsetY + sceneMotion.offsetYDelta,
         mouseX,
         mouseY,
       )

@@ -1,15 +1,12 @@
 <script setup>
-import { ref } from "vue";
 import ActionButton from "./ActionButton.vue";
-import { useHeroMotion } from "../composables/useSiteMotion.js";
-
-const root = ref(null);
-useHeroMotion(root);
+import StoryArtifact from "./StoryArtifact.vue";
 </script>
 
 <template>
   <section
-    ref="root"
+    data-narrative-hero="160"
+    data-chapter="neutral"
     id="inicio"
     class="hero-section"
     data-analytics-view="home_entry"
@@ -17,7 +14,12 @@ useHeroMotion(root);
     data-analytics-step="home"
     aria-labelledby="hero-title"
   >
-    <div class="hero-shell section-shell">
+    <div class="hero-shell section-shell" data-hero-stage>
+      <div class="hero-connections" aria-hidden="true">
+        <div class="hero-scene"><StoryArtifact mode="order" /></div>
+        <div class="hero-scene"><StoryArtifact mode="connect" /></div>
+        <div class="hero-scene"><StoryArtifact mode="resolve" /></div>
+      </div>
       <div class="hero-copy">
         <p class="hero-eyebrow"><span aria-hidden="true"></span> Consultoría tecnológica para empresas</p>
         <h1 id="hero-title">

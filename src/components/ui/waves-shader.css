@@ -17,6 +17,25 @@
   height: 100%;
 }
 
+/* The viewport's top edge fades content out without filtering the shader or nav. */
+.content-nav-fade {
+  -webkit-mask-image: linear-gradient(to bottom,
+    transparent var(--nav-fade-start),
+    rgb(0 0 0 / .35) var(--nav-fade-mid),
+    black var(--nav-fade-end));
+  mask-image: linear-gradient(to bottom,
+    transparent var(--nav-fade-start),
+    rgb(0 0 0 / .35) var(--nav-fade-mid),
+    black var(--nav-fade-end));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Reading panels that stay pinned must sit below the fading band. */
+.content-nav-fade :is(.process-intro, aside[class*="sticky"]) {
+  top: var(--nav-content-clearance);
+}
+
 /* Text roles only: leave the approved shader completely unobstructed. */
 body.has-waves-background main {
   --color-muted: rgb(var(--vogel-gray));

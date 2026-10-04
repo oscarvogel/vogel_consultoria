@@ -167,7 +167,7 @@ function testDiscoveryFiles() {
     servicePages["contaflow-api-facturacion-electronica"].summary.includes("API"),
     "ServicesSection.vue: missing ContaFlow service card copy",
   );
-  assert(servicesSection.includes('href="/automatizaciones/"'), "ServicesSection.vue: missing home link for automatizaciones campaign");
+  assert(servicesSection.includes("path:'/automatizaciones/'") && servicesSection.includes(':href="service.path"'), "ServicesSection.vue: missing home link for automatizaciones campaign");
   assert(sitemap.includes(`<loc>${campaignUrl}</loc>`), "sitemap.xml: missing automatizaciones campaign URL");
   assert(llms.includes(campaignUrl), "llms.txt: missing automatizaciones campaign URL");
   assert(sitemap.includes("https://vogelconsultoria.com.ar/recursos/"), "sitemap.xml: missing resources index");

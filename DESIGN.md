@@ -270,6 +270,10 @@ El shell tiene silueta de cápsula y fondo totalmente transparente, sin capas na
 
 En la home, una lectura de scroll con `requestAnimationFrame` sigue Servicios, Casos, Metodología y Nosotros; en páginas internas se activa Recursos o el servicio que coincide con la ruta. Los enlaces actuales exponen `aria-current`. Los servicios se exploran mediante `details/summary` y un desplegable sólido con scroll propio. Escape cierra y devuelve foco al control correspondiente; el click exterior cierra. Bajo 1200px aparece toggle de al menos 44×44px; bajo 600px se compacta la marca y el CTA desktop se oculta. El menú móvil incluye portal, encuesta y diagnóstico con los iconos disponibles. Se conservan nombres accesibles, `aria-expanded`, `aria-controls`, analytics y enlaces externos con `noopener noreferrer`.
 
+### Desvanecimiento bajo la navegación
+
+Al hacer scroll, `main` y el footer aplican una máscara de alfa que se mide respecto al borde inferior real de la navbar. El contenido que pasa detrás de la cabecera desaparece y recupera su opacidad completa 80px más abajo, con un punto intermedio suave a 28px. La máscara se desactiva al volver al inicio. No se filtra ni se oscurece el shader; tampoco se agrega un fondo a la navbar. Se actualiza en el RAF del scrollspy, al redimensionar y al cambiar el tamaño del contenido o menú. El foco por teclado desplaza los controles fuera de la franja desvanecida. El caso fijado, el encabezado sticky de metodología y los aside editoriales quedan por debajo de esa franja para conservar su lectura completa. El efecto sigue la posición del scroll sin tweens ni inercia, también con movimiento reducido. Al desmontar se retiran observadores, listener y estilos.
+
 ### Secuencia de evidencia
 
 La secuencia forestal muestra campo, revisión y dashboard, con paso activo ámbar y captions visibles. Las imágenes pertenecen al sistema real; los datos son fixtures ficticios. El último panel desktop utiliza `src/assets/cases/forestal-dashboard-desktop.png` (1440×1151); la variante móvil usa `forestal-dashboard.png` (390×1873), y revisión usa `forestal-revision.png` (390×1449). La altura de una imagen de recorrido completo puede exceder el viewport de captura. Mantener la identificación demo junto al contenido y los textos alternativos específicos de cada pantalla. El movimiento desktop es una mejora progresiva de esta secuencia.
@@ -287,6 +291,18 @@ El shader aprobado permanece como un canvas único y fijo, visible a su intensid
 ### Consentimiento analítico
 
 Preferencias en una capa sólida y compacta. El banner conserva su comportamiento y utiliza tokens compartidos para panel, texto y acciones. Tiene ancho máximo de 620px, padding de 16px, radio de 18px, separación de 16px de los bordes de viewport y una sombra propia. Sus botones tienen altura mínima de 44px, radio de 8px, padding de 10px 14px y texto DM Sans de 13px/peso 700. «Aceptar medición» usa ámbar/navy; «Solo necesario» usa fondo transparente, texto gray y contorno suave. El foco visible proviene del estilo global del sitio.
+
+## Coreografía narrativa
+
+La home desarrolla información dispersa → operación conectada → decisiones. Hero mantiene la tipografía protagonista y los CTA durante un capítulo reversible de 160svh, con geometría SVG decorativa. Problemas y Servicios comparten un escenario por capítulo y cuatro pasos de 80svh. Servicios agrupa todos sus destinos en Ordenar, Conectar, Automatizar y Decidir, sin un catálogo posterior de nueve cards. El caso forestal conserva su evidencia y crossfades.
+
+Las ocho páginas de servicio tienen introducción de 100svh cuando cabe y tres momentos centrales; IA y ARCA desarrollan cuatro. Artículos, recursos y encuesta conservan lectura y formularios en flujo normal. Aperturas y cierres ocupan aproximadamente 40svh dentro de los límites de sección existentes. Scroll nativo, scrub 0.6 y progresión reversible, sin snap.
+
+El shader recibe solo deltas internos de intensidad (máximo ±0.02) y offsets (máximo ±0.015 por eje), interpolados aproximadamente en 800ms. Su preset, color, brillo, contraste, grano y seed no cambian. Se utiliza el mismo canvas y RAF, sin remontar React por capítulo. Móvil y reduced motion mantienen neutral.
+
+Los pins se habilitan desde 1024×800 y únicamente si la escena cabe debajo de la navbar más 92px. Los fallbacks muestran pasos verticales sin alturas artificiales. Los capítulos tienen dueño de movimiento para evitar competencia con reveals y SplitText. Los recálculos cubren fuentes, imágenes, componentes asíncronos y viewport; al desmontar se restauran estilos y estado ambiental.
+
+La línea base, comparación, procedimientos, evidencia y límites se registran en [Coreografía narrativa — 2026-10-03](docs/coreografia-narrativa-2026-10-03.md). Las capturas no certifican la fluidez ni todos los contrastes del shader; la prueba de tokens se limita a superficies sólidas.
 
 ## Do's and Don'ts
 

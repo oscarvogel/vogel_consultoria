@@ -20,6 +20,33 @@ const currentPath = ref('/');
 const activeSection = ref('');
 const sectionIds = ['servicios', 'casos', 'metodologia', 'nosotros'];
 let scrollFrame = 0;
+let fadeObserver;
+let fadingContent = [];
+
+function updateContentFade() {
+  const navBottom = header.value?.getBoundingClientRect().bottom;
+  if (navBottom === undefined) return;
+  for (const content of fadingContent) {
+    // Mask only the scrolling content. The fixed shader remains fully visible.
+    const start = Math.max(0, navBottom - content.getBoundingClientRect().top);
+    content.style.setProperty('--nav-fade-start', `${start}px`);
+    content.style.setProperty('--nav-fade-mid', `${start + 28}px`);
+    content.style.setProperty('--nav-fade-end', `${start + 80}px`);
+    content.style.setProperty('--nav-content-clearance', `${navBottom + 92}px`);
+    content.classList.toggle('content-nav-fade', window.scrollY > 8);
+  }
+}
+
+function keepFocusedContentVisible(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLElement) || !target.matches(':focus-visible')) return;
+  if (!fadingContent.some((content) => content.contains(target))) return;
+  const clearance = (header.value?.getBoundingClientRect().bottom || 0) + 92;
+  const bounds = target.getBoundingClientRect();
+  if (bounds.top < clearance && bounds.bottom > 0) {
+    window.scrollBy({ top: bounds.top - clearance, behavior: 'instant' });
+  }
+}
 
 const legacyServiceIds = {
   'sistemas-a-medida': 'sistemas',
@@ -79,6 +106,7 @@ function isServicesActive() {
 }
 
 function updateActiveLocation() {
+  updateContentFade();
   currentPath.value = normalizePath(window.location.pathname);
   if (currentPath.value !== '/') {
     activeSection.value = '';
@@ -87,9 +115,11 @@ function updateActiveLocation() {
 
   const marker = window.innerHeight * 0.36;
   let currentSection = '';
+  let nearestTop = -Infinity;
   for (const id of sectionIds) {
     const section = document.getElementById(id);
-    if (section && section.getBoundingClientRect().top <= marker) currentSection = id;
+    const top = section?.getBoundingClientRect().top;
+    if (top !== undefined && top <= marker && top >= nearestTop) { currentSection = id; nearestTop = top; }
   }
   activeSection.value = currentSection;
 }
@@ -123,6 +153,10 @@ function outside(event) {
 }
 
 onMounted(() => {
+  fadingContent = [...document.querySelectorAll('main, footer')];
+  fadeObserver = new ResizeObserver(scheduleLocationUpdate);
+  if (header.value) fadeObserver.observe(header.value);
+  fadingContent.forEach((content) => fadeObserver.observe(content));
   updateActiveLocation();
   window.addEventListener('scroll', scheduleLocationUpdate, { passive: true });
   window.addEventListener('resize', scheduleLocationUpdate, { passive: true });
@@ -130,15 +164,22 @@ onMounted(() => {
   window.addEventListener('popstate', scheduleLocationUpdate);
   document.addEventListener('keydown', escape);
   document.addEventListener('pointerdown', outside);
+  document.addEventListener('focusin', keepFocusedContentVisible);
 });
 
 onUnmounted(() => {
+  fadeObserver?.disconnect();
+  fadingContent.forEach((content) => {
+    content.classList.remove('content-nav-fade');
+    ['--nav-fade-start', '--nav-fade-mid', '--nav-fade-end', '--nav-content-clearance'].forEach((property) => content.style.removeProperty(property));
+  });
   window.removeEventListener('scroll', scheduleLocationUpdate);
   window.removeEventListener('resize', scheduleLocationUpdate);
   window.removeEventListener('hashchange', scheduleLocationUpdate);
   window.removeEventListener('popstate', scheduleLocationUpdate);
   document.removeEventListener('keydown', escape);
   document.removeEventListener('pointerdown', outside);
+  document.removeEventListener('focusin', keepFocusedContentVisible);
   if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
 });
 </script>

@@ -18,9 +18,9 @@ const programBlocks = [
 </script>
 
 <template>
-  <section id="charla-ia-2026" class="section-space" aria-labelledby="charla-ia-heading">
+  <section data-chapter="training" id="charla-ia-2026" class="section-space" aria-labelledby="charla-ia-heading">
     <div class="section-shell">
-      <div class="grid gap-8 rounded-2xl border border-vogel-gray/15 bg-vogel-navy p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+      <div data-chapter-outro class="grid gap-8 rounded-2xl border border-vogel-gray/15 bg-vogel-navy p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div class="reveal">
           <SectionHeading
             id="charla-ia-heading"

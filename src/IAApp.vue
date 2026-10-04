@@ -4,8 +4,7 @@
     <Navbar />
     <main id="main-content-ia" role="main" tabindex="-1">
       <HeroIA />
-      <ProblemIAAsync />
-      <SolutionIAAsync />
+      <IAStoryChapter />
       <UseCasesIAAsync />
       <ServicesIAAsync />
       <ProcessIAAsync />
@@ -27,8 +26,7 @@ import FooterSection from "./components/FooterSection.vue";
 import HeroIA from "./components/HeroIA.vue";
 import WhatsAppButton from "./components/WhatsAppButton.vue";
 
-const ProblemIAAsync = defineAsyncComponent(() => import("./components/ProblemIA.vue"));
-const SolutionIAAsync = defineAsyncComponent(() => import("./components/SolutionIA.vue"));
+import IAStoryChapter from "./components/IAStoryChapter.vue";
 const UseCasesIAAsync = defineAsyncComponent(() => import("./components/UseCasesIA.vue"));
 const ServicesIAAsync = defineAsyncComponent(() => import("./components/ServicesIA.vue"));
 const ProcessIAAsync = defineAsyncComponent(() => import("./components/ProcessIA.vue"));

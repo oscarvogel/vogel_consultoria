@@ -1,4 +1,6 @@
 import { onMounted, onUnmounted } from "vue";
+import { initNarrative } from "../lib/narrativeMotion.js";
+import "../styles/narrative.css";
 
 let motionModules;
 let textModule;
@@ -47,9 +49,10 @@ export function loadSiteMotion() {
 
 /** Scroll-linked reveals enhance the visible document; they never gate content. */
 export async function initStoryReveal(root = document, selector = ".reveal, .story-reveal, [data-story-reveal]") {
-  if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return () => {};
+  if (!root) return () => {};
   const { gsap, ScrollTrigger, SplitText } = await loadTextMotion();
   await document.fonts?.ready;
+  const disposeNarrative = initNarrative(root, { gsap, ScrollTrigger });
 
   const media = gsap.matchMedia();
   media.add("(prefers-reduced-motion: no-preference)", () => {
@@ -60,7 +63,7 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
     let mutations;
 
     const reveal = (element) => {
-      if (!(element instanceof Element) || observed.has(element)) return;
+      if (!(element instanceof Element) || observed.has(element) || element.closest('[data-chapter-motion]')) return;
       observed.add(element);
       context.add(() => gsap.fromTo(element,
         { y: 16 },
@@ -80,7 +83,7 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
     };
 
     const revealText = (element) => {
-      if (headings.has(element)) return;
+      if (headings.has(element) || element.closest('[data-chapter-motion]')) return;
       headings.add(element);
       context.add(() => ScrollTrigger.create({
         trigger: element,
@@ -119,47 +122,7 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
     };
   });
 
-  return () => media.revert();
-}
-
-export function useHeroMotion(root) {
-  let context;
-  let disposed = false;
-
-  onMounted(async () => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    try {
-      const { gsap, ScrollTrigger, SplitText } = await loadTextMotion();
-      await document.fonts?.ready;
-      if (disposed || !root.value) return;
-
-      context = gsap.matchMedia();
-      context.add("(prefers-reduced-motion: no-preference)", () => {
-        const host = root.value;
-        const title = host.querySelector("h1");
-        const eyebrow = host.querySelector(".hero-eyebrow");
-        const supporting = host.querySelectorAll(".hero-support>p,.hero-actions,.hero-footer");
-        const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
-        const split = revealHeading(title, gsap, SplitText);
-        intro.from(eyebrow, { y: 12, duration: 0.45, clearProps: "transform" })
-          .from(supporting, { y: 16, duration: 0.52, stagger: 0.07, clearProps: "transform" }, .2);
-
-        document.fonts?.ready.then(() => ScrollTrigger.refresh());
-        return () => {
-          intro.revert();
-          split.revert();
-          title.classList.remove("is-text-split");
-        };
-      });
-    } catch {
-      // The hero is fully visible without motion enhancement.
-    }
-  });
-
-  onUnmounted(() => {
-    disposed = true;
-    context?.revert();
-  });
+  return () => { media.revert(); disposeNarrative(); };
 }
 
 export function useCaseMotion(root, onStepChange = () => {}) {
@@ -171,12 +134,14 @@ export function useCaseMotion(root, onStepChange = () => {}) {
       const { gsap, ScrollTrigger } = await loadSiteMotion();
       if (disposed || !root.value) return;
       media = gsap.matchMedia();
-      media.add("(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)", () => {
+      media.add("(min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference)", () => {
         const host = root.value;
         host.classList.add("case-motion");
         const screens = host.querySelectorAll(".case-screen");
         const steps = host.querySelectorAll(".case-step");
         const visual = host.querySelector(".case-visual");
+        const clearance = (document.querySelector('.site-header')?.getBoundingClientRect().bottom || 24) + 92;
+        if (visual.scrollHeight > innerHeight - clearance) { host.classList.remove('case-motion'); return; }
         const distance = () => Math.max(1, host.querySelector(".case-steps").offsetHeight - visual.offsetHeight);
         let points = [];
         let active = -1;
@@ -208,7 +173,7 @@ export function useCaseMotion(root, onStepChange = () => {}) {
         show(0, true);
         const trigger = ScrollTrigger.create({
             trigger: host.querySelector(".case-sequence"),
-            start: "top 116px",
+            start: () => `top ${(document.querySelector('.site-header')?.getBoundingClientRect().bottom || 24) + 92}px`,
             end: () => `+=${distance()}`,
             pin: visual,
             pinSpacing: false,
@@ -254,7 +219,7 @@ export function useProcessMotion(root) {
       const { gsap, ScrollTrigger } = await loadSiteMotion();
       if (disposed || !root.value) return;
       media = gsap.matchMedia();
-      media.add("(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)", () => {
+      media.add("(min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference)", () => {
         const host = root.value;
         const steps = host.querySelectorAll(".process-step");
         const list = host.querySelector("ol");
