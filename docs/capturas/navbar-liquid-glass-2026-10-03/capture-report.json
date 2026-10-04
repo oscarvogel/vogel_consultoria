@@ -1,0 +1,126 @@
+{
+  "capturedAt": "2026-10-03T21:40:40.955Z",
+  "origin": "http://127.0.0.1:5177",
+  "captures": [
+    {
+      "name": "desktop-default",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "headerWidth": 1400,
+      "headerHeight": 70,
+      "backdropFilter": "blur(28px) saturate(1.85) brightness(0.48)",
+      "backgroundImage": "linear-gradient(125deg, rgba(11, 32, 53, 0.34), rgba(15, 42, 68, 0.3) 52%, rgba(30, 95, 168, 0.26)), none",
+      "canvasCount": 1,
+      "canvasReady": true,
+      "reducedTransparency": false
+    },
+    {
+      "name": "desktop-active-recursos",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "headerWidth": 1400,
+      "headerHeight": 70,
+      "backdropFilter": "blur(28px) saturate(1.85) brightness(0.48)",
+      "backgroundImage": "linear-gradient(125deg, rgba(11, 32, 53, 0.34), rgba(15, 42, 68, 0.3) 52%, rgba(30, 95, 168, 0.26)), none",
+      "canvasCount": 1,
+      "canvasReady": true,
+      "reducedTransparency": false
+    },
+    {
+      "name": "tablet-1199-cerrado",
+      "viewport": {
+        "width": 1199,
+        "height": 900
+      },
+      "documentWidth": 1199,
+      "headerWidth": 1159,
+      "headerHeight": 70,
+      "backdropFilter": "blur(28px) saturate(1.85) brightness(0.48)",
+      "backgroundImage": "linear-gradient(125deg, rgba(11, 32, 53, 0.34), rgba(15, 42, 68, 0.3) 52%, rgba(30, 95, 168, 0.26)), none",
+      "canvasCount": 1,
+      "canvasReady": true,
+      "reducedTransparency": false
+    },
+    {
+      "name": "movil-390-cerrado",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "headerWidth": 366,
+      "headerHeight": 64,
+      "backdropFilter": "blur(28px) saturate(1.85) brightness(0.48)",
+      "backgroundImage": "linear-gradient(125deg, rgba(11, 32, 53, 0.34), rgba(15, 42, 68, 0.3) 52%, rgba(30, 95, 168, 0.26)), none",
+      "canvasCount": 1,
+      "canvasReady": true,
+      "reducedTransparency": false
+    },
+    {
+      "name": "desktop-reduced-transparency",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "headerWidth": 1400,
+      "headerHeight": 70,
+      "backdropFilter": "none",
+      "backgroundImage": "none",
+      "canvasCount": 1,
+      "canvasReady": true,
+      "reducedTransparency": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "desktop hover state",
+      "result": {
+        "hovered": true,
+        "iconColor": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "name": "active home section",
+      "result": {
+        "current": "location",
+        "iconColor": "rgb(139, 197, 255)"
+      }
+    },
+    {
+      "name": "active resources route",
+      "result": "page"
+    },
+    {
+      "name": "active service route",
+      "result": "Sistemas a medida"
+    },
+    {
+      "name": "services menu Escape and focus return",
+      "result": "passed"
+    },
+    {
+      "name": "tablet menu keyboard open and close",
+      "result": "passed"
+    },
+    {
+      "name": "mobile menu pointer outside close",
+      "result": "passed"
+    },
+    {
+      "name": "reduced transparency fallback",
+      "result": "passed"
+    },
+    {
+      "name": "browser page errors",
+      "result": "none"
+    }
+  ],
+  "errors": []
+}

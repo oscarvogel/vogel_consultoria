@@ -1,0 +1,594 @@
+{
+  "capturedAt": "2026-10-03T17:10:55.795Z",
+  "origin": "http://127.0.0.1:5177",
+  "routes": [
+    {
+      "route": "/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Vogel Consultoría | Sistemas, Dashboards e IA para Empresas en Argentina",
+      "h1": "Datos claros.\nProcesos conectados.\nMejores decisiones.",
+      "width": 1440,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/sistemas-a-medida/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Sistemas a Medida para Empresas en Argentina | Vogel Consultoria",
+      "h1": "Sistemas a medida para empresas en Argentina",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/dashboards-ejecutivos/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs en Argentina | Vogel Consultoria",
+      "h1": "Dashboards ejecutivos para PYMEs en Argentina",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/automatizacion-de-procesos/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Automatizacion de Procesos para Empresas | Vogel Consultoria",
+      "h1": "Automatizacion de procesos para empresas",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/contaflow-api-facturacion-electronica/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "ContaFlow API de Facturación Electrónica | Vogel Consultoría",
+      "h1": "ContaFlow: facturación electrónica por API sin pelearte con AFIP/ARCA",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 9
+    },
+    {
+      "route": "/desarrollo-web/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Desarrollo Web Profesional en Argentina | Vogel Consultoria",
+      "h1": "Desarrollo web profesional en Argentina",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/talleres-ia/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Talleres de IA para Empresas y Equipos | Vogel Consultoria",
+      "h1": "Talleres de IA para empresas y equipos",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/mantenimiento-de-equipos/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Sistema de Mantenimiento de Equipos | Vogel Consultoría",
+      "h1": "Sistema de mantenimiento de equipos para flotas y operaciones",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/integraciones-whatsapp/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Integraciones con WhatsApp para Empresas | Vogel Consultoría",
+      "h1": "Integraciones y automatizaciones con WhatsApp para empresas",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/inteligencia-artificial/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Inteligencia Artificial para Empresas en Argentina | Vogel Consultoría",
+      "h1": "IA aplicada al trabajo de tu empresa.",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/automatizaciones/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Automatizaciones ARCA para Estudios Contables con IA | Vogel Consultoria",
+      "h1": "Implementamos automatizaciones ARCA para estudios contables",
+      "width": 1440,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 8
+    },
+    {
+      "route": "/recursos/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Recursos para Empresas | Sistemas, Dashboards e IA | Vogel",
+      "h1": "Guías para decidir con claridad.",
+      "width": 1440,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 1
+    },
+    {
+      "route": "/recursos/automatizacion-procesos-administrativos/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Automatizacion de Procesos Administrativos | Guia Inicial",
+      "h1": "Automatizacion de procesos administrativos: por donde empezar",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/cuando-conviene-sistema-a-medida/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Cuando Conviene un Sistema a Medida | Vogel Consultoria",
+      "h1": "Cuando conviene un sistema a medida para una empresa",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/dashboards-ejecutivos-pymes/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs: Que Medir Primero | Vogel",
+      "h1": "Dashboards ejecutivos para PYMEs: que medir primero",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/encuesta-contadores/",
+      "viewport": 1440,
+      "status": 200,
+      "title": "Encuesta para Contadores | Vogel Consultoria",
+      "h1": "Gracias por participar. Tu opinion nos ayuda a preparar mejores herramientas.",
+      "width": 1440,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 2
+    },
+    {
+      "route": "/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Vogel Consultoría | Sistemas, Dashboards e IA para Empresas en Argentina",
+      "h1": "Datos claros.\nProcesos conectados.\nMejores decisiones.",
+      "width": 768,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/sistemas-a-medida/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Sistemas a Medida para Empresas en Argentina | Vogel Consultoria",
+      "h1": "Sistemas a medida para empresas en Argentina",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/dashboards-ejecutivos/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs en Argentina | Vogel Consultoria",
+      "h1": "Dashboards ejecutivos para PYMEs en Argentina",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/automatizacion-de-procesos/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Automatizacion de Procesos para Empresas | Vogel Consultoria",
+      "h1": "Automatizacion de procesos para empresas",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/contaflow-api-facturacion-electronica/",
+      "viewport": 768,
+      "status": 200,
+      "title": "ContaFlow API de Facturación Electrónica | Vogel Consultoría",
+      "h1": "ContaFlow: facturación electrónica por API sin pelearte con AFIP/ARCA",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 9
+    },
+    {
+      "route": "/desarrollo-web/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Desarrollo Web Profesional en Argentina | Vogel Consultoria",
+      "h1": "Desarrollo web profesional en Argentina",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/talleres-ia/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Talleres de IA para Empresas y Equipos | Vogel Consultoria",
+      "h1": "Talleres de IA para empresas y equipos",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/mantenimiento-de-equipos/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Sistema de Mantenimiento de Equipos | Vogel Consultoría",
+      "h1": "Sistema de mantenimiento de equipos para flotas y operaciones",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/integraciones-whatsapp/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Integraciones con WhatsApp para Empresas | Vogel Consultoría",
+      "h1": "Integraciones y automatizaciones con WhatsApp para empresas",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/inteligencia-artificial/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Inteligencia Artificial para Empresas en Argentina | Vogel Consultoría",
+      "h1": "IA aplicada al trabajo de tu empresa.",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/automatizaciones/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Automatizaciones ARCA para Estudios Contables con IA | Vogel Consultoria",
+      "h1": "Automatizaciones ARCA con IA aplicada",
+      "width": 768,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 8
+    },
+    {
+      "route": "/recursos/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Recursos para Empresas | Sistemas, Dashboards e IA | Vogel",
+      "h1": "Guías para decidir con claridad.",
+      "width": 768,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 1
+    },
+    {
+      "route": "/recursos/automatizacion-procesos-administrativos/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Automatizacion de Procesos Administrativos | Guia Inicial",
+      "h1": "Automatizacion de procesos administrativos: por donde empezar",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/cuando-conviene-sistema-a-medida/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Cuando Conviene un Sistema a Medida | Vogel Consultoria",
+      "h1": "Cuando conviene un sistema a medida para una empresa",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/dashboards-ejecutivos-pymes/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs: Que Medir Primero | Vogel",
+      "h1": "Dashboards ejecutivos para PYMEs: que medir primero",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/encuesta-contadores/",
+      "viewport": 768,
+      "status": 200,
+      "title": "Encuesta para Contadores | Vogel Consultoria",
+      "h1": "Gracias por participar. Tu opinion nos ayuda a preparar mejores herramientas.",
+      "width": 768,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 2
+    },
+    {
+      "route": "/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Vogel Consultoría | Sistemas, Dashboards e IA para Empresas en Argentina",
+      "h1": "Datos claros.\nProcesos conectados.\nMejores decisiones.",
+      "width": 390,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/sistemas-a-medida/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Sistemas a Medida para Empresas en Argentina | Vogel Consultoria",
+      "h1": "Sistemas a medida para empresas en Argentina",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/dashboards-ejecutivos/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs en Argentina | Vogel Consultoria",
+      "h1": "Dashboards ejecutivos para PYMEs en Argentina",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/automatizacion-de-procesos/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Automatizacion de Procesos para Empresas | Vogel Consultoria",
+      "h1": "Automatizacion de procesos para empresas",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/contaflow-api-facturacion-electronica/",
+      "viewport": 390,
+      "status": 200,
+      "title": "ContaFlow API de Facturación Electrónica | Vogel Consultoría",
+      "h1": "ContaFlow: facturación electrónica por API sin pelearte con AFIP/ARCA",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 9
+    },
+    {
+      "route": "/desarrollo-web/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Desarrollo Web Profesional en Argentina | Vogel Consultoria",
+      "h1": "Desarrollo web profesional en Argentina",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/talleres-ia/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Talleres de IA para Empresas y Equipos | Vogel Consultoria",
+      "h1": "Talleres de IA para empresas y equipos",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/mantenimiento-de-equipos/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Sistema de Mantenimiento de Equipos | Vogel Consultoría",
+      "h1": "Sistema de mantenimiento de equipos para flotas y operaciones",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/integraciones-whatsapp/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Integraciones con WhatsApp para Empresas | Vogel Consultoría",
+      "h1": "Integraciones y automatizaciones con WhatsApp para empresas",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 7
+    },
+    {
+      "route": "/inteligencia-artificial/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Inteligencia Artificial para Empresas en Argentina | Vogel Consultoría",
+      "h1": "IA aplicada al trabajo de tu empresa.",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 10
+    },
+    {
+      "route": "/automatizaciones/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Automatizaciones ARCA para Estudios Contables con IA | Vogel Consultoria",
+      "h1": "Automatizaciones ARCA con IA aplicada",
+      "width": 390,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 8
+    },
+    {
+      "route": "/recursos/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Recursos para Empresas | Sistemas, Dashboards e IA | Vogel",
+      "h1": "Guías para decidir con claridad.",
+      "width": 390,
+      "font": "\"Bricolage Grotesque\", ui-sans-serif, sans-serif",
+      "brokenImages": [],
+      "sections": 1
+    },
+    {
+      "route": "/recursos/automatizacion-procesos-administrativos/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Automatizacion de Procesos Administrativos | Guia Inicial",
+      "h1": "Automatizacion de procesos administrativos: por donde empezar",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/cuando-conviene-sistema-a-medida/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Cuando Conviene un Sistema a Medida | Vogel Consultoria",
+      "h1": "Cuando conviene un sistema a medida para una empresa",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/recursos/dashboards-ejecutivos-pymes/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Dashboards Ejecutivos para PYMEs: Que Medir Primero | Vogel",
+      "h1": "Dashboards ejecutivos para PYMEs: que medir primero",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 6
+    },
+    {
+      "route": "/encuesta-contadores/",
+      "viewport": 390,
+      "status": 200,
+      "title": "Encuesta para Contadores | Vogel Consultoria",
+      "h1": "Gracias por participar. Tu opinion nos ayuda a preparar mejores herramientas.",
+      "width": 390,
+      "font": "Syne, ui-sans-serif, system-ui, sans-serif",
+      "brokenImages": [],
+      "sections": 2
+    }
+  ],
+  "forms": {
+    "empty": {
+      "valid": false,
+      "active": "contacto-nombre"
+    },
+    "loading": {
+      "busy": "true",
+      "disabled": true
+    },
+    "success": "¡Consulta enviada!\n\nTe respondemos a la brevedad con un plan inicial.\n\nEnviar otra consulta",
+    "error": "Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp."
+  },
+  "browserErrors": [],
+  "caseGeometry": {
+    "start": 1994.84375,
+    "distance": 1600,
+    "progress": [
+      0,
+      0.40625,
+      0.8125
+    ]
+  },
+  "caseStates": [
+    {
+      "activeStep": 0,
+      "visibleScreen": "Captura en campo\nDatos de demostración",
+      "pinned": true
+    },
+    {
+      "activeStep": 1,
+      "visibleScreen": "Revisión del registro\nDatos de demostración",
+      "pinned": true
+    },
+    {
+      "activeStep": 2,
+      "visibleScreen": "Dashboard de producción\nDatos de demostración",
+      "pinned": true
+    }
+  ],
+  "interactions": {
+    "desktopMenuOpened": true,
+    "desktopMenuClosedByEscape": true,
+    "desktopMenuFocusRestored": true,
+    "galleryAdvance": 407,
+    "galleryReturn": 4,
+    "galleryStartedAt": 4,
+    "caseAnchor": {
+      "hash": "#casos",
+      "sectionTop": 240,
+      "headerBottom": 86
+    },
+    "mobileMenuOpenedByTouch": "true",
+    "mobileMenuClosedByEscape": true,
+    "mobileMenuFocusRestored": true,
+    "reducedMotion": {
+      "requested": true,
+      "casePinned": false,
+      "visibleStages": 3
+    }
+  }
+}

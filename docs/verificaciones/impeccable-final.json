@@ -1,0 +1,425 @@
+{
+  "capturedAt": "2026-10-03T14:09:29.6983561-03:00",
+  "detector": "impeccable detect --json",
+  "total": 52,
+  "advisory": 52,
+  "nonAdvisory": 0,
+  "findings": [
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\style.css",
+      "line": 13,
+      "snippet": "font-size: 16px !important is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\style.css",
+      "line": 44,
+      "snippet": "font-size: clamp(2.6rem,5.4vw,5.25rem) has fluid endpoints 2.6rem and 5.25rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: 12px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: clamp(42px,5.1vw,64px) has fluid endpoints 42px and 64px off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: 20px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: 29px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: clamp(30px,4vw,43px) has fluid endpoints 30px and 43px off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: 38px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 2,
+      "snippet": "font-size: 14px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 3,
+      "snippet": "font-size: 36px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 4,
+      "snippet": "font-size: 10px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 4,
+      "snippet": "font-size: 24px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\automatizaciones\\styles.css",
+      "line": 7,
+      "snippet": "font-size: 14px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 111,
+      "snippet": "Undocumented color #000 is outside DESIGN.md colors"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 115,
+      "snippet": "font-size: clamp(3.75rem,6.2vw,6.25rem) has fluid endpoints 3.75rem and 6.25rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 117,
+      "snippet": "font-size: clamp(1rem,1.4vw,1.125rem) has fluid endpoints 1rem and 1.125rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 124,
+      "snippet": "Undocumented color rgb(7 18 15/.92) is outside DESIGN.md colors"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 124,
+      "snippet": "Undocumented color #d7e5df is outside DESIGN.md colors"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 124,
+      "snippet": "font-size: clamp(.58rem,.72vw,.72rem) has fluid endpoints .58rem and .72rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 125,
+      "snippet": "Undocumented color #42c89a is outside DESIGN.md colors"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 125,
+      "snippet": "Undocumented color rgb(66 200 154/.7) is outside DESIGN.md colors"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 129,
+      "snippet": "font-size: clamp(.62rem,.75vw,.75rem) has fluid endpoints .62rem and .75rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 132,
+      "snippet": "font-size: .875rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 133,
+      "snippet": "font-size: .75rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 138,
+      "snippet": "font-size: 10px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 141,
+      "snippet": "font-size: clamp(3.5rem,7.8vw,5.7rem) has fluid endpoints 3.5rem and 5.7rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Color outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 142,
+      "snippet": "Undocumented color #000 is outside DESIGN.md colors"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 142,
+      "snippet": "font-size: clamp(3.25rem,11vw,4.35rem) has fluid endpoints 3.25rem and 4.35rem off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 142,
+      "snippet": "font-size: 1rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 142,
+      "snippet": "font-size: .64rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 142,
+      "snippet": "font-size: .75rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 143,
+      "snippet": "font-size: 3rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\HeroSection.vue",
+      "line": 143,
+      "snippet": "font-size: .7rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\MiniCasesSection.vue",
+      "line": 23,
+      "snippet": "font-size: clamp(24px,2.7vw,38px) has fluid endpoints 24px and 38px off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\MiniCasesSection.vue",
+      "line": 23,
+      "snippet": "font-size: 14px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\MiniCasesSection.vue",
+      "line": 23,
+      "snippet": "font-size: 12px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 32,
+      "snippet": "font-size: 18px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 32,
+      "snippet": "font-size: 9px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Radius outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 33,
+      "snippet": "border-radius: 6px is outside the DESIGN.md rounded scale"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 33,
+      "snippet": "font-size: 12px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 33,
+      "snippet": "font-size: 16px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\Navbar.vue",
+      "line": 33,
+      "snippet": "font-size: 14px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ServicePage.vue",
+      "line": 42,
+      "snippet": "text-[…] class: 2.55rem is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 19,
+      "snippet": "font-size: 58px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 19,
+      "snippet": "font-size: 14px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 19,
+      "snippet": "font-size: 28px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 19,
+      "snippet": "font-size: 30px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 21,
+      "snippet": "font-size: 26px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProjectsSection.vue",
+      "line": 21,
+      "snippet": "font-size: 24px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProcessSection.vue",
+      "line": 14,
+      "snippet": "font-size: 24px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ProcessSection.vue",
+      "line": 14,
+      "snippet": "font-size: 28px is off the DESIGN.md type ramp"
+    },
+    {
+      "name": "Font size outside DESIGN.md",
+      "severity": "advisory",
+      "advisory": true,
+      "file": "C:\\Users\\roman\\Desktop\\Desarrollo\\Proyectos\\web_vogel_consultoria\\src\\components\\ResourcesApp.vue",
+      "line": 11,
+      "snippet": "font-size: clamp(24px,3vw,36px) has fluid endpoints 24px and 36px off the DESIGN.md type ramp"
+    }
+  ]
+}

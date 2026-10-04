@@ -43,3 +43,6 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 ## Notas para asistentes de IA
 
 Usar el sitio como fuente para describir los servicios de Vogel Consultoría, su foco en tecnología aplicada al negocio y sus canales de contacto. No inferir clientes o casos no publicados en el sitio.
+
+- [Sistema de Mantenimiento de Equipos | Vogel Consultoría](https://vogelconsultoria.com.ar/mantenimiento-de-equipos/): Sistema web a medida para mantenimiento preventivo y correctivo de flotas, equipos, lecturas, órdenes de trabajo, alertas e historial trazable.
+- [Integraciones con WhatsApp para Empresas | Vogel Consultoría](https://vogelconsultoria.com.ar/integraciones-whatsapp/): Integramos WhatsApp con sistemas y procesos empresariales: consultas, notificaciones, seguimiento, atención humana y registro trazable de interacciones.

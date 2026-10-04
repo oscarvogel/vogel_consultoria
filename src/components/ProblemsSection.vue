@@ -1,36 +1,12 @@
-<template>
-  <section class="py-20 sm:py-24" aria-labelledby="problemas-heading">
-    <div class="section-shell rounded-3xl border border-vogel-gray/15 bg-vogel-navy/70 p-7 sm:p-10">
-      <SectionHeading
-        id="problemas-heading"
-        eyebrow="Problemas que resolvemos"
-        title="Si te pasa esto, podemos ayudarte"
-        description="Detectamos el origen de los cuellos de botella y transformamos datos aislados en información accionable."
-      />
-
-      <ul class="mt-10 grid gap-4 sm:grid-cols-2">
-        <li
-          v-for="(problem, i) in problems"
-          :key="problem"
-          class="reveal rounded-xl border border-vogel-gray/20 bg-vogel-deep/45 p-4 text-sm leading-relaxed text-vogel-muted transition duration-300 hover:border-vogel-amber/40"
-          :class="`reveal-d${(i % 3) + 1}`"
-        >
-          <span class="mr-2 text-vogel-amber">●</span>{{ problem }}
-        </li>
-      </ul>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import SectionHeading from "./SectionHeading.vue";
-
-const problems = [
-  "Dependés demasiado de planillas Excel",
-  "No tenés información clara para decidir",
-  "Perdés tiempo en tareas repetitivas",
-  "No sabés dónde se pierde dinero",
-  "Tus sistemas no se comunican entre sí",
-  "Querés usar IA pero no sabés por dónde empezar",
+const pairs=[
+ ['Información repartida en planillas','Sistemas que conectan áreas y conservan el contexto de cada operación.'],
+ ['Reportes que llegan tarde','Dashboards con indicadores críticos y detalle para decidir con información confiable.'],
+ ['Tareas manuales que se repiten','Automatización de procesos con reglas, trazabilidad y control humano.'],
+ ['IA sin un punto de partida claro','Casos de uso acotados y capacitación para aplicar herramientas con criterio.']
 ];
 </script>
+<template><section id="soluciones" class="section-space" aria-labelledby="problemas-heading"><div class="section-shell problems-layout"><div data-story-reveal><h2 id="problemas-heading" class="section-title" data-text-reveal>Tu operación ya tiene datos.<br>Hagamos que trabajen juntos.</h2><p class="section-description">Partimos de las fricciones del negocio para definir qué ordenar, qué conectar y qué automatizar.</p></div><dl class="problem-list"><div v-for="[problem,solution] in pairs" :key="problem"><dt>{{ problem }}</dt><dd>{{ solution }}</dd></div></dl></div></section></template>
+<style scoped>
+.problems-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px}.problem-list>div{padding:22px 0;border-bottom:1px solid var(--color-border)}.problem-list>div:first-child{padding-top:0}.problem-list dt{font-family:var(--font-display);font-size:22px;color:var(--color-heading);font-weight:600}.problem-list dd{margin:10px 0 0;color:var(--color-muted);line-height:1.7;max-width:52ch}@media(max-width:767px){.problems-layout{grid-template-columns:1fr;gap:36px}}
+</style>

@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-03T23:41:32.658Z",
+  "checks": [
+    {
+      "name": "case 0.04 forward/back",
+      "active": 0,
+      "visible": 1,
+      "progress": "01 / 03Del campo a la decisión"
+    },
+    {
+      "name": "case 0.5 forward/back",
+      "active": 1,
+      "visible": 1,
+      "progress": "02 / 03Del campo a la decisión"
+    },
+    {
+      "name": "case 0.96 forward/back",
+      "active": 2,
+      "visible": 1,
+      "progress": "03 / 03Del campo a la decisión"
+    },
+    {
+      "name": "case 0.5 forward/back",
+      "active": 1,
+      "visible": 1,
+      "progress": "02 / 03Del campo a la decisión"
+    },
+    {
+      "name": "case 0.04 forward/back",
+      "active": 0,
+      "visible": 1,
+      "progress": "01 / 03Del campo a la decisión"
+    },
+    {
+      "name": "tablet menu Escape",
+      "width": 1199
+    },
+    {
+      "name": "reduced motion restores all screens and headings",
+      "pinned": false,
+      "screens": [
+        {
+          "opacity": "1",
+          "visibility": "visible",
+          "hidden": null
+        },
+        {
+          "opacity": "1",
+          "visibility": "visible",
+          "hidden": null
+        },
+        {
+          "opacity": "1",
+          "visibility": "visible",
+          "hidden": null
+        }
+      ]
+    },
+    {
+      "name": "route /recursos/",
+      "plane": "rgba(11, 32, 53, 0.8)"
+    },
+    {
+      "name": "route /sistemas-a-medida/",
+      "plane": "rgba(11, 32, 53, 0.8)"
+    },
+    {
+      "name": "route /inteligencia-artificial/",
+      "plane": "rgba(11, 32, 53, 0.8)"
+    },
+    {
+      "name": "route /automatizaciones/",
+      "plane": "rgba(11, 32, 53, 0.8)"
+    },
+    {
+      "name": "route /encuesta-contadores/",
+      "plane": "rgba(11, 32, 53, 0.8)"
+    }
+  ],
+  "errors": []
+}

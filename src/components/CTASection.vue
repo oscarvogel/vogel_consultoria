@@ -1,11 +1,13 @@
 <script setup>
-import { shallowRef } from "vue";
+import { shallowRef, ref, nextTick } from "vue";
 import ActionButton from "./ActionButton.vue";
 import { trackEvent } from "../lib/analytics.js";
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
 
-const state = shallowRef("idle"); // idle | loading | success | error
+const state = shallowRef("idle");
+const successMessage = ref(null);
+const nameInput = ref(null); // idle | loading | success | error
 
 async function handleSubmit(event) {
   const form = event.currentTarget;
@@ -35,6 +37,8 @@ async function handleSubmit(event) {
         form_name: "Formulario de contacto",
       });
       form.reset();
+      await nextTick();
+      successMessage.value?.focus();
     } else {
       state.value = "error";
     }
@@ -43,35 +47,31 @@ async function handleSubmit(event) {
   }
 }
 
-function resetForm() {
+async function resetForm() {
   state.value = "idle";
+  await nextTick();
+  nameInput.value?.focus();
 }
 </script>
 
 <template>
   <section
     id="contacto"
-    class="pb-24 pt-10"
+    class="section-space"
     aria-labelledby="contacto-heading"
     data-analytics-view="contact_section"
     data-analytics-funnel="lead_journey"
     data-analytics-step="contact"
   >
     <div class="section-shell">
-      <div class="relative overflow-hidden rounded-3xl border border-vogel-amber/30 px-6 py-16 sm:px-10 sm:py-20">
-        <!-- Ambient blobs -->
-        <div class="ambient-blob h-80 w-80 bg-vogel-blue/30" style="top: -80px; left: -80px;"></div>
-        <div class="ambient-blob h-60 w-60 bg-vogel-amber/20" style="bottom: -50px; right: -50px;"></div>
-        <!-- Background -->
-        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-vogel-blue/30 via-vogel-deep to-vogel-navy"></div>
+      <div class="border-t border-vogel-gray/20 pt-16">
+        <div class="relative text-left">
 
-        <div class="relative reveal text-center">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">¿Listo para dar el siguiente paso?</p>
-          <h2 id="contacto-heading" class="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
-            Implementamos sistemas, automatización e IA para mejorar rentabilidad en semanas.
+          <h2 id="contacto-heading" class="section-title max-w-3xl">
+            Agendemos un diagnóstico de tu operación.
           </h2>
-          <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-vogel-gray sm:text-base">
-            Contanos tu objetivo y te respondemos con un plan inicial. Si preferís, también podés reservar una reunión directa.
+          <p class="section-description mt-5 max-w-2xl">
+            Contanos dónde se traba el trabajo. Revisamos el contexto y definimos un próximo paso con alcance claro.
           </p>
 
           <div class="mt-8 grid gap-8 lg:grid-cols-2 lg:text-left">
@@ -80,7 +80,7 @@ function resetForm() {
 
               <!-- Success state -->
               <div
-                v-if="state === 'success'"
+                v-if="state === 'success'" ref="successMessage" tabindex="-1"
                 class="flex flex-col items-center gap-4 py-6 text-center"
                 role="status"
                 aria-live="polite"
@@ -104,7 +104,7 @@ function resetForm() {
               <!-- Form -->
               <form
                 v-else
-                aria-label="Formulario de contacto"
+                aria-label="Formulario de contacto" :aria-busy="state === 'loading'"
                 data-analytics-cta="contact_form_main"
                 data-analytics-funnel="lead_journey"
                 data-analytics-step="contact"
@@ -118,10 +118,10 @@ function resetForm() {
                   <div>
                     <label for="contacto-nombre" class="mb-1.5 block text-sm font-medium text-vogel-gray">Nombre y apellido</label>
                     <input
-                      id="contacto-nombre"
-                      name="Nombre"
+                      id="contacto-nombre" ref="nameInput"
+                      name="Nombre" autocomplete="name"
                       required
-                      class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted/70"
+                      class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
                       placeholder="Ej: Juan Perez"
                     />
                   </div>
@@ -129,10 +129,10 @@ function resetForm() {
                     <label for="contacto-email" class="mb-1.5 block text-sm font-medium text-vogel-gray">Email</label>
                     <input
                       id="contacto-email"
-                      name="email"
-                      type="email"
+                      name="email" autocomplete="email"
+                      type="email" spellcheck="false"
                       required
-                      class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted/70"
+                      class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
                       placeholder="Ej: contacto@empresa.com"
                     />
                   </div>
@@ -156,7 +156,7 @@ function resetForm() {
                       id="contacto-mensaje"
                       name="Mensaje"
                       rows="5"
-                      class="w-full resize-y rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted/70"
+                      class="w-full resize-y rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
                       placeholder="Contá qué problema querés resolver, plazos, contexto o cualquier detalle útil."
                     ></textarea>
                   </div>
@@ -164,7 +164,7 @@ function resetForm() {
                   <!-- Error message -->
                   <p
                     v-if="state === 'error'"
-                    class="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-2.5 text-sm text-red-300"
+                    class="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-2.5 text-sm text-[#FECACA]"
                     role="alert"
                   >
                     Hubo un problema al enviar. Intentá de nuevo o escribinos por WhatsApp.
@@ -179,14 +179,14 @@ function resetForm() {
                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
                     </svg>
-                    {{ state === 'loading' ? 'Enviando...' : 'Enviar consulta' }}
+                    {{ state === 'loading' ? 'Enviando…' : 'Enviar consulta' }}
                   </button>
                 </div>
               </form>
             </div>
 
-            <div class="flex flex-col justify-center gap-4 rounded-2xl border border-vogel-gray/20 bg-vogel-deep/45 p-5 sm:p-6">
-              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-vogel-amber">Agenda rápida</p>
+            <div class="flex flex-col justify-center gap-4 rounded-2xl border border-vogel-gray/20 bg-vogel-navy p-5 sm:p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-vogel-amber">Conversemos</p>
               <p class="text-sm leading-relaxed text-vogel-gray sm:text-base">
                 Elegí el canal que te resulte más cómodo para coordinar una reunión de 20 minutos.
               </p>

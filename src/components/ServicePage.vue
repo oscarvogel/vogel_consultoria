@@ -1,6 +1,9 @@
 <script setup>
 import { computed } from "vue";
+import { useScrollReveal } from "../composables/useScrollReveal.js";
+useScrollReveal();
 import { getRelatedServices } from "../data/servicePages.js";
+import Navbar from "./Navbar.vue";
 import FooterSection from "./FooterSection.vue";
 import WhatsAppButton from "./WhatsAppButton.vue";
 
@@ -15,9 +18,10 @@ const relatedServices = computed(() => getRelatedServices(props.page));
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-x-hidden">
+  <div class="relative min-h-screen service-page">
     <a class="skip-link" href="#service-content">Saltar al contenido principal</a>
 
+    <Navbar />
     <main id="service-content" tabindex="-1">
       <section class="relative isolate overflow-hidden py-8 sm:py-10 lg:py-12">
         <div class="ambient-blob left-[-8rem] top-[-8rem] h-72 w-72 bg-vogel-blue/30"></div>
@@ -45,12 +49,12 @@ const relatedServices = computed(() => getRelatedServices(props.page));
                 {{ page.intro }}
               </p>
 
-              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row"><a href="/#contacto" class="action-button action-primary">Agendar diagnóstico</a>
                 <a
                   :href="page.ctaUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center rounded-full bg-vogel-amber px-6 py-3 text-sm font-bold text-vogel-navy shadow-glow transition hover:-translate-y-0.5 hover:bg-white"
+                  class="action-button action-secondary"
                   data-analytics-event="whatsapp_click"
                   :data-analytics-label="page.id"
                   data-analytics-location="service_page"
@@ -76,7 +80,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
                   fetchpriority="high"
                 />
               </div>
-              <div class="absolute -bottom-6 left-5 right-5 rounded-2xl border border-vogel-blue/35 bg-vogel-navy/85 p-4 shadow-glow backdrop-blur-md sm:left-8 sm:right-8">
+              <div class="hidden">
                 <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-blueLight">Respuesta corta</p>
                 <p class="mt-2 text-sm leading-relaxed text-vogel-gray">{{ page.summary }}</p>
               </div>
@@ -85,7 +89,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-16 sm:py-20" aria-labelledby="problemas-heading">
+      <section data-story-reveal class="py-16 sm:py-20" aria-labelledby="problemas-heading">
         <div class="section-shell">
           <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
@@ -107,7 +111,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section v-if="page.benefits" class="py-8 sm:py-12" aria-labelledby="beneficios-heading">
+      <section data-story-reveal v-if="page.benefits" class="py-8 sm:py-12" aria-labelledby="beneficios-heading">
         <div class="section-shell">
           <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -130,7 +134,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section v-if="page.apiExamples" id="documentacion-tecnica" class="py-8 sm:py-12" aria-labelledby="api-heading">
+      <section data-story-reveal v-if="page.apiExamples" id="documentacion-tecnica" class="py-8 sm:py-12" aria-labelledby="api-heading">
         <div class="section-shell">
           <div class="grid gap-5 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
@@ -164,7 +168,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-8 sm:py-12" aria-labelledby="incluye-heading">
+      <section data-story-reveal class="py-8 sm:py-12" aria-labelledby="incluye-heading">
         <div class="section-shell">
           <div class="grid gap-5 lg:grid-cols-2">
             <article class="rounded-3xl border border-vogel-gray/20 bg-vogel-deep/55 p-6 shadow-glow sm:p-8">
@@ -194,7 +198,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-12 sm:py-16" aria-labelledby="entregables-heading">
+      <section data-story-reveal class="py-12 sm:py-16" aria-labelledby="entregables-heading">
         <div class="section-shell">
           <div class="rounded-3xl border border-vogel-gray/15 bg-vogel-navy/55 p-6 sm:p-8">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -227,7 +231,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-12 sm:py-16" aria-labelledby="faq-heading">
+      <section data-story-reveal class="py-12 sm:py-16" aria-labelledby="faq-heading">
         <div class="section-shell max-w-5xl">
           <p class="text-center text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Preguntas frecuentes</p>
           <h2 id="faq-heading" class="mt-3 text-center font-display text-3xl font-bold text-white sm:text-4xl">
@@ -251,7 +255,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-12 sm:py-16" aria-labelledby="relacionados-heading">
+      <section data-story-reveal class="py-12 sm:py-16" aria-labelledby="relacionados-heading">
         <div class="section-shell">
           <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -273,9 +277,9 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section class="py-16 sm:py-20" aria-labelledby="cta-heading">
+      <section data-story-reveal class="py-16 sm:py-20" aria-labelledby="cta-heading">
         <div class="section-shell">
-          <div class="rounded-3xl border border-vogel-amber/25 bg-gradient-to-br from-vogel-deep via-vogel-navy to-vogel-blue/35 p-7 text-center shadow-glow sm:p-10">
+          <div class="rounded-3xl border border-vogel-amber/25 bg-vogel-navy p-7 text-center shadow-glow sm:p-10">
             <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Proximo paso</p>
             <h2 id="cta-heading" class="mx-auto mt-3 max-w-3xl font-display text-3xl font-bold text-white sm:text-4xl">
               Veamos si este servicio encaja con tu situacion actual

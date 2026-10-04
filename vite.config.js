@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), react()],
   resolve: {
     preserveSymlinks: true,
   },
@@ -21,6 +22,7 @@ export default defineConfig({
         entryFileNames: "assets/[name]-[hash].js",
         manualChunks: {
           vue: ["vue"],
+          react: ["react", "react-dom"],
         },
       },
       input: {
@@ -35,6 +37,8 @@ export default defineConfig({
         contaflow: "contaflow-api-facturacion-electronica/index.html",
         web: "desarrollo-web/index.html",
         talleres: "talleres-ia/index.html",
+        mantenimiento: "mantenimiento-de-equipos/index.html",
+        whatsapp: "integraciones-whatsapp/index.html",
         recursos: "recursos/index.html",
         recursoSistema: "recursos/cuando-conviene-sistema-a-medida/index.html",
         recursoDashboards: "recursos/dashboards-ejecutivos-pymes/index.html",

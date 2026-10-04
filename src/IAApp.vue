@@ -1,6 +1,7 @@
 <template>
-  <div class="relative overflow-x-hidden">
+  <div class="relative ia-page">
     <a class="skip-link" href="#main-content-ia">Saltar al contenido principal</a>
+    <Navbar />
     <main id="main-content-ia" role="main" tabindex="-1">
       <HeroIA />
       <ProblemIAAsync />
@@ -13,6 +14,7 @@
       <FAQIAAsync />
       <CTAIAAsync />
     </main>
+    <FooterSection />
     <WhatsAppButton />
   </div>
 </template>
@@ -20,6 +22,8 @@
 <script setup>
 import { defineAsyncComponent } from "vue";
 import { useScrollReveal } from "./composables/useScrollReveal.js";
+import Navbar from "./components/Navbar.vue";
+import FooterSection from "./components/FooterSection.vue";
 import HeroIA from "./components/HeroIA.vue";
 import WhatsAppButton from "./components/WhatsAppButton.vue";
 

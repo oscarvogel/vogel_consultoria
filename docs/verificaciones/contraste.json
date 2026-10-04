@@ -1,0 +1,80 @@
+{
+  "scope": "Tokens oficiales sobre superficies sólidas. No certifica texto directamente sobre el shader animado, transparencias ni la navbar transparente.",
+  "rows": [
+    {
+      "foreground": "white",
+      "background": "navy",
+      "ratio": 16.51
+    },
+    {
+      "foreground": "gray",
+      "background": "navy",
+      "ratio": 13.33
+    },
+    {
+      "foreground": "muted",
+      "background": "navy",
+      "ratio": 6.71
+    },
+    {
+      "foreground": "blueLight",
+      "background": "navy",
+      "ratio": 9.06
+    },
+    {
+      "foreground": "white",
+      "background": "deep",
+      "ratio": 14.63
+    },
+    {
+      "foreground": "gray",
+      "background": "deep",
+      "ratio": 11.82
+    },
+    {
+      "foreground": "muted",
+      "background": "deep",
+      "ratio": 5.95
+    },
+    {
+      "foreground": "blueLight",
+      "background": "deep",
+      "ratio": 8.03
+    },
+    {
+      "foreground": "white",
+      "background": "slate",
+      "ratio": 13.66
+    },
+    {
+      "foreground": "gray",
+      "background": "slate",
+      "ratio": 11.04
+    },
+    {
+      "foreground": "muted",
+      "background": "slate",
+      "ratio": 5.56
+    },
+    {
+      "foreground": "blueLight",
+      "background": "slate",
+      "ratio": 7.5
+    },
+    {
+      "foreground": "navy",
+      "background": "amber",
+      "ratio": 8.21
+    },
+    {
+      "foreground": "white",
+      "background": "blue",
+      "ratio": 6.45
+    },
+    {
+      "foreground": "white",
+      "background": "bright",
+      "ratio": 5.03
+    }
+  ]
+}

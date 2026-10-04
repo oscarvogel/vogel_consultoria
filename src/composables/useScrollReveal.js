@@ -1,62 +1,27 @@
 import { onMounted, onUnmounted } from "vue";
+import { initStoryReveal } from "./useSiteMotion.js";
 
 /**
- * Attaches an IntersectionObserver that adds the `.revealed` class to
- * every element matching `selector` once it enters the viewport.
- * Elements must already have the `.reveal` CSS class applied.
+ * Adds editorial reveals as progressive enhancement. All content remains visible
+ * when motion is reduced, GSAP is unavailable, or the component is unmounted.
  */
-export function useScrollReveal(selector = ".reveal") {
-  let observer = null;
-  let mutationObserver = null;
+export function useScrollReveal(rootRef = null) {
+  let dispose;
+  let cancelled = false;
 
-  function observeElement(el) {
-    if (!observer || el.classList.contains("revealed") || el.dataset.revealObserved === "true") {
-      return;
+  onMounted(async () => {
+    const root = rootRef?.value || document.querySelector("main") || document.body;
+    try {
+      const stop = await initStoryReveal(root);
+      if (cancelled) stop?.();
+      else dispose = stop;
+    } catch {
+      // Progressive enhancement only: leave the document in its readable state.
     }
-
-    el.dataset.revealObserved = "true";
-    observer.observe(el);
-  }
-
-  function observeAll(root = document) {
-    if (root instanceof Element && root.matches(selector)) {
-      observeElement(root);
-    }
-
-    root.querySelectorAll?.(selector).forEach(observeElement);
-  }
-
-  onMounted(() => {
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            delete entry.target.dataset.revealObserved;
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-
-    observeAll();
-
-    mutationObserver = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node instanceof Element) {
-            observeAll(node);
-          }
-        });
-      });
-    });
-
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
   });
 
   onUnmounted(() => {
-    mutationObserver?.disconnect();
-    observer?.disconnect();
+    cancelled = true;
+    dispose?.();
   });
 }

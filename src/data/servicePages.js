@@ -375,6 +375,47 @@ export const servicePages = {
   },
 };
 
+Object.assign(servicePages, {
+  "mantenimiento-de-equipos": {
+    id: "mantenimiento-de-equipos", path: "/mantenimiento-de-equipos/", eyebrow: "Gestión de mantenimiento",
+    title: "Sistema de mantenimiento de equipos para flotas y operaciones", shortTitle: "Mantenimiento de equipos",
+    metaTitle: "Sistema de Mantenimiento de Equipos | Vogel Consultoría",
+    metaDescription: "Sistema web a medida para mantenimiento preventivo y correctivo de flotas, equipos, lecturas, órdenes de trabajo, alertas e historial trazable.",
+    summary: "Un sistema web a medida para ordenar el mantenimiento de camiones, tractores, acoplados, máquinas y vehículos, con historial y trazabilidad por equipo.",
+    intro: "Centralizamos equipos, lecturas, planes preventivos, solicitudes y órdenes de trabajo para que mantenimiento pueda anticiparse a vencimientos y trabajar con información confiable.",
+    image: sistemasImage, imageAlt: "Ilustración de sistemas para gestión operativa",
+    ctaLabel: "Consultar por mantenimiento", ctaUrl: whatsappUrl("Hola Vogel Consultoria, quiero consultar por un sistema de gestion de mantenimiento de equipos."),
+    problems: ["El historial de cada equipo está repartido entre planillas, mensajes y registros difíciles de consultar.", "Los vencimientos por fecha, kilómetros u horas se controlan tarde o dependen de una persona.", "Las solicitudes y órdenes no tienen una trazabilidad clara desde el aviso hasta el cierre."],
+    includes: ["Ficha de equipos, lecturas de kilómetros y horómetro, relaciones y baja lógica con historial.", "Planes de mantenimiento preventivo con vencimientos y panel de próximos servicios.", "Solicitudes, avisos y órdenes de trabajo con responsables, prioridad, tareas y repuestos.", "Alertas, reportes, permisos por empresa o sucursal y auditoría de operaciones sensibles."],
+    process: ["Relevar la flota, los tipos de lectura y el circuito actual de mantenimiento.", "Priorizar un circuito vertical con equipos representativos y reglas verificables.", "Implementar por módulos, validando con usuarios y datos reales del piloto.", "Ajustar alertas, reportes, permisos y operación antes de ampliar el alcance."],
+    deliverables: ["Ficha e historial de equipos", "Planes preventivos", "Órdenes de trabajo", "Alertas y reportes"],
+    faqs: [
+      {question: "¿Qué equipos se pueden administrar?", answer: "El sistema puede trabajar con camiones, tractores, acoplados, máquinas, vehículos livianos y otros equipos que la operación necesite incorporar."},
+      {question: "¿El mantenimiento preventivo se calcula por fecha o uso?", answer: "Puede considerar fecha, kilómetros u horas de uso, según las reglas definidas para cada plan y equipo."},
+      {question: "¿Conviene implementar todo de una vez?", answer: "No necesariamente. Recomendamos comenzar con un circuito acotado y un piloto de equipos representativos para reducir riesgo y validar la operación."}
+    ], related: ["sistemas-a-medida", "dashboards-ejecutivos", "automatizacion-de-procesos"]
+  },
+  "integraciones-whatsapp": {
+    id: "integraciones-whatsapp", path: "/integraciones-whatsapp/", eyebrow: "Integraciones con WhatsApp",
+    title: "Integraciones y automatizaciones con WhatsApp para empresas", shortTitle: "Integraciones con WhatsApp",
+    metaTitle: "Integraciones con WhatsApp para Empresas | Vogel Consultoría",
+    metaDescription: "Integramos WhatsApp con sistemas y procesos empresariales: consultas, notificaciones, seguimiento, atención humana y registro trazable de interacciones.",
+    summary: "Integramos WhatsApp a los sistemas y procesos de tu empresa para reducir tareas manuales, responder mejor y dejar cada interacción trazable.",
+    intro: "Diseñamos el circuito completo: qué evento inicia el contacto, qué información necesita el equipo y cómo se registra cada respuesta para que la automatización sea útil y controlable.",
+    image: automatizacionImage, imageAlt: "Ilustración de integración entre sistemas y procesos",
+    ctaLabel: "Consultar integración WhatsApp", ctaUrl: whatsappUrl("Hola Vogel Consultoria, quiero consultar por una integracion de WhatsApp con mi empresa."),
+    problems: ["Las consultas llegan por WhatsApp pero quedan fuera del sistema de gestión.", "El equipo copia datos entre chats, planillas y sistemas para responder o hacer seguimiento.", "No hay reglas claras para notificar, escalar una conversación o dejar evidencia del contacto."],
+    includes: ["Relevamiento de casos de uso: consultas, avisos, confirmaciones, seguimiento y soporte.", "Conexión con sistemas existentes, formularios, bases de datos o automatizaciones internas.", "Reglas para respuestas, derivaciones, alertas y registro de cada interacción.", "Pruebas con usuarios, documentación del circuito y acompañamiento para la puesta en marcha."],
+    process: ["Definir el objetivo comercial u operativo y los datos que deben quedar registrados.", "Elegir un flujo inicial acotado, medible y seguro para el equipo.", "Implementar la integración y probar respuestas, errores y casos de excepción.", "Medir adopción y tiempos de respuesta para ajustar antes de sumar nuevos flujos."],
+    deliverables: ["Flujo de WhatsApp", "Integración con sistemas", "Reglas de atención", "Registro y métricas"],
+    faqs: [
+      {question: "¿Se puede conectar WhatsApp con mi sistema actual?", answer: "Primero revisamos qué datos expone el sistema y qué nivel de integración es conveniente. A partir de eso definimos una conexión segura y mantenible."},
+      {question: "¿La automatización reemplaza la atención humana?", answer: "No. Puede resolver pasos repetitivos y ordenar la información, mientras el equipo conserva el control de los casos que requieren criterio."},
+      {question: "¿Puedo empezar con un solo proceso?", answer: "Sí. Un flujo inicial acotado permite validar utilidad, tiempos de respuesta y calidad del registro antes de ampliar la integración."}
+    ], related: ["automatizacion-de-procesos", "sistemas-a-medida", "talleres-ia"]
+  }
+});
+
 export function getServicePage(id) {
   return servicePages[id] || null;
 }

@@ -1,110 +1,89 @@
+<script setup>
+import { ref } from "vue";
+import ActionButton from "./ActionButton.vue";
+import { useHeroMotion } from "../composables/useSiteMotion.js";
+
+const root = ref(null);
+useHeroMotion(root);
+</script>
+
 <template>
   <section
+    ref="root"
     id="inicio"
-    class="relative isolate overflow-hidden pb-24 pt-16 sm:pt-24"
+    class="hero-section"
     data-analytics-view="home_entry"
     data-analytics-funnel="lead_journey"
     data-analytics-step="home"
+    aria-labelledby="hero-title"
   >
-    <img
-      :src="networkHero"
-      alt=""
-      class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
-      aria-hidden="true"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(15,42,68,0.97)_0%,rgba(15,42,68,0.86)_43%,rgba(11,32,53,0.28)_100%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-vogel-deep to-transparent"></div>
-
-    <div class="section-shell grid min-w-0 items-center gap-14 lg:grid-cols-2">
-      <div class="fade-up min-w-0">
-        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">Consultoría tecnológica premium</p>
-        <h1 class="max-w-[10.4em] text-[2.2rem] font-bold leading-[1.08] text-white sm:max-w-none sm:text-5xl lg:text-[3.5rem]">
-          Sistemas, automatización e IA para aumentar rentabilidad
+    <div class="hero-shell section-shell">
+      <div class="hero-copy">
+        <p class="hero-eyebrow"><span aria-hidden="true"></span> Consultoría tecnológica para empresas</p>
+        <h1 id="hero-title">
+          <span class="hero-line">Datos claros.</span>
+          <span class="hero-line">Procesos</span>
+          <span class="hero-line">conectados.</span>
+          <span class="hero-line hero-line--accent">Mejores decisiones.</span>
         </h1>
-        <p class="mt-6 max-w-[34ch] text-base leading-relaxed text-vogel-gray/90 sm:max-w-2xl sm:text-lg">
-          Implementamos soluciones concretas para ordenar operaciones, ahorrar tiempo y decidir con datos confiables.
-        </p>
-
-        <div class="mt-9 flex flex-wrap items-center gap-4">
-          <ActionButton
-            label="Responder encuesta IA para contadores"
-            href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
-            :external="true"
-            variant="accent"
-            data-analytics-cta="hero_accountants_ai_survey"
-            data-analytics-funnel="accountants_survey"
-            data-analytics-step="home"
-          />
-          <ActionButton
-            label="Ver soluciones"
-            href="#soluciones"
-            data-analytics-cta="hero_view_solutions"
-            data-analytics-funnel="lead_journey"
-            data-analytics-step="home"
-          />
-          <ActionButton
-            label="Ingresar al portal"
-            href="https://portal.vogelconsultoria.com.ar"
-            :external="true"
-            data-analytics-cta="hero_portal_access"
-            data-analytics-funnel="portal_access"
-            data-analytics-step="home"
-          />
-          <ActionButton
-            label="Hablar por WhatsApp"
-            href="https://wa.me/543743667526"
-            :external="true"
-            variant="secondary"
-            data-analytics-cta="hero_whatsapp"
-            data-analytics-funnel="lead_journey"
-            data-analytics-step="home"
-          />
-        </div>
-
-        <a
-          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-7 block max-w-xl rounded-2xl border border-vogel-amber/45 bg-vogel-navy/78 p-4 shadow-glow backdrop-blur transition hover:-translate-y-0.5 hover:border-vogel-amber hover:bg-vogel-navy focus-visible:ring-2 focus-visible:ring-vogel-amber"
-          data-analytics-cta="hero_accountants_ai_survey_panel"
-          data-analytics-funnel="accountants_survey"
-          data-analytics-step="home"
-        >
-          <span class="text-xs font-bold uppercase tracking-[0.22em] text-vogel-amber">Encuesta abierta</span>
-          <span class="mt-2 block text-base font-bold text-white">IA en estudios contables</span>
-          <span class="mt-1 block text-sm leading-relaxed text-vogel-gray/85">
-            Ayudanos a entender que tareas administrativas y contables conviene automatizar primero.
-          </span>
-        </a>
-      </div>
-
-      <div class="fade-up-delay relative min-w-0 overflow-hidden">
-        <div class="glass-panel overflow-hidden rounded-3xl p-3 shadow-glow sm:p-4">
-          <img
-            :src="dashboardMockup"
-            alt="Dashboard ejecutivo con indicadores, gráficos y alertas de negocio"
-            class="aspect-[4/3] w-full rounded-2xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="mt-4 rounded-2xl border border-vogel-blue/40 bg-gradient-to-r from-vogel-blue/25 to-vogel-amber/10 p-5">
-            <p class="text-sm font-semibold text-vogel-amber">Visión 360 del negocio</p>
-            <p class="mt-2 text-sm leading-relaxed text-vogel-gray/90">
-              Integración de datos, seguimiento de KPIs y automatización en una misma plataforma para decisiones rápidas y confiables.
-            </p>
+        <div class="hero-support">
+          <p>
+            Implementamos sistemas, automatización e IA para ordenar operaciones, ahorrar tiempo y decidir con datos confiables.
+          </p>
+          <div class="hero-actions">
+            <ActionButton
+              label="Agendar diagnóstico"
+              href="#contacto"
+              variant="accent"
+              data-analytics-cta="hero_diagnostic"
+              data-analytics-funnel="lead_journey"
+              data-analytics-step="home"
+            />
+            <ActionButton
+              label="Ver casos"
+              href="#casos"
+              variant="secondary"
+              data-analytics-cta="hero_view_cases"
+              data-analytics-funnel="lead_journey"
+              data-analytics-step="home"
+            />
           </div>
         </div>
+      </div>
 
-        <div class="pulse-ring absolute -bottom-4 -left-4 h-14 w-14 rounded-full bg-vogel-amber/20"></div>
+      <div class="hero-footer" aria-label="Capacidades principales">
+        <span>Sistemas a medida</span>
+        <span>Automatización</span>
+        <span>Inteligencia artificial aplicada</span>
+        <a href="#soluciones" aria-label="Desplazarse a problemas y soluciones">
+          <span>Explorar soluciones</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v15m-6-6 6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 </template>
 
-<script setup>
-import ActionButton from "./ActionButton.vue";
-import networkHero from "../assets/hero/network-intelligence.webp";
-import dashboardMockup from "../assets/hero/dashboard-mockup.webp";
-</script>
+<style scoped>
+.hero-section{min-height:min(880px,calc(100svh - 90px));display:flex;align-items:center;padding-block:clamp(56px,8vh,104px) 34px;overflow:clip}
+.hero-shell{display:flex;min-height:inherit;flex-direction:column;justify-content:center}
+.hero-copy{width:100%;max-width:1280px}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:clamp(24px,4vh,42px);color:var(--color-link);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.hero-eyebrow span{width:7px;height:7px;border-radius:50%;background:var(--color-action);box-shadow:0 0 20px rgb(var(--vogel-amber)/.38)}
+.hero-copy h1{font-size:clamp(3.3rem,8.25vw,8.4rem);font-weight:720;line-height:.86;letter-spacing:-.04em}
+.hero-line{display:block}
+.hero-line--accent{color:rgb(var(--vogel-blueLight));margin-top:.06em}
+.hero-support{display:grid;grid-template-columns:minmax(0,520px) auto;align-items:end;gap:36px;margin-top:clamp(28px,5vh,54px)}
+.hero-support>p{max-width:47ch;color:var(--color-text);font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.7}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-footer{display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:center;gap:20px;margin-top:clamp(54px,9vh,100px);padding-right:220px;padding-top:20px;border-top:1px solid rgb(var(--vogel-blueLight)/.24);color:var(--color-muted);font-size:.78rem;letter-spacing:.025em}
+.hero-footer>a{display:flex;align-items:center;gap:12px;color:var(--color-text);font-size:.75rem;white-space:nowrap}
+.hero-footer>a svg{width:18px;height:18px;transition:transform 180ms var(--ease-out)}
+.hero-footer>a:hover svg{transform:translateY(3px)}
+@media(max-width:1279px){.hero-support{grid-template-columns:1fr;gap:24px}.hero-footer{grid-template-columns:1fr 1fr;gap:14px 18px;padding-right:0}.hero-footer>a{grid-column:1/-1;grid-row:auto;justify-self:start}}
+@media(max-width:767px){.hero-section{min-height:auto;padding-block:52px 24px}.hero-shell{min-height:0}.hero-eyebrow{font-size:.65rem;margin-bottom:30px}.hero-copy h1{font-size:clamp(3.2rem,13vw,5.6rem);line-height:.91;letter-spacing:-.04em}.hero-line--accent{max-width:11ch}.hero-support{grid-template-columns:1fr;gap:24px;margin-top:32px}.hero-actions{gap:10px}.hero-footer{grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:40px;font-size:.7rem}.hero-footer span:nth-child(3){max-width:19ch}}
+@media(max-width:380px){.hero-copy h1{font-size:clamp(2.9rem,12.6vw,3.2rem)}.hero-actions :deep(.action-button){padding-inline:16px}}
+@media(prefers-reduced-motion:reduce){.hero-footer>a svg{transition:none}}
+</style>

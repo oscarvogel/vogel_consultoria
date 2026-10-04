@@ -18,14 +18,14 @@ const programBlocks = [
 </script>
 
 <template>
-  <section id="charla-ia-2026" class="relative scroll-mt-24 py-14 sm:py-18" aria-labelledby="charla-ia-heading">
+  <section id="charla-ia-2026" class="section-space" aria-labelledby="charla-ia-heading">
     <div class="section-shell">
-      <div class="grid gap-8 rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+      <div class="grid gap-8 rounded-2xl border border-vogel-gray/15 bg-vogel-navy p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div class="reveal">
           <SectionHeading
             id="charla-ia-heading"
             eyebrow="Charlas y capacitaciones"
-            title="IA practica para instituciones y empresas"
+            title="IA práctica para instituciones y empresas"
             description="Dictamos encuentros aplicados para equipos que necesitan entender, probar y usar inteligencia artificial con criterio profesional."
           />
 
@@ -73,12 +73,12 @@ const programBlocks = [
             class="reveal rounded-xl border border-vogel-gray/15 bg-white/[0.04] p-5 transition hover:border-vogel-amber/45 hover:bg-vogel-blue/10"
             :class="`reveal-d${(index % 3) + 1}`"
           >
-            <p class="text-sm font-semibold text-vogel-amber">0{{ index + 1 }}</p>
+
             <h3 class="mt-3 text-lg font-bold leading-tight text-white">{{ block.title }}</h3>
             <p class="mt-3 text-sm leading-relaxed text-vogel-gray/85">{{ block.description }}</p>
           </article>
         </div>
       </div>
     </div>
-  </section>
+  <div class="section-shell mt-6"><a href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia" target="_blank" rel="noopener noreferrer" class="text-link inline-flex min-h-11 items-center" data-analytics-cta="hero_accountants_ai_survey">¿Participaste de la charla? Respondé la encuesta para contadores.</a></div></section>
 </template>

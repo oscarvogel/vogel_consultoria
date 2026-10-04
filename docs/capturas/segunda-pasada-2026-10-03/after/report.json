@@ -1,0 +1,115 @@
+{
+  "phase": "after",
+  "date": "2026-10-03T23:11:52.913Z",
+  "captures": [
+    {
+      "name": "1440-inicio",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "1440-soluciones",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "1440-casos",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "1440-servicios",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "1440-recursos",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "1440-nosotros",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-inicio",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-soluciones",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-casos",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-servicios",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-recursos",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    },
+    {
+      "name": "390-nosotros",
+      "overflow": false,
+      "nav": {
+        "background": "rgba(0, 0, 0, 0)",
+        "filter": "blur(0.5px)"
+      },
+      "canvasCount": 1
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,289 @@
+import { onMounted, onUnmounted } from "vue";
+
+let motionModules;
+let textModule;
+
+async function loadTextMotion() {
+  const motion = await loadSiteMotion();
+  textModule ||= import("gsap/SplitText").then(module => {
+    const SplitText = module.SplitText || module.default;
+    motion.gsap.registerPlugin(SplitText);
+    return SplitText;
+  });
+  return { ...motion, SplitText: await textModule };
+}
+
+function revealHeading(element, gsap, SplitText) {
+  // Split only plain headings, never links, controls, or long paragraphs.
+  element.classList.add("is-text-split");
+  return SplitText.create(element, {
+    type: "words,chars",
+    aria: "auto",
+    onSplit(self) {
+      return gsap.from(self.chars, {
+        yPercent: 18,
+        opacity: .8,
+        duration: .55,
+        stagger: { amount: .26 },
+        ease: "power3.out",
+        onComplete: () => {
+          self.revert();
+          element.classList.remove("is-text-split");
+        },
+      });
+    },
+  });
+}
+
+export function loadSiteMotion() {
+  motionModules ||= Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([gsapModule, triggerModule]) => {
+    const gsap = gsapModule.gsap || gsapModule.default;
+    const ScrollTrigger = triggerModule.ScrollTrigger || triggerModule.default;
+    gsap.registerPlugin(ScrollTrigger);
+    return { gsap, ScrollTrigger };
+  });
+  return motionModules;
+}
+
+/** Scroll-linked reveals enhance the visible document; they never gate content. */
+export async function initStoryReveal(root = document, selector = ".reveal, .story-reveal, [data-story-reveal]") {
+  if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return () => {};
+  const { gsap, ScrollTrigger, SplitText } = await loadTextMotion();
+  await document.fonts?.ready;
+
+  const media = gsap.matchMedia();
+  media.add("(prefers-reduced-motion: no-preference)", () => {
+    const context = gsap.context(() => {}, root);
+    const observed = new WeakSet();
+    const headings = new WeakSet();
+    const splits = new Set();
+    let mutations;
+
+    const reveal = (element) => {
+      if (!(element instanceof Element) || observed.has(element)) return;
+      observed.add(element);
+      context.add(() => gsap.fromTo(element,
+        { y: 16 },
+        {
+          y: 0,
+          duration: 0.62,
+          ease: "power2.out",
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 88%",
+            once: true,
+            invalidateOnRefresh: true,
+          },
+        },
+      ));
+    };
+
+    const revealText = (element) => {
+      if (headings.has(element)) return;
+      headings.add(element);
+      context.add(() => ScrollTrigger.create({
+        trigger: element,
+        start: "top 86%",
+        once: true,
+        onEnter: () => context.add(() => splits.add(revealHeading(element, gsap, SplitText))),
+      }));
+    };
+
+    const scan = (node) => {
+      if (!(node instanceof Element)) return;
+      if (node.matches(selector)) reveal(node);
+      node.querySelectorAll(selector).forEach(reveal);
+      if (node.matches("[data-text-reveal]")) revealText(node);
+      node.querySelectorAll("[data-text-reveal]").forEach(revealText);
+    };
+
+    if (root instanceof Element) scan(root);
+    else {
+      root.querySelectorAll?.(selector).forEach(reveal);
+      root.querySelectorAll?.("[data-text-reveal]").forEach(revealText);
+    }
+    if ("MutationObserver" in window) {
+      mutations = new MutationObserver((records) => records.forEach((record) => {
+        record.addedNodes.forEach(scan);
+      }));
+      mutations.observe(root instanceof Document ? root.body : root, { childList: true, subtree: true });
+    }
+    document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
+    return () => {
+      mutations?.disconnect();
+      context.revert();
+      splits.forEach(split => split.revert());
+      root.querySelectorAll?.(".is-text-split").forEach(element => element.classList.remove("is-text-split"));
+    };
+  });
+
+  return () => media.revert();
+}
+
+export function useHeroMotion(root) {
+  let context;
+  let disposed = false;
+
+  onMounted(async () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    try {
+      const { gsap, ScrollTrigger, SplitText } = await loadTextMotion();
+      await document.fonts?.ready;
+      if (disposed || !root.value) return;
+
+      context = gsap.matchMedia();
+      context.add("(prefers-reduced-motion: no-preference)", () => {
+        const host = root.value;
+        const title = host.querySelector("h1");
+        const eyebrow = host.querySelector(".hero-eyebrow");
+        const supporting = host.querySelectorAll(".hero-support>p,.hero-actions,.hero-footer");
+        const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+        const split = revealHeading(title, gsap, SplitText);
+        intro.from(eyebrow, { y: 12, duration: 0.45, clearProps: "transform" })
+          .from(supporting, { y: 16, duration: 0.52, stagger: 0.07, clearProps: "transform" }, .2);
+
+        document.fonts?.ready.then(() => ScrollTrigger.refresh());
+        return () => {
+          intro.revert();
+          split.revert();
+          title.classList.remove("is-text-split");
+        };
+      });
+    } catch {
+      // The hero is fully visible without motion enhancement.
+    }
+  });
+
+  onUnmounted(() => {
+    disposed = true;
+    context?.revert();
+  });
+}
+
+export function useCaseMotion(root, onStepChange = () => {}) {
+  let media;
+  let disposed = false;
+
+  onMounted(async () => {
+    try {
+      const { gsap, ScrollTrigger } = await loadSiteMotion();
+      if (disposed || !root.value) return;
+      media = gsap.matchMedia();
+      media.add("(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)", () => {
+        const host = root.value;
+        host.classList.add("case-motion");
+        const screens = host.querySelectorAll(".case-screen");
+        const steps = host.querySelectorAll(".case-step");
+        const visual = host.querySelector(".case-visual");
+        const distance = () => Math.max(1, host.querySelector(".case-steps").offsetHeight - visual.offsetHeight);
+        let points = [];
+        let active = -1;
+        const measure = () => {
+          points = [0, ...Array.from(steps).slice(1).map(step =>
+            Math.max(0, Math.min(.92, (step.offsetTop - steps[0].offsetTop - window.innerHeight * .18) / distance())),
+          )];
+        };
+        const show = (index, immediate = false) => {
+          if (index === active) return;
+          active = index;
+          onStepChange(index);
+          steps.forEach((step, current) => step.classList.toggle("step-current", current === index));
+          screens.forEach((screen, current) => {
+            screen.setAttribute("aria-hidden", String(current !== index));
+            gsap.killTweensOf(screen);
+            gsap.to(screen, {
+              autoAlpha: current === index ? 1 : 0,
+              y: current === index ? 0 : -12,
+              scale: current === index ? 1 : .985,
+              duration: immediate ? 0 : .55,
+              ease: "power2.out",
+              overwrite: true,
+            });
+          });
+        };
+        measure();
+        gsap.set(screens, { autoAlpha: 0, y: 16 });
+        show(0, true);
+        const trigger = ScrollTrigger.create({
+            trigger: host.querySelector(".case-sequence"),
+            start: "top 116px",
+            end: () => `+=${distance()}`,
+            pin: visual,
+            pinSpacing: false,
+            invalidateOnRefresh: true,
+            onRefresh: measure,
+            onUpdate: (self) => {
+              show(points.reduce((index, point, current) => self.progress >= point ? current : index, 0));
+            },
+        });
+        const refresh = () => {
+          if (!disposed) ScrollTrigger.refresh();
+        };
+        const images = [...host.querySelectorAll("img")].filter((image) => !image.complete);
+        images.forEach((image) => image.addEventListener("load", refresh, { once: true }));
+        document.fonts?.ready.then(refresh);
+        return () => {
+          trigger.kill();
+          gsap.killTweensOf(screens);
+          gsap.set(screens, { clearProps: "opacity,visibility,transform" });
+          screens.forEach(screen => screen.removeAttribute("aria-hidden"));
+          host.classList.remove("case-motion");
+          steps.forEach((step) => step.classList.remove("step-current"));
+          images.forEach((image) => image.removeEventListener("load", refresh));
+        };
+      });
+    } catch {
+      // Keep the three steps and their images in normal document flow.
+    }
+  });
+
+  onUnmounted(() => {
+    disposed = true;
+    media?.revert();
+  });
+}
+
+export function useProcessMotion(root) {
+  let media;
+  let disposed = false;
+
+  onMounted(async () => {
+    try {
+      const { gsap, ScrollTrigger } = await loadSiteMotion();
+      if (disposed || !root.value) return;
+      media = gsap.matchMedia();
+      media.add("(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)", () => {
+        const host = root.value;
+        const steps = host.querySelectorAll(".process-step");
+        const list = host.querySelector("ol");
+        const progress = ScrollTrigger.create({
+          trigger: list,
+          start: "top 65%",
+          end: "bottom 40%",
+          onUpdate: (self) => host.style.setProperty("--process-progress", String(Math.max(0.25, self.progress))),
+        });
+        const triggers = [...steps].map((step) => ScrollTrigger.create({
+          trigger: step,
+          start: "top 65%",
+          end: "bottom 40%",
+          onToggle: (state) => step.classList.toggle("step-current", state.isActive),
+        }));
+        return () => {
+          progress.kill();
+          triggers.forEach((trigger) => trigger.kill());
+          host.style.removeProperty("--process-progress");
+          steps.forEach((step) => step.classList.remove("step-current"));
+        };
+      });
+    } catch {
+      // The sticky intro and steps remain available as ordinary content.
+    }
+  });
+
+  onUnmounted(() => {
+    disposed = true;
+    media?.revert();
+  });
+}

@@ -1,17 +1,17 @@
 <template>
-  <section id="nosotros" class="py-20 sm:py-24" aria-labelledby="nosotros-heading">
+  <section id="nosotros" class="section-space" aria-labelledby="nosotros-heading">
     <div class="section-shell">
       <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div class="reveal rounded-3xl border border-vogel-gray/20 bg-vogel-deep/70 p-8 shadow-glow sm:p-10">
-          <SectionHeading id="nosotros-heading" eyebrow="Quién soy" title="Oscar Vogel, tecnología con criterio de negocio" />
+          <SectionHeading id="nosotros-heading" title="Tecnología con criterio de negocio" />
           <p class="mt-5 text-base leading-relaxed text-vogel-gray/90">
-            Soy desarrollador de software y consultor tecnológico con más de 25 años de experiencia implementando
+            En Vogel ayudamos a empresas a ordenar procesos, conectar información y tomar decisiones con claridad. Oscar Vogel es desarrollador de software y consultor tecnológico con más de 25 años de experiencia implementando
             sistemas de gestión, facturación, automatizaciones y soluciones web para empresas. En Vogel Consultoría
-            combino desarrollo, administración y capacitación para ordenar procesos y convertir información dispersa
+            combinamos desarrollo, administración y capacitación para ordenar procesos y convertir información dispersa
             en decisiones útiles.
           </p>
           <p class="mt-4 text-base leading-relaxed text-vogel-muted">
-            Trabajo sobre necesidades reales de operación: ventas, administración, trazabilidad, reportes, integración
+            Trabajamos sobre necesidades reales de operación: ventas, administración, trazabilidad, reportes, integración
             de bases de datos, modernización de sistemas existentes e inteligencia artificial aplicada con criterio.
           </p>
 
@@ -19,13 +19,13 @@
             <ActionButton
               label="Descargar CV"
               href="/cv-jose-oscar-vogel.pdf"
-              variant="accent"
+              variant="secondary"
               data-analytics-cta="about_download_cv"
               data-analytics-funnel="lead_journey"
               data-analytics-step="about"
             />
             <ActionButton
-              label="Agendar reunión"
+              label="Agendar diagnóstico"
               href="#contacto"
               variant="secondary"
               data-analytics-cta="about_schedule_meeting"
@@ -35,9 +35,9 @@
           </div>
         </div>
 
-        <div class="reveal reveal-d2 rounded-3xl border border-vogel-amber/30 bg-gradient-to-br from-vogel-blue/15 to-vogel-navy p-8 sm:p-10">
+        <div class="reveal reveal-d2 rounded-3xl border border-vogel-amber/30 bg-vogel-navy p-8 sm:p-10">
           <p class="font-display text-2xl font-bold leading-snug text-vogel-amber sm:text-3xl">
-            "No vendemos software.<br />Resolvemos problemas."
+            "Sistemas que acompañan<br />el trabajo real."
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             <div v-for="metric in metrics" :key="metric.label" class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-4">
@@ -50,7 +50,7 @@
 
       <div class="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="reveal reveal-d3 rounded-3xl border border-vogel-gray/15 bg-white/[0.04] p-8">
-          <h3 class="font-display text-xl font-bold text-white">Especialidades</h3>
+          <h3 class="font-display text-xl font-bold text-white">Capacidades técnicas</h3>
           <div class="mt-5 flex flex-wrap gap-2">
             <span
               v-for="skill in skills"
@@ -63,7 +63,7 @@
         </div>
 
         <div class="reveal reveal-d4 rounded-3xl border border-vogel-gray/15 bg-white/[0.04] p-8">
-          <h3 class="font-display text-xl font-bold text-white">Experiencia que se traduce en implementación</h3>
+          <h3 class="font-display text-xl font-bold text-white">Oscar Vogel, tecnología con criterio de negocio</h3>
           <div class="mt-5 grid gap-4 sm:grid-cols-2">
             <article v-for="item in experience" :key="item.title" class="border-l border-vogel-amber/50 pl-4">
               <p class="text-sm font-semibold uppercase tracking-[0.14em] text-vogel-amber">{{ item.period }}</p>

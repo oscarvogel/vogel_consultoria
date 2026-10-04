@@ -1,23 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./ia.html", "./inteligencia-artificial/index.html", "./encuesta-contadores/index.html", "./automatizaciones/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: ["./*.html", "./*/index.html", "./recursos/*/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        display: ["Syne", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {
+        background: "var(--color-background)",
+        surface: "var(--color-surface)",
+        panel: "var(--color-panel)",
+        foreground: "var(--color-text)",
+        muted: "var(--color-muted)",
+        link: "var(--color-link)",
+        action: "var(--color-action)",
+        focus: "var(--color-focus)",
+        error: "var(--color-error)",
+        success: "var(--color-success)",
         vogel: {
-          deep: "#0F2A44",
-          blue: "#1E5FA8",
-          blueLight: "#8BC5FF",
-          bright: "#196ECF",
-          gray: "#E5E7EB",
-          amber: "#F2A900",
-          slate: "#162f49",
-          navy: "#0B2035",
-          muted: "#8ea8c3",
+          deep: "rgb(var(--vogel-deep) / <alpha-value>)",
+          blue: "rgb(var(--vogel-blue) / <alpha-value>)",
+          blueLight: "rgb(var(--vogel-blueLight) / <alpha-value>)",
+          bright: "rgb(var(--vogel-bright) / <alpha-value>)",
+          gray: "rgb(var(--vogel-gray) / <alpha-value>)",
+          amber: "rgb(var(--vogel-amber) / <alpha-value>)",
+          slate: "rgb(var(--vogel-slate) / <alpha-value>)",
+          navy: "rgb(var(--vogel-navy) / <alpha-value>)",
+          muted: "rgb(var(--vogel-muted) / <alpha-value>)",
         },
       },
       spacing: {
@@ -25,9 +35,9 @@ export default {
         22: "5.5rem",
       },
       boxShadow: {
-        glow: "0 20px 45px -20px rgba(30, 95, 168, 0.65)",
-        "glow-amber": "0 20px 45px -20px rgba(242, 169, 0, 0.45)",
-        "glow-lg": "0 32px 80px -24px rgba(30, 95, 168, 0.8)",
+        glow: "var(--shadow-panel)",
+        "glow-amber": "var(--shadow-panel)",
+        "glow-lg": "var(--shadow-panel)",
       },
       backgroundImage: {
         "grid-soft":

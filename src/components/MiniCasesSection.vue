@@ -1,63 +1,30 @@
-<template>
-  <section id="casos" class="py-20 sm:py-24" aria-labelledby="mini-cases-heading">
-    <div class="section-shell">
-      <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-        <div class="reveal">
-          <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Mini-casos</p>
-          <h2 id="mini-cases-heading" class="mt-3 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-            Problemas reales, soluciones aplicadas con criterio
-          </h2>
-          <p class="mt-4 text-sm leading-relaxed text-vogel-muted sm:text-base">
-            Compartimos casos anónimos cuando no corresponde publicar nombres, pero sí el tipo de problema,
-            la solución y el resultado operativo buscado.
-          </p>
-        </div>
-
-        <div class="grid gap-5">
-          <article
-            v-for="(miniCase, index) in miniCases"
-            :key="miniCase.rubro"
-            class="reveal rounded-3xl border border-vogel-gray/20 bg-white/[0.04] p-5 shadow-glow sm:p-7"
-            :class="`reveal-d${index + 1}`"
-          >
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p class="text-xs font-bold uppercase tracking-[0.22em] text-vogel-blueLight">Caso anonimo</p>
-                <h3 class="mt-2 font-display text-2xl font-bold text-white">{{ miniCase.rubro }}</h3>
-              </div>
-              <span class="w-fit rounded-full border border-vogel-amber/35 bg-vogel-amber/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-vogel-amber">
-                Datos de produccion
-              </span>
-            </div>
-
-            <div class="mt-6 grid gap-4 md:grid-cols-3">
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Problema</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.problema }}</p>
-              </div>
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Solucion</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.solucion }}</p>
-              </div>
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Resultado</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.resultado }}</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-const miniCases = [
-  {
-    rubro: "Forestal",
-    problema: "falta de datos de produccion para seguir el trabajo operativo con informacion confiable.",
-    solucion: "sistema de recoleccion de datos en campo para registrar informacion desde el lugar donde ocurre la operacion.",
-    resultado: "dashboards interactivos para visualizar produccion, comparar informacion y facilitar decisiones de gestion.",
-  },
+import {ref} from 'vue';
+import field from '../assets/cases/forestal-campo.png';
+import review from '../assets/cases/forestal-revision.png';
+import dashboard from '../assets/cases/forestal-dashboard.png';
+import dashboardDesktop from '../assets/cases/forestal-dashboard-desktop.png';
+import {useCaseMotion} from '../composables/useSiteMotion.js';
+const root=ref(null);
+const activeStep=ref(0);
+useCaseMotion(root,index=>{activeStep.value=index;});
+const steps=[
+ {title:'Registrar donde ocurre el trabajo.',text:'La falta de datos de producción dificulta seguir la operación. Un sistema de recolección de datos en campo reúne equipo, proceso, tiempos y producción en un registro.',caption:'Captura en campo',image:field,alt:'Formulario de producción forestal con datos de demostración.'},
+ {title:'Revisar antes de consolidar.',text:'El operador puede revisar los datos de la jornada antes de confirmar. La información conserva su contexto para que el equipo pueda consultarla y trabajar con un registro trazable.',caption:'Revisión del registro',image:review,alt:'Pantalla de revisión de un registro forestal ficticio.'},
+ {title:'Convertir el registro en una decisión.',text:'Los dashboards interactivos permiten visualizar producción, comparar información y facilitar decisiones de gestión. El tablero muestra indicadores, evolución y detalle operativo.',caption:'Dashboard de producción',desktopImage:dashboardDesktop,image:dashboard,alt:'Dashboard operativo del encargado con indicadores y gráficos. Todos los valores son ficticios.'}
 ];
 </script>
+<template>
+<section ref="root" id="casos" class="case-section section-space" aria-labelledby="mini-cases-heading">
+ <div class="section-shell"><div class="case-heading" data-story-reveal><div><h2 id="mini-cases-heading" class="section-title" data-text-reveal>Una operación forestal.<br>Una misma información.</h2><p class="section-description">Caso anónimo: del dato registrado en campo a una vista compartida de producción. Así conectamos el trabajo diario con la gestión.</p></div><p class="demo-label">Interfaz real con datos de demostración.<br>Las cifras no representan resultados de un cliente.</p></div>
+ <div class="case-sequence"><ol class="case-steps"><li v-for="(step,index) in steps" :key="step.title" class="case-step"><span class="step-index">{{ String(index+1).padStart(2,'0') }} / 03</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p><figure class="case-mobile-screen"><img :src="step.image" :alt="step.alt" width="390" :height="index === 2 ? 1873 : index === 1 ? 1449 : 901" loading="lazy" decoding="async"/><figcaption>{{ step.caption }} · Datos de demostración</figcaption></figure><a v-if="index===2" class="text-link" href="/dashboards-ejecutivos/">Conocer el servicio de dashboards</a></li></ol><div class="case-visual"><figure v-for="step in steps" :key="step.caption" class="case-screen"><div class="case-image"><img :src="step.desktopImage || step.image" :alt="step.alt" :width="step.desktopImage ? 1440 : 390" :height="step.desktopImage ? 1151 : step.caption === 'Revisión del registro' ? 1449 : 901" loading="lazy" decoding="async"/></div><figcaption>{{ step.caption }}<span>Datos de demostración</span></figcaption></figure><div class="case-progress" aria-hidden="true"><span>{{ String(activeStep+1).padStart(2, '0') }} / 03</span><div class="case-progress-track"><span v-for="(_, index) in steps" :key="index" :class="{ 'is-current': index === activeStep }"></span></div><span>Del campo a la decisión</span></div></div></div>
+ </div>
+</section>
+</template>
+<style scoped>
+.case-mobile-screen{display:none}.case-section{background:transparent}.case-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px}.demo-label{max-width:27ch;font-size:13px;line-height:1.7;color:var(--color-muted)}.case-sequence{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}.case-steps{display:grid;gap:48px}.case-step{padding-block:20px;border-top:1px solid var(--color-border)}.step-index{font-size:13px;letter-spacing:.08em;color:var(--color-muted);font-variant-numeric:tabular-nums}.case-step h3{font-size:clamp(24px,2.7vw,38px);line-height:1.12;max-width:18ch;margin-top:22px;font-weight:700}.case-step p{margin-top:20px;color:var(--color-muted);max-width:45ch;line-height:1.8}.case-step a{display:inline-block;margin-top:24px}.case-visual{display:grid;gap:32px;align-content:start}.case-screen{margin:0}.case-image{background:var(--color-background);border-radius:16px;padding:20px;display:flex;justify-content:center;overflow:hidden}.case-image img{max-height:520px;object-fit:contain;width:auto;max-width:100%;height:auto;border-radius:8px}.case-screen figcaption{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-top:16px}.case-screen figcaption span{font-size:12px;color:var(--color-muted)}.case-motion .case-steps{gap:0}.case-motion .case-step{min-height:65vh;display:flex;flex-direction:column;justify-content:center;padding-block:40px}.case-motion .case-visual{position:relative;height:570px;display:block}.case-motion .case-screen{position:absolute;inset:0}.step-current .step-index{color:var(--color-action)}
+.case-progress{display:none}.case-motion .case-visual{height:min(610px,calc(100svh - 180px))}.case-motion .case-screen{bottom:44px}.case-motion .case-image{height:calc(100% - 54px);align-items:center}.case-motion .case-image img{max-height:100%}.case-motion .case-progress{position:absolute;bottom:0;inset-inline:0;display:flex;align-items:center;gap:12px;font-size:12px;font-variant-numeric:tabular-nums;color:var(--color-text)}.case-progress-track{display:flex;gap:6px;flex:1}.case-progress-track>span{height:2px;flex:1;background:var(--color-border);transition:background-color 180ms var(--ease-out)}.case-progress-track>.is-current{background:var(--color-link)}
+@media(max-width:1023px){.case-mobile-screen{display:block;margin-top:24px}.case-mobile-screen img{max-height:650px;width:100%;object-fit:contain;background:var(--color-background);border-radius:12px}.case-mobile-screen figcaption{font-size:13px;color:var(--color-muted);margin-top:12px}.case-sequence>.case-visual{display:none}.case-heading{display:block;margin-bottom:36px}.demo-label{margin-top:24px;max-width:none}.case-sequence{grid-template-columns:1fr;gap:40px}.case-steps{gap:24px}.case-visual{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.case-image{padding:8px}.case-screen figcaption{display:block}.case-screen figcaption span{display:block;margin-top:6px}}
+@media(max-width:639px){.case-visual{grid-template-columns:1fr}.case-image{padding:16px}.case-image img{max-height:none;width:100%;max-width:340px}.case-screen:last-child img{max-height:850px;object-fit:contain}.case-step{padding-block:24px}.case-step h3{max-width:none}.case-screen figcaption{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.case-step{min-height:0 !important}.case-visual{position:static !important;height:auto !important}.case-screen{position:static !important;opacity:1 !important;visibility:visible !important;transform:none !important}}
+</style>

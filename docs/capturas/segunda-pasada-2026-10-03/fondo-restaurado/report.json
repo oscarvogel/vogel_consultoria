@@ -1,0 +1,46 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "section": "inicio",
+    "canvasCount": 1,
+    "mainOverlay": "none",
+    "navBackground": "rgba(0, 0, 0, 0)",
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "section": "recursos",
+    "canvasCount": 1,
+    "mainOverlay": "none",
+    "navBackground": "rgba(0, 0, 0, 0)",
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "section": "inicio",
+    "canvasCount": 1,
+    "mainOverlay": "none",
+    "navBackground": "rgba(0, 0, 0, 0)",
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "section": "recursos",
+    "canvasCount": 1,
+    "mainOverlay": "none",
+    "navBackground": "rgba(0, 0, 0, 0)",
+    "overflow": false
+  }
+]

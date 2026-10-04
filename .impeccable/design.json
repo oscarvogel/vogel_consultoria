@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T15:40:12.034Z",
+  "title": "Design System: Vogel Consultoría",
+  "extensions": {
+    "colorMeta": {
+      "deep": {
+        "role": "neutral",
+        "displayName": "Azul profundo",
+        "tonalRamp": [
+          "oklch(15.00% 0.05838 249.97)",
+          "oklch(26.43% 0.05838 249.97)",
+          "oklch(37.86% 0.05838 249.97)",
+          "oklch(49.29% 0.05838 249.97)",
+          "oklch(60.71% 0.05838 249.97)",
+          "oklch(72.14% 0.05838 249.97)",
+          "oklch(83.57% 0.05838 249.97)",
+          "oklch(95.00% 0.05838 249.97)"
+        ]
+      },
+      "navy": {
+        "role": "neutral",
+        "displayName": "Navy profundo",
+        "tonalRamp": [
+          "oklch(15.00% 0.04871 250.59)",
+          "oklch(26.43% 0.04871 250.59)",
+          "oklch(37.86% 0.04871 250.59)",
+          "oklch(49.29% 0.04871 250.59)",
+          "oklch(60.71% 0.04871 250.59)",
+          "oklch(72.14% 0.04871 250.59)",
+          "oklch(83.57% 0.04871 250.59)",
+          "oklch(95.00% 0.04871 250.59)"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate ejecutivo",
+        "tonalRamp": [
+          "oklch(15.00% 0.05682 251.08)",
+          "oklch(26.43% 0.05682 251.08)",
+          "oklch(37.86% 0.05682 251.08)",
+          "oklch(49.29% 0.05682 251.08)",
+          "oklch(60.71% 0.05682 251.08)",
+          "oklch(72.14% 0.05682 251.08)",
+          "oklch(83.57% 0.05682 251.08)",
+          "oklch(95.00% 0.05682 251.08)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Azul institucional",
+        "tonalRamp": [
+          "oklch(15.00% 0.13358 254.38)",
+          "oklch(26.43% 0.13358 254.38)",
+          "oklch(37.86% 0.13358 254.38)",
+          "oklch(49.29% 0.13358 254.38)",
+          "oklch(60.71% 0.13358 254.38)",
+          "oklch(72.14% 0.13358 254.38)",
+          "oklch(83.57% 0.13358 254.38)",
+          "oklch(95.00% 0.13358 254.38)"
+        ]
+      },
+      "bright": {
+        "role": "primary",
+        "displayName": "Azul de refuerzo",
+        "tonalRamp": [
+          "oklch(15.00% 0.16858 255.61)",
+          "oklch(26.43% 0.16858 255.61)",
+          "oklch(37.86% 0.16858 255.61)",
+          "oklch(49.29% 0.16858 255.61)",
+          "oklch(60.71% 0.16858 255.61)",
+          "oklch(72.14% 0.16858 255.61)",
+          "oklch(83.57% 0.16858 255.61)",
+          "oklch(95.00% 0.16858 255.61)"
+        ]
+      },
+      "blue-light": {
+        "role": "primary",
+        "displayName": "Azul claro",
+        "tonalRamp": [
+          "oklch(15.00% 0.10227 249.20)",
+          "oklch(26.43% 0.10227 249.20)",
+          "oklch(37.86% 0.10227 249.20)",
+          "oklch(49.29% 0.10227 249.20)",
+          "oklch(60.71% 0.10227 249.20)",
+          "oklch(72.14% 0.10227 249.20)",
+          "oklch(83.57% 0.10227 249.20)",
+          "oklch(95.00% 0.10227 249.20)"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Ámbar de diagnóstico",
+        "tonalRamp": [
+          "oklch(15.00% 0.16385 77.58)",
+          "oklch(26.43% 0.16385 77.58)",
+          "oklch(37.86% 0.16385 77.58)",
+          "oklch(49.29% 0.16385 77.58)",
+          "oklch(60.71% 0.16385 77.58)",
+          "oklch(72.14% 0.16385 77.58)",
+          "oklch(83.57% 0.16385 77.58)",
+          "oklch(95.00% 0.16385 77.58)"
+        ]
+      },
+      "gray": {
+        "role": "neutral",
+        "displayName": "Gris claro",
+        "tonalRamp": [
+          "oklch(15.00% 0.00581 264.53)",
+          "oklch(26.43% 0.00581 264.53)",
+          "oklch(37.86% 0.00581 264.53)",
+          "oklch(49.29% 0.00581 264.53)",
+          "oklch(60.71% 0.00581 264.53)",
+          "oklch(72.14% 0.00581 264.53)",
+          "oklch(83.57% 0.00581 264.53)",
+          "oklch(95.00% 0.00581 264.53)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Azul grisáceo",
+        "tonalRamp": [
+          "oklch(15.00% 0.04894 249.49)",
+          "oklch(26.43% 0.04894 249.49)",
+          "oklch(37.86% 0.04894 249.49)",
+          "oklch(49.29% 0.04894 249.49)",
+          "oklch(60.71% 0.04894 249.49)",
+          "oklch(72.14% 0.04894 249.49)",
+          "oklch(83.57% 0.04894 249.49)",
+          "oklch(95.00% 0.04894 249.49)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Borde tenue",
+        "tonalRamp": [
+          "oklch(15.00% 0.00581 264.53 / .18)",
+          "oklch(26.43% 0.00581 264.53 / .18)",
+          "oklch(37.86% 0.00581 264.53 / .18)",
+          "oklch(49.29% 0.00581 264.53 / .18)",
+          "oklch(60.71% 0.00581 264.53 / .18)",
+          "oklch(72.14% 0.00581 264.53 / .18)",
+          "oklch(83.57% 0.00581 264.53 / .18)",
+          "oklch(95.00% 0.00581 264.53 / .18)"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error suave",
+        "tonalRamp": [
+          "oklch(15.00% 0.05926 18.33)",
+          "oklch(26.43% 0.05926 18.33)",
+          "oklch(37.86% 0.05926 18.33)",
+          "oklch(49.29% 0.05926 18.33)",
+          "oklch(60.71% 0.05926 18.33)",
+          "oklch(72.14% 0.05926 18.33)",
+          "oklch(83.57% 0.05926 18.33)",
+          "oklch(95.00% 0.05926 18.33)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Portada",
+        "purpose": "Título de portada; variantes móvil y tablet documentadas."
+      },
+      "headline": {
+        "displayName": "Sección",
+        "purpose": "Jerarquía entre bloques institucionales."
+      },
+      "title": {
+        "displayName": "Servicio",
+        "purpose": "Titulares de fichas."
+      },
+      "body": {
+        "displayName": "Lectura",
+        "purpose": "Descripción cómoda de hasta 65ch."
+      },
+      "button": {
+        "displayName": "Acción",
+        "purpose": "Etiquetas semibold de acciones."
+      },
+      "label": {
+        "displayName": "Metadata",
+        "purpose": "Notas e identificación demo."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel",
+        "value": "0 24px 64px -32px rgb(var(--vogel-navy) / .75)",
+        "purpose": "Menú y contenedores con alias Tailwind de sombra."
+      },
+      {
+        "name": "product-preview",
+        "value": "0 30px 60px -20px rgb(var(--vogel-navy) / .9)",
+        "purpose": "Capturas superpuestas de portada."
+      },
+      {
+        "name": "consent",
+        "value": "0 18px 50px rgba(0,0,0,.35)",
+        "purpose": "Capa fija de preferencias de medición."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Cambio de transform de fichas."
+      },
+      {
+        "name": "action-state",
+        "value": "180ms ease-out",
+        "purpose": "Hover y active de acciones."
+      },
+      {
+        "name": "hero-phrase",
+        "value": "0.65s power3.out",
+        "purpose": "Entrada de frase con no-preference, también móvil."
+      },
+      {
+        "name": "hero-field",
+        "value": "0.7s power3.out",
+        "purpose": "Entrada de pantalla con no-preference."
+      },
+      {
+        "name": "case-scrub",
+        "value": "0.35",
+        "purpose": "Scrub GSAP exclusivamente >=1024px / >=700px y no-preference."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "Transiciones CSS prácticamente inmediatas; pin y entradas GSAP desactivados."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "navigation-desktop",
+        "value": "1200px"
+      },
+      {
+        "name": "automation-mobile",
+        "value": "850px"
+      },
+      {
+        "name": "navigation-compact",
+        "value": "600px"
+      },
+      {
+        "name": "motion-min-height",
+        "value": "700px"
+      }
+    ],
+    "evidence": {
+      "basis": "Inspección estática de fuentes y consulta de docs/redisenio-implementacion-2026-10-03.md; no se utilizó navegador en esta documentación.",
+      "generalScreenshots": "Comparación general inicial/final pendiente: faltan capturas exportadas como archivos.",
+      "forestalScreenshots": "Capturas actuales completadas y archivadas para viewports 390×844 y 1440×1000, modo mock con fixtures ficticios.",
+      "forestalSourceCommit": "8d6ab7bd217eeda01d61eb404ea49d5b57ef77a4",
+      "forestalAssets": {
+        "desktopDashboard": "src/assets/cases/forestal-dashboard-desktop.png (1440×1151)",
+        "mobileDashboard": "src/assets/cases/forestal-dashboard.png (390×1873)",
+        "review": "src/assets/cases/forestal-revision.png (390×1449)"
+      },
+      "independentReview": "Foco/formulario y enlace alternativo al iframe resueltos por revisión de código; recapture permanece pendiente por capturas generales faltantes.",
+      "verificationReport": "docs/redisenio-implementacion-2026-10-03.md registra build, contratos, contraste y observaciones de browser; no equivale a certificación visual integral ni verifica envíos reales a servicios externos.",
+      "tonalRamps": "Ramps derivados de RGB a OKLCH para el panel; no son tokens de producción. Chroma constante; el navegador puede mapear valores fuera de gamut."
+    },
+    "semanticRoles": {
+      "background": "--color-background",
+      "surface": "--color-surface",
+      "panel": "--color-panel",
+      "foreground": "--color-text",
+      "muted": "--color-muted",
+      "link": "--color-link",
+      "action": "--color-action",
+      "focus": "--color-focus",
+      "error": "--color-error",
+      "success": "--color-success"
+    }
+  },
+  "components": [
+    {
+      "name": "Diagnóstico",
+      "kind": "button",
+      "refersTo": "button-diagnostic",
+      "description": "Acción comercial principal; equivale a ActionButton variant accent.",
+      "html": "<a class=\"ds-diagnostic\" href=\"#contacto\">Agendar diagnóstico<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-diagnostic{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:var(--color-action,rgb(242 169 0));color:var(--color-action-text,rgb(11 32 53));border-color:var(--color-action,rgb(242 169 0))}.ds-diagnostic:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-diagnostic:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-diagnostic:hover{background:rgb(var(--vogel-white,255 255 255));border-color:rgb(var(--vogel-white,255 255 255))}}@media(prefers-reduced-motion:reduce){.ds-diagnostic{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Servicio",
+      "kind": "button",
+      "refersTo": "button-service",
+      "description": "Acción azul; equivale a ActionButton variant primary.",
+      "html": "<a class=\"ds-service\" href=\"#servicios\">Explorar servicio<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-service{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:rgb(var(--vogel-blue,30 95 168));color:var(--color-heading,rgb(255 255 255));border-color:rgb(var(--vogel-blue,30 95 168))}.ds-service:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-service:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-service:hover{background:rgb(var(--vogel-bright,25 110 207))}}@media(prefers-reduced-motion:reduce){.ds-service{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Acción secundaria",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Exploración o canal complementario.",
+      "html": "<a class=\"ds-secondary\" href=\"#casos\">Ver casos<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:transparent;color:var(--color-text,rgb(229 231 235))}.ds-secondary:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-secondary:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-secondary:hover{background:var(--color-panel,rgb(22 47 73));border-color:var(--color-link,rgb(139 197 255))}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Campo de contacto",
+      "kind": "input",
+      "refersTo": "input-contact",
+      "description": "Etiqueta persistente, placeholder muted opaco y foco ámbar.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Nombre y apellido</label><input id=\"ds-name\" autocomplete=\"name\" required placeholder=\"Ej: Juan Perez\"/></div>",
+      "css": ".ds-field{font-family:var(--font-body,'DM Sans',sans-serif)}.ds-field label{display:block;margin-bottom:6px;font-size:14px;font-weight:500;color:var(--color-text,rgb(229 231 235))}.ds-field input{width:100%;padding:10px 16px;border:1px solid rgb(var(--vogel-gray,229 231 235)/.3);border-radius:12px;background:rgb(var(--vogel-navy,11 32 53)/.8);color:var(--color-heading,rgb(255 255 255));font:inherit;font-size:16px;line-height:1.5;caret-color:var(--color-action,rgb(242 169 0))}.ds-field input::placeholder{color:var(--color-muted,rgb(142 168 195));opacity:1}.ds-field input:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}"
+    },
+    {
+      "name": "Servicio en panel",
+      "kind": "card",
+      "refersTo": "service-card",
+      "description": "Ficha de servicio sólida con enlace y levantamiento al hover.",
+      "html": "<a class=\"ds-card\" href=\"#servicios\"><h3>Sistemas a medida</h3><p>Plataformas para ordenar procesos, conectar áreas y mejorar trazabilidad.</p><span>Explorar servicio<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-card{display:flex;flex-direction:column;background:var(--color-panel,rgb(22 47 73));border-radius:16px;padding:28px;color:var(--color-text,rgb(229 231 235));text-decoration:none;font-family:var(--font-body,'DM Sans',sans-serif);transition:transform 200ms var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color 200ms ease-out}.ds-card h3{font-family:var(--font-display,'Syne',sans-serif);font-size:25px;font-weight:600;line-height:1.15;margin:0;color:var(--color-heading,rgb(255 255 255))}.ds-card p{color:var(--color-muted,rgb(142 168 195));font-size:15px;line-height:1.75;margin:18px 0 24px}.ds-card span{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--color-link,rgb(139 197 255))}.ds-card:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-card:hover{transform:translateY(-4px);background:rgb(var(--vogel-blue,30 95 168)/.25)}}@media(prefers-reduced-motion:reduce){.ds-card{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Navegación de servicios",
+      "kind": "nav",
+      "description": "Fragmento autónomo del details y desplegable de la cabecera.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Servicios\"><details><summary>Servicios<svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" aria-hidden=\"true\"><path d=\"m5 7 5 5 5-5\"/></svg></summary><div><a href=\"#servicios\">Ver todos los servicios</a><a href=\"/dashboards-ejecutivos/\">Dashboards ejecutivos</a></div></details></nav>",
+      "css": ".ds-nav{padding:12px 18px;background:rgb(var(--vogel-navy,11 32 53)/.94);backdrop-filter:blur(16px);border:1px solid var(--color-border,rgb(229 231 235/.18));border-radius:14px;color:var(--color-text,rgb(229 231 235));font-family:var(--font-body,'DM Sans',sans-serif);font-size:13px;font-weight:500}.ds-nav summary{display:flex;align-items:center;gap:6px;cursor:pointer;list-style:none;min-height:44px}.ds-nav summary::-webkit-details-marker{display:none}.ds-nav details>div{margin-top:18px;padding:10px;border:1px solid var(--color-border,rgb(229 231 235/.18));border-radius:12px;background:var(--color-panel,rgb(22 47 73));box-shadow:var(--shadow-panel,0 24px 64px -32px rgb(11 32 53/.75))}.ds-nav a{display:block;padding:12px;border-radius:6px;color:inherit;text-decoration:none}.ds-nav a:hover,.ds-nav a:focus-visible{background:var(--color-background,rgb(11 32 53));color:var(--color-link,rgb(139 197 255))}.ds-nav summary:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-nav a:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}"
+    },
+    {
+      "name": "Tag ARCA",
+      "kind": "chip",
+      "description": "Indicador editorial de plan; no es un filtro interactivo.",
+      "html": "<span class=\"ds-tag\">Plan mensual</span>",
+      "css": ".ds-tag{display:inline-block;width:max-content;border:1px solid rgb(var(--vogel-blueLight,139 197 255)/.35);border-radius:999px;color:var(--color-link,rgb(139 197 255));font-family:var(--font-body,'DM Sans',sans-serif);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 9px}"
+    },
+    {
+      "name": "Paso de metodología",
+      "kind": "custom",
+      "description": "Fila numerada legible en flujo normal; versión activa con ámbar.",
+      "html": "<article class=\"ds-step\"><span>01</span><div><h3>Diagnóstico</h3><p>Entendemos tu operación y priorizamos oportunidades.</p></div></article>",
+      "css": ".ds-step{display:flex;gap:26px;padding:38px 0 50px;border-top:1px solid var(--color-border,rgb(229 231 235/.18));font-family:var(--font-body,'DM Sans',sans-serif)}.ds-step>span{font-family:var(--font-display,'Syne',sans-serif);font-size:24px;color:var(--color-action,rgb(242 169 0));font-variant-numeric:tabular-nums}.ds-step h3{margin:0;font-family:var(--font-display,'Syne',sans-serif);font-size:28px;font-weight:600;color:var(--color-heading,rgb(255 255 255))}.ds-step p{margin-top:18px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}"
+    },
+    {
+      "name": "Fila de recurso",
+      "kind": "custom",
+      "description": "Índice editorial con categoría, lectura, fecha y enlace; artículos conservan su layout.",
+      "html": "<article class=\"ds-resource\"><div class=\"ds-resource-meta\"><p>Datos y gestión</p><span>5 min de lectura</span><time datetime=\"2026-10-03\">3 oct 2026</time></div><div><h2><a href=\"/recursos/\">Guías para decidir con claridad</a></h2><p>Ideas prácticas para ordenar tecnología, datos e IA en empresas.</p><a class=\"ds-resource-read\" href=\"/recursos/\">Leer guía <span aria-hidden=\"true\">→</span></a></div></article>",
+      "css": ".ds-resource{display:grid;grid-template-columns:.3fr 1fr;gap:48px;padding-block:40px;border-top:1px solid var(--color-border,rgb(229 231 235/.18));font-family:var(--font-body,'DM Sans',sans-serif)}.ds-resource-meta{font-size:13px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}.ds-resource-meta p{margin:0;color:var(--color-link,rgb(139 197 255))}.ds-resource-meta span,.ds-resource-meta time{display:block;margin-top:10px}.ds-resource h2{font-family:var(--font-display,'Syne',sans-serif);font-size:clamp(24px,3vw,36px);line-height:1.2;max-width:35ch;font-weight:600;margin:0;color:var(--color-heading,rgb(255 255 255))}.ds-resource h2 a{color:inherit;text-decoration:none}.ds-resource h2 a:hover{color:var(--color-link,rgb(139 197 255))}.ds-resource>div>p:not(.ds-resource-meta p){max-width:65ch;margin-block:20px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}.ds-resource-read{color:var(--color-link,rgb(139 197 255));text-decoration:underline;text-underline-offset:.24em;text-decoration-thickness:1px;display:inline-flex;min-height:44px;align-items:center}.ds-resource-read span{margin-left:12px}.ds-resource a:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}@media(max-width:639px){.ds-resource{grid-template-columns:1fr;gap:20px}.ds-resource-meta{display:flex;gap:16px;flex-wrap:wrap}.ds-resource-meta span,.ds-resource-meta time{margin:0}}"
+    },
+    {
+      "name": "Consentimiento analítico",
+      "kind": "custom",
+      "refersTo": "consent-banner",
+      "description": "Muestra autónoma de la capa de preferencias; sin lógica de almacenamiento ni envío.",
+      "html": "<div class=\"ds-consent\" role=\"dialog\" aria-label=\"Preferencias de medición\"><p>Usamos Google Analytics para medir visitas y mejorar el sitio. Podemos guardar cookies de medición y publicidad solo si aceptás.</p><div><button type=\"button\" class=\"ds-consent-accept\">Aceptar medición</button><button type=\"button\">Solo necesario</button></div></div>",
+      "css": ".ds-consent{display:grid;gap:12px;max-width:620px;padding:16px;border:1px solid rgba(229,231,235,.22);border-radius:18px;background:var(--color-panel,rgb(22 47 73));box-shadow:0 18px 50px rgba(0,0,0,.35);color:var(--color-text,rgb(229 231 235));font:400 14px/1.5 'DM Sans',Arial,sans-serif}.ds-consent p{margin:0}.ds-consent>div{display:flex;flex-wrap:wrap;gap:10px}.ds-consent button{border:1px solid rgba(229,231,235,.35);border-radius:8px;background:transparent;color:var(--color-text,rgb(229 231 235));font:700 13px/1.2 'DM Sans',Arial,sans-serif;min-height:44px;padding:10px 14px;cursor:pointer}.ds-consent button.ds-consent-accept{border-color:var(--color-action,rgb(242 169 0));background:var(--color-action,rgb(242 169 0));color:var(--color-action-text,rgb(11 32 53))}.ds-consent button:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La mesa de decisiones",
+    "overview": "El sistema presenta tecnología con claridad ejecutiva: base azul profunda, titulares firmes, lectura cómoda y evidencia de interfaces reales. La identidad oficial de Vogel Consultoría permanece como autoridad: logo, paleta, Syne y DM Sans, junto con una voz profesional orientada a empresas argentinas.\n\nLa profundidad surge de capas tonales y de la relación entre información e imágenes. Los paneles sólidos dominan la nueva portada; la navegación es la superficie con vidrio y desenfoque. Las capturas de la operación forestal muestran interfaces auténticas con datos ficticios identificados, sin atribuir cifras a resultados de un cliente. El movimiento acompaña la secuencia y conserva una lectura completa cuando se desactiva.",
+    "keyCharacteristics": [
+      "Azul profundo con jerarquía clara entre fondo, sección y panel.",
+      "Ámbar contenido para el diagnóstico y pequeños puntos de foco.",
+      "Titulares Syne y texto/UI DM Sans.",
+      "Evidencia de producto identificada como demostración.",
+      "Lectura accesible sin depender del movimiento."
+    ],
+    "rules": [
+      {
+        "name": "The Foco Ámbar Rule",
+        "body": "El ámbar dirige a una acción o a un estado preciso; conservar la proporción contenida del manual de marca como criterio compositivo, sin presentarla como una medición automática del sitio.",
+        "section": "colors"
+      },
+      {
+        "name": "The Voz Clara Rule",
+        "body": "Priorizar títulos legibles y texto explicativo; conservar Syne para jerarquía y DM Sans para lectura e interacción.",
+        "section": "typography"
+      },
+      {
+        "name": "The Material Legible Rule",
+        "body": "Usar separación tonal y espacio para organizar contenido; reservar el desenfoque de fondo para la cabecera.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** consultar el manual de marca antes de nuevas piezas y conservar assets oficiales del logo sin deformarlos.",
+      "**Do** reutilizar los canales RGB compartidos entre Tailwind y CSS de ARCA.",
+      "**Do** reservar el ámbar para diagnóstico y estados precisos, con foco de teclado visible.",
+      "**Do** identificar las capturas forestales como interfaz real con datos de demostración.",
+      "**Do** preservar contenido legible en móvil, reduced motion y fallo de motion.",
+      "**Do** comprobar composición, keyboard y formularios con evidencia guardada antes de declarar QA visual concluida."
+    ],
+    "donts": [
+      "**Don't** sustituir la identidad por una paleta ajena, iconos infantiles o promesas genéricas de IA.",
+      "**Don't** convertir cifras de fixtures en resultados comerciales de clientes.",
+      "**Don't** aplicar desenfoque de superficie a paneles de contenido.",
+      "**Don't** ocultar contenido esencial hasta que una animación termine.",
+      "**Don't** presentar inspección de código o capturas parciales como comparación visual inicial/final completa."
+    ]
+  }
+}

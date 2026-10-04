@@ -1,68 +1,18 @@
-<template>
-  <section class="py-20 sm:py-24" aria-labelledby="proceso-heading">
-    <div class="section-shell">
-      <SectionHeading
-        id="proceso-heading"
-        eyebrow="Cómo trabajamos"
-        title="Metodología clara para implementar con foco en impacto"
-        class="reveal"
-      />
-
-      <div class="relative mt-14">
-        <!-- Connecting line desktop -->
-        <div
-          class="absolute left-0 right-0 top-[2.4rem] hidden h-px bg-gradient-to-r from-transparent via-vogel-blue/50 to-transparent md:block"
-          aria-hidden="true"
-        ></div>
-
-        <ol class="grid gap-6 md:grid-cols-4">
-          <li
-            v-for="(step, index) in steps"
-            :key="step.label"
-            class="reveal group relative flex flex-col items-start"
-            :class="`reveal-d${index + 1}`"
-          >
-            <div
-              class="relative z-10 mb-5 flex h-[4.8rem] w-[4.8rem] items-center justify-center rounded-full border-2 border-vogel-blue bg-vogel-navy font-display text-lg font-bold text-white shadow-glow transition duration-300 group-hover:border-vogel-amber group-hover:shadow-glow-amber"
-            >
-              {{ String(index + 1).padStart(2, "0") }}
-            </div>
-
-            <div class="w-full rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-5 transition duration-300 group-hover:border-vogel-blue/50">
-              <p class="text-xs font-semibold uppercase tracking-[0.1em] text-vogel-amber">{{ step.eyebrow }}</p>
-              <h3 class="mt-1 font-display text-base font-bold text-white">{{ step.label }}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-vogel-muted">{{ step.description }}</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import SectionHeading from "./SectionHeading.vue";
-
-const steps = [
-  {
-    eyebrow: "Paso 01",
-    label: "Diagnóstico",
-    description: "Entendemos tu operación, detectamos fricciones y priorizamos oportunidades de impacto.",
-  },
-  {
-    eyebrow: "Paso 02",
-    label: "Diseño de solución",
-    description: "Definimos la arquitectura y el enfoque antes de escribir una línea de código.",
-  },
-  {
-    eyebrow: "Paso 03",
-    label: "Implementación",
-    description: "Desarrollamos, integramos y desplegamos con ciclos cortos y feedback continuo.",
-  },
-  {
-    eyebrow: "Paso 04",
-    label: "Mejora continua",
-    description: "Medimos resultados, ajustamos y escalamos la solución con el crecimiento del negocio.",
-  },
+import {ref} from 'vue';
+import {useProcessMotion} from '../composables/useSiteMotion.js';
+const root=ref(null);useProcessMotion(root);
+const steps=[
+ {label:'Diagnóstico',description:'Entendemos tu operación, detectamos fricciones y priorizamos oportunidades de impacto.'},
+ {label:'Diseño de solución',description:'Definimos la arquitectura y el enfoque antes de escribir una línea de código.'},
+ {label:'Implementación',description:'Desarrollamos, integramos y desplegamos con ciclos cortos y feedback continuo.'},
+ {label:'Mejora continua',description:'Medimos resultados, ajustamos y acompañamos el crecimiento de la solución.'}
 ];
 </script>
+<template><section ref="root" id="metodologia" class="section-space" aria-labelledby="proceso-heading"><div class="section-shell process-layout"><div class="process-intro" data-story-reveal><h2 id="proceso-heading" class="section-title" data-text-reveal>Un proceso claro.<br>De principio a implementación.</h2><p class="section-description">Primero entendemos el negocio. Después construimos la solución, por etapas y con tu equipo.</p><div class="process-progress" aria-hidden="true"><span></span></div><a class="text-link" href="#contacto">Empezar con un diagnóstico</a></div><ol><li v-for="(step,index) in steps" :key="step.label" class="process-step" data-story-reveal><span class="step-index">{{ String(index+1).padStart(2,'0') }}</span><div><h3>{{ step.label }}</h3><p>{{ step.description }}</p></div></li></ol></div></section></template>
+<style scoped>
+.process-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}.process-intro{position:sticky;top:var(--header-offset)}.process-intro>a{display:inline-block;margin-top:32px}.process-progress{height:2px;background:var(--color-border);margin-top:32px;max-width:300px}.process-progress span{display:block;height:100%;width:100%;background:var(--color-link);transform-origin:left;transform:scaleX(var(--process-progress,.25));transition:transform 200ms ease-out}.process-step{display:flex;gap:26px;padding:38px 0 50px;border-top:1px solid var(--color-border);min-height:240px}.step-index{font-family:var(--font-display);font-size:24px;color:var(--color-muted);font-variant-numeric:tabular-nums}.process-step h3{font-size:28px;font-weight:600}.process-step p{margin-top:18px;line-height:1.8;color:var(--color-muted)}.step-current .step-index{color:var(--color-action)}
+@media(max-width:1023px),(max-height:699px){.process-intro{position:static}.process-progress{display:none}.process-step{min-height:0}}
+@media(max-width:767px){.process-layout{grid-template-columns:1fr;gap:40px}.process-step{padding-block:28px}.process-step h3{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.process-intro{position:static}.process-progress{display:none}.process-step{min-height:0}}
+</style>
