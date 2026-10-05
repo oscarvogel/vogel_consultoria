@@ -6,12 +6,6 @@ import { getRelatedServices } from "../data/servicePages.js";
 import Navbar from "./Navbar.vue";
 import FooterSection from "./FooterSection.vue";
 import WhatsAppButton from "./WhatsAppButton.vue";
-import ChapterVisual from "./ChapterVisual.vue";
-const chapterFrames = [
-  { mode: 'order', label: 'Problema · información y fricciones' },
-  { mode: 'connect', label: 'Capacidad · proceso definido' },
-  { mode: 'decide', label: 'Entregable · una operación que funciona' },
-];
 
 const props = defineProps({
   page: {
@@ -29,9 +23,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
 
     <Navbar />
     <main id="service-content" tabindex="-1">
-      <section data-narrative-hero="100" data-chapter="neutral" class="relative isolate overflow-hidden py-8 sm:py-10 lg:py-12">
-        <div class="ambient-blob left-[-8rem] top-[-8rem] h-72 w-72 bg-vogel-blue/30"></div>
-        <div class="ambient-blob bottom-[-10rem] right-[-6rem] h-80 w-80 bg-vogel-amber/10"></div>
+      <section  data-chapter="neutral" class="relative isolate overflow-hidden py-8 sm:py-10 lg:py-12">
 
         <div class="section-shell" data-hero-stage>
           <a
@@ -96,9 +88,9 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <div class="service-story-core" data-narrative-steps data-chapter="connect">
-      <div class="chapter-copy" data-narrative-copy>
-      <section data-narrative-step class="py-16 sm:py-20" aria-labelledby="problemas-heading">
+      <div class="service-story-core"  data-chapter="connect">
+      <div class="chapter-copy" >
+      <section  class="py-16 sm:py-20" aria-labelledby="problemas-heading">
         <div class="section-shell">
           <div class="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
@@ -177,7 +169,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section data-narrative-step class="py-8 sm:py-12" aria-labelledby="incluye-heading">
+      <section  class="py-8 sm:py-12" aria-labelledby="incluye-heading">
         <div class="section-shell">
           <div class="grid gap-5 lg:grid-cols-2">
             <article class="rounded-3xl border border-vogel-gray/20 bg-vogel-deep/55 p-6 shadow-glow sm:p-8">
@@ -207,7 +199,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
         </div>
       </section>
 
-      <section data-narrative-step class="py-12 sm:py-16" aria-labelledby="entregables-heading">
+      <section  class="py-12 sm:py-16" aria-labelledby="entregables-heading">
         <div class="section-shell">
           <div class="rounded-3xl border border-vogel-gray/15 bg-vogel-navy/55 p-6 sm:p-8">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -241,7 +233,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
       </section>
 
       </div>
-      <ChapterVisual :frames="chapterFrames" />
+
       </div>
 
       <section data-chapter="neutral" class="py-12 sm:py-16" aria-labelledby="faq-heading">

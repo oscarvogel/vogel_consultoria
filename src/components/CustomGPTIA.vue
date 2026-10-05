@@ -16,7 +16,7 @@ const useCases = [
     <div class="section-shell">
       <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
         <div class="reveal relative overflow-hidden rounded-3xl border border-vogel-gray/20 bg-white/[0.06] p-6 shadow-glow sm:p-8">
-          <div class="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(242,169,0,0.12),rgba(30,95,168,0.18)_42%,rgba(15,42,68,0.92))]"></div>
+          <div class="absolute inset-0 -z-10 bg-vogel-slate"></div>
 
           <p class="text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">GPT personalizado</p>
           <h2 id="gpt-personalizado-heading" class="mt-3 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">

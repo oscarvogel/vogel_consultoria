@@ -195,7 +195,7 @@ function testNavbarServicesMenu() {
   assert(navbar.includes("/inteligencia-artificial/"), "Navbar.vue: missing IA service menu link");
 }
 
-function testNavbarLiquidGlassIconsAndCurrentState() {
+function testNavbarBrandAndCurrentState() {
   const navbar = readProjectFile("src/components/Navbar.vue");
   const iconFiles = [
     "agendar-diagnostico.svg?raw",
@@ -215,8 +215,8 @@ function testNavbarLiquidGlassIconsAndCurrentState() {
 
   assert(navbar.includes("aria-current"), "Navbar.vue: current route and section must be announced");
   assert(navbar.includes("requestAnimationFrame") && navbar.includes("cancelAnimationFrame"), "Navbar.vue: scroll tracking must be frame scheduled and cleaned up");
-  assert(/backdrop-filter:\s*blur\([\d.]+px\)/.test(navbar), "Navbar.vue: missing glass backdrop treatment");
-  assert(navbar.includes("prefers-reduced-transparency: reduce"), "Navbar.vue: missing reduced-transparency fallback");
+  assert(navbar.includes("vogel-v-amber.svg") && navbar.includes("is-scrolled"), "Navbar.vue: missing new brand or readable scrolling treatment");
+  assert(!navbar.includes("backdrop-filter:"), "Navbar.vue: obsolete glass treatment");
 }
 
 function testAnalyticsEventAttributes() {
@@ -252,7 +252,7 @@ function testResourcesContent() {
   const section = readProjectFile("src/components/HomeEvidence.vue");
   const resourceIndex = readProjectFile("recursos/index.html");
 
-  assert(app.includes("ServicesSection") && readProjectFile("src/components/ServicesSection.vue").includes('kind="resources"'), "home capabilities must include resource discovery");
+  assert(app.includes("ServicesSection") && readProjectFile("src/components/SecondaryContent.vue").includes('kind="resources"'), "home capabilities must include resource discovery");
   assert(section.includes("content_discovery"), "ResourcesSection.vue: resource links must be analytics-tagged");
   assert(resourceIndex.includes('<script type="module" src="/src/resources.js"></script>'), "recursos/index.html: missing resources entry script");
 
@@ -297,7 +297,7 @@ function testPortalAccessLinks() {
 
   assert(navbar.includes(portalUrl), "Navbar.vue: missing portal access link");
   assert(navbar.includes("Ingresar al portal"), "Navbar.vue: portal access link must be clearly labeled");
-  assert(hero.includes("Agendar diagnóstico"), "HeroSection.vue: missing primary diagnostic CTA");
+  assert(hero.includes("Explorar soluciones") && navbar.includes("Agendar diagnóstico"), "Hero and navbar must expose their agreed actions");
   assert(navbar.includes("navbar_portal_access"), "Navbar.vue: missing portal analytics");
 }
 
@@ -310,6 +310,7 @@ function testUiRefinements() {
   assert(!contact.includes('id="contacto-telefono" required'), "phone must remain optional");
   const proof=readProjectFile("src/components/ClientProof.vue");
   assert(proof.includes("webProjects"), "early proof must use the existing project catalogue");
+  assert(readProjectFile("scripts/capture-landscape-poster.mjs").includes("toDataURL"), "Landscape poster must be exported from the canvas buffer, without HTML overlays");
   const provenance=JSON.parse(readProjectFile("public/clients/provenance.json"));
   for(const file of Object.keys(provenance.sources)) assert(fs.existsSync(path.join(root,"public/clients",file)), `missing local client logo ${file}`);
   for(const file of ["index.html","src/SurveyApp.vue",...expectedServiceIds.map(id=>`${id}/index.html`)]) {
@@ -340,7 +341,7 @@ const tests = [
   ["Vite inputs", testViteInputs],
   ["discovery files", testDiscoveryFiles],
   ["navbar services menu", testNavbarServicesMenu],
-  ["navbar liquid glass icons and current state", testNavbarLiquidGlassIconsAndCurrentState],
+  ["navbar brand and current state", testNavbarBrandAndCurrentState],
   ["analytics event attributes", testAnalyticsEventAttributes],
   ["commercial email destination", testCommercialEmailDestination],
   ["resources content", testResourcesContent],

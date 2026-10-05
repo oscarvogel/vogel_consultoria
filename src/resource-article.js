@@ -4,9 +4,7 @@ import { getResource } from "./data/resources.js";
 import { getServicePage } from "./data/servicePages.js";
 import { initAnalytics } from "./lib/analytics.js";
 import "./style.css";
-import { mountWavesBackground } from "./lib/mountWavesBackground.js";
 
-mountWavesBackground();
 
 const root = document.getElementById("resource-article-app");
 const resourceId = root?.dataset.resourceId;

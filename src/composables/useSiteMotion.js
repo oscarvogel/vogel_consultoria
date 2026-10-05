@@ -1,6 +1,6 @@
 import { onMounted, onUnmounted } from "vue";
-import { initNarrative } from "../lib/narrativeMotion.js";
 import "../styles/narrative.css";
+import "lenis/dist/lenis.css";
 
 let motionModules;
 let textModule;
@@ -52,9 +52,34 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
   if (!root) return () => {};
   const { gsap, ScrollTrigger, SplitText } = await loadTextMotion();
   await document.fonts?.ready;
-  const disposeNarrative = initNarrative(root, { gsap, ScrollTrigger });
 
   const media = gsap.matchMedia();
+  const { default: Lenis } = await import('lenis');
+  media.add('(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
+    const lenis = new Lenis({ lerp: .085, smoothWheel: true, syncTouch: false,
+      anchors: false, prevent: node => Boolean(node.closest?.('.mobile-nav,.services-dropdown,textarea,select,[data-lenis-prevent]')) });
+    const tick = time => lenis.raf(time * 1000);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(tick);
+    return () => { gsap.ticker.remove(tick); lenis.off('scroll', ScrollTrigger.update); lenis.destroy(); };
+  });
+  media.add('(min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference)', () => {
+    const hero = root.querySelector?.('.landscape-hero');
+    if (!hero) return;
+    const scene = gsap.context(() => {
+      gsap.to(hero.querySelector('.hero-copy'), { y: -64, ease: 'none', scrollTrigger: {
+        trigger: hero, start: 'top top', end: 'bottom top', scrub: .6, invalidateOnRefresh: true } });
+      const intro = root.querySelector('.solutions-section .section-introduction');
+      if (intro) gsap.fromTo(intro, { y: 48 }, { y: 0, ease: 'none', scrollTrigger: {
+        trigger: intro, start: 'top bottom', end: 'top 50%', scrub: .6, invalidateOnRefresh: true } });
+      const methodLine = root.querySelector('.home-method-line>span');
+      root.querySelectorAll('.trace-wave').forEach(wave => gsap.fromTo(wave, { y: 12 }, { y: -8, ease: 'none', scrollTrigger: {
+        trigger: wave.closest('.home-section'), start: 'top bottom', end: 'bottom top', scrub: .8, invalidateOnRefresh: true } }));
+      if (methodLine) gsap.fromTo(methodLine, { scaleX: .08 }, { scaleX: 1, ease: 'none', scrollTrigger: {
+        trigger: methodLine.closest('.home-method'), start: 'top 85%', end: 'bottom 60%', scrub: .6, invalidateOnRefresh: true } });
+    }, root);
+    return () => scene.revert();
+  });
   media.add("(prefers-reduced-motion: no-preference)", () => {
     const context = gsap.context(() => {}, root);
     const observed = new WeakSet();
@@ -122,7 +147,7 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
     };
   });
 
-  return () => { media.revert(); disposeNarrative(); };
+  return () => { media.revert(); };
 }
 
 export function useCaseMotion(root, onStepChange = () => {}) {

@@ -22,7 +22,6 @@ export default defineConfig({
         entryFileNames: "assets/[name]-[hash].js",
         manualChunks: {
           vue: ["vue"],
-          react: ["react", "react-dom"],
         },
       },
       input: {

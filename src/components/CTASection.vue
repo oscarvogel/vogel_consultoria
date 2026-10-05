@@ -1,7 +1,7 @@
 <script setup>
 import { shallowRef, ref, nextTick } from "vue";
 import ActionButton from "./ActionButton.vue";
-import HomeChapterLabel from "./HomeChapterLabel.vue";
+import DataLandscape from "./DataLandscape.vue";
 import { trackEvent } from "../lib/analytics.js";
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
@@ -57,9 +57,8 @@ async function resetForm() {
 
 <template>
   <section
-    data-home-chapter="contact"
-    id="contacto"
-    class="home-chapter home-contact"
+        id="contacto"
+    class="home-section home-contact"
     aria-labelledby="contacto-heading"
     data-analytics-view="contact_section"
     data-analytics-funnel="lead_journey"
@@ -67,7 +66,6 @@ async function resetForm() {
   >
     <div class="section-shell">
       <div>
-        <HomeChapterLabel number="07" label="CONTACTO" />
         <div class="relative text-left">
 
           <h2 id="contacto-heading" class="section-title max-w-3xl">
@@ -204,5 +202,6 @@ async function resetForm() {
         </div>
       </div>
     </div>
+    <DataLandscape variant="closing" />
   </section>
 </template>

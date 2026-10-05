@@ -2,9 +2,7 @@ import { createApp, nextTick } from "vue";
 import App from "./App.vue";
 import { initAnalytics } from "./lib/analytics.js";
 import "./style.css";
-import { mountWavesBackground } from "./lib/mountWavesBackground.js";
 
-mountWavesBackground();
 
 initAnalytics();
 

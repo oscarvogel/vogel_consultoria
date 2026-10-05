@@ -60,7 +60,7 @@ const relatedServices = computed(() => getRelatedServices(props.service));
               </section>
             </div>
 
-            <aside data-story-reveal class="rounded-2xl border border-vogel-amber/25 bg-vogel-navy p-6 shadow-glow lg:sticky lg:top-28">
+            <aside data-story-reveal class="rounded-2xl border border-vogel-amber/25 bg-vogel-navy p-6 shadow-glow ">
               <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-amber">Checklist rápido</p>
               <ul class="mt-5 space-y-3">
                 <li v-for="item in resource.checklist" :key="item" class="flex gap-3 text-sm leading-relaxed text-vogel-gray">

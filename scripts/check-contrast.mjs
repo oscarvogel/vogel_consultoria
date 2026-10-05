@@ -12,5 +12,5 @@ for(const [foreground,background] of [["navy","amber"],["white","blue"],["white"
  const ratio=contrast(channels[foreground],channels[background]);assert(ratio>=4.5,foreground+" / "+background+" below 4.5");rows.push({foreground,background,ratio:Number(ratio.toFixed(2))});
 }
 fs.mkdirSync(new URL("../docs/verificaciones/",import.meta.url),{recursive:true});
-fs.writeFileSync(new URL("../docs/verificaciones/contraste.json",import.meta.url),JSON.stringify({scope:"Tokens oficiales sobre superficies sólidas. No certifica texto directamente sobre el shader animado, transparencias ni la navbar transparente.",rows},null,2)+"\n");
-console.log("ok - "+rows.length+" pares de tokens sobre superficies sólidas superan 4.5:1; shader y navbar fuera del cálculo estático");
+fs.writeFileSync(new URL("../docs/verificaciones/contraste.json",import.meta.url),JSON.stringify({scope:"Tokens vigentes sobre superficies sólidas. No certifica contraste en cada frame del paisaje, imágenes ni fondos compuestos.",rows},null,2)+"\n");
+console.log("ok - "+rows.length+" pares de tokens sobre superficies sólidas superan 4.5:1; paisaje y fondos compuestos fuera del cálculo estático");

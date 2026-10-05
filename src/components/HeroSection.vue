@@ -1,25 +1,21 @@
 <script setup>
 import ActionButton from './ActionButton.vue';
-import HomeChapterLabel from './HomeChapterLabel.vue';
-import HomeDataScene from './HomeDataScene.vue';
+import DataLandscape from './DataLandscape.vue';
 </script>
 <template>
- <section id="inicio" class="home-hero home-chapter" data-home-chapter="intro" data-analytics-view="home_entry" data-analytics-funnel="lead_journey" data-analytics-step="home" aria-labelledby="hero-title">
-  <div class="section-shell">
-   <HomeChapterLabel number="01" label="INTRO" />
-   <div class="home-hero-stage">
-    <div class="hero-copy">
-     <p class="home-business-label">Consultoría tecnológica para empresas</p>
-     <h1 id="hero-title">Datos claros.<br>Procesos conectados.<br><span>Mejores decisiones.</span></h1>
-     <p class="home-hero-description">Implementamos sistemas, automatización e IA para ordenar operaciones, ahorrar tiempo y decidir con datos confiables.</p>
-     <div class="hero-actions">
-      <ActionButton label="Agendar diagnóstico" href="#contacto" variant="accent" data-analytics-cta="hero_diagnostic" data-analytics-funnel="lead_journey" data-analytics-step="home" />
-      <ActionButton label="Ver casos" href="#casos" variant="secondary" data-analytics-cta="hero_view_cases" data-analytics-funnel="lead_journey" data-analytics-step="home" />
-     </div>
-    </div>
-    <div class="home-hero-visual" data-home-moment="hero"><HomeDataScene /></div>
-   </div>
-   <a class="home-handoff" href="#soluciones">Del dato disperso a una operación conectada.<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v15m-6-6 6 6 6-6" stroke="currentColor" stroke-width="1.5"/></svg></a>
+ <section id="inicio" class="landscape-hero" data-analytics-view="home_entry" data-analytics-funnel="lead_journey" data-analytics-step="home" aria-labelledby="hero-title">
+  <div class="hero-copy section-shell">
+   <p class="hero-eyebrow">Tecnología <span>·</span> Procesos <span>·</span> Resultados</p>
+   <h1 id="hero-title">Convertimos procesos<br>en <span>información útil.</span></h1>
+   <p class="hero-description">Sistemas, automatización, datos e IA para empresas que<br class="desktop-break"> necesitan trabajar con más control y mejores decisiones.</p>
+   <ActionButton label="Explorar soluciones" href="#soluciones" variant="accent" data-analytics-cta="hero_explore_solutions" data-analytics-funnel="lead_journey" data-analytics-step="home" />
   </div>
+  <DataLandscape />
+  <div class="landscape-labels" aria-label="Soluciones destacadas">
+   <a class="terrain-label terrain-label--systems" href="/sistemas-a-medida/" data-analytics-cta="hero_landscape_systems"><span></span>Sistemas a medida<i aria-hidden="true"></i></a>
+   <a class="terrain-label terrain-label--automation" href="/automatizacion-de-procesos/" data-analytics-cta="hero_landscape_automation"><span></span>Automatización<i aria-hidden="true"></i></a>
+   <a class="terrain-label terrain-label--data" href="/dashboards-ejecutivos/" data-analytics-cta="hero_landscape_dashboards"><span></span>Datos &amp; dashboards<i aria-hidden="true"></i></a>
+  </div>
+  <a class="discover-link" href="#soluciones"><svg width="24" height="40" viewBox="0 0 24 40" fill="none" aria-hidden="true"><rect x="3" y="1" width="18" height="33" rx="9" stroke="currentColor"/><path d="M12 8v6" stroke="currentColor"/></svg><span>Descubrir más</span><i aria-hidden="true"></i></a>
  </section>
 </template>

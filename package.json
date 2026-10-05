@@ -9,14 +9,16 @@
     "preview": "vite preview",
     "test": "node scripts/test-site.mjs",
     "test:contrast": "node scripts/check-contrast.mjs",
-    "test:ui": "node scripts/test-ui-refinements.mjs",
-    "test:narrative": "node scripts/test-narrative.mjs",
-    "test:narrative:behavior": "node scripts/test-narrative-behavior.mjs"
+    "test:ui": "node scripts/test-landscape.mjs ui",
+    "test:narrative": "node scripts/test-landscape.mjs motion",
+    "test:narrative:behavior": "node scripts/test-landscape.mjs behavior"
   },
   "dependencies": {
     "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "three": "^0.186.1",
     "vue": "^3.5.18"
   },
   "devDependencies": {

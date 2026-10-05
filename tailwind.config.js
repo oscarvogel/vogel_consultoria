@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Bricolage Grotesque", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["DM Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {

@@ -1,7 +1,7 @@
 <template>
-  <section data-home-chapter="about" id="nosotros" class="home-chapter home-about" aria-labelledby="nosotros-heading">
+  <section data-home-chapter="about" id="nosotros" class="home-section home-about" aria-labelledby="nosotros-heading">
+    <LandscapeTraces variant="trajectory" />
     <div class="section-shell">
-      <HomeChapterLabel number="06" label="NOSOTROS" />
       <div data-chapter-outro class="about-intro">
         <div>
           <p class="home-business-label">Tecnología con criterio de negocio</p><h2 id="nosotros-heading" class="section-title">Oscar Vogel.</h2>
@@ -45,7 +45,7 @@
 </template>
 <script setup>
 import ActionButton from "./ActionButton.vue";
-import HomeChapterLabel from "./HomeChapterLabel.vue";
+import LandscapeTraces from './LandscapeTraces.vue';
 
 // A supplied real portrait can be added without leaving an empty placeholder today.
 defineProps({ portraitSrc: { type: String, default: '' } });

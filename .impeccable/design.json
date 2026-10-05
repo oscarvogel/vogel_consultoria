@@ -1,54 +1,54 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-04T23:49:47.394009+00:00",
+  "generatedAt": "2026-10-05T01:39:29.930135+00:00",
   "title": "Design System: Vogel Consultoría",
   "extensions": {
     "colorMeta": {
       "deep": {
         "role": "neutral",
-        "displayName": "Azul profundo",
+        "displayName": "deep",
         "tonalRamp": [
-          "oklch(15.00% 0.05838 249.97)",
-          "oklch(26.43% 0.05838 249.97)",
-          "oklch(37.86% 0.05838 249.97)",
-          "oklch(49.29% 0.05838 249.97)",
-          "oklch(60.71% 0.05838 249.97)",
-          "oklch(72.14% 0.05838 249.97)",
-          "oklch(83.57% 0.05838 249.97)",
-          "oklch(95.00% 0.05838 249.97)"
+          "oklch(15.00% 0.02234 251.98)",
+          "oklch(26.43% 0.02234 251.98)",
+          "oklch(37.86% 0.02234 251.98)",
+          "oklch(49.29% 0.02234 251.98)",
+          "oklch(60.71% 0.02234 251.98)",
+          "oklch(72.14% 0.02234 251.98)",
+          "oklch(83.57% 0.02234 251.98)",
+          "oklch(95.00% 0.02234 251.98)"
         ]
       },
       "navy": {
         "role": "neutral",
-        "displayName": "Navy profundo",
+        "displayName": "navy",
         "tonalRamp": [
-          "oklch(15.00% 0.04871 250.59)",
-          "oklch(26.43% 0.04871 250.59)",
-          "oklch(37.86% 0.04871 250.59)",
-          "oklch(49.29% 0.04871 250.59)",
-          "oklch(60.71% 0.04871 250.59)",
-          "oklch(72.14% 0.04871 250.59)",
-          "oklch(83.57% 0.04871 250.59)",
-          "oklch(95.00% 0.04871 250.59)"
+          "oklch(15.00% 0.01572 253.54)",
+          "oklch(26.43% 0.01572 253.54)",
+          "oklch(37.86% 0.01572 253.54)",
+          "oklch(49.29% 0.01572 253.54)",
+          "oklch(60.71% 0.01572 253.54)",
+          "oklch(72.14% 0.01572 253.54)",
+          "oklch(83.57% 0.01572 253.54)",
+          "oklch(95.00% 0.01572 253.54)"
         ]
       },
       "slate": {
         "role": "neutral",
-        "displayName": "Slate ejecutivo",
+        "displayName": "slate",
         "tonalRamp": [
-          "oklch(15.00% 0.05682 251.08)",
-          "oklch(26.43% 0.05682 251.08)",
-          "oklch(37.86% 0.05682 251.08)",
-          "oklch(49.29% 0.05682 251.08)",
-          "oklch(60.71% 0.05682 251.08)",
-          "oklch(72.14% 0.05682 251.08)",
-          "oklch(83.57% 0.05682 251.08)",
-          "oklch(95.00% 0.05682 251.08)"
+          "oklch(15.00% 0.02400 251.59)",
+          "oklch(26.43% 0.02400 251.59)",
+          "oklch(37.86% 0.02400 251.59)",
+          "oklch(49.29% 0.02400 251.59)",
+          "oklch(60.71% 0.02400 251.59)",
+          "oklch(72.14% 0.02400 251.59)",
+          "oklch(83.57% 0.02400 251.59)",
+          "oklch(95.00% 0.02400 251.59)"
         ]
       },
       "blue": {
-        "role": "primary",
-        "displayName": "Azul institucional",
+        "role": "secondary",
+        "displayName": "blue",
         "tonalRamp": [
           "oklch(15.00% 0.13358 254.38)",
           "oklch(26.43% 0.13358 254.38)",
@@ -61,8 +61,8 @@
         ]
       },
       "bright": {
-        "role": "primary",
-        "displayName": "Azul de refuerzo",
+        "role": "secondary",
+        "displayName": "bright",
         "tonalRamp": [
           "oklch(15.00% 0.16858 255.61)",
           "oklch(26.43% 0.16858 255.61)",
@@ -75,8 +75,8 @@
         ]
       },
       "blue-light": {
-        "role": "primary",
-        "displayName": "Azul claro",
+        "role": "secondary",
+        "displayName": "blue-light",
         "tonalRamp": [
           "oklch(15.00% 0.10227 249.20)",
           "oklch(26.43% 0.10227 249.20)",
@@ -89,50 +89,50 @@
         ]
       },
       "amber": {
-        "role": "secondary",
-        "displayName": "Ámbar de diagnóstico",
+        "role": "primary",
+        "displayName": "amber",
         "tonalRamp": [
-          "oklch(15.00% 0.16385 77.58)",
-          "oklch(26.43% 0.16385 77.58)",
-          "oklch(37.86% 0.16385 77.58)",
-          "oklch(49.29% 0.16385 77.58)",
-          "oklch(60.71% 0.16385 77.58)",
-          "oklch(72.14% 0.16385 77.58)",
-          "oklch(83.57% 0.16385 77.58)",
-          "oklch(95.00% 0.16385 77.58)"
+          "oklch(15.00% 0.14133 75.46)",
+          "oklch(26.43% 0.14133 75.46)",
+          "oklch(37.86% 0.14133 75.46)",
+          "oklch(49.29% 0.14133 75.46)",
+          "oklch(60.71% 0.14133 75.46)",
+          "oklch(72.14% 0.14133 75.46)",
+          "oklch(83.57% 0.14133 75.46)",
+          "oklch(95.00% 0.14133 75.46)"
         ]
       },
       "gray": {
         "role": "neutral",
-        "displayName": "Gris claro",
+        "displayName": "gray",
         "tonalRamp": [
-          "oklch(15.00% 0.00581 264.53)",
-          "oklch(26.43% 0.00581 264.53)",
-          "oklch(37.86% 0.00581 264.53)",
-          "oklch(49.29% 0.00581 264.53)",
-          "oklch(60.71% 0.00581 264.53)",
-          "oklch(72.14% 0.00581 264.53)",
-          "oklch(83.57% 0.00581 264.53)",
-          "oklch(95.00% 0.00581 264.53)"
+          "oklch(15.00% 0.00751 260.73)",
+          "oklch(26.43% 0.00751 260.73)",
+          "oklch(37.86% 0.00751 260.73)",
+          "oklch(49.29% 0.00751 260.73)",
+          "oklch(60.71% 0.00751 260.73)",
+          "oklch(72.14% 0.00751 260.73)",
+          "oklch(83.57% 0.00751 260.73)",
+          "oklch(95.00% 0.00751 260.73)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Azul grisáceo",
+        "displayName": "muted",
         "tonalRamp": [
-          "oklch(15.00% 0.04894 249.49)",
-          "oklch(26.43% 0.04894 249.49)",
-          "oklch(37.86% 0.04894 249.49)",
-          "oklch(49.29% 0.04894 249.49)",
-          "oklch(60.71% 0.04894 249.49)",
-          "oklch(72.14% 0.04894 249.49)",
-          "oklch(83.57% 0.04894 249.49)",
-          "oklch(95.00% 0.04894 249.49)"
+          "oklch(15.00% 0.02165 254.94)",
+          "oklch(26.43% 0.02165 254.94)",
+          "oklch(37.86% 0.02165 254.94)",
+          "oklch(49.29% 0.02165 254.94)",
+          "oklch(60.71% 0.02165 254.94)",
+          "oklch(72.14% 0.02165 254.94)",
+          "oklch(83.57% 0.02165 254.94)",
+          "oklch(95.00% 0.02165 254.94)"
         ]
       },
       "white": {
         "role": "neutral",
-        "displayName": "Blanco",
+        "displayName": "white",
         "tonalRamp": [
           "oklch(15.00% 0.00000 89.88)",
           "oklch(26.43% 0.00000 89.88)",
@@ -146,21 +146,21 @@
       },
       "border": {
         "role": "neutral",
-        "displayName": "Borde tenue",
+        "displayName": "border",
         "tonalRamp": [
-          "oklch(15.00% 0.00581 264.53 / .18)",
-          "oklch(26.43% 0.00581 264.53 / .18)",
-          "oklch(37.86% 0.00581 264.53 / .18)",
-          "oklch(49.29% 0.00581 264.53 / .18)",
-          "oklch(60.71% 0.00581 264.53 / .18)",
-          "oklch(72.14% 0.00581 264.53 / .18)",
-          "oklch(83.57% 0.00581 264.53 / .18)",
-          "oklch(95.00% 0.00581 264.53 / .18)"
+          "oklch(15.00% 0.00751 260.73)",
+          "oklch(26.43% 0.00751 260.73)",
+          "oklch(37.86% 0.00751 260.73)",
+          "oklch(49.29% 0.00751 260.73)",
+          "oklch(60.71% 0.00751 260.73)",
+          "oklch(72.14% 0.00751 260.73)",
+          "oklch(83.57% 0.00751 260.73)",
+          "oklch(95.00% 0.00751 260.73)"
         ]
       },
       "error": {
         "role": "neutral",
-        "displayName": "Error suave",
+        "displayName": "error",
         "tonalRamp": [
           "oklch(15.00% 0.05926 18.33)",
           "oklch(26.43% 0.05926 18.33)",
@@ -175,80 +175,41 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Portada",
-        "purpose": "Home: clamp(48px,5.15vw,76px), peso 720; tablet clamp(52px,7.5vw,72px), móvil clamp(38px,10.6vw,60px). Bricolage Grotesque autorizada."
-      },
-      "headline": {
-        "displayName": "Sección",
-        "purpose": "Home: clamp(40px,4.8vw,68px); móvil clamp(34px,8vw,48px). Interiores conservan su escala existente."
-      },
-      "title": {
-        "displayName": "Servicio",
-        "purpose": "Titulares de fichas."
+        "displayName": "DM Sans display",
+        "purpose": "Titulares de portada."
       },
       "body": {
-        "displayName": "Lectura",
-        "purpose": "Descripción cómoda de hasta 65ch."
-      },
-      "button": {
-        "displayName": "Acción",
-        "purpose": "Etiquetas semibold de acciones."
-      },
-      "label": {
-        "displayName": "Metadata",
-        "purpose": "Notas e identificación demo."
-      },
-      "home-capability": {
-        "displayName": "Capacidad de home",
-        "purpose": "Cuatro composiciones diferentes; tamaño móvil 56px, sin pin."
-      },
-      "home-experience": {
-        "displayName": "Trayectoria de Oscar",
-        "purpose": "+25 años como evidencia de experiencia; móvil 120px. No representa resultados de clientes."
+        "displayName": "DM Sans lectura",
+        "purpose": "Cuerpo y UI."
       }
     },
     "shadows": [
       {
         "name": "panel",
         "value": "0 24px 64px -32px rgb(var(--vogel-navy) / .75)",
-        "purpose": "Menú y contenedores con alias Tailwind de sombra."
-      },
-      {
-        "name": "product-preview",
-        "value": "0 30px 60px -20px rgb(var(--vogel-navy) / .9)",
-        "purpose": "Capturas superpuestas de portada."
-      },
-      {
-        "name": "consent",
-        "value": "0 18px 50px rgba(0,0,0,.35)",
-        "purpose": "Capa fija de preferencias de medición."
+        "purpose": "Profundidad localizada de panel."
       }
     ],
     "motion": [
       {
-        "name": "ease-out",
-        "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Cambio de transform de fichas."
+        "name": "landscape-wave",
+        "value": "20s",
+        "purpose": "Ciclo de onda del paisaje."
       },
       {
-        "name": "action-state",
+        "name": "cursor-idle",
+        "value": "900ms",
+        "purpose": "Retorno del objetivo de cursor a neutral."
+      },
+      {
+        "name": "cursor-settle",
+        "value": "approximately 1.2s",
+        "purpose": "Aproximación suavizada al objetivo."
+      },
+      {
+        "name": "state-transition",
         "value": "180ms ease-out",
-        "purpose": "Hover y active de acciones."
-      },
-      {
-        "name": "case-scrub",
-        "value": ".45",
-        "purpose": "Home: único pin forestal a ≥1024×800, sin reduced motion y sólo si cabe. Tres estados reversibles; cleanup, aria-hidden e inert."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "0.01ms",
-        "purpose": "Transiciones CSS prácticamente inmediatas; pin y entradas GSAP desactivados."
-      },
-      {
-        "name": "home-flow-scrub",
-        "value": ".4",
-        "purpose": "Avance de líneas desde 768px con movimiento permitido. No bloquea lectura ni fija capítulos."
+        "purpose": "Links y controles."
       }
     ],
     "breakpoints": [
@@ -265,199 +226,107 @@
         "value": "1024px"
       },
       {
-        "name": "navigation-desktop",
+        "name": "nav-wide",
         "value": "1200px"
-      },
-      {
-        "name": "automation-mobile",
-        "value": "850px"
-      },
-      {
-        "name": "navigation-compact",
-        "value": "600px"
-      },
-      {
-        "name": "motion-min-height",
-        "value": "800px"
-      },
-      {
-        "name": "home-mobile",
-        "value": "768px"
       }
-    ],
-    "evidence": {
-      "basis": "Inspección de App.vue, home.css, useHomeMotion y componentes de home; verificación local y review de capturas reportados en docs/REDISENIO_CAPITULOS_2026-10-04.md.",
-      "generalScreenshots": "Capturas locales de home a 1440×1000,1199×900,768×1024,390×844,320×844 y1440×720 en C:/Users/roman/AppData/Local/Temp/vogel-capitulos-2026-10-04/ui/; fuera de Git.",
-      "forestalScreenshots": "Capturas actuales completadas y archivadas para viewports 390×844 y 1440×1000, modo mock con fixtures ficticios.",
-      "forestalSourceCommit": "8d6ab7bd217eeda01d61eb404ea49d5b57ef77a4",
-      "forestalAssets": {
-        "desktopDashboard": "src/assets/cases/forestal-dashboard-desktop.png (1440×1151)",
-        "mobileDashboard": "src/assets/cases/forestal-dashboard.png (390×1873)",
-        "review": "src/assets/cases/forestal-revision.png (390×1449)"
-      },
-      "independentReview": "Veredicto PASS sobre tres hallazgos previos: respaldos radiales, flotante WhatsApp e imágenes. Su alcance es la resolución de esa lista, no una métrica de fluidez.",
-      "verificationReport": "docs/REDISENIO_CAPITULOS_2026-10-04.md. Build, contratos, UI de seis tamaños y comportamiento finales PASS; narrativa previa PASS sin cambios posteriores en su lógica. Envíos simulados; no entrega externa verificada.",
-      "tonalRamps": "Ramps derivados de RGB a OKLCH para el panel; no son tokens de producción. Chroma constante; el navegador puede mapear valores fuera de gamut.",
-      "preExistingDrift": "Se preservan snippets históricos de panel/step/resource y sus fallbacks Syne; usan var(--font-display) vigente. No se reparó drift ajeno a home en esta pasada."
-    },
-    "semanticRoles": {
-      "background": "--color-background",
-      "surface": "--color-surface",
-      "panel": "--color-panel",
-      "foreground": "--color-text",
-      "muted": "--color-muted",
-      "link": "--color-link",
-      "action": "--color-action",
-      "focus": "--color-focus",
-      "error": "--color-error",
-      "success": "--color-success"
-    },
-    "homeComposition": {
-      "chapters": [
-        "Intro",
-        "El problema",
-        "Caso destacado",
-        "Capacidades",
-        "Cómo trabajamos",
-        "Nosotros",
-        "Contacto"
-      ],
-      "scope": "Sólo home. Shader neutral y navbar liquid glass conservados; no aplicar esta composición a interiores.",
-      "secondaryEvidence": "Clientes, proyectos, capacitación y recursos integrados a Capacidades; details nativos cerrados por defecto.",
-      "readingSupport": "Radiales navy locales con ellipse closest-side detrás de grupos de texto, sin plano global ni cambio del shader.",
-      "portrait": "Archivo auténtico pendiente; composición editorial completa y portraitSrc opcional sin foto sustituta.",
-      "floatingWhatsapp": "Oculto en home a ancho ≤400px o alto ≤799px y mientras Contacto está visible; canal disponible en cierre."
-    }
+    ]
   },
   "components": [
     {
       "name": "Diagnóstico",
       "kind": "button",
-      "refersTo": "button-diagnostic",
-      "description": "Acción comercial principal; equivale a ActionButton variant accent.",
-      "html": "<a class=\"ds-diagnostic\" href=\"#contacto\">Agendar diagnóstico<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
-      "css": ".ds-diagnostic{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:var(--color-action,rgb(242 169 0));color:var(--color-action-text,rgb(11 32 53));border-color:var(--color-action,rgb(242 169 0))}.ds-diagnostic:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-diagnostic:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-diagnostic:hover{background:rgb(var(--vogel-white,255 255 255));border-color:rgb(var(--vogel-white,255 255 255))}}@media(prefers-reduced-motion:reduce){.ds-diagnostic{transition-duration:.01ms}}"
-    },
-    {
-      "name": "Servicio",
-      "kind": "button",
-      "refersTo": "button-service",
-      "description": "Acción azul; equivale a ActionButton variant primary.",
-      "html": "<a class=\"ds-service\" href=\"#servicios\">Explorar servicio<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
-      "css": ".ds-service{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:rgb(var(--vogel-blue,30 95 168));color:var(--color-heading,rgb(255 255 255));border-color:rgb(var(--vogel-blue,30 95 168))}.ds-service:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-service:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-service:hover{background:rgb(var(--vogel-bright,25 110 207))}}@media(prefers-reduced-motion:reduce){.ds-service{transition-duration:.01ms}}"
+      "refersTo": "button-primary",
+      "description": "Acción comercial principal.",
+      "html": "<button class=\"ds-primary\">Agendar diagnóstico →</button>",
+      "css": ".ds-primary{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;background:linear-gradient(110deg,#ffc869,#f5b34c);color:#080d14;border:1px solid #f9bc59;border-radius:8px;padding:14px 23px;min-height:48px;font-size:15px;font-weight:600}.ds-primary:hover{border-color:var(--color-action)}.ds-primary:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}.ds-primary:active{transform:translateY(1px)}"
     },
     {
       "name": "Acción secundaria",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Exploración o canal complementario.",
-      "html": "<a class=\"ds-secondary\" href=\"#casos\">Ver casos<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
-      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:14px 23px;border:1px solid var(--color-border,rgb(229 231 235 / .18));border-radius:8px;font-family:var(--font-body,'DM Sans',sans-serif);font-size:.9375rem;font-weight:600;text-align:center;line-height:1.4;text-decoration:none;transition:background-color 180ms ease-out,color 180ms ease-out,border-color 180ms ease-out,transform 180ms ease-out;background:transparent;color:var(--color-text,rgb(229 231 235))}.ds-secondary:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-secondary:active{transform:translateY(1px)}@media(hover:hover) and (pointer:fine){.ds-secondary:hover{background:var(--color-panel,rgb(22 47 73));border-color:var(--color-link,rgb(139 197 255))}}@media(prefers-reduced-motion:reduce){.ds-secondary{transition-duration:.01ms}}"
+      "description": "Acción complementaria.",
+      "html": "<a class=\"ds-secondary\" href=\"#\">Ver soluciones</a>",
+      "css": ".ds-secondary{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;display:inline-flex;align-items:center;background:transparent;color:var(--color-text);border:1px solid var(--color-border);border-radius:8px;padding:14px 23px;min-height:48px;font-weight:600}.ds-secondary:hover{color:var(--color-action);border-color:var(--color-action)}.ds-secondary:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
     },
     {
       "name": "Campo de contacto",
       "kind": "input",
-      "refersTo": "input-contact",
-      "description": "Etiqueta persistente, placeholder muted opaco y foco ámbar.",
-      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Nombre y apellido</label><input id=\"ds-name\" autocomplete=\"name\" required placeholder=\"Ej: Juan Perez\"/></div>",
-      "css": ".ds-field{font-family:var(--font-body,'DM Sans',sans-serif)}.ds-field label{display:block;margin-bottom:6px;font-size:14px;font-weight:500;color:var(--color-text,rgb(229 231 235))}.ds-field input{width:100%;padding:10px 16px;border:1px solid rgb(var(--vogel-gray,229 231 235)/.3);border-radius:12px;background:rgb(var(--vogel-navy,11 32 53)/.8);color:var(--color-heading,rgb(255 255 255));font:inherit;font-size:16px;line-height:1.5;caret-color:var(--color-action,rgb(242 169 0))}.ds-field input::placeholder{color:var(--color-muted,rgb(142 168 195));opacity:1}.ds-field input:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}"
+      "description": "Campo de formulario con label persistente.",
+      "html": "<label class=\"ds-field\">Nombre<input placeholder=\"Tu nombre\"></label>",
+      "css": ".ds-field{font-family:var(--font-body);display:grid;gap:8px;color:var(--color-text)}.ds-field input{font-family:var(--font-body);background:rgb(var(--vogel-navy)/.8);color:var(--color-heading);padding:10px 16px;border:1px solid var(--color-border);border-radius:12px;font-size:16px}.ds-field input:hover{border-color:var(--color-action)}.ds-field input:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
     },
     {
-      "name": "Servicio en panel",
-      "kind": "card",
-      "refersTo": "service-card",
-      "description": "Ficha de servicio sólida con enlace y levantamiento al hover.",
-      "html": "<a class=\"ds-card\" href=\"#servicios\"><h3>Sistemas a medida</h3><p>Plataformas para ordenar procesos, conectar áreas y mejorar trazabilidad.</p><span>Explorar servicio<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></span></a>",
-      "css": ".ds-card{display:flex;flex-direction:column;background:var(--color-panel,rgb(22 47 73));border-radius:16px;padding:28px;color:var(--color-text,rgb(229 231 235));text-decoration:none;font-family:var(--font-body,'DM Sans',sans-serif);transition:transform 200ms var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color 200ms ease-out}.ds-card h3{font-family:var(--font-display,'Syne',sans-serif);font-size:25px;font-weight:600;line-height:1.15;margin:0;color:var(--color-heading,rgb(255 255 255))}.ds-card p{color:var(--color-muted,rgb(142 168 195));font-size:15px;line-height:1.75;margin:18px 0 24px}.ds-card span{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--color-link,rgb(139 197 255))}.ds-card:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}@media(hover:hover) and (pointer:fine){.ds-card:hover{transform:translateY(-4px);background:rgb(var(--vogel-blue,30 95 168)/.25)}}@media(prefers-reduced-motion:reduce){.ds-card{transition-duration:.01ms}}"
-    },
-    {
-      "name": "Navegación de servicios",
+      "name": "Navegación abierta",
       "kind": "nav",
-      "description": "Fragmento autónomo del details y desplegable de la cabecera.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Servicios\"><details><summary>Servicios<svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" aria-hidden=\"true\"><path d=\"m5 7 5 5 5-5\"/></svg></summary><div><a href=\"#servicios\">Ver todos los servicios</a><a href=\"/dashboards-ejecutivos/\">Dashboards ejecutivos</a></div></details></nav>",
-      "css": ".ds-nav{padding:12px 18px;background:rgb(var(--vogel-navy,11 32 53)/.94);backdrop-filter:blur(16px);border:1px solid var(--color-border,rgb(229 231 235/.18));border-radius:14px;color:var(--color-text,rgb(229 231 235));font-family:var(--font-body,'DM Sans',sans-serif);font-size:13px;font-weight:500}.ds-nav summary{display:flex;align-items:center;gap:6px;cursor:pointer;list-style:none;min-height:44px}.ds-nav summary::-webkit-details-marker{display:none}.ds-nav details>div{margin-top:18px;padding:10px;border:1px solid var(--color-border,rgb(229 231 235/.18));border-radius:12px;background:var(--color-panel,rgb(22 47 73));box-shadow:var(--shadow-panel,0 24px 64px -32px rgb(11 32 53/.75))}.ds-nav a{display:block;padding:12px;border-radius:6px;color:inherit;text-decoration:none}.ds-nav a:hover,.ds-nav a:focus-visible{background:var(--color-background,rgb(11 32 53));color:var(--color-link,rgb(139 197 255))}.ds-nav summary:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}.ds-nav a:focus-visible{outline:2px solid var(--color-focus, rgb(242 169 0));outline-offset:4px}"
+      "description": "Fila de links sin envolvente de vidrio.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Servicios</a><a href=\"#\">Casos</a><a href=\"#\">Recursos</a><a href=\"#\">Nosotros</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--font-body)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--color-text);font-size:13px;text-decoration:none}.ds-nav a:hover{color:var(--color-action)}.ds-nav a:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
     },
     {
-      "name": "Tag ARCA",
+      "name": "Etiqueta de paisaje",
       "kind": "chip",
-      "description": "Indicador editorial de plan; no es un filtro interactivo.",
-      "html": "<span class=\"ds-tag\">Plan mensual</span>",
-      "css": ".ds-tag{display:inline-block;width:max-content;border:1px solid rgb(var(--vogel-blueLight,139 197 255)/.35);border-radius:999px;color:var(--color-link,rgb(139 197 255));font-family:var(--font-body,'DM Sans',sans-serif);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 9px}"
+      "refersTo": "terrain-label",
+      "description": "Enlace contextual sobre el paisaje.",
+      "html": "<a class=\"ds-tag\" href=\"#\"><span></span>Sistemas a medida</a>",
+      "css": ".ds-tag{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;display:inline-flex;align-items:center;gap:12px;min-height:42px;padding:10px 15px;border:1px solid rgb(237 239 243/.25);border-radius:10px;background:rgb(8 12 18/.62);color:#f5f5f5;font-size:13px}.ds-tag span{width:8px;height:8px;border-radius:50%;background:#ffbf60}.ds-tag:hover{border-color:var(--color-action);background:#121922}.ds-tag:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
     },
     {
-      "name": "Paso de metodología",
-      "kind": "custom",
-      "description": "Fila numerada legible en flujo normal; versión activa con ámbar.",
-      "html": "<article class=\"ds-step\"><span>01</span><div><h3>Diagnóstico</h3><p>Entendemos tu operación y priorizamos oportunidades.</p></div></article>",
-      "css": ".ds-step{display:flex;gap:26px;padding:38px 0 50px;border-top:1px solid var(--color-border,rgb(229 231 235/.18));font-family:var(--font-body,'DM Sans',sans-serif)}.ds-step>span{font-family:var(--font-display,'Syne',sans-serif);font-size:24px;color:var(--color-action,rgb(242 169 0));font-variant-numeric:tabular-nums}.ds-step h3{margin:0;font-family:var(--font-display,'Syne',sans-serif);font-size:28px;font-weight:600;color:var(--color-heading,rgb(255 255 255))}.ds-step p{margin-top:18px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}"
-    },
-    {
-      "name": "Fila de recurso",
-      "kind": "custom",
-      "description": "Índice editorial con categoría, lectura, fecha y enlace; artículos conservan su layout.",
-      "html": "<article class=\"ds-resource\"><div class=\"ds-resource-meta\"><p>Datos y gestión</p><span>5 min de lectura</span><time datetime=\"2026-10-03\">3 oct 2026</time></div><div><h2><a href=\"/recursos/\">Guías para decidir con claridad</a></h2><p>Ideas prácticas para ordenar tecnología, datos e IA en empresas.</p><a class=\"ds-resource-read\" href=\"/recursos/\">Leer guía <span aria-hidden=\"true\">→</span></a></div></article>",
-      "css": ".ds-resource{display:grid;grid-template-columns:.3fr 1fr;gap:48px;padding-block:40px;border-top:1px solid var(--color-border,rgb(229 231 235/.18));font-family:var(--font-body,'DM Sans',sans-serif)}.ds-resource-meta{font-size:13px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}.ds-resource-meta p{margin:0;color:var(--color-link,rgb(139 197 255))}.ds-resource-meta span,.ds-resource-meta time{display:block;margin-top:10px}.ds-resource h2{font-family:var(--font-display,'Syne',sans-serif);font-size:clamp(24px,3vw,36px);line-height:1.2;max-width:35ch;font-weight:600;margin:0;color:var(--color-heading,rgb(255 255 255))}.ds-resource h2 a{color:inherit;text-decoration:none}.ds-resource h2 a:hover{color:var(--color-link,rgb(139 197 255))}.ds-resource>div>p:not(.ds-resource-meta p){max-width:65ch;margin-block:20px;line-height:1.8;color:var(--color-muted,rgb(142 168 195))}.ds-resource-read{color:var(--color-link,rgb(139 197 255));text-decoration:underline;text-underline-offset:.24em;text-decoration-thickness:1px;display:inline-flex;min-height:44px;align-items:center}.ds-resource-read span{margin-left:12px}.ds-resource a:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}@media(max-width:639px){.ds-resource{grid-template-columns:1fr;gap:20px}.ds-resource-meta{display:flex;gap:16px;flex-wrap:wrap}.ds-resource-meta span,.ds-resource-meta time{margin:0}}"
-    },
-    {
-      "name": "Consentimiento analítico",
-      "kind": "custom",
-      "refersTo": "consent-banner",
-      "description": "Muestra autónoma de la capa de preferencias; sin lógica de almacenamiento ni envío.",
-      "html": "<div class=\"ds-consent\" role=\"dialog\" aria-label=\"Preferencias de medición\"><p>Usamos Google Analytics para medir visitas y mejorar el sitio. Podemos guardar cookies de medición y publicidad solo si aceptás.</p><div><button type=\"button\" class=\"ds-consent-accept\">Aceptar medición</button><button type=\"button\">Solo necesario</button></div></div>",
-      "css": ".ds-consent{display:grid;gap:12px;max-width:620px;padding:16px;border:1px solid rgba(229,231,235,.22);border-radius:18px;background:var(--color-panel,rgb(22 47 73));box-shadow:0 18px 50px rgba(0,0,0,.35);color:var(--color-text,rgb(229 231 235));font:400 14px/1.5 'DM Sans',Arial,sans-serif}.ds-consent p{margin:0}.ds-consent>div{display:flex;flex-wrap:wrap;gap:10px}.ds-consent button{border:1px solid rgba(229,231,235,.35);border-radius:8px;background:transparent;color:var(--color-text,rgb(229 231 235));font:700 13px/1.2 'DM Sans',Arial,sans-serif;min-height:44px;padding:10px 14px;cursor:pointer}.ds-consent button.ds-consent-accept{border-color:var(--color-action,rgb(242 169 0));background:var(--color-action,rgb(242 169 0));color:var(--color-action-text,rgb(11 32 53))}.ds-consent button:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}"
-    },
-    {
-      "name": "Capacidad editorial de home",
-      "kind": "custom",
-      "description": "Muestra de jerarquía y enlaces compactos; cada capacidad tiene una composición propia, sin pin.",
-      "html": "<section class=\"ds-home-capability\"><h3>Ordenar.</h3><p>Registros y tareas adquieren una estructura compartida.</p><a href=\"/sistemas-a-medida/\">Sistemas a medida <span aria-hidden=\"true\">↗</span></a></section>",
-      "css": ".ds-home-capability{padding-block:70px;border-top:1px solid rgb(var(--vogel-blueLight,139 197 255)/.42);font-family:var(--font-body,'DM Sans',sans-serif);color:var(--color-text,rgb(229 231 235));background:rgb(var(--vogel-navy,11 32 53)/.88)}.ds-home-capability h3{margin:0;font-family:var(--font-display,'Bricolage Grotesque',sans-serif);font-size:clamp(52px,6vw,88px);font-weight:650;line-height:1;color:var(--color-heading,rgb(255 255 255))}.ds-home-capability p{max-width:43ch;margin-top:24px;line-height:1.75;font-size:17px}.ds-home-capability a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 0;color:var(--color-link,rgb(139 197 255));font-size:15px;text-decoration:none}.ds-home-capability a:hover{text-decoration:underline}.ds-home-capability a:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}.ds-home-capability a:active{color:var(--color-heading,rgb(255 255 255))}@media(max-width:767px){.ds-home-capability{padding-block:44px}.ds-home-capability h3{font-size:56px}.ds-home-capability p{font-size:16px}}"
+      "name": "Panel de contacto",
+      "kind": "card",
+      "refersTo": "contact-panel",
+      "description": "Superficie estable para información/formulario.",
+      "html": "<section class=\"ds-panel\"><h3>Conversemos sobre tu proceso</h3><p>Identificamos el problema y el próximo paso.</p></section>",
+      "css": ".ds-panel{font-family:var(--font-body);background:var(--color-panel);color:var(--color-text);border:1px solid var(--color-border);border-radius:12px;padding:32px}.ds-panel h3{font-size:24px;font-weight:450;line-height:1.3}.ds-panel p{font-size:16px;line-height:1.7;color:var(--color-muted)}"
     }
   ],
   "narrative": {
-    "northStar": "La mesa de decisiones",
-    "overview": "Vogel comunica consultoría tecnológica con claridad ejecutiva, base azul continua, Bricolage Grotesque y DM Sans autorizadas, CTA ámbar y evidencia real identificada. La home varía la composición en siete capítulos, preservando los sistemas propios de páginas interiores.\n\nLa lectura se sostiene mediante superficies y respaldos radiales locales de bordes desvanecidos; el shader y la navbar conservan su identidad. Sólo el caso forestal puede fijarse en escritorio elegible; contenido, enlaces y pantallas siguen disponibles sin movimiento.",
+    "northStar": "Paisaje de datos",
+    "overview": "El paisaje de datos combina una base casi negra azul, luz ámbar y tipografía DM Sans. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.",
     "keyCharacteristics": [
-      "Shader azul continuo y navbar liquid glass conservados.",
-      "Ámbar contenido para diagnóstico y foco.",
-      "Bricolage Grotesque y DM Sans autorizadas para la web.",
-      "Capturas reales con datos de demostración identificados.",
-      "Siete composiciones de home y un único pin forestal elegible.",
-      "Lectura completa en móvil, reduced motion y fallo de motion."
+      "V ámbar vectorial como identificador oficial.",
+      "DM Sans en títulos, cuerpo y UI.",
+      "Fondo casi negro azul y ámbar como acento principal.",
+      "Flujo natural, divisiones finas y espacios amplios.",
+      "Capturas operativas reales identificadas como demostración.",
+      "Paisaje decorativo progresivo con alternativa estática."
     ],
     "rules": [
       {
-        "name": "The Foco Ámbar Rule",
-        "body": "El ámbar dirige a una acción o a un estado preciso; conservar la proporción contenida del manual de marca como criterio compositivo, sin presentarla como una medición automática del sitio.",
+        "name": "The Foco ámbar Rule",
+        "body": "El ámbar identifica acciones, foco y puntos de datos; el fondo oscuro conserva el predominio compositivo.",
         "section": "colors"
       },
       {
-        "name": "The Voz Clara Rule",
-        "body": "Priorizar títulos legibles y texto explicativo; Bricolage Grotesque autorizada para jerarquía y DM Sans para lectura e interacción.",
+        "name": "The Voz Única Rule",
+        "body": "Usar DM Sans para todos los niveles, ajustando tamaño y peso para establecer jerarquía.",
         "section": "typography"
       },
       {
-        "name": "The Material Legible Rule",
-        "body": "Usar separación tonal y espacio para organizar contenido; reservar el desenfoque de fondo para la cabecera.",
-        "section": "elevation"
+        "name": "The Lectura Continua Rule",
+        "body": "El contenido esencial permanece en flujo y legible sin WebGL ni animación.",
+        "section": "layout"
+      },
+      {
+        "name": "The Evidencia Clara Rule",
+        "body": "Identificar datos de demostración y proyectos en desarrollo; conservar la procedencia de imágenes y logos.",
+        "section": "components"
       }
     ],
     "dos": [
-      "**Do** consultar el manual de marca antes de nuevas piezas y conservar assets oficiales del logo sin deformarlos.",
-      "**Do** reutilizar los canales RGB compartidos entre Tailwind y CSS de ARCA.",
-      "**Do** reservar el ámbar para diagnóstico y estados precisos, con foco de teclado visible.",
+      "**Do** usar el SVG oficial de la V ámbar sin deformarlo.",
+      "**Do** reutilizar los tokens compartidos y DM Sans en nuevas superficies.",
+      "**Do** conservar el foco ámbar visible y controles legibles.",
       "**Do** identificar las capturas forestales como interfaz real con datos de demostración.",
-      "**Do** preservar contenido legible en móvil, reduced motion y fallo de motion.",
-      "**Do** comprobar composición, keyboard y formularios con evidencia guardada antes de declarar QA visual concluida.",
-      "**Do** conservar details secundarios cerrados por defecto y los diez destinos compactos de servicios en home."
+      "**Do** mantener etiquetas y CTA móviles en flujo sin solapamientos.",
+      "**Do** conservar una alternativa estática para el paisaje y movimiento reducido."
     ],
     "donts": [
-      "**Don't** sustituir la identidad por una paleta ajena, iconos infantiles o promesas genéricas de IA.",
-      "**Don't** convertir cifras de fixtures en resultados comerciales de clientes.",
-      "**Don't** aplicar desenfoque de superficie a paneles de contenido.",
-      "**Don't** ocultar contenido esencial hasta que una animación termine.",
-      "**Don't** presentar inspección de código o capturas parciales como comparación visual inicial/final completa.",
-      "**Don't** volver a fijar Hero, Problemas o Servicios ni inventar una foto de Oscar."
+      "**Don't** reutilizar OV, Syne o Bricolage como identidad actual.",
+      "**Don't** convertir cifras de demostración en resultados comerciales.",
+      "**Don't** inventar un retrato de Oscar ni presentar FEMAG como terminado.",
+      "**Don't** ocultar contenido esencial detrás de animaciones o WebGL.",
+      "**Don't** añadir un shader global, pins narrativos o liquid glass a este sistema.",
+      "**Don't** afirmar identidad absoluta de assets: interiores conservan algunas ilustraciones conceptuales azules."
     ]
   }
 }

@@ -3,9 +3,7 @@ import Navbar from "./components/Navbar.vue";
 import AutomationStoryChapter from "./components/AutomationStoryChapter.vue";
 import { initStoryReveal } from "./composables/useSiteMotion.js";
 import "./style.css";
-import { mountWavesBackground } from "./lib/mountWavesBackground.js";
 
-mountWavesBackground();
 import { initAnalytics } from "./lib/analytics.js";
 const navApp = createApp(Navbar);
 navApp.mount("#automatizaciones-nav");
