@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-03T15:40:12.034Z",
+  "generatedAt": "2026-10-04T23:49:47.394009+00:00",
   "title": "Design System: Vogel Consultoría",
   "extensions": {
     "colorMeta": {
@@ -176,11 +176,11 @@
     "typographyMeta": {
       "display": {
         "displayName": "Portada",
-        "purpose": "Título de portada; variantes móvil y tablet documentadas."
+        "purpose": "Home: clamp(48px,5.15vw,76px), peso 720; tablet clamp(52px,7.5vw,72px), móvil clamp(38px,10.6vw,60px). Bricolage Grotesque autorizada."
       },
       "headline": {
         "displayName": "Sección",
-        "purpose": "Jerarquía entre bloques institucionales."
+        "purpose": "Home: clamp(40px,4.8vw,68px); móvil clamp(34px,8vw,48px). Interiores conservan su escala existente."
       },
       "title": {
         "displayName": "Servicio",
@@ -197,6 +197,14 @@
       "label": {
         "displayName": "Metadata",
         "purpose": "Notas e identificación demo."
+      },
+      "home-capability": {
+        "displayName": "Capacidad de home",
+        "purpose": "Cuatro composiciones diferentes; tamaño móvil 56px, sin pin."
+      },
+      "home-experience": {
+        "displayName": "Trayectoria de Oscar",
+        "purpose": "+25 años como evidencia de experiencia; móvil 120px. No representa resultados de clientes."
       }
     },
     "shadows": [
@@ -228,24 +236,19 @@
         "purpose": "Hover y active de acciones."
       },
       {
-        "name": "hero-phrase",
-        "value": "0.65s power3.out",
-        "purpose": "Entrada de frase con no-preference, también móvil."
-      },
-      {
-        "name": "hero-field",
-        "value": "0.7s power3.out",
-        "purpose": "Entrada de pantalla con no-preference."
-      },
-      {
         "name": "case-scrub",
-        "value": "0.35",
-        "purpose": "Scrub GSAP exclusivamente >=1024px / >=700px y no-preference."
+        "value": ".45",
+        "purpose": "Home: único pin forestal a ≥1024×800, sin reduced motion y sólo si cabe. Tres estados reversibles; cleanup, aria-hidden e inert."
       },
       {
         "name": "reduced-motion",
         "value": "0.01ms",
         "purpose": "Transiciones CSS prácticamente inmediatas; pin y entradas GSAP desactivados."
+      },
+      {
+        "name": "home-flow-scrub",
+        "value": ".4",
+        "purpose": "Avance de líneas desde 768px con movimiento permitido. No bloquea lectura ni fija capítulos."
       }
     ],
     "breakpoints": [
@@ -275,12 +278,16 @@
       },
       {
         "name": "motion-min-height",
-        "value": "700px"
+        "value": "800px"
+      },
+      {
+        "name": "home-mobile",
+        "value": "768px"
       }
     ],
     "evidence": {
-      "basis": "Inspección estática de fuentes y consulta de docs/redisenio-implementacion-2026-10-03.md; no se utilizó navegador en esta documentación.",
-      "generalScreenshots": "Comparación general inicial/final pendiente: faltan capturas exportadas como archivos.",
+      "basis": "Inspección de App.vue, home.css, useHomeMotion y componentes de home; verificación local y review de capturas reportados en docs/REDISENIO_CAPITULOS_2026-10-04.md.",
+      "generalScreenshots": "Capturas locales de home a 1440×1000,1199×900,768×1024,390×844,320×844 y1440×720 en C:/Users/roman/AppData/Local/Temp/vogel-capitulos-2026-10-04/ui/; fuera de Git.",
       "forestalScreenshots": "Capturas actuales completadas y archivadas para viewports 390×844 y 1440×1000, modo mock con fixtures ficticios.",
       "forestalSourceCommit": "8d6ab7bd217eeda01d61eb404ea49d5b57ef77a4",
       "forestalAssets": {
@@ -288,9 +295,10 @@
         "mobileDashboard": "src/assets/cases/forestal-dashboard.png (390×1873)",
         "review": "src/assets/cases/forestal-revision.png (390×1449)"
       },
-      "independentReview": "Foco/formulario y enlace alternativo al iframe resueltos por revisión de código; recapture permanece pendiente por capturas generales faltantes.",
-      "verificationReport": "docs/redisenio-implementacion-2026-10-03.md registra build, contratos, contraste y observaciones de browser; no equivale a certificación visual integral ni verifica envíos reales a servicios externos.",
-      "tonalRamps": "Ramps derivados de RGB a OKLCH para el panel; no son tokens de producción. Chroma constante; el navegador puede mapear valores fuera de gamut."
+      "independentReview": "Veredicto PASS sobre tres hallazgos previos: respaldos radiales, flotante WhatsApp e imágenes. Su alcance es la resolución de esa lista, no una métrica de fluidez.",
+      "verificationReport": "docs/REDISENIO_CAPITULOS_2026-10-04.md. Build, contratos, UI de seis tamaños y comportamiento finales PASS; narrativa previa PASS sin cambios posteriores en su lógica. Envíos simulados; no entrega externa verificada.",
+      "tonalRamps": "Ramps derivados de RGB a OKLCH para el panel; no son tokens de producción. Chroma constante; el navegador puede mapear valores fuera de gamut.",
+      "preExistingDrift": "Se preservan snippets históricos de panel/step/resource y sus fallbacks Syne; usan var(--font-display) vigente. No se reparó drift ajeno a home en esta pasada."
     },
     "semanticRoles": {
       "background": "--color-background",
@@ -303,6 +311,22 @@
       "focus": "--color-focus",
       "error": "--color-error",
       "success": "--color-success"
+    },
+    "homeComposition": {
+      "chapters": [
+        "Intro",
+        "El problema",
+        "Caso destacado",
+        "Capacidades",
+        "Cómo trabajamos",
+        "Nosotros",
+        "Contacto"
+      ],
+      "scope": "Sólo home. Shader neutral y navbar liquid glass conservados; no aplicar esta composición a interiores.",
+      "secondaryEvidence": "Clientes, proyectos, capacitación y recursos integrados a Capacidades; details nativos cerrados por defecto.",
+      "readingSupport": "Radiales navy locales con ellipse closest-side detrás de grupos de texto, sin plano global ni cambio del shader.",
+      "portrait": "Archivo auténtico pendiente; composición editorial completa y portraitSrc opcional sin foto sustituta.",
+      "floatingWhatsapp": "Oculto en home a ancho ≤400px o alto ≤799px y mientras Contacto está visible; canal disponible en cierre."
     }
   },
   "components": [
@@ -381,17 +405,25 @@
       "description": "Muestra autónoma de la capa de preferencias; sin lógica de almacenamiento ni envío.",
       "html": "<div class=\"ds-consent\" role=\"dialog\" aria-label=\"Preferencias de medición\"><p>Usamos Google Analytics para medir visitas y mejorar el sitio. Podemos guardar cookies de medición y publicidad solo si aceptás.</p><div><button type=\"button\" class=\"ds-consent-accept\">Aceptar medición</button><button type=\"button\">Solo necesario</button></div></div>",
       "css": ".ds-consent{display:grid;gap:12px;max-width:620px;padding:16px;border:1px solid rgba(229,231,235,.22);border-radius:18px;background:var(--color-panel,rgb(22 47 73));box-shadow:0 18px 50px rgba(0,0,0,.35);color:var(--color-text,rgb(229 231 235));font:400 14px/1.5 'DM Sans',Arial,sans-serif}.ds-consent p{margin:0}.ds-consent>div{display:flex;flex-wrap:wrap;gap:10px}.ds-consent button{border:1px solid rgba(229,231,235,.35);border-radius:8px;background:transparent;color:var(--color-text,rgb(229 231 235));font:700 13px/1.2 'DM Sans',Arial,sans-serif;min-height:44px;padding:10px 14px;cursor:pointer}.ds-consent button.ds-consent-accept{border-color:var(--color-action,rgb(242 169 0));background:var(--color-action,rgb(242 169 0));color:var(--color-action-text,rgb(11 32 53))}.ds-consent button:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}"
+    },
+    {
+      "name": "Capacidad editorial de home",
+      "kind": "custom",
+      "description": "Muestra de jerarquía y enlaces compactos; cada capacidad tiene una composición propia, sin pin.",
+      "html": "<section class=\"ds-home-capability\"><h3>Ordenar.</h3><p>Registros y tareas adquieren una estructura compartida.</p><a href=\"/sistemas-a-medida/\">Sistemas a medida <span aria-hidden=\"true\">↗</span></a></section>",
+      "css": ".ds-home-capability{padding-block:70px;border-top:1px solid rgb(var(--vogel-blueLight,139 197 255)/.42);font-family:var(--font-body,'DM Sans',sans-serif);color:var(--color-text,rgb(229 231 235));background:rgb(var(--vogel-navy,11 32 53)/.88)}.ds-home-capability h3{margin:0;font-family:var(--font-display,'Bricolage Grotesque',sans-serif);font-size:clamp(52px,6vw,88px);font-weight:650;line-height:1;color:var(--color-heading,rgb(255 255 255))}.ds-home-capability p{max-width:43ch;margin-top:24px;line-height:1.75;font-size:17px}.ds-home-capability a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 0;color:var(--color-link,rgb(139 197 255));font-size:15px;text-decoration:none}.ds-home-capability a:hover{text-decoration:underline}.ds-home-capability a:focus-visible{outline:2px solid var(--color-focus,rgb(242 169 0));outline-offset:4px}.ds-home-capability a:active{color:var(--color-heading,rgb(255 255 255))}@media(max-width:767px){.ds-home-capability{padding-block:44px}.ds-home-capability h3{font-size:56px}.ds-home-capability p{font-size:16px}}"
     }
   ],
   "narrative": {
     "northStar": "La mesa de decisiones",
-    "overview": "El sistema presenta tecnología con claridad ejecutiva: base azul profunda, titulares firmes, lectura cómoda y evidencia de interfaces reales. La identidad oficial de Vogel Consultoría permanece como autoridad: logo, paleta, Syne y DM Sans, junto con una voz profesional orientada a empresas argentinas.\n\nLa profundidad surge de capas tonales y de la relación entre información e imágenes. Los paneles sólidos dominan la nueva portada; la navegación es la superficie con vidrio y desenfoque. Las capturas de la operación forestal muestran interfaces auténticas con datos ficticios identificados, sin atribuir cifras a resultados de un cliente. El movimiento acompaña la secuencia y conserva una lectura completa cuando se desactiva.",
+    "overview": "Vogel comunica consultoría tecnológica con claridad ejecutiva, base azul continua, Bricolage Grotesque y DM Sans autorizadas, CTA ámbar y evidencia real identificada. La home varía la composición en siete capítulos, preservando los sistemas propios de páginas interiores.\n\nLa lectura se sostiene mediante superficies y respaldos radiales locales de bordes desvanecidos; el shader y la navbar conservan su identidad. Sólo el caso forestal puede fijarse en escritorio elegible; contenido, enlaces y pantallas siguen disponibles sin movimiento.",
     "keyCharacteristics": [
-      "Azul profundo con jerarquía clara entre fondo, sección y panel.",
-      "Ámbar contenido para el diagnóstico y pequeños puntos de foco.",
-      "Titulares Syne y texto/UI DM Sans.",
-      "Evidencia de producto identificada como demostración.",
-      "Lectura accesible sin depender del movimiento."
+      "Shader azul continuo y navbar liquid glass conservados.",
+      "Ámbar contenido para diagnóstico y foco.",
+      "Bricolage Grotesque y DM Sans autorizadas para la web.",
+      "Capturas reales con datos de demostración identificados.",
+      "Siete composiciones de home y un único pin forestal elegible.",
+      "Lectura completa en móvil, reduced motion y fallo de motion."
     ],
     "rules": [
       {
@@ -401,7 +433,7 @@
       },
       {
         "name": "The Voz Clara Rule",
-        "body": "Priorizar títulos legibles y texto explicativo; conservar Syne para jerarquía y DM Sans para lectura e interacción.",
+        "body": "Priorizar títulos legibles y texto explicativo; Bricolage Grotesque autorizada para jerarquía y DM Sans para lectura e interacción.",
         "section": "typography"
       },
       {
@@ -416,14 +448,16 @@
       "**Do** reservar el ámbar para diagnóstico y estados precisos, con foco de teclado visible.",
       "**Do** identificar las capturas forestales como interfaz real con datos de demostración.",
       "**Do** preservar contenido legible en móvil, reduced motion y fallo de motion.",
-      "**Do** comprobar composición, keyboard y formularios con evidencia guardada antes de declarar QA visual concluida."
+      "**Do** comprobar composición, keyboard y formularios con evidencia guardada antes de declarar QA visual concluida.",
+      "**Do** conservar details secundarios cerrados por defecto y los diez destinos compactos de servicios en home."
     ],
     "donts": [
       "**Don't** sustituir la identidad por una paleta ajena, iconos infantiles o promesas genéricas de IA.",
       "**Don't** convertir cifras de fixtures en resultados comerciales de clientes.",
       "**Don't** aplicar desenfoque de superficie a paneles de contenido.",
       "**Don't** ocultar contenido esencial hasta que una animación termine.",
-      "**Don't** presentar inspección de código o capturas parciales como comparación visual inicial/final completa."
+      "**Don't** presentar inspección de código o capturas parciales como comparación visual inicial/final completa.",
+      "**Don't** volver a fijar Hero, Problemas o Servicios ni inventar una foto de Oscar."
     ]
   }
 }

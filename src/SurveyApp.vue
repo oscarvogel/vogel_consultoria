@@ -4,10 +4,10 @@
 
     <header class="border-b border-white/10 bg-vogel-deep/90 backdrop-blur" role="banner">
       <div class="section-shell flex h-20 items-center justify-between">
-        <a href="/" class="flex items-center gap-3" aria-label="Volver a Vogel Consultoria">
-          <img :src="logoVogel" alt="Logo Vogel Consultoria" class="h-10 w-auto rounded-sm" loading="eager" decoding="async" />
+        <a href="/" class="flex items-center gap-3" aria-label="Volver a Vogel Consultoría">
+          <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-auto rounded-sm" loading="eager" decoding="async" />
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoria</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoría</p>
             <p class="hidden text-xs text-vogel-gray/70 sm:block">Recursos para estudios contables</p>
           </div>
         </a>
@@ -33,10 +33,10 @@
               Post charla para contadores
             </p>
             <h1 class="fade-up mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.14] text-white sm:text-4xl lg:text-5xl">
-              Gracias por participar. Tu opinion nos ayuda a preparar mejores herramientas.
+              Gracias por participar. Tu opinión nos ayuda a preparar mejores herramientas.
             </h1>
             <p class="fade-up-delay mt-5 max-w-xl text-lg leading-8 text-vogel-gray">
-              Son menos de dos minutos. Ademas podes suscribirte al newsletter de Vogel Consultoria para recibir novedades, recursos para estudios contables y prompts de IA aplicados al trabajo diario.
+              Son menos de dos minutos. Además podés suscribirte al newsletter de Vogel Consultoría para recibir novedades, recursos para estudios contables y prompts de IA aplicados al trabajo diario.
             </p>
 
             <div class="mt-7 flex max-w-xl flex-col gap-4 rounded-lg border border-white/[0.12] bg-white/[0.045] p-4 sm:flex-row sm:items-center">
@@ -52,16 +52,16 @@
               <div>
                 <p class="text-sm font-bold uppercase tracking-[0.16em] text-vogel-amber">Actividad realizada</p>
                 <p class="mt-1 text-sm leading-6 text-vogel-gray">
-                  Esta encuesta acompana la charla para contadores dictada junto al CPCE Misiones.
+                  Esta encuesta acompaña la charla para contadores dictada junto al CPCE Misiones.
                 </p>
                 <a
-                  href="https://wa.me/543743667526?text=Hola%20Oscar%2C%20quiero%20recibir%20informacion%20para%20dictar%20una%20charla%20de%20IA%20para%20una%20institucion%20o%20empresa"
+                  href="https://wa.me/543743667526?text=Hola%20Oscar%2C%20quiero%20recibir%20informaci%C3%B3n%20para%20dictar%20una%20charla%20de%20IA%20para%20una%20instituci%C3%B3n%20o%20empresa"
                   class="mt-3 inline-flex text-sm font-bold text-vogel-amber underline-offset-4 hover:text-white hover:underline"
                   data-analytics-cta="survey_institution_talk_info"
                   data-analytics-funnel="accountants_survey"
                   data-analytics-step="intro"
                 >
-                  Solicitar informacion para una institucion o empresa
+                  Solicitar información para una institución o empresa
                 </a>
               </div>
             </div>
@@ -112,7 +112,7 @@
         <div class="section-shell grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-vogel-amber">Newsletter</p>
-            <h2 class="mt-3 text-3xl font-extrabold text-white">Informacion practica para estudios contables.</h2>
+            <h2 class="mt-3 text-3xl font-extrabold text-white">Información práctica para estudios contables.</h2>
           </div>
           <div class="grid gap-3 sm:grid-cols-3">
             <div v-for="topic in newsletterTopics" :key="topic.title" class="rounded-lg border border-white/10 bg-vogel-navy/50 p-5">
@@ -126,10 +126,10 @@
 
     <footer class="py-8">
       <div class="section-shell flex flex-col gap-3 text-sm text-vogel-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>Vogel Consultoria - Argentina</p>
+        <p>Vogel Consultoría - Argentina</p>
         <div class="flex flex-wrap gap-4">
           <a href="/" class="hover:text-white">Inicio</a>
-          <a href="mailto:oscarvogel@gmail.com" class="hover:text-white" data-analytics-cta="survey_footer_email">oscarvogel@gmail.com</a>
+          <a href="mailto:oscar@vogelconsultoria.com.ar" class="hover:text-white" data-analytics-cta="survey_footer_email">oscar@vogelconsultoria.com.ar</a>
           <a
             href="https://www.instagram.com/vogelconsultoria.ar/"
             target="_blank"
@@ -172,12 +172,12 @@ const metrics = [
 ];
 
 const questions = [
-  "Que tan util te resulto la charla? Escala del 1 al 5.",
-  "Que parte te intereso mas? Automatizacion ARCA, facturacion electronica, descarga de comprobantes, informes para clientes u otro.",
-  "Te gustaria ver una demo mas personalizada para tu estudio? Si, tal vez o no por ahora.",
-  "Cuantos clientes manejan aproximadamente en el estudio? 1-20, 21-50, 51-100 o mas de 100.",
-  "Cual seria el mayor beneficio para tu estudio?",
-  "Queres suscribirte al newsletter de Vogel Consultoria?",
+  "¿Qué tan útil te resultó la charla? Escala del 1 al 5.",
+  "¿Qué parte te interesó más? Automatización ARCA, facturación electrónica, descarga de comprobantes, informes para clientes u otro.",
+  "¿Te gustaría ver una demo más personalizada para tu estudio? Sí, tal vez o no por ahora.",
+  "¿Cuántos clientes manejan aproximadamente en el estudio? 1-20, 21-50, 51-100 o más de 100.",
+  "¿Cuál sería el mayor beneficio para tu estudio?",
+  "¿Querés suscribirte al newsletter de Vogel Consultoría?",
   "Correo para newsletter o contacto. Puede ser tu correo profesional o el correo del estudio.",
 ];
 
@@ -188,11 +188,11 @@ const newsletterTopics = [
   },
   {
     title: "Prompts de IA",
-    description: "Ejemplos listos para adaptar en informes, mails y analisis.",
+    description: "Ejemplos listos para adaptar en informes, mails y análisis.",
   },
   {
-    title: "Recursos utiles",
-    description: "Novedades, demos y materiales aplicables al dia a dia.",
+    title: "Recursos útiles",
+    description: "Novedades, demos y materiales aplicables al día a día.",
   },
 ];
 </script>

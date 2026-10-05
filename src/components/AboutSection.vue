@@ -1,93 +1,54 @@
 <template>
-  <section data-chapter="about" id="nosotros" class="section-space" aria-labelledby="nosotros-heading">
+  <section data-home-chapter="about" id="nosotros" class="home-chapter home-about" aria-labelledby="nosotros-heading">
     <div class="section-shell">
-      <div data-chapter-outro class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-        <div class="reveal rounded-3xl border border-vogel-gray/20 bg-vogel-deep/70 p-8 shadow-glow sm:p-10">
-          <SectionHeading id="nosotros-heading" title="Tecnología con criterio de negocio" />
-          <p class="mt-5 text-base leading-relaxed text-vogel-gray/90">
-            En Vogel ayudamos a empresas a ordenar procesos, conectar información y tomar decisiones con claridad. Oscar Vogel es desarrollador de software y consultor tecnológico con más de 25 años de experiencia implementando
-            sistemas de gestión, facturación, automatizaciones y soluciones web para empresas. En Vogel Consultoría
-            combinamos desarrollo, administración y capacitación para ordenar procesos y convertir información dispersa
-            en decisiones útiles.
-          </p>
-          <p class="mt-4 text-base leading-relaxed text-vogel-muted">
-            Trabajamos sobre necesidades reales de operación: ventas, administración, trazabilidad, reportes, integración
-            de bases de datos, modernización de sistemas existentes e inteligencia artificial aplicada con criterio.
-          </p>
-
-          <div class="mt-7 flex flex-wrap gap-3">
-            <ActionButton
-              label="Descargar CV"
-              href="/cv-jose-oscar-vogel.pdf"
-              variant="secondary"
-              data-analytics-cta="about_download_cv"
-              data-analytics-funnel="lead_journey"
-              data-analytics-step="about"
-            />
-            <ActionButton
-              label="Agendar diagnóstico"
-              href="#contacto"
-              variant="secondary"
-              data-analytics-cta="about_schedule_meeting"
-              data-analytics-funnel="lead_journey"
-              data-analytics-step="about"
-            />
+      <HomeChapterLabel number="06" label="NOSOTROS" />
+      <div data-chapter-outro class="about-intro">
+        <div>
+          <p class="home-business-label">Tecnología con criterio de negocio</p><h2 id="nosotros-heading" class="section-title">Oscar Vogel.</h2>
+          <p class="section-description">Oscar Vogel es desarrollador de software y consultor tecnológico con más de 25 años de experiencia en sistemas de gestión, facturación, automatizaciones y soluciones web.</p>
+          <p class="about-body">En Vogel Consultoría combinamos desarrollo, administración y capacitación. Trabajamos sobre ventas, trazabilidad, reportes, integración de datos y modernización de sistemas para convertir información dispersa en decisiones útiles.</p>
+          <div class="about-actions">
+            <ActionButton label="Descargar CV" href="/cv-jose-oscar-vogel.pdf" variant="secondary" data-analytics-cta="about_download_cv" data-analytics-funnel="lead_journey" data-analytics-step="about" />
+            <ActionButton label="Agendar diagnóstico" href="#contacto" variant="secondary" data-analytics-cta="about_schedule_meeting" data-analytics-funnel="lead_journey" data-analytics-step="about" />
           </div>
         </div>
+        <div class="about-credentials">
+          <img v-if="portraitSrc" :src="portraitSrc" alt="Oscar Vogel, consultor tecnológico" class="about-portrait" width="720" height="900" loading="lazy" decoding="async" />
+          <p class="home-experience-number">+25<span>años</span></p><p class="about-quote">Sistemas que acompañan el trabajo real.</p>
+          <dl>
 
-        <div class="reveal reveal-d2 rounded-3xl border border-vogel-amber/30 bg-vogel-navy p-8 sm:p-10">
-          <p class="font-display text-2xl font-bold leading-snug text-vogel-amber sm:text-3xl">
-            "Sistemas que acompañan<br />el trabajo real."
-          </p>
-          <div class="mt-8 grid gap-4 sm:grid-cols-2">
-            <div v-for="metric in metrics" :key="metric.label" class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-4">
-              <p class="font-display text-2xl font-bold text-white">{{ metric.value }}</p>
-              <p class="mt-1 text-sm leading-relaxed text-vogel-muted">{{ metric.label }}</p>
+            <div><dt>PyFE</dt><dd>Facturación electrónica open source publicada en GitHub.</dd></div>
+            <div><dt>Formación aplicada</dt><dd>Charlas y capacitación para contadores, gerentes y equipos.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <details class="home-detail"><summary>Ver capacidades y trayectoria de Oscar</summary>
+        <div class="about-detail">
+          <div>
+            <h3>Capacidades técnicas</h3>
+            <ul class="about-skills"><li v-for="skill in skills" :key="skill">{{ skill }}</li></ul>
+          </div>
+          <div>
+            <h3>Experiencia profesional</h3>
+            <div class="about-experience">
+              <article v-for="item in experience" :key="item.title">
+                <p class="about-period">{{ item.period }}</p>
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.description }}</p>
+              </article>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="reveal reveal-d3 rounded-3xl border border-vogel-gray/15 bg-white/[0.04] p-8">
-          <h3 class="font-display text-xl font-bold text-white">Capacidades técnicas</h3>
-          <div class="mt-5 flex flex-wrap gap-2">
-            <span
-              v-for="skill in skills"
-              :key="skill"
-              class="rounded-full border border-vogel-blueLight/25 bg-vogel-blue/10 px-3 py-2 text-sm font-semibold text-vogel-gray"
-            >
-              {{ skill }}
-            </span>
-          </div>
-        </div>
-
-        <div class="reveal reveal-d4 rounded-3xl border border-vogel-gray/15 bg-white/[0.04] p-8">
-          <h3 class="font-display text-xl font-bold text-white">Oscar Vogel, tecnología con criterio de negocio</h3>
-          <div class="mt-5 grid gap-4 sm:grid-cols-2">
-            <article v-for="item in experience" :key="item.title" class="border-l border-vogel-amber/50 pl-4">
-              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-vogel-amber">{{ item.period }}</p>
-              <h4 class="mt-2 font-semibold text-white">{{ item.title }}</h4>
-              <p class="mt-2 text-sm leading-relaxed text-vogel-muted">{{ item.description }}</p>
-            </article>
-          </div>
-        </div>
-      </div>
+      </details>
     </div>
   </section>
 </template>
-
 <script setup>
 import ActionButton from "./ActionButton.vue";
-import SectionHeading from "./SectionHeading.vue";
+import HomeChapterLabel from "./HomeChapterLabel.vue";
 
-const metrics = [
-  { value: "+25 años", label: "desarrollando e implementando sistemas de gestión" },
-  { value: "Python, Django y MySQL", label: "stack principal para soluciones web y operativas" },
-  { value: "PyFE", label: "facturación electrónica open source publicada en GitHub" },
-  { value: "IA aplicada", label: "charlas y capacitación para contadores, gerentes y equipos" },
-];
-
+// A supplied real portrait can be added without leaving an empty placeholder today.
+defineProps({ portraitSrc: { type: String, default: '' } });
 const skills = [
   "Python",
   "Django",

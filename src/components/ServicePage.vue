@@ -81,6 +81,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
                 <img
                   :src="page.image"
                   :alt="page.imageAlt"
+                  width="960" height="600"
                   class="aspect-[16/11] w-full rounded-2xl object-cover"
                   decoding="async"
                   fetchpriority="high"
@@ -103,7 +104,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Problemas que resolvemos</p>
               <h2 id="problemas-heading" class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-                Menos friccion, mas informacion util
+                Menos fricción, más información útil
               </h2>
             </div>
             <div class="grid gap-4 sm:grid-cols-3">
@@ -125,7 +126,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Beneficios</p>
               <h2 id="beneficios-heading" class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-                Una capa fiscal pensada para equipos tecnicos
+                Una capa fiscal pensada para equipos técnicos
               </h2>
             </div>
           </div>
@@ -148,10 +149,10 @@ const relatedServices = computed(() => getRelatedServices(props.page));
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-blueLight">Respuesta API</p>
               <h2 id="api-heading" class="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-                Manda el comprobante. Recibi una respuesta lista para usar.
+                Mandá el comprobante. Recibí una respuesta lista para usar.
               </h2>
               <p class="mt-4 text-sm leading-relaxed text-vogel-muted sm:text-base">
-                La documentacion tecnica queda preparada para revisar el caso de uso, validar el circuito de emision y definir los campos necesarios antes de integrar.
+                La documentación técnica queda preparada para revisar el caso de uso, validar el circuito de emisión y definir los campos necesarios antes de integrar.
               </p>
             </div>
 
@@ -181,7 +182,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
           <div class="grid gap-5 lg:grid-cols-2">
             <article class="rounded-3xl border border-vogel-gray/20 bg-vogel-deep/55 p-6 shadow-glow sm:p-8">
               <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Que incluye</p>
-              <h2 id="incluye-heading" class="mt-3 font-display text-3xl font-bold text-white">Trabajo concreto, no diagnostico eterno</h2>
+              <h2 id="incluye-heading" class="mt-3 font-display text-3xl font-bold text-white">Trabajo concreto, no diagnóstico eterno</h2>
               <ul class="mt-6 space-y-4">
                 <li v-for="item in page.includes" :key="item" class="flex gap-3 text-sm leading-relaxed text-vogel-gray">
                   <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-vogel-amber"></span>
@@ -272,7 +273,7 @@ const relatedServices = computed(() => getRelatedServices(props.page));
           <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-blueLight">Servicios relacionados</p>
-              <h2 id="relacionados-heading" class="mt-3 font-display text-3xl font-bold text-white">Tambien puede servirte</h2>
+              <h2 id="relacionados-heading" class="mt-3 font-display text-3xl font-bold text-white">También puede servirte</h2>
             </div>
           </div>
           <div class="mt-7 grid gap-4 sm:grid-cols-3">
@@ -292,12 +293,12 @@ const relatedServices = computed(() => getRelatedServices(props.page));
       <section data-story-reveal class="py-16 sm:py-20" aria-labelledby="cta-heading">
         <div class="section-shell">
           <div class="rounded-3xl border border-vogel-amber/25 bg-vogel-navy p-7 text-center shadow-glow sm:p-10">
-            <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Proximo paso</p>
+            <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Próximo paso</p>
             <h2 id="cta-heading" class="mx-auto mt-3 max-w-3xl font-display text-3xl font-bold text-white sm:text-4xl">
               Veamos si este servicio encaja con tu situacion actual
             </h2>
             <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-vogel-gray sm:text-base">
-              Una conversacion inicial alcanza para ordenar el problema, detectar oportunidades y definir si conviene avanzar con un diagnostico mas concreto.
+              Una conversacion inicial alcanza para ordenar el problema, detectar oportunidades y definir si conviene avanzar con un diagnóstico más concreto.
             </p>
             <a
               :href="page.ctaUrl"

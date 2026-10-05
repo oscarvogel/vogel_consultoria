@@ -1,6 +1,7 @@
 <script setup>
 import { shallowRef, ref, nextTick } from "vue";
 import ActionButton from "./ActionButton.vue";
+import HomeChapterLabel from "./HomeChapterLabel.vue";
 import { trackEvent } from "../lib/analytics.js";
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
@@ -56,26 +57,31 @@ async function resetForm() {
 
 <template>
   <section
-    data-chapter="neutral"
+    data-home-chapter="contact"
     id="contacto"
-    class="section-space"
+    class="home-chapter home-contact"
     aria-labelledby="contacto-heading"
     data-analytics-view="contact_section"
     data-analytics-funnel="lead_journey"
     data-analytics-step="contact"
   >
     <div class="section-shell">
-      <div class="border-t border-vogel-gray/20 pt-16">
+      <div>
+        <HomeChapterLabel number="07" label="CONTACTO" />
         <div class="relative text-left">
 
           <h2 id="contacto-heading" class="section-title max-w-3xl">
-            Agendemos un diagnóstico de tu operación.
+            Hablemos de tu operación.
           </h2>
           <p class="section-description mt-5 max-w-2xl">
             Contanos dónde se traba el trabajo. Revisamos el contexto y definimos un próximo paso con alcance claro.
           </p>
 
-          <div class="mt-8 grid gap-8 lg:grid-cols-2 lg:text-left">
+          <div class="home-contact-actions">
+            <ActionButton label="Agendar diagnóstico" href="mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20un%20diagn%C3%B3stico" variant="accent" data-analytics-cta="contact_email_schedule" data-analytics-funnel="lead_journey" data-analytics-step="contact" />
+            <ActionButton label="Conversar por WhatsApp" href="https://wa.me/543743667526?text=Hola%20quiero%20agendar%20una%20reuni%C3%B3n" :external="true" variant="secondary" data-analytics-cta="contact_whatsapp_schedule" data-analytics-funnel="lead_journey" data-analytics-step="contact" />
+          </div>
+          <div class="home-contact-layout">
             <!-- Form panel -->
             <div class="rounded-2xl border border-vogel-gray/20 bg-vogel-deep/60 p-5 sm:p-6">
 
@@ -123,7 +129,7 @@ async function resetForm() {
                       name="Nombre" autocomplete="name"
                       required
                       class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
-                      placeholder="Ej: Juan Perez"
+                      placeholder="Ej.: Juan Pérez…"
                     />
                   </div>
                   <div>
@@ -134,8 +140,15 @@ async function resetForm() {
                       type="email" spellcheck="false"
                       required
                       class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
-                      placeholder="Ej: contacto@empresa.com"
+                      placeholder="Ej.: contacto@empresa.com…"
                     />
+                  </div>
+                  <div>
+                    <label for="contacto-telefono" class="mb-1.5 block text-sm font-medium text-vogel-gray">Teléfono o WhatsApp — opcional</label>
+                    <input id="contacto-telefono" type="tel" name="Telefono" autocomplete="tel" inputmode="tel"
+                      class="w-full rounded-xl border border-vogel-gray/30 bg-vogel-navy/80 px-4 py-2.5 text-sm text-white placeholder:text-vogel-muted"
+                      placeholder="Ej.: +54 9 3743 123456…" aria-describedby="contacto-telefono-ayuda" />
+                    <p id="contacto-telefono-ayuda" class="mt-2 text-sm text-vogel-muted">Si preferís que te contactemos por WhatsApp, dejá tu número.</p>
                   </div>
                   <div>
                     <label for="contacto-objetivo" class="mb-1.5 block text-sm font-medium text-vogel-gray">Objetivo principal</label>
@@ -186,30 +199,7 @@ async function resetForm() {
               </form>
             </div>
 
-            <div class="flex flex-col justify-center gap-4 rounded-2xl border border-vogel-gray/20 bg-vogel-navy p-5 sm:p-6">
-              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-vogel-amber">Conversemos</p>
-              <p class="text-sm leading-relaxed text-vogel-gray sm:text-base">
-                Elegí el canal que te resulte más cómodo para coordinar una reunión de 20 minutos.
-              </p>
-              <div class="flex flex-wrap items-center gap-3">
-                <ActionButton
-                  label="Agendar por email"
-                  href="mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20una%20reuni%C3%B3n"
-                  data-analytics-cta="contact_email_schedule"
-                  data-analytics-funnel="lead_journey"
-                  data-analytics-step="contact"
-                />
-                <ActionButton
-                  label="Agendar por WhatsApp"
-                  href="https://wa.me/543743667526?text=Hola%20quiero%20agendar%20una%20reuni%C3%B3n"
-                  :external="true"
-                  variant="secondary"
-                  data-analytics-cta="contact_whatsapp_schedule"
-                  data-analytics-funnel="lead_journey"
-                  data-analytics-step="contact"
-                />
-              </div>
-            </div>
+            <div class="home-contact-note"><h3>Contanos dónde se traba el trabajo.</h3><p>Revisamos el contexto y definimos un próximo paso con alcance claro.</p><a class="text-link" href="mailto:oscar@vogelconsultoria.com.ar">oscar@vogelconsultoria.com.ar</a><p>También podés dejarnos tu consulta en el formulario.</p></div>
           </div>
         </div>
       </div>

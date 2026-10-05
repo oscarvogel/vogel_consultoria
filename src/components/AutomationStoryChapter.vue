@@ -7,4 +7,4 @@ const steps=[
  {title:'Evidencia.',mode:'decide',text:'Entregamos evidencia y resumen. Carpetas por período y cliente, evidencia por CUIT y resumen del lote: una salida auditable para el control del estudio.'},
 ];
 </script>
-<template><NarrativeChapter id="circuito-arca" chapter="automate" title="Automatizacion con criterio de implementacion, no con magia" description="Partimos de un caso mensual acotado, dejamos el proceso documentado y medimos si el estudio realmente ahorra horas, errores y retrabajo." :steps="steps" /></template>
+<template><NarrativeChapter id="circuito-arca" chapter="automate" title="Automatización con criterio de implementación, no con magia" description="Partimos de un caso mensual acotado, dejamos el proceso documentado y medimos si el estudio realmente ahorra horas, errores y retrabajo." :steps="steps" /></template>

@@ -1,30 +1,37 @@
 <script setup>
-import {ref} from 'vue';
 import field from '../assets/cases/forestal-campo.png';
 import review from '../assets/cases/forestal-revision.png';
 import dashboard from '../assets/cases/forestal-dashboard.png';
 import dashboardDesktop from '../assets/cases/forestal-dashboard-desktop.png';
-import {useCaseMotion} from '../composables/useSiteMotion.js';
-const root=ref(null);
-const activeStep=ref(0);
-useCaseMotion(root,index=>{activeStep.value=index;});
-const steps=[
- {title:'Registrar donde ocurre el trabajo.',text:'La falta de datos de producción dificulta seguir la operación. Un sistema de recolección de datos en campo reúne equipo, proceso, tiempos y producción en un registro.',caption:'Captura en campo',image:field,alt:'Formulario de producción forestal con datos de demostración.'},
- {title:'Revisar antes de consolidar.',text:'El operador puede revisar los datos de la jornada antes de confirmar. La información conserva su contexto para que el equipo pueda consultarla y trabajar con un registro trazable.',caption:'Revisión del registro',image:review,alt:'Pantalla de revisión de un registro forestal ficticio.'},
- {title:'Convertir el registro en una decisión.',text:'Los dashboards interactivos permiten visualizar producción, comparar información y facilitar decisiones de gestión. El tablero muestra indicadores, evolución y detalle operativo.',caption:'Dashboard de producción',desktopImage:dashboardDesktop,image:dashboard,alt:'Dashboard operativo del encargado con indicadores y gráficos. Todos los valores son ficticios.'}
+import HomeChapterLabel from './HomeChapterLabel.vue';
+const steps = [
+ {label:'Registrar',title:'Registrar donde ocurre el trabajo.',text:'Equipo, proceso, tiempos y producción reunidos en un registro de campo.',image:field,height:901,alt:'Formulario de producción forestal con datos de demostración.'},
+ {label:'Revisar',title:'Revisar antes de consolidar.',text:'El operador revisa la jornada. La información conserva su contexto y trazabilidad.',image:review,height:1449,alt:'Pantalla de revisión de un registro forestal ficticio.'},
+ {label:'Decidir',title:'Convertir el registro en una decisión.',text:'Indicadores, evolución y detalle operativo en una vista compartida de producción.',image:dashboard,desktopImage:dashboardDesktop,height:1873,alt:'Dashboard operativo forestal. Todos los valores son ficticios.'},
 ];
 </script>
 <template>
-<section data-chapter="forest" ref="root" id="casos" class="case-section section-space" aria-labelledby="mini-cases-heading">
- <div class="section-shell"><div class="case-heading" data-story-reveal><div><h2 id="mini-cases-heading" class="section-title" data-text-reveal>Una operación forestal.<br>Una misma información.</h2><p class="section-description">Caso anónimo: del dato registrado en campo a una vista compartida de producción. Así conectamos el trabajo diario con la gestión.</p></div><p class="demo-label">Interfaz real con datos de demostración.<br>Las cifras no representan resultados de un cliente.</p></div>
- <div class="case-sequence"><ol class="case-steps"><li v-for="(step,index) in steps" :key="step.title" class="case-step"><span class="step-index">{{ String(index+1).padStart(2,'0') }} / 03</span><h3>{{ step.title }}</h3><p>{{ step.text }}</p><figure class="case-mobile-screen"><img :src="step.image" :alt="step.alt" width="390" :height="index === 2 ? 1873 : index === 1 ? 1449 : 901" loading="lazy" decoding="async"/><figcaption>{{ step.caption }} · Datos de demostración</figcaption></figure><a v-if="index===2" class="text-link" href="/dashboards-ejecutivos/">Conocer el servicio de dashboards</a></li></ol><div class="case-visual"><figure v-for="step in steps" :key="step.caption" class="case-screen"><div class="case-image"><img :src="step.desktopImage || step.image" :alt="step.alt" :width="step.desktopImage ? 1440 : 390" :height="step.desktopImage ? 1151 : step.caption === 'Revisión del registro' ? 1449 : 901" loading="lazy" decoding="async"/></div><figcaption>{{ step.caption }}<span>Datos de demostración</span></figcaption></figure><div class="case-progress" aria-hidden="true"><span>{{ String(activeStep+1).padStart(2, '0') }} / 03</span><div class="case-progress-track"><span v-for="(_, index) in steps" :key="index" :class="{ 'is-current': index === activeStep }"></span></div><span>Del campo a la decisión</span></div></div></div>
- </div>
-</section>
+ <section id="casos" class="home-chapter home-forest" data-home-chapter="forest" aria-labelledby="mini-cases-heading">
+  <div class="section-shell">
+   <HomeChapterLabel number="03" label="CASO DESTACADO" />
+   <div class="home-forest-heading"><h2 id="mini-cases-heading" class="section-title">Del registro en campo<br>a la decisión operativa.</h2><p>Caso forestal anónimo.<br>Interfaz real · datos de demostración.<br>Las cifras no representan resultados de un cliente.</p></div>
+   <div class="forest-track">
+    <div class="forest-stage">
+     <ol class="case-steps" aria-label="Del campo a la decisión">
+      <li v-for="(step,index) in steps" :key="step.label" class="case-step" :class="{'step-current':index===0}"><span>{{ String(index+1).padStart(2,'0') }}</span><h3>{{ step.label }}</h3><p>{{ step.text }}</p></li>
+     </ol>
+     <div class="forest-screens">
+      <figure v-for="(step,index) in steps" :key="step.label" class="case-screen">
+       <div class="forest-image" :class="{'forest-image--dashboard':index===2}">
+        <picture><source v-if="step.desktopImage" media="(min-width:1024px)" :srcset="step.desktopImage"/><img :src="step.image" :alt="step.alt" width="390" :height="step.height" loading="lazy" decoding="async"/></picture>
+        <div v-if="index < 2" class="forest-context"><span>{{ step.label }} en campo</span><h4>{{ step.title }}</h4><p>{{ step.text }}</p></div>
+       </div>
+       <figcaption><span>{{ step.title }}</span><a :href="step.desktopImage || step.image" target="_blank" rel="noopener noreferrer" class="text-link" :aria-label="'Abrir captura completa: '+step.label">Abrir captura completa</a></figcaption>
+      </figure>
+     </div>
+     <div class="forest-footer"><span>Interfaz real · datos de demostración</span><a href="/dashboards-ejecutivos/" class="text-link" data-analytics-cta="home_forest_dashboard">Conocer el servicio de dashboards</a></div>
+    </div>
+   </div>
+  </div>
+ </section>
 </template>
-<style scoped>
-.case-mobile-screen{display:none}.case-section{background:transparent}.case-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px}.demo-label{max-width:27ch;font-size:13px;line-height:1.7;color:var(--color-muted)}.case-sequence{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}.case-steps{display:grid;gap:48px}.case-step{padding-block:20px;border-top:1px solid var(--color-border)}.step-index{font-size:13px;letter-spacing:.08em;color:var(--color-muted);font-variant-numeric:tabular-nums}.case-step h3{font-size:clamp(24px,2.7vw,38px);line-height:1.12;max-width:18ch;margin-top:22px;font-weight:700}.case-step p{margin-top:20px;color:var(--color-muted);max-width:45ch;line-height:1.8}.case-step a{display:inline-block;margin-top:24px}.case-visual{display:grid;gap:32px;align-content:start}.case-screen{margin:0}.case-image{background:var(--color-background);border-radius:16px;padding:20px;display:flex;justify-content:center;overflow:hidden}.case-image img{max-height:520px;object-fit:contain;width:auto;max-width:100%;height:auto;border-radius:8px}.case-screen figcaption{display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-top:16px}.case-screen figcaption span{font-size:12px;color:var(--color-muted)}.case-motion .case-steps{gap:0}.case-motion .case-step{min-height:65vh;display:flex;flex-direction:column;justify-content:center;padding-block:40px}.case-motion .case-visual{position:relative;height:570px;display:block}.case-motion .case-screen{position:absolute;inset:0}.step-current .step-index{color:var(--color-action)}
-.case-progress{display:none}.case-motion .case-visual{height:min(610px,calc(100svh - 180px))}.case-motion .case-screen{bottom:44px}.case-motion .case-image{height:calc(100% - 54px);align-items:center}.case-motion .case-image img{max-height:100%}.case-motion .case-progress{position:absolute;bottom:0;inset-inline:0;display:flex;align-items:center;gap:12px;font-size:12px;font-variant-numeric:tabular-nums;color:var(--color-text)}.case-progress-track{display:flex;gap:6px;flex:1}.case-progress-track>span{height:2px;flex:1;background:var(--color-border);transition:background-color 180ms var(--ease-out)}.case-progress-track>.is-current{background:var(--color-link)}
-@media(max-width:1023px){.case-mobile-screen{display:block;margin-top:24px}.case-mobile-screen img{max-height:650px;width:100%;object-fit:contain;background:var(--color-background);border-radius:12px}.case-mobile-screen figcaption{font-size:13px;color:var(--color-muted);margin-top:12px}.case-sequence>.case-visual{display:none}.case-heading{display:block;margin-bottom:36px}.demo-label{margin-top:24px;max-width:none}.case-sequence{grid-template-columns:1fr;gap:40px}.case-steps{gap:24px}.case-visual{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.case-image{padding:8px}.case-screen figcaption{display:block}.case-screen figcaption span{display:block;margin-top:6px}}
-@media(max-width:639px){.case-visual{grid-template-columns:1fr}.case-image{padding:16px}.case-image img{max-height:none;width:100%;max-width:340px}.case-screen:last-child img{max-height:850px;object-fit:contain}.case-step{padding-block:24px}.case-step h3{max-width:none}.case-screen figcaption{font-size:15px}}
-@media(prefers-reduced-motion:reduce){.case-step{min-height:0 !important}.case-visual{position:static !important;height:auto !important}.case-screen{position:static !important;opacity:1 !important;visibility:visible !important;transform:none !important}}
-</style>

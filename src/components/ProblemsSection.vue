@@ -1,33 +1,23 @@
 <script setup>
-import StoryArtifact from './StoryArtifact.vue';
-import ChapterVisual from './ChapterVisual.vue';
-const pairs=[
- ['Información repartida en planillas','Sistemas que conectan áreas y conservan el contexto de cada operación.'],
- ['Reportes que llegan tarde','Dashboards con indicadores críticos y detalle para decidir con información confiable.'],
- ['Tareas manuales que se repiten','Automatización de procesos con reglas, trazabilidad y control humano.'],
- ['IA sin un punto de partida claro','Casos de uso acotados y capacitación para aplicar herramientas con criterio.']
-];
-const frames=[
- {mode:'order',label:'Información dispersa → registro común'},
- {mode:'decide',label:'Registro → vista de gestión'},
- {mode:'automate',label:'Tareas → flujo supervisado'},
- {mode:'assist',label:'Asistencia dentro de un proceso definido'},
+import HomeChapterLabel from './HomeChapterLabel.vue';
+const pairs = [
+ ['Información repartida en planillas', 'Cada área trabaja con su versión. El contexto se pierde entre archivos.'],
+ ['Reportes que llegan tarde', 'La información aparece después del momento en que hacía falta decidir.'],
+ ['Tareas manuales que se repiten', 'Copiar, controlar y volver a cargar ocupa tiempo del equipo.'],
+ ['IA sin un punto de partida claro', 'Hay herramientas disponibles, pero falta definir un proceso donde aporten valor.'],
 ];
 </script>
 <template>
- <section id="soluciones" class="section-space" data-narrative-steps data-chapter="problems" aria-labelledby="problemas-heading">
+ <section id="soluciones" class="home-chapter home-problems" data-home-chapter="problems" aria-labelledby="problemas-heading">
   <div class="section-shell">
-   <h2 id="problemas-heading" class="section-title">Tu operación ya tiene datos.<br>Hagamos que trabajen juntos.</h2>
-   <p class="section-description">Partimos de las fricciones del negocio para definir qué ordenar, qué conectar y qué automatizar.</p>
-   <div class="chapter-layout">
-    <dl class="chapter-copy" data-narrative-copy>
-     <div v-for="([problem,solution],index) in pairs" :key="problem" class="chapter-step" data-narrative-step>
-      <dt><span class="chapter-step-index">{{ String(index+1).padStart(2,'0') }} / 04</span>{{ problem }}</dt>
-      <dd>{{ solution }}<div class="chapter-mobile-art"><StoryArtifact :mode="frames[index].mode" /></div></dd>
-     </div>
+   <HomeChapterLabel number="02" label="EL PROBLEMA" />
+   <div class="home-problem-layout">
+    <div><h2 id="problemas-heading" class="section-title">Tu operación ya tiene datos.<br><span>Hagamos que trabajen juntos.</span></h2><p class="section-description">Partimos de las fricciones del negocio para definir qué ordenar, qué conectar y qué automatizar.</p></div>
+    <dl class="home-frictions" data-home-moment="problems">
+     <div v-for="([problem, description], index) in pairs" :key="problem"><span class="home-friction-index" aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</span><dt>{{ problem }}</dt><dd>{{ description }}</dd></div>
     </dl>
-    <ChapterVisual :frames="frames" />
    </div>
+   <p class="home-handoff home-handoff--frame">Un mismo registro. Un contexto compartido.</p>
   </div>
  </section>
 </template>

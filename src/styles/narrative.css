@@ -20,3 +20,14 @@
 .hero-chapter-active .hero-shell{overflow:visible}.hero-chapter-active .hero-actions{position:relative;z-index:1}.hero-chapter-active .hero-footer{position:relative;z-index:1}
 @media(max-width:1023px){.chapter-layout{grid-template-columns:1fr;gap:0;margin-top:36px}.chapter-step{padding-block:28px 40px}.hero-connections{display:none}}
 @media(prefers-reduced-motion:reduce){.chapter-step{min-height:0!important}.chapter-mobile-art{display:block!important}.chapter-layout>.chapter-visual,.service-story-core>.chapter-visual{display:none!important}.hero-connections{opacity:.12}.chapter-service-links a{transition:none}}
+@media(max-width:639px){
+ .chapter-layout{margin-top:28px}
+ .chapter-step{padding-block:24px 32px}
+ .chapter-step-index{margin-bottom:16px}
+ .chapter-step h3,.chapter-step dt{font-size:28px;max-width:none}
+ .chapter-step p,.chapter-step dd{line-height:1.7;margin-top:16px}
+ .chapter-service-links{margin-top:20px}
+ .chapter-service-links p{font-size:14px;line-height:1.6;margin-top:8px}
+ /* A neutral, continuous reading flow; the desktop shared scenes stay intact. */
+ #soluciones .chapter-mobile-art,#servicios .chapter-step:not(:last-child) .chapter-mobile-art{display:none!important}
+}

@@ -241,7 +241,7 @@ function testCommercialEmailDestination() {
   const footerSection = readProjectFile("src/components/FooterSection.vue");
 
   assert(
-    ctaSection.includes("mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20una%20reuni%C3%B3n"),
+    ctaSection.includes("mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20un%20diagn%C3%B3stico"),
     "CTASection.vue: Agendar por email must use oscar@vogelconsultoria.com.ar",
   );
   assert(footerSection.includes("mailto:oscar@vogelconsultoria.com.ar"), "FooterSection.vue: footer email must use oscar@vogelconsultoria.com.ar");
@@ -249,10 +249,10 @@ function testCommercialEmailDestination() {
 
 function testResourcesContent() {
   const app = readProjectFile("src/App.vue");
-  const section = readProjectFile("src/components/ResourcesSection.vue");
+  const section = readProjectFile("src/components/HomeEvidence.vue");
   const resourceIndex = readProjectFile("recursos/index.html");
 
-  assert(app.includes("ResourcesSection"), "App.vue: ResourcesSection must be mounted on home");
+  assert(app.includes("ServicesSection") && readProjectFile("src/components/ServicesSection.vue").includes('kind="resources"'), "home capabilities must include resource discovery");
   assert(section.includes("content_discovery"), "ResourcesSection.vue: resource links must be analytics-tagged");
   assert(resourceIndex.includes('<script type="module" src="/src/resources.js"></script>'), "recursos/index.html: missing resources entry script");
 
@@ -284,10 +284,10 @@ function testMiniCasesSection() {
 
   assert(app.includes("MiniCasesSection"), "App.vue: MiniCasesSection must be mounted on home");
   assert(section.includes("forestal"), "MiniCasesSection.vue: missing forestal rubro");
-  assert(section.includes("falta de datos de producción"), "MiniCasesSection.vue: missing production data problem");
-  assert(section.includes("recolección de datos en campo"), "MiniCasesSection.vue: missing field data collection solution");
-  assert(section.includes("dashboards interactivos"), "MiniCasesSection.vue: missing interactive dashboards result");
-  assert(section.includes("Caso anónimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
+  assert(section.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
+  assert(section.includes("registro de campo"), "forest case must explain field collection");
+  assert(section.includes("Indicadores, evolución y detalle operativo"), "forest case must explain decision support");
+  assert(section.includes("Caso forestal anónimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
 }
 
 function testPortalAccessLinks() {
@@ -301,6 +301,22 @@ function testPortalAccessLinks() {
   assert(navbar.includes("navbar_portal_access"), "Navbar.vue: missing portal analytics");
 }
 
+function testUiRefinements() {
+  const generator=readProjectFile("scripts/generate-service-card-images.mjs");
+  assert(!generator.includes("<text"), "service backgrounds must not contain embedded titles");
+  assert(readProjectFile("src/data/servicePages.js").includes('cards/contaflow-api.webp'), "ContaFlow needs its own image");
+  const contact=readProjectFile("src/components/CTASection.vue");
+  assert(contact.includes('type="tel" name="Telefono" autocomplete="tel"'), "contact phone must be a custom optional tel field");
+  assert(!contact.includes('id="contacto-telefono" required'), "phone must remain optional");
+  const proof=readProjectFile("src/components/ClientProof.vue");
+  assert(proof.includes("webProjects"), "early proof must use the existing project catalogue");
+  const provenance=JSON.parse(readProjectFile("public/clients/provenance.json"));
+  for(const file of Object.keys(provenance.sources)) assert(fs.existsSync(path.join(root,"public/clients",file)), `missing local client logo ${file}`);
+  for(const file of ["index.html","src/SurveyApp.vue",...expectedServiceIds.map(id=>`${id}/index.html`)]) {
+    assert(!readProjectFile(file).includes("oscarvogel@gmail.com"), `${file}: inconsistent commercial email`);
+  }
+}
+
 function testAboutCvSection() {
   const about = readProjectFile("src/components/AboutSection.vue");
   const navbar = readProjectFile("src/components/Navbar.vue");
@@ -308,7 +324,8 @@ function testAboutCvSection() {
   const cvPath = path.join(root, "public", "cv-jose-oscar-vogel.pdf");
 
   assert(about.includes('id="nosotros"'), "AboutSection.vue: section must present the personal profile");
-  assert(about.includes("Oscar Vogel, tecnología con criterio de negocio"), "AboutSection.vue: missing personal heading");
+  assert(about.includes("Tecnología con criterio de negocio") && about.includes("Oscar Vogel es desarrollador"), "AboutSection.vue: missing heading or named biography");
+  assert(about.includes("Capacidades técnicas") && !about.includes('value: "Python, Django y MySQL"'), "AboutSection.vue: stack must be presented as a capability");
   assert(about.includes("/cv-jose-oscar-vogel.pdf"), "AboutSection.vue: missing CV download link");
   assert(about.includes("about_download_cv"), "AboutSection.vue: missing CV analytics marker");
   assert(navbar.includes("Nosotros"), "Navbar.vue: missing Quién soy navigation label");
@@ -330,6 +347,7 @@ const tests = [
   ["mini cases section", testMiniCasesSection],
   ["portal access links", testPortalAccessLinks],
   ["about CV section", testAboutCvSection],
+  ["UI refinements assets and contact", testUiRefinements],
 ];
 
 for (const [name, test] of tests) {

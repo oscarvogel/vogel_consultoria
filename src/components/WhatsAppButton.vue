@@ -1,5 +1,6 @@
 <template>
   <a
+    v-show="!contactVisible"
     :href="waLink"
     target="_blank"
     rel="noopener noreferrer"
@@ -19,5 +20,15 @@
 </template>
 
 <script setup>
+import {ref,onMounted,onUnmounted} from 'vue';
+const contactVisible=ref(false);
+let observer;
+onMounted(()=>{
+  const contact=document.getElementById('contacto');
+  if(!contact || !('IntersectionObserver' in window))return;
+  observer=new IntersectionObserver(([entry])=>{contactVisible.value=entry.isIntersecting;});
+  observer.observe(contact);
+});
+onUnmounted(()=>observer?.disconnect());
 const waLink = "https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa";
 </script>

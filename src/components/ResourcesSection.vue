@@ -36,4 +36,6 @@ import { resources } from '../data/resources.js';
 @media(hover:hover) and (pointer:fine){.resource-entry:hover h3{color:var(--color-link)}.resource-entry:hover .resource-action svg{transform:translateX(4px)}}
 @media(max-width:1023px){.resource-entry{grid-template-columns:140px minmax(0,1fr)}.resource-action{grid-column:2}.resources-heading{display:block}.resources-heading>a{margin-top:20px}}
 @media(max-width:639px){.resource-index{padding-inline:24px}.resource-entry{grid-template-columns:1fr;gap:18px;padding-block:28px}.resource-action{grid-column:auto}.resource-category{display:flex;justify-content:space-between;gap:20px}.resource-category>span{margin:0}.resource-copy h3{font-size:25px}}
+
+@media(max-width:639px){.resource-copy p{display:none}.resource-entry{gap:12px;padding-block:24px}.resource-copy h3{font-size:23px}.resource-index{padding-inline:20px}}
 </style>

@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "node scripts/test-site.mjs",
     "test:contrast": "node scripts/check-contrast.mjs",
+    "test:ui": "node scripts/test-ui-refinements.mjs",
     "test:narrative": "node scripts/test-narrative.mjs",
     "test:narrative:behavior": "node scripts/test-narrative-behavior.mjs"
   },

@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 const require=createRequire(import.meta.url);
 let chromium;
 try {({chromium}=require('playwright'));}
@@ -62,6 +64,7 @@ try{
  assert(await noGsap.locator('h1').isVisible());assert.equal(await noGsap.locator('.pin-spacer').count(),0);
  assert.equal(await noGsap.locator('#servicios .chapter-service-links>a').count(),10);
  checks.push('GSAP unavailable: ordinary flow and service destinations preserved');await noGsap.close();
- await writeFile('docs/capturas/coreografia-2026-10-03/after/behavior.json',JSON.stringify({checks,status:'pass'},null,2));
+ const out=process.env.NARRATIVE_OUTPUT || join(tmpdir(),'vogel-capitulos-2026-10-04','narrative');await mkdir(out,{recursive:true});
+ await writeFile(join(out,'behavior.json'),JSON.stringify({checks,status:'pass'},null,2));
  console.log('ok - '+checks.join('; '));
 }finally{await browser.close();}
