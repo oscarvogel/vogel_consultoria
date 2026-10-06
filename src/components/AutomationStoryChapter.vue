@@ -1,10 +1,10 @@
 <script setup>
 import NarrativeChapter from './NarrativeChapter.vue';
 const steps=[
- {title:'Planilla.',mode:'order',text:'Relevamos el circuito actual. La planilla operativa reúne los clientes activos y el período a consultar: una entrada controlada antes de ejecutar.'},
- {title:'Ejecución.',mode:'connect',text:'Armamos el flujo y las reglas. Seleccionamos el CUIT delegado y realizamos la consulta mensual dentro del alcance acordado.'},
- {title:'Revisión.',mode:'automate',text:'Ejecutamos con supervisión. Robot e IA operativa trabajan dentro de un proceso supervisado; la operación mantiene control humano y autorizaciones del estudio.'},
- {title:'Evidencia.',mode:'decide',text:'Entregamos evidencia y resumen. Carpetas por período y cliente, evidencia por CUIT y resumen del lote: una salida auditable para el control del estudio.'},
+ {title:'Planilla.',mode:'order',text:'Se leen los clientes activos y el período a consultar antes de iniciar el lote.'},
+ {title:'Consulta.',mode:'connect',text:'Se opera únicamente con clientes delegados y dentro del alcance acordado con el estudio.'},
+ {title:'Revisión.',mode:'automate',text:'El estudio conserva sus autorizaciones y revisa el resultado antes de darlo por válido.'},
+ {title:'Evidencia.',mode:'decide',text:'La salida reúne carpetas por período y cliente, evidencia por CUIT y un resumen del lote.'},
 ];
 </script>
-<template><NarrativeChapter id="circuito-arca" chapter="automate" title="Automatización con criterio de implementación, no con magia" description="Partimos de un caso mensual acotado, dejamos el proceso documentado y medimos si el estudio realmente ahorra horas, errores y retrabajo." :steps="steps" /></template>
+<template><NarrativeChapter id="circuito-arca" chapter="automate" title="El flujo mensual, paso a paso." description="Desde la entrada controlada hasta la evidencia que revisa el estudio." :steps="steps" /></template>

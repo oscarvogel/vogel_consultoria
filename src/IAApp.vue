@@ -9,7 +9,6 @@
       <ServicesIAAsync />
       <ProcessIAAsync />
       <CustomGPTIAAsync />
-      <OfferIAAsync />
       <FAQIAAsync />
       <CTAIAAsync />
     </main>
@@ -31,7 +30,6 @@ const UseCasesIAAsync = defineAsyncComponent(() => import("./components/UseCases
 const ServicesIAAsync = defineAsyncComponent(() => import("./components/ServicesIA.vue"));
 const ProcessIAAsync = defineAsyncComponent(() => import("./components/ProcessIA.vue"));
 const CustomGPTIAAsync = defineAsyncComponent(() => import("./components/CustomGPTIA.vue"));
-const OfferIAAsync = defineAsyncComponent(() => import("./components/OfferIA.vue"));
 const FAQIAAsync = defineAsyncComponent(() => import("./components/FAQIA.vue"));
 const CTAIAAsync = defineAsyncComponent(() => import("./components/CTAIA.vue"));
 

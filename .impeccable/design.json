@@ -175,11 +175,11 @@
     },
     "typographyMeta": {
       "display": {
-        "displayName": "DM Sans display",
+        "displayName": "Clash Display titulares",
         "purpose": "Titulares de portada."
       },
       "body": {
-        "displayName": "DM Sans lectura",
+        "displayName": "Chillax lectura y UI",
         "purpose": "Cuerpo y UI."
       }
     },
@@ -281,10 +281,10 @@
   ],
   "narrative": {
     "northStar": "Paisaje de datos",
-    "overview": "El paisaje de datos combina una base casi negra azul, luz ámbar y tipografía DM Sans. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.",
+    "overview": "El paisaje de datos combina una base casi negra azul, luz ámbar, titulares Clash Display y lectura/UI Chillax. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.",
     "keyCharacteristics": [
       "V ámbar vectorial como identificador oficial.",
-      "DM Sans en títulos, cuerpo y UI.",
+      "Clash Display en titulares y Chillax en cuerpo/UI.",
       "Fondo casi negro azul y ámbar como acento principal.",
       "Flujo natural, divisiones finas y espacios amplios.",
       "Capturas operativas reales identificadas como demostración.",
@@ -298,7 +298,7 @@
       },
       {
         "name": "The Voz Única Rule",
-        "body": "Usar DM Sans para todos los niveles, ajustando tamaño y peso para establecer jerarquía.",
+        "body": "Usar Clash Display en titulares y Chillax en lectura/UI, ajustando escala y peso para establecer jerarquía.",
         "section": "typography"
       },
       {
@@ -314,14 +314,14 @@
     ],
     "dos": [
       "**Do** usar el SVG oficial de la V ámbar sin deformarlo.",
-      "**Do** reutilizar los tokens compartidos y DM Sans en nuevas superficies.",
+      "**Do** reutilizar los tokens compartidos: Clash Display en titulares y Chillax en lectura/UI.",
       "**Do** conservar el foco ámbar visible y controles legibles.",
       "**Do** identificar las capturas forestales como interfaz real con datos de demostración.",
       "**Do** mantener etiquetas y CTA móviles en flujo sin solapamientos.",
       "**Do** conservar una alternativa estática para el paisaje y movimiento reducido."
     ],
     "donts": [
-      "**Don't** reutilizar OV, Syne o Bricolage como identidad actual.",
+      "**Don't** reutilizar OV, Syne, Bricolage o DM Sans como identidad tipográfica actual.",
       "**Don't** convertir cifras de demostración en resultados comerciales.",
       "**Don't** inventar un retrato de Oscar ni presentar FEMAG como terminado.",
       "**Don't** ocultar contenido esencial detrás de animaciones o WebGL.",

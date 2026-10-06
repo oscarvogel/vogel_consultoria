@@ -94,7 +94,7 @@ function createConsentButton(label, value, primary = false) {
   button.style.borderRadius = "8px";
   button.style.background = primary ? "var(--color-action)" : "transparent";
   button.style.color = primary ? "var(--color-action-text)" : "var(--color-text)";
-  button.style.font = "700 13px/1.2 'DM Sans', Arial, sans-serif";
+  button.style.font = "600 13px/1.2 'Chillax', Arial, sans-serif";
   button.style.minHeight = "44px";
   button.style.padding = "10px 14px";
   button.style.cursor = "pointer";
@@ -126,7 +126,7 @@ function renderConsentBanner() {
   banner.style.background = "var(--color-panel)";
   banner.style.boxShadow = "0 18px 50px rgba(0,0,0,.35)";
   banner.style.color = "var(--color-text)";
-  banner.style.font = "400 14px/1.5 'DM Sans', Arial, sans-serif";
+  banner.style.font = "400 14px/1.5 'Chillax', Arial, sans-serif";
 
   const text = document.createElement("p");
   text.textContent =

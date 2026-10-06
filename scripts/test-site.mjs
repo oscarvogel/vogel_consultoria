@@ -42,15 +42,7 @@ function loadServicePagesForTest() {
     .replace("export const servicePages", "const servicePages")
     .replace(/export function /g, "function ");
 
-  const context = {
-    sistemasImage: "sistemas-a-medida.webp",
-    dashboardsImage: "dashboards-ejecutivos.webp",
-    automatizacionImage: "automatizacion-procesos.webp",
-    contaflowImage: "contaflow-api-facturacion-electronica.webp",
-    webImage: "desarrollo-web.webp",
-    talleresImage: "talleres-capacitacion-ia.webp",
-    encodeURIComponent,
-  };
+  const context = { encodeURIComponent };
 
   vm.createContext(context);
   vm.runInContext(`${source}\nresult = servicePages;`, context);
@@ -304,7 +296,24 @@ function testPortalAccessLinks() {
 function testUiRefinements() {
   const generator=readProjectFile("scripts/generate-service-card-images.mjs");
   assert(!generator.includes("<text"), "service backgrounds must not contain embedded titles");
-  assert(readProjectFile("src/data/servicePages.js").includes('cards/contaflow-api.webp'), "ContaFlow needs its own image");
+  const serviceData=readProjectFile("src/data/servicePages.js");
+  const serviceTemplate=readProjectFile("src/components/ServicePage.vue");
+  assert(!serviceData.includes("assets/services/cards/"), "service pages should not ship decorative mockup images");
+  assert(serviceTemplate.includes("ProcessFlowDiagram") && serviceTemplate.includes("serviceFlows"), "service pages must use service-specific process diagrams");
+  assert(serviceData.includes('title: "ContaFlow API para facturación electrónica"'), "ContaFlow must use the shorter service title");
+  assert(serviceData.includes("AFIP/ARCA"), "ContaFlow's service summary must retain the fiscal integration reference");
+  assert(serviceTemplate.includes("service-main-cta") && serviceTemplate.includes('aria-label="Ruta de navegación"'), "service pages must expose one prominent CTA and a compact breadcrumb");
+  const whatsapp=readProjectFile("src/components/WhatsAppButton.vue");
+  assert(whatsapp.includes("max-[639px]:hidden"), "floating WhatsApp must be hidden on narrow mobile screens");
+  const survey=readProjectFile("src/SurveyApp.vue");
+  assert(survey.includes("8000") && survey.includes('role="status"') && survey.includes("Abrir encuesta en otra pestaña"), "survey must expose accessible loading and a persistent external form link");
+  assert(survey.includes("Correo de contacto") && survey.includes("opcional"), "survey copy must clarify that its email field is optional");
+  const iaHero=readProjectFile("src/components/HeroIA.vue");
+  const iaExamples=readProjectFile("src/components/UseCasesIA.vue");
+  assert(iaHero.includes("ProcessFlowDiagram") && !iaHero.includes("ai-operations.webp"), "IA hero should use a Vogel process diagram");
+  assert(!iaExamples.includes("ai-use-cases.webp"), "IA use cases should not use decorative mock UI artwork");
+  assert(!readProjectFile("automatizaciones/index.html").includes("/src/assets/ia/ai-operations.webp"), "ARCA page should not use the generic blue artwork");
+  assert(readProjectFile("automatizaciones/index.html").includes("hero-flow__list"), "ARCA page should use its own process diagram");
   const contact=readProjectFile("src/components/CTASection.vue");
   assert(contact.includes('type="tel" name="Telefono" autocomplete="tel"'), "contact phone must be a custom optional tel field");
   assert(!contact.includes('id="contacto-telefono" required'), "phone must remain optional");

@@ -5,8 +5,8 @@
       <div data-chapter-outro class="about-intro">
         <div>
           <p class="home-business-label">Tecnología con criterio de negocio</p><h2 id="nosotros-heading" class="section-title">Oscar Vogel.</h2>
-          <p class="section-description">Oscar Vogel es desarrollador de software y consultor tecnológico con más de 25 años de experiencia en sistemas de gestión, facturación, automatizaciones y soluciones web.</p>
-          <p class="about-body">En Vogel Consultoría combinamos desarrollo, administración y capacitación. Trabajamos sobre ventas, trazabilidad, reportes, integración de datos y modernización de sistemas para convertir información dispersa en decisiones útiles.</p>
+          <p class="section-description">Oscar Vogel es desarrollador de software y consultor tecnológico. Cuenta con más de 25 años de experiencia en sistemas de gestión, facturación, automatización y soluciones web.</p>
+          <p class="about-body">Oscar participa directamente en los proyectos de Vogel Consultoría: releva procesos, diseña soluciones y acompaña su implementación. El trabajo integra desarrollo, administración y capacitación para ordenar ventas, trazabilidad, reportes e información dispersa.</p>
           <div class="about-actions">
             <ActionButton label="Descargar CV" href="/cv-jose-oscar-vogel.pdf" variant="secondary" data-analytics-cta="about_download_cv" data-analytics-funnel="lead_journey" data-analytics-step="about" />
             <ActionButton label="Agendar diagnóstico" href="#contacto" variant="secondary" data-analytics-cta="about_schedule_meeting" data-analytics-funnel="lead_journey" data-analytics-step="about" />

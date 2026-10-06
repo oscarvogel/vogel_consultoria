@@ -1,37 +1,17 @@
-/* Bricolage Grotesque and DM Sans are self-hosted under their included OFL licenses. */
+/* Fontshare variable families are downloaded unchanged before dev/build; see docs/licencias. */
 @font-face {
-  font-family: "Bricolage Grotesque";
+  font-family: "Clash Display";
   font-style: normal;
-  font-weight: 200 800;
-  font-stretch: 75% 100%;
+  font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/bricolage-grotesque-latin-ext.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url("/fonts/clash-display-variable.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Bricolage Grotesque";
+  font-family: "Chillax";
   font-style: normal;
-  font-weight: 200 800;
-  font-stretch: 75% 100%;
+  font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/bricolage-grotesque-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("/fonts/dm-sans-latin-ext.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("/fonts/dm-sans-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url("/fonts/chillax-variable.woff2") format("woff2");
 }
 
 /* Official Vogel RGB channels support Tailwind opacity modifiers. */
@@ -43,7 +23,8 @@
   --color-heading: rgb(var(--vogel-white)); --color-text: rgb(var(--vogel-gray)); --color-muted: rgb(var(--vogel-muted));
   --color-link: rgb(var(--vogel-amber)); --color-action: rgb(var(--vogel-amber)); --color-action-text: rgb(var(--vogel-navy));
   --color-border: rgb(var(--vogel-gray) / .18); --color-focus: rgb(var(--vogel-amber)); --color-error: #fecaca; --color-success: rgb(var(--vogel-blueLight));
-  --font-display: "DM Sans", ui-sans-serif, sans-serif; --font-body: "DM Sans", ui-sans-serif, sans-serif;
+  --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Chillax", ui-sans-serif, system-ui, sans-serif;
   --radius-control: 8px; --radius-panel: 16px; --radius-frame: 20px; --shadow-panel: 0 24px 64px -32px rgb(var(--vogel-navy) / .75); --ease-out: cubic-bezier(.16,1,.3,1); --ease-story: cubic-bezier(.22,.61,.36,1); --header-offset: 96px;
   --color-ambient: rgb(var(--vogel-amber) / .08);
 }

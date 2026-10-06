@@ -16,32 +16,32 @@ colors:
   error: "#fecaca"
 typography:
   display:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
     fontSize: "clamp(44px, 3.65vw, 60px)"
     fontWeight: 450
     lineHeight: 1.04
     letterSpacing: "-.04em"
   headline:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
     fontSize: "clamp(32px, 3.6vw, 50px)"
     fontWeight: 450
     lineHeight: 1.13
     letterSpacing: "-.035em"
   title:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
     fontSize: "30px"
     fontWeight: 450
   body:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Chillax, ui-sans-serif, sans-serif"
     fontSize: "16px"
     lineHeight: 1.7
   button:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Chillax, ui-sans-serif, sans-serif"
     fontSize: ".9375rem"
     fontWeight: 600
     lineHeight: 1.4
   label:
-    fontFamily: "DM Sans, ui-sans-serif, sans-serif"
+    fontFamily: "Chillax, ui-sans-serif, sans-serif"
     fontSize: "13px"
 rounded:
   control: "8px"
@@ -88,14 +88,14 @@ components:
 
 **Creative North Star: "Paisaje de datos"**
 
-El paisaje de datos combina una base casi negra azul, luz ámbar y tipografía DM Sans. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.
+El paisaje de datos combina una base casi negra azul, luz ámbar y titulares Clash Display con lectura/UI Chillax. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.
 
 La decisión explícita de reemplazo visual actualiza la marca anterior. El posicionamiento premium para empresas argentinas y la voz clara, precisa y cercana siguen siendo compromisos de PRODUCT.md y del manual. El baseline anterior permanece en `docs/history/paisaje-datos-2026-10-04/`.
 
 **Key Characteristics:**
 
 - V ámbar vectorial como identificador oficial.
-- DM Sans en títulos, cuerpo y UI.
+- Clash Display en titulares y Chillax en cuerpo/UI.
 - Fondo casi negro azul y ámbar como acento principal.
 - Flujo natural, divisiones finas y espacios amplios.
 - Capturas operativas reales identificadas como demostración.
@@ -123,17 +123,17 @@ El frontmatter conserva los canales RGB compartidos por CSS y Tailwind. Los alia
 
 ## Typography
 
-DM Sans autohospedada en `public/fonts/`, con fallback ui-sans-serif/sans-serif. Las declaraciones residuales de Bricolage no la convierten en fuente vigente: los tokens display/body apuntan a DM Sans.
+Clash Display y Chillax se sirven como WOFF2 desde el dominio de Vogel. El script `scripts/ensure-fontshare-fonts.mjs` obtiene los archivos oficiales desde Fontshare antes de `npm run dev` y `npm run build`; sus binarios permanecen fuera del repositorio público según la ITF Free Font License. Las dos familias usan `font-display: swap` y fallback ui-sans-serif/system-ui/sans-serif. Clash Display ocupa el rol display; Chillax, lectura y UI.
 
-El hero usa la escala display del frontmatter; por debajo de 768px cambia a `clamp(36px,9.7vw,52px)`, interlineado 1.12. Los titulares de sección pasan a 34px en móvil. Las capacidades usan 30px y 27px en móvil; cuerpo 16px, descripción de sección 18px y 16px en móvil. Inputs conservan al menos 16px. Metadata de paisaje usa 13px y 11px en móvil. Los pesos 450–500 sostienen titulares y 600 identifica acciones.
+El hero usa la escala display del frontmatter; por debajo de 768px cambia a `clamp(36px,9.7vw,52px)`, interlineado 1.12. Los titulares de sección pasan a 34px en móvil. Las capacidades usan 30px y 27px en móvil; cuerpo 16px, descripción de sección 18px y 16px en móvil. Inputs conservan al menos 16px. Metadata de paisaje usa 13px y 11px en móvil. Clash Display usa pesos 450–600; Chillax usa 400 para lectura, 500 para UI y 600 para acciones.
 
-**The Voz Única Rule.** Usar DM Sans para todos los niveles, ajustando tamaño y peso para establecer jerarquía.
+**The Voz Única Rule.** Usar Clash Display en titulares y Chillax en lectura/UI; construir jerarquía con escala, espaciado y pesos moderados.
 
 ## Layout
 
 Contenedor principal hasta 1280px, centrado con insets del frontmatter. La cabecera ocupa el 90% hasta 1520px; bajo 1024px muestra menú móvil y bajo 640px retira el CTA de la fila superior. La portada presenta título centrado «Convertimos procesos en información útil», paisaje inferior y enlaces contextuales. En móvil las etiquetas se distribuyen en una fila flexible en flujo después del CTA.
 
-Las secciones usan flujo nativo. Capacidades en dos columnas y una en móvil; capturas forestales en tres columnas y una en móvil; método en cuatro columnas y dos bajo 1024px. Nosotros, recursos/capacitación y contacto se apilan bajo 768px. Los interiores comparten fondo oscuro, DM Sans, ámbar y capítulos sin pin. Se preservan contenido, formularios, APIs, precios y FAQs existentes.
+Las secciones usan flujo nativo. Capacidades en dos columnas y una en móvil; capturas forestales en tres columnas y una en móvil; método en cuatro columnas y dos bajo 1024px. Nosotros, recursos/capacitación y contacto se apilan bajo 768px. Los interiores comparten fondo oscuro, Clash Display, Chillax, ámbar y capítulos sin pin. Se preservan contenido, formularios, APIs, precios y FAQs existentes.
 
 **The Lectura Continua Rule.** El contenido esencial permanece en flujo y legible sin WebGL ni animación.
 
@@ -163,7 +163,7 @@ CTA de home con gradiente cálido y texto oscuro; la variante base de interiores
 
 ### Navigation
 
-V SVG ámbar con palabra Vogel en DM Sans. Cabecera abierta con Servicios, Casos, Recursos y Nosotros; portal externo y diagnóstico como acciones. Servicios usa details con diez destinos. El menú móvil añade capacitación y encuesta; conserva cierre y navegación por teclado implementados.
+V SVG ámbar con palabra Vogel en Chillax cuando se renderiza como texto. Cabecera abierta con Servicios, Casos, Recursos y Nosotros; portal externo y diagnóstico como acciones. Servicios usa details con diez destinos. El menú móvil añade capacitación y encuesta; conserva cierre y navegación por teclado implementados.
 
 ### Evidence and secondary content
 
@@ -184,7 +184,7 @@ El menú desktop ocupa el centro de una grilla `1fr auto 1fr`, independientement
 ### Do:
 
 - **Do** usar el SVG oficial de la V ámbar sin deformarlo.
-- **Do** reutilizar los tokens compartidos y DM Sans en nuevas superficies.
+- **Do** reutilizar los tokens compartidos: Clash Display en titulares y Chillax en lectura/UI.
 - **Do** conservar el foco ámbar visible y controles legibles.
 - **Do** identificar las capturas forestales como interfaz real con datos de demostración.
 - **Do** mantener etiquetas y CTA móviles en flujo sin solapamientos.
@@ -192,7 +192,7 @@ El menú desktop ocupa el centro de una grilla `1fr auto 1fr`, independientement
 
 ### Don't:
 
-- **Don't** reutilizar OV, Syne o Bricolage como identidad actual.
+- **Don't** reutilizar OV, Syne, Bricolage o DM Sans como identidad tipográfica actual.
 - **Don't** convertir cifras de demostración en resultados comerciales.
 - **Don't** inventar un retrato de Oscar ni presentar FEMAG como terminado.
 - **Don't** ocultar contenido esencial detrás de animaciones o WebGL.

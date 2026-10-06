@@ -77,11 +77,11 @@ Profesional, claro, directo y orientado a resultados. La marca habla con segurid
 
 ## 4. Identidad visual
 
-Paisaje de datos: base casi negra azul, luz ámbar y DM Sans. Claridad, confianza, precisión y cercanía práctica se expresan con aire, lectura estable y evidencia real. El paisaje decorativo de puntos y conexiones acompaña hero y cierre; el resto del sitio se organiza con superficies oscuras y separadores finos.
+Paisaje de datos: base casi negra azul, luz ámbar y una jerarquía tipográfica de Clash Display en titulares y Chillax en lectura e interfaz. Claridad, confianza, precisión y cercanía práctica se expresan con aire, lectura estable y evidencia real. El paisaje decorativo de puntos y conexiones acompaña hero y cierre; el resto del sitio se organiza con superficies oscuras y separadores finos.
 
 ## 5. Logo
 
-La versión principal vigente es la V ámbar vectorial, acompañada por Vogel Consultoría en DM Sans cuando corresponde.
+La versión principal vigente es la V ámbar vectorial, acompañada por la palabra de marca aprobada. Mantener el asset oficial sin redibujarlo; cuando el wordmark se renderice como texto de interfaz, utilizar Chillax con el espaciado actual.
 
 Assets oficiales vigentes:
 
@@ -109,9 +109,9 @@ Fuente normativa: `src/styles/tokens.css`. El fondo oscuro debe dominar; el ámb
 
 ## 7. Tipografia
 
-DM Sans es la fuente oficial vigente para titulares, cuerpo, UI y palabra de marca. Se autohospeda en `public/fonts/`; fallback ui-sans-serif/sans-serif. Syne y Bricolage corresponden a versiones anteriores.
+Clash Display es la fuente de titulares; Chillax se utiliza en cuerpo, navegación, controles y palabra de marca renderizada como texto. Ambas familias son variables, con rango 200–700, se sirven como WOFF2 desde el dominio de Vogel y usan ui-sans-serif/system-ui/sans-serif como fallback. Sus binarios se resuelven desde el CSS API oficial de Fontshare antes de `npm run dev` y `npm run build`; no se guardan en este repositorio público porque la ITF Free Font License prohíbe redistribuirlos mediante repositorios. Conservar esta licencia y la procedencia en `docs/licencias/`.
 
-Titulares grandes y moderados (pesos 450–500); acciones 600; texto de lectura 400. Diferenciar jerarquía con tamaño, interlineado y espacio. Mantener inputs de al menos 16px, contraste legible, interlineado cómodo y texto secundario claro. Para piezas sociales, reducir texto antes que reducir excesivamente su tamaño.
+Clash Display: titulares entre 450 y 600, con preferencia por 500 en tamaños grandes y sin usar bold 700 de forma automática. Chillax: lectura 400, navegación y controles 500, CTA 600. Diferenciar jerarquía con tamaño, interlineado y espacio. Mantener inputs de al menos 16px, contraste legible, interlineado cómodo y texto secundario claro. Para piezas sociales, reducir texto antes que reducir excesivamente su tamaño.
 
 ## 8. Sistema grafico
 
@@ -305,13 +305,13 @@ Palabras utiles:
 ### Presentaciones
 
 - Formato: 16:9.
-- Portada con fondo casi negro azul, V ámbar, DM Sans, titular y visual técnico.
+- Portada con fondo casi negro azul, V ámbar, titulares en Clash Display, texto/UI en Chillax y visual técnico.
 - Slides internas con mucho aire, maximo 3 ideas por slide.
 - Usar ambar solo para destacar el concepto principal.
 
 ### Documentos comerciales
 
-- Fondo blanco permitido en documentos comerciales, con encabezados casi negro azul y DM Sans.
+- Fondo blanco permitido en documentos comerciales, con encabezados casi negro azul y Clash Display; Chillax para lectura y UI.
 - Usar ambar para separadores, bullets o llamados.
 - Mantener tipografia sobria.
 - Incluir logo en portada y pie de pagina.
@@ -321,7 +321,7 @@ Palabras utiles:
 Usar este prompt como base y adaptar formato, mensaje y destino:
 
 ```text
-Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar fondo casi negro azul (#05090F / #0A121B), paneles #101923, acento ámbar #FFBC54, texto blanco/gris #E2E5EA y DM Sans en todos los niveles. Logo vigente: V ámbar SVG. Visuales de paisaje de datos, dashboards, conexiones y procesos; composición sobria, clara y confiable. Las ilustraciones azules anteriores solo son continuidad conceptual cuando su uso está justificado.
+Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar fondo casi negro azul (#05090F / #0A121B), paneles #101923, acento ámbar #FFBC54, texto blanco/gris #E2E5EA, Clash Display en titulares y Chillax en lectura/UI. Logo vigente: V ámbar SVG. Visuales de paisaje de datos, dashboards, conexiones y procesos; composición sobria, clara y confiable. Las ilustraciones azules anteriores solo son continuidad conceptual cuando su uso está justificado.
 
 Mensaje principal: "[TITULAR]"
 Bajada: "[BAJADA]"
@@ -334,7 +334,7 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 ## 15. Checklist antes de publicar una pieza
 
 - La V ámbar oficial se ve nítida y no está deformada.
-- La pieza usa casi negro azul como base visual y DM Sans en todos los niveles.
+- La pieza usa casi negro azul como base visual, Clash Display en titulares y Chillax en lectura/UI.
 - El ambar aparece como acento, no como color dominante.
 - El titular se entiende en pocos segundos.
 - El texto tiene buen contraste en mobile.

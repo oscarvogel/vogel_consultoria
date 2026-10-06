@@ -18,6 +18,8 @@
   ::selection { background:var(--color-action); color:var(--color-action-text); }
   section[id] { scroll-margin-top:var(--header-offset); }
 }
+/* Clash Display has stronger stroke contrast at heavy weights; keep existing bold heading utility restrained. */
+h1.font-bold,h2.font-bold,h3.font-bold,h4.font-bold { font-weight:600; }
 @layer components {
   .section-shell { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
   .section-space { padding-block:clamp(64px,8vw,120px); }

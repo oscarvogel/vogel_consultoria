@@ -31,7 +31,14 @@ try{
    assert.equal(await page.locator('#web-projects a').count(),8);
    assert.equal(await page.locator('.desktop-nav>a').count(),3);
    assert.equal(await page.locator('.desktop-nav').innerText().then(t=>t.includes('C\u00f3mo trabajamos')),false);
-   assert.equal(await page.locator('#hero-title').evaluate(e=>getComputedStyle(e).fontFamily.includes('DM Sans')),true);
+   const typography=await page.evaluate(()=>({
+    heading:getComputedStyle(document.querySelector('#hero-title')).fontFamily,
+    body:getComputedStyle(document.body).fontFamily,
+    loaded:[...document.fonts].filter(face=>['Clash Display','Chillax'].includes(face.family.replace(/^['"]|['"]$/g,''))).map(face=>`${face.family.replace(/^['"]|['"]$/g,'')}:${face.status}`).sort(),
+   }));
+   assert(typography.heading.includes('Clash Display'),'Hero heading must use Clash Display');
+   assert(typography.body.includes('Chillax'),'Body must use Chillax');
+   assert.deepEqual(typography.loaded,['Chillax:loaded','Clash Display:loaded'],'Fontshare WOFF2 families must load locally');
    if(viewport.width<=390){
     const cta=await page.locator('.hero-copy .action-button').boundingBox();
     for(const box of await page.locator('.terrain-label').evaluateAll(els=>els.map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom};})))assert(box.top>=cta.y+cta.height+20,'Terrain labels overlap hero CTA');
@@ -53,6 +60,14 @@ try{
     await page.screenshot({path:join(out,width+'-route-'+route.replaceAll('/','_')+'.png')});results.push({route,width,...s});
    }await page.close();
   }
+  const fallbackPage=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+  await fallbackPage.route(/\/fonts\/(?:chillax|clash-display)-variable\.woff2(?:\?.*)?$/,route=>route.abort());
+  await ready(fallbackPage);
+  const fallbackState=await state(fallbackPage);
+  assert(!fallbackState.overflow,'Font fallback must not introduce horizontal overflow');
+  assert(await fallbackPage.locator('#hero-title').isVisible(),'Hero remains visible if Fontshare WOFF2 files fail');
+  assert(await fallbackPage.locator('body').innerText().then(text=>text.includes('Sistemas, automatización')),'Body copy remains available with system fallbacks');
+  await fallbackPage.close();
   console.log('ok - 5 home viewports and 16 inner destinations at desktop/mobile');
  }
  if(group==='motion'||group==='all'){

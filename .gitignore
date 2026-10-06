@@ -1,5 +1,7 @@
 node_modules/
 dist/
+public/fonts/clash-display-variable.woff2
+public/fonts/chillax-variable.woff2
 .agents/
 .superpowers/
 .codegraph/

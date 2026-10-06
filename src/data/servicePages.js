@@ -1,10 +1,3 @@
-import sistemasImage from "../assets/services/cards/sistemas-a-medida.webp";
-import dashboardsImage from "../assets/services/cards/dashboards-ejecutivos.webp";
-import automatizacionImage from "../assets/services/cards/automatizacion-procesos.webp";
-import contaflowImage from "../assets/services/cards/contaflow-api.webp";
-import webImage from "../assets/services/cards/desarrollo-web.webp";
-import talleresImage from "../assets/services/cards/talleres-capacitacion-ia.webp";
-
 const siteUrl = "https://vogelconsultoria.com.ar";
 const whatsappBase = "https://wa.me/543743667526";
 
@@ -24,8 +17,6 @@ export const servicePages = {
       "Desarrollamos sistemas a medida para ordenar procesos, integrar información y mejorar trazabilidad operativa en empresas argentinas.",
     summary:
       "Vogel Consultoría desarrolla sistemas a medida para empresas que necesitan ordenar procesos, conectar áreas y dejar de depender de planillas dispersas.",
-    image: sistemasImage,
-    imageAlt: "Panel digital para sistemas a medida y trazabilidad de procesos",
     ctaLabel: "Consultar por un sistema",
     ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por un sistema a medida para mi empresa."),
     problems: [
@@ -76,8 +67,6 @@ export const servicePages = {
       "Diseñamos dashboards ejecutivos para integrar ventas, stock, costos y rentabilidad en indicadores claros para decidir mejor.",
     summary:
       "Vogel Consultoría crea dashboards ejecutivos para convertir datos dispersos en indicadores claros, comparables y accionables.",
-    image: dashboardsImage,
-    imageAlt: "Dashboard ejecutivo con gráficos e indicadores de negocio",
     ctaLabel: "Quiero un dashboard",
     ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por un dashboard ejecutivo para mi empresa."),
     problems: [
@@ -128,8 +117,6 @@ export const servicePages = {
       "Automatizamos tareas administrativas y operativas para reducir carga manual, errores repetitivos y demoras entre áreas.",
     summary:
       "Vogel Consultoría automatiza procesos administrativos y operativos para que los equipos reduzcan tareas repetitivas y trabajen con información más confiable.",
-    image: automatizacionImage,
-    imageAlt: "Flujo digital de automatización de procesos empresariales",
     ctaLabel: "Automatizar un proceso",
     ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero evaluar la automatización de un proceso de mi empresa."),
     problems: [
@@ -159,7 +146,7 @@ export const servicePages = {
       {
         question: "¿Automatizar reemplaza al equipo?",
         answer:
-          "El objetivo es liberar tiempo de tareas mecanicas para que el equipo pueda controlar, analizar y resolver casos que requieren criterio.",
+      "El objetivo es liberar tiempo de tareas mecánicas para que el equipo pueda controlar, analizar y resolver casos que requieren criterio.",
       },
       {
         question: "¿Se puede automatizar si usamos Excel?",
@@ -172,22 +159,20 @@ export const servicePages = {
   "contaflow-api-facturacion-electronica": {
     id: "contaflow-api-facturacion-electronica",
     path: "/contaflow-api-facturacion-electronica/",
-    eyebrow: "ContaFlow API de Facturación Electrónica",
-    title: "ContaFlow: facturación electrónica por API sin pelearte con AFIP/ARCA",
+    eyebrow: "Integración fiscal para desarrolladores",
+    title: "ContaFlow API para facturación electrónica",
     shortTitle: "ContaFlow API",
     metaTitle: "ContaFlow API de Facturación Electrónica | Vogel Consultoría",
     metaDescription:
-      "API de facturación electrónica para desarrolladores. Emiti comprobantes con AFIP/ARCA y recibi CAE, número de factura, vencimiento o errores detallados.",
+      "API de facturación electrónica para desarrolladores. Emití comprobantes con AFIP/ARCA y recibí CAE, número de factura, vencimiento o errores detallados.",
     summary:
-      "Una API pensada para desarrolladores que necesitan emitir comprobantes electrónicos de forma simple, estable y con respuestas claras.",
-    image: contaflowImage,
-    imageAlt: "Interfaz técnica de API para facturación electrónica con respuestas claras",
+      "API de facturación electrónica para integrarse con AFIP/ARCA y obtener el CAE, número de comprobante, vencimiento o errores detallados en una respuesta clara.",
     ctaLabel: "Quiero integrar ContaFlow",
     ctaUrl: whatsappUrl("Hola, quiero consultar por ContaFlow, la API de facturación electrónica para integrar con mi sistema."),
     secondaryCtaLabel: "Consultar documentación técnica",
     secondaryCtaUrl: "#documentacion-tecnica",
     intro:
-      "Integramos la complejidad fiscal por vos. Tu sistema envia los datos del comprobante y ContaFlow responde con el CAE, el número de factura generado, el vencimiento del CAE o el error detallado en caso de rechazo.",
+      "La documentación técnica incluye ejemplos de autorización y rechazo, y ayuda a definir los campos necesarios antes de integrar.",
     problems: [
       "Equipos que pierden días interpretando servicios, errores y validaciones de AFIP/ARCA.",
       "Sistemas de gestión, ERPs o e-commerce que necesitan emitir comprobantes sin sumar fricción fiscal al producto.",
@@ -196,7 +181,7 @@ export const servicePages = {
     benefits: [
       {
         title: "Para desarrolladores",
-        description: "Evita perder tiempo interpretando servicios, errores y validaciones de AFIP/ARCA.",
+        description: "Evitá perder tiempo interpretando servicios, errores y validaciones de AFIP/ARCA.",
       },
       {
         title: "Respuesta clara",
@@ -252,7 +237,7 @@ export const servicePages = {
     },
     faqs: [
       {
-        question: "¿Para que tipo de sistemas sirve ContaFlow?",
+        question: "¿Para qué tipo de sistemas sirve ContaFlow?",
         answer:
           "Sirve para ERPs, sistemas de gestión, e-commerce, apps internas, plataformas administrativas y software factories que necesitan emitir facturas electrónicas desde su propio producto.",
       },
@@ -280,8 +265,6 @@ export const servicePages = {
       "Creamos sitios web institucionales y comerciales con diseño responsive, estructura clara, SEO técnico y foco en conversión.",
     summary:
       "Vogel Consultoría desarrolla sitios web profesionales para empresas que necesitan presentar servicios, generar confianza y facilitar el contacto comercial.",
-    image: webImage,
-    imageAlt: "Sitio web profesional responsive orientado a conversión",
     ctaLabel: "Quiero mejorar mi web",
     ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por desarrollo o mejora de una página web."),
     problems: [
@@ -332,13 +315,11 @@ export const servicePages = {
       "Capacitaciones prácticas de inteligencia artificial para equipos que quieren aplicar IA con criterio, seguridad y utilidad real.",
     summary:
       "Vogel Consultoría dicta talleres prácticos de IA para que equipos y líderes identifiquen usos reales, riesgos y formas responsables de adopción.",
-    image: talleresImage,
-    imageAlt: "Capacitación práctica de inteligencia artificial para equipos",
     ctaLabel: "Consultar por un taller",
     ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por un taller de IA para mi equipo."),
     problems: [
       "El equipo usa IA de manera aislada, sin criterios comunes.",
-      "Hay interés por aplicar IA pero no está claro donde aporta valor.",
+      "Hay interés por aplicar IA pero no está claro dónde aporta valor.",
       "Faltan pautas para cuidar datos, revisar resultados y evitar usos riesgosos.",
     ],
     includes: [
@@ -383,7 +364,6 @@ Object.assign(servicePages, {
     metaDescription: "Sistema web a medida para mantenimiento preventivo y correctivo de flotas, equipos, lecturas, órdenes de trabajo, alertas e historial trazable.",
     summary: "Un sistema web a medida para ordenar el mantenimiento de camiones, tractores, acoplados, máquinas y vehículos, con historial y trazabilidad por equipo.",
     intro: "Centralizamos equipos, lecturas, planes preventivos, solicitudes y órdenes de trabajo para que mantenimiento pueda anticiparse a vencimientos y trabajar con información confiable.",
-    image: sistemasImage, imageAlt: "Ilustración de sistemas para gestión operativa",
     ctaLabel: "Consultar por mantenimiento", ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por un sistema de gestión de mantenimiento de equipos."),
     problems: ["El historial de cada equipo está repartido entre planillas, mensajes y registros difíciles de consultar.", "Los vencimientos por fecha, kilómetros u horas se controlan tarde o dependen de una persona.", "Las solicitudes y órdenes no tienen una trazabilidad clara desde el aviso hasta el cierre."],
     includes: ["Ficha de equipos, lecturas de kilómetros y horómetro, relaciones y baja lógica con historial.", "Planes de mantenimiento preventivo con vencimientos y panel de próximos servicios.", "Solicitudes, avisos y órdenes de trabajo con responsables, prioridad, tareas y repuestos.", "Alertas, reportes, permisos por empresa o sucursal y auditoría de operaciones sensibles."],
@@ -402,7 +382,6 @@ Object.assign(servicePages, {
     metaDescription: "Integramos WhatsApp con sistemas y procesos empresariales: consultas, notificaciones, seguimiento, atención humana y registro trazable de interacciones.",
     summary: "Integramos WhatsApp a los sistemas y procesos de tu empresa para reducir tareas manuales, responder mejor y dejar cada interacción trazable.",
     intro: "Diseñamos el circuito completo: qué evento inicia el contacto, qué información necesita el equipo y cómo se registra cada respuesta para que la automatización sea útil y controlable.",
-    image: automatizacionImage, imageAlt: "Ilustración de integración entre sistemas y procesos",
     ctaLabel: "Consultar integración WhatsApp", ctaUrl: whatsappUrl("Hola Vogel Consultoría, quiero consultar por una integración de WhatsApp con mi empresa."),
     problems: ["Las consultas llegan por WhatsApp pero quedan fuera del sistema de gestión.", "El equipo copia datos entre chats, planillas y sistemas para responder o hacer seguimiento.", "No hay reglas claras para notificar, escalar una conversación o dejar evidencia del contacto."],
     includes: ["Relevamiento de casos de uso: consultas, avisos, confirmaciones, seguimiento y soporte.", "Conexión con sistemas existentes, formularios, bases de datos o automatizaciones internas.", "Reglas para respuestas, derivaciones, alertas y registro de cada interacción.", "Pruebas con usuarios, documentación del circuito y acompañamiento para la puesta en marcha."],

@@ -4,7 +4,7 @@
     :href="waLink"
     target="_blank"
     rel="noopener noreferrer"
-    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-vogel-blueLight/40 bg-vogel-navy text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-vogel-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep sm:h-auto sm:w-auto sm:px-4 sm:py-3"
+    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-vogel-blueLight/40 bg-vogel-navy text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-vogel-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep max-[639px]:hidden sm:h-auto sm:w-auto sm:px-4 sm:py-3"
     aria-label="Hablar por WhatsApp"
     data-analytics-cta="floating_whatsapp"
     data-analytics-funnel="lead_journey"
