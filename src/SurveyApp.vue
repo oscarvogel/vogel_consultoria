@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen overflow-x-hidden">
+  <div class="min-h-screen overflow-x-hidden survey-page">
     <a class="skip-link" href="#survey-content">Saltar al contenido principal</a>
 
-    <header class="border-b border-white/10 bg-vogel-deep/90 backdrop-blur" role="banner">
-      <div class="section-shell flex h-18 items-center justify-between">
-        <a href="/" class="flex items-center gap-3" aria-label="Volver a Vogel Consultoria">
-          <img :src="logoVogel" alt="Logo Vogel Consultoria" class="h-10 w-auto rounded-sm" loading="eager" decoding="async" />
+    <header class="border-b border-white/10 bg-vogel-navy" role="banner">
+      <div class="section-shell flex h-20 items-center justify-between">
+        <a href="/" class="flex items-center gap-3" aria-label="Volver a Vogel Consultoría">
+          <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-10" loading="eager" decoding="async" />
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoria</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoría</p>
             <p class="hidden text-xs text-vogel-gray/70 sm:block">Recursos para estudios contables</p>
           </div>
         </a>
@@ -25,21 +25,33 @@
     </header>
 
     <main id="survey-content" role="main" tabindex="-1">
-      <section class="relative py-12 sm:py-16 lg:py-20" data-analytics-view="survey_hero" data-analytics-funnel="accountants_survey" data-analytics-step="intro">
-        <div class="absolute inset-0 -z-10 bg-grid-soft bg-[length:44px_44px] opacity-45"></div>
+      <section data-chapter="neutral" class="relative py-12 sm:py-16 lg:py-20" data-analytics-view="survey_hero" data-analytics-funnel="accountants_survey" data-analytics-step="intro">
+
         <div class="section-shell grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <div class="max-w-2xl">
+          <div class="max-w-2xl" data-story-reveal>
             <p class="fade-up inline-flex rounded-full border border-vogel-amber/35 bg-vogel-amber/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] text-vogel-amber">
               Post charla para contadores
             </p>
-            <h1 class="fade-up mt-6 max-w-2xl font-body text-3xl font-bold leading-[1.14] text-white sm:text-4xl lg:text-5xl">
-              Gracias por participar. Tu opinion nos ayuda a preparar mejores herramientas.
+            <h1 class="fade-up mt-6 max-w-2xl font-display text-3xl font-bold leading-[1.14] text-white sm:text-4xl lg:text-5xl">
+              Gracias por participar. Tu opinión nos ayuda a preparar mejores herramientas.
             </h1>
-            <p class="fade-up-delay mt-5 max-w-xl text-lg leading-8 text-vogel-gray">
-              Son menos de dos minutos. Ademas podes suscribirte al newsletter de Vogel Consultoria para recibir novedades, recursos para estudios contables y prompts de IA aplicados al trabajo diario.
+          <p class="fade-up-delay mt-5 max-w-xl text-lg leading-8 text-vogel-gray">
+              Son unos dos minutos. Además podés suscribirte al newsletter de Vogel Consultoría para recibir novedades, recursos para estudios contables y prompts de IA aplicados al trabajo diario.
             </p>
+            <a
+              v-if="formUrl"
+              :href="formUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-vogel-amber underline underline-offset-4 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber"
+              data-analytics-cta="survey_open_google_form"
+              data-analytics-funnel="accountants_survey"
+              data-analytics-step="form"
+            >
+              Abrir encuesta en otra pestaña <span aria-hidden="true">↗</span>
+            </a>
 
-            <div class="mt-7 flex max-w-xl flex-col gap-4 rounded-lg border border-white/12 bg-white/[0.045] p-4 sm:flex-row sm:items-center">
+            <div class="mt-7 flex max-w-xl flex-col gap-4 rounded-lg border border-white/[0.12] bg-white/[0.045] p-4 sm:flex-row sm:items-center">
               <a
                 href="https://www.consejomisiones.org.ar/"
                 target="_blank"
@@ -52,21 +64,21 @@
               <div>
                 <p class="text-sm font-bold uppercase tracking-[0.16em] text-vogel-amber">Actividad realizada</p>
                 <p class="mt-1 text-sm leading-6 text-vogel-gray">
-                  Esta encuesta acompana la charla para contadores dictada junto al CPCE Misiones.
+                  Esta encuesta acompaña la charla para contadores dictada junto al CPCE Misiones.
                 </p>
                 <a
-                  href="https://wa.me/543743667526?text=Hola%20Oscar%2C%20quiero%20recibir%20informacion%20para%20dictar%20una%20charla%20de%20IA%20para%20una%20institucion%20o%20empresa"
+                  href="https://wa.me/543743667526?text=Hola%20Oscar%2C%20quiero%20recibir%20informaci%C3%B3n%20para%20dictar%20una%20charla%20de%20IA%20para%20una%20instituci%C3%B3n%20o%20empresa"
                   class="mt-3 inline-flex text-sm font-bold text-vogel-amber underline-offset-4 hover:text-white hover:underline"
                   data-analytics-cta="survey_institution_talk_info"
                   data-analytics-funnel="accountants_survey"
                   data-analytics-step="intro"
                 >
-                  Solicitar informacion para una institucion o empresa
+                  Solicitar información para una institución o empresa
                 </a>
               </div>
             </div>
 
-            <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
               <div v-for="metric in metrics" :key="metric.label" class="rounded-lg border border-white/10 bg-white/[0.04] p-4">
                 <p class="text-2xl font-extrabold text-white">{{ metric.value }}</p>
                 <p class="mt-1 text-sm text-vogel-muted">{{ metric.label }}</p>
@@ -74,21 +86,45 @@
             </div>
           </div>
 
-          <div class="rounded-lg border border-white/12 bg-[#f8fafc] p-2 text-vogel-deep shadow-glow-lg">
-            <iframe
-              v-if="embedUrl"
-              :src="embedUrl"
-              title="Encuesta breve para contadores"
-              class="h-[760px] w-full rounded-md bg-white"
-              loading="lazy"
-            ></iframe>
+          <div data-story-reveal class="rounded-lg border border-white/[0.12] bg-[#f8fafc] p-2 text-vogel-deep shadow-glow-lg">
+            <div v-if="embedUrl" class="survey-embed">
+              <div class="flex flex-col gap-3 p-3 sm:flex-row sm:items-start sm:justify-between">
+                <p role="status" aria-live="polite" aria-atomic="true" class="min-h-11 text-sm leading-6 text-vogel-deep">
+                  <template v-if="surveyTimedOut">La encuesta está tardando en responder. Podés abrirla directamente en Google Forms.</template>
+                  <template v-else-if="!surveyLoaded">Conectando con Google Forms…</template>
+                  <template v-else>La encuesta está disponible en este bloque.</template>
+                </p>
+                <a
+                  :href="formUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :class="[
+                    'inline-flex min-h-12 shrink-0 items-center justify-center rounded-lg border px-4 py-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2',
+                    surveyTimedOut ? 'border-vogel-amber bg-vogel-amber text-vogel-deep' : 'border-vogel-blue bg-vogel-blue text-white hover:bg-vogel-bright',
+                  ]"
+                  data-analytics-cta="survey_open_google_form"
+                  data-analytics-funnel="accountants_survey"
+                  data-analytics-step="form"
+                >
+                  Abrir encuesta en otra pestaña
+                </a>
+              </div>
+              <iframe
+                :src="embedUrl"
+                title="Encuesta breve para contadores"
+                class="h-[760px] min-h-[680px] w-full rounded-md bg-white"
+                :aria-busy="!surveyLoaded"
+                loading="eager"
+                @load="markSurveyLoaded"
+              ></iframe>
+              <p class="px-3 pb-3 text-xs leading-5 text-slate-700">Son 7 preguntas. El correo para newsletter o contacto es opcional.</p>
+            </div>
 
             <div v-else class="rounded-md bg-white p-6 sm:p-8">
-              <p class="text-sm font-bold uppercase tracking-[0.18em] text-vogel-blue">Formulario listo para conectar</p>
-              <h2 class="mt-3 text-2xl font-extrabold text-vogel-deep">Falta pegar el link de Google Forms</h2>
+              <p class="text-sm font-bold uppercase tracking-[0.18em] text-vogel-blue">Encuesta para contadores</p>
+              <h2 class="mt-3 text-2xl font-extrabold text-vogel-deep">La encuesta no está disponible en esta vista</h2>
               <p class="mt-3 leading-7 text-slate-700">
-                Esta pagina ya esta preparada para enviar a los contadores. Cuando tengas el formulario, pega el enlace de insercion en <code class="rounded bg-slate-100 px-1.5 py-0.5">VITE_CONTADORES_SURVEY_EMBED_URL</code>.
-              </p>
+                Podés abrir la encuesta en otra pestaña o contactarnos para compartir tu opinión.</p>
 
               <a
                 v-if="formUrl"
@@ -103,24 +139,17 @@
                 Abrir encuesta
               </a>
 
-              <div class="mt-7 border-t border-slate-200 pt-6">
-                <h3 class="text-base font-extrabold text-vogel-deep">Preguntas sugeridas</h3>
-                <ol class="mt-4 grid gap-3 text-sm leading-6 text-slate-700">
-                  <li v-for="question in questions" :key="question" class="rounded-lg border border-slate-200 bg-slate-50 p-3">
-                    {{ question }}
-                  </li>
-                </ol>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
 
-      <section class="border-y border-white/10 bg-white/[0.035] py-10">
+      <section data-chapter="neutral" class="border-y border-white/10 bg-white/[0.035] py-10">
         <div class="section-shell grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-vogel-amber">Newsletter</p>
-            <h2 class="mt-3 text-3xl font-extrabold text-white">Informacion practica para estudios contables.</h2>
+            <h2 class="mt-3 text-3xl font-extrabold text-white">Información práctica para estudios contables.</h2>
           </div>
           <div class="grid gap-3 sm:grid-cols-3">
             <div v-for="topic in newsletterTopics" :key="topic.title" class="rounded-lg border border-white/10 bg-vogel-navy/50 p-5">
@@ -134,10 +163,10 @@
 
     <footer class="py-8">
       <div class="section-shell flex flex-col gap-3 text-sm text-vogel-muted sm:flex-row sm:items-center sm:justify-between">
-        <p>Vogel Consultoria - Argentina</p>
+        <p>Vogel Consultoría - Argentina</p>
         <div class="flex flex-wrap gap-4">
           <a href="/" class="hover:text-white">Inicio</a>
-          <a href="mailto:oscarvogel@gmail.com" class="hover:text-white" data-analytics-cta="survey_footer_email">oscarvogel@gmail.com</a>
+          <a href="mailto:oscar@vogelconsultoria.com.ar" class="hover:text-white" data-analytics-cta="survey_footer_email">oscar@vogelconsultoria.com.ar</a>
           <a
             href="https://www.instagram.com/vogelconsultoria.ar/"
             target="_blank"
@@ -163,7 +192,10 @@
 </template>
 
 <script setup>
-import logoVogel from "./assets/brand/logo-vogel-generated.webp";
+import { onMounted, onUnmounted, ref } from "vue";
+import logoVogel from "./assets/brand/vogel-v-amber.svg";
+import { useScrollReveal } from "./composables/useScrollReveal.js";
+useScrollReveal();
 
 const defaultFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeaiBYhag8RyIfKPR_80svwIHljgIxQY5OBT7LkxkBlRrWXfQ/viewform?usp=send_form";
 const defaultEmbedUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeaiBYhag8RyIfKPR_80svwIHljgIxQY5OBT7LkxkBlRrWXfQ/viewform?embedded=true";
@@ -173,19 +205,37 @@ const embedUrl = import.meta.env.VITE_CONTADORES_SURVEY_EMBED_URL?.trim() || def
 
 const metrics = [
   { value: "2 min", label: "Tiempo estimado" },
-  { value: "7", label: "Preguntas breves" },
-  { value: "1 link", label: "Para responder" },
+  { value: "7", label: "Preguntas" },
+  { value: "Opcional", label: "Correo de contacto" },
 ];
 
 const questions = [
-  "Que tan util te resulto la charla? Escala del 1 al 5.",
-  "Que parte te intereso mas? Automatizacion ARCA, facturacion electronica, descarga de comprobantes, informes para clientes u otro.",
-  "Te gustaria ver una demo mas personalizada para tu estudio? Si, tal vez o no por ahora.",
-  "Cuantos clientes manejan aproximadamente en el estudio? 1-20, 21-50, 51-100 o mas de 100.",
-  "Cual seria el mayor beneficio para tu estudio?",
-  "Queres suscribirte al newsletter de Vogel Consultoria?",
-  "Correo para newsletter o contacto. Puede ser tu correo profesional o el correo del estudio.",
+  "¿Qué tan útil te resultó la charla? Escala del 1 al 5.",
+  "¿Qué parte te interesó más? Automatización ARCA, facturación electrónica, descarga de comprobantes, informes para clientes u otro.",
+  "¿Te gustaría ver una demo más personalizada para tu estudio? Sí, tal vez o no por ahora.",
+  "¿Cuántos clientes manejan aproximadamente en el estudio? 1-20, 21-50, 51-100 o más de 100.",
+  "¿Cuál sería el mayor beneficio para tu estudio?",
+  "¿Querés suscribirte al newsletter de Vogel Consultoría?",
+  "Correo para newsletter o contacto (opcional). Puede ser tu correo profesional o el correo del estudio.",
 ];
+
+const surveyLoaded = ref(false);
+const surveyTimedOut = ref(false);
+let surveyLoadTimer;
+
+function markSurveyLoaded() {
+  surveyLoaded.value = true;
+  surveyTimedOut.value = false;
+  window.clearTimeout(surveyLoadTimer);
+}
+
+onMounted(() => {
+  surveyLoadTimer = window.setTimeout(() => {
+    if (!surveyLoaded.value) surveyTimedOut.value = true;
+  }, 8000);
+});
+
+onUnmounted(() => window.clearTimeout(surveyLoadTimer));
 
 const newsletterTopics = [
   {
@@ -194,11 +244,11 @@ const newsletterTopics = [
   },
   {
     title: "Prompts de IA",
-    description: "Ejemplos listos para adaptar en informes, mails y analisis.",
+    description: "Ejemplos listos para adaptar en informes, mails y análisis.",
   },
   {
-    title: "Recursos utiles",
-    description: "Novedades, demos y materiales aplicables al dia a dia.",
+    title: "Recursos útiles",
+    description: "Novedades, demos y materiales aplicables al día a día.",
   },
 ];
 </script>

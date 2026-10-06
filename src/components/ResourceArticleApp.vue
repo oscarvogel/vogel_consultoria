@@ -1,5 +1,7 @@
 <script setup>
 import { computed } from "vue";
+import { useScrollReveal } from "../composables/useScrollReveal.js";
+useScrollReveal();
 import { getRelatedServices } from "../data/servicePages.js";
 import Navbar from "./Navbar.vue";
 import FooterSection from "./FooterSection.vue";
@@ -20,13 +22,13 @@ const relatedServices = computed(() => getRelatedServices(props.service));
 </script>
 
 <template>
-  <div class="relative min-h-screen overflow-x-hidden">
+  <div class="relative min-h-screen resource-article">
     <a class="skip-link" href="#article-content">Saltar al contenido principal</a>
     <Navbar />
 
     <main id="article-content" tabindex="-1">
       <article>
-        <header class="relative isolate overflow-hidden py-14 sm:py-20">
+        <header class="relative isolate overflow-hidden py-14 sm:py-20" data-chapter="resources">
           <div class="ambient-blob left-[-8rem] top-[-8rem] h-72 w-72 bg-vogel-blue/25"></div>
           <div class="section-shell max-w-5xl">
             <a href="/recursos/" class="text-sm font-bold text-vogel-amber hover:text-white">Recursos</a>
@@ -45,21 +47,21 @@ const relatedServices = computed(() => getRelatedServices(props.service));
           </div>
         </header>
 
-        <section class="py-8 sm:py-12">
-          <div class="section-shell grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <section data-story-reveal class="py-8 sm:py-12">
+          <div class="section-shell grid gap-12 lg:grid-cols-[minmax(0,44rem)_20rem] lg:justify-center lg:items-start">
             <div class="space-y-8">
-              <section
+              <section data-chapter="reading"
                 v-for="section in resource.sections"
                 :key="section.heading"
-                class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-6 sm:p-8"
+                class="border-b border-vogel-gray/15 pb-8"
               >
                 <h2 class="font-display text-2xl font-bold text-white sm:text-3xl">{{ section.heading }}</h2>
                 <p class="mt-4 text-base leading-8 text-vogel-gray">{{ section.body }}</p>
               </section>
             </div>
 
-            <aside class="rounded-2xl border border-vogel-amber/25 bg-vogel-navy/70 p-6 shadow-glow lg:sticky lg:top-28">
-              <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-amber">Checklist rapido</p>
+            <aside data-story-reveal class="rounded-2xl border border-vogel-amber/25 bg-vogel-navy p-6 shadow-glow ">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-amber">Checklist rápido</p>
               <ul class="mt-5 space-y-3">
                 <li v-for="item in resource.checklist" :key="item" class="flex gap-3 text-sm leading-relaxed text-vogel-gray">
                   <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-vogel-amber"></span>
@@ -79,7 +81,7 @@ const relatedServices = computed(() => getRelatedServices(props.service));
           </div>
         </section>
 
-        <section class="py-12 sm:py-16" aria-labelledby="related-heading">
+        <section data-story-reveal class="py-12 sm:py-16" aria-labelledby="related-heading">
           <div class="section-shell">
             <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>

@@ -1,0 +1,27 @@
+{
+  "capturedAt": "2026-10-03T15:28:38.200Z",
+  "source": "registros_produccion/registro_produccion/frontend",
+  "harness": "scripts/docsCapture.mjs adaptado en Vogel",
+  "mode": "mock",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "context": "Interfaz real con datos de demostración. Sin acceso al backend ni cambios en el producto fuente.",
+  "images": {
+    "forestal-campo.png": "docs/capturas/forestal/mobile/operador/10-produccion.png",
+    "forestal-revision.png": "docs/capturas/forestal/mobile/operador/13-revision.png",
+    "forestal-dashboard.png": "docs/capturas/forestal/mobile/encargado/15-dashboard-operativo.png",
+    "forestal-dashboard-desktop.png": "docs/capturas/forestal/desktop/encargado/15-dashboard-operativo.png"
+  },
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 1440,
+      "height": 1000
+    }
+  ]
+}

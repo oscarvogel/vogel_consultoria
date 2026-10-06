@@ -104,7 +104,23 @@ const cards = [
   },
 ];
 
-const svgFor = ({ title, accent, warm, shapes }) => `<?xml version="1.0" encoding="UTF-8"?>
+cards.push({
+  file: "contaflow-api.webp",
+  accent: "#8bc5ff",
+  warm: "#f2a900",
+  shapes: `
+    <rect x="110" y="174" width="198" height="222" rx="20" class="panel"/>
+    <path d="M154 224h110M154 268h82M154 312h96" class="line"/>
+    <rect x="386" y="222" width="174" height="120" rx="20" class="panel bright"/>
+    <path d="m444 260-22 22 22 22m60-44 22 22-22 22" class="line amber"/>
+    <rect x="644" y="134" width="200" height="282" rx="20" class="panel"/>
+    <path d="M688 190h112M688 234h84M688 278h108" class="line"/>
+    <path d="m696 342 24 24 52-52" class="line amber"/>
+    <path d="M308 282h78M560 282h84" class="flow"/>
+  `,
+});
+
+const svgFor = ({ accent, warm, shapes }) => `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="960" height="600" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="a" cx="22%" cy="12%" r="78%">
@@ -146,7 +162,6 @@ const svgFor = ({ title, accent, warm, shapes }) => `<?xml version="1.0" encodin
   <rect width="960" height="600" fill="url(#b)"/>
   <rect width="960" height="600" fill="url(#grid)"/>
   <g opacity=".92">${shapes}</g>
-  <text x="58" y="542" fill="#ffffff" fill-opacity=".16" font-size="38" font-family="Arial, sans-serif" font-weight="700">${title}</text>
 </svg>`;
 
 await fs.mkdir(outputDir, { recursive: true });

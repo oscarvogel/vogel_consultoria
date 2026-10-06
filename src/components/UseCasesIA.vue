@@ -1,44 +1,38 @@
 <template>
   <section class="py-18 sm:py-22" aria-labelledby="casos-ia-heading">
     <div class="section-shell">
-      <div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="use-cases-heading">
         <div>
-          <h2 id="casos-ia-heading" class="reveal font-display text-3xl font-bold text-white sm:text-4xl">Casos de uso que un dueño entiende al instante</h2>
-          <div class="mt-10 grid gap-5 md:grid-cols-2">
-            <article
-              v-for="(item, i) in useCases"
-              :key="item"
-              class="reveal card-hover rounded-2xl p-5"
-              :class="`reveal-d${(i % 3) + 1}`"
-            >
-              <p class="text-base font-semibold leading-relaxed text-white">{{ item }}</p>
-            </article>
-          </div>
+          <p class="text-xs font-semibold uppercase tracking-[0.18em] text-vogel-amber">Ejemplos para evaluar</p>
+          <h2 id="casos-ia-heading" class="reveal mt-3 max-w-3xl font-display text-3xl font-bold text-white sm:text-4xl">Tareas donde una asistencia puede ser útil.</h2>
         </div>
-
-        <div class="reveal reveal-d2 relative overflow-hidden rounded-3xl border border-vogel-blue/35 bg-white/5 p-3 shadow-glow">
-          <img
-            :src="useCasesImage"
-            alt="IA analizando Excel, PDF, bases de datos y reportes para generar alertas e indicadores"
-            class="aspect-[16/10] w-full rounded-2xl object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="pointer-events-none absolute inset-3 rounded-2xl bg-gradient-to-t from-vogel-deep/65 via-transparent to-transparent"></div>
-        </div>
+        <p class="max-w-xl text-sm leading-6 text-vogel-muted">Cada caso requiere revisar fuentes, permisos y el nivel de validación adecuado.</p>
       </div>
+      <ol class="use-case-list mt-8">
+        <li v-for="(item, index) in useCases" :key="item" class="reveal">
+          <span aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</span>
+          <p>{{ item }}</p>
+        </li>
+      </ol>
     </div>
   </section>
 </template>
 
 <script setup>
-import useCasesImage from "../assets/ia/ai-use-cases.webp";
-
 const useCases = [
-  "Consultás tus ventas y la IA te responde en segundos",
-  "Subís un Excel o PDF y obtenés análisis automático",
-  "Automatizás respuestas a clientes",
-  "Recibís reportes con alertas y oportunidades",
-  "Tenés un asistente que responde como un analista",
+  "Consultar ventas con preguntas en lenguaje natural.",
+  "Resumir o comparar archivos Excel y PDF.",
+  "Preparar borradores para preguntas frecuentes de clientes.",
+  "Revisar reportes y señalar variaciones para validar.",
+  "Consultar procedimientos internos desde un asistente.",
 ];
 </script>
+
+<style scoped>
+.use-cases-heading{display:flex;justify-content:space-between;align-items:end;gap:36px}
+.use-case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;list-style:none;padding:0}
+.use-case-list li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:22px 0;border-top:1px solid var(--color-border)}
+.use-case-list li>span{color:var(--color-action);font-size:12px;font-variant-numeric:tabular-nums}
+.use-case-list p{max-width:48ch;color:var(--color-text);font-size:16px;line-height:1.6}
+@media(max-width:767px){.use-cases-heading{display:block}.use-cases-heading>p{margin-top:16px}.use-case-list{grid-template-columns:1fr;column-gap:0}.use-case-list li{padding:18px 0}}
+</style>

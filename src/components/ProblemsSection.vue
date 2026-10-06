@@ -1,36 +1,23 @@
-<template>
-  <section class="py-20 sm:py-24" aria-labelledby="problemas-heading">
-    <div class="section-shell rounded-3xl border border-vogel-gray/15 bg-vogel-navy/70 p-7 sm:p-10">
-      <SectionHeading
-        id="problemas-heading"
-        eyebrow="Problemas que resolvemos"
-        title="Si te pasa esto, podemos ayudarte"
-        description="Detectamos el origen de los cuellos de botella y transformamos datos aislados en información accionable."
-      />
-
-      <ul class="mt-10 grid gap-4 sm:grid-cols-2">
-        <li
-          v-for="(problem, i) in problems"
-          :key="problem"
-          class="reveal rounded-xl border border-vogel-gray/20 bg-vogel-deep/45 p-4 text-sm leading-relaxed text-vogel-muted transition duration-300 hover:border-vogel-amber/40"
-          :class="`reveal-d${(i % 3) + 1}`"
-        >
-          <span class="mr-2 text-vogel-amber">●</span>{{ problem }}
-        </li>
-      </ul>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import SectionHeading from "./SectionHeading.vue";
-
-const problems = [
-  "Dependés demasiado de planillas Excel",
-  "No tenés información clara para decidir",
-  "Perdés tiempo en tareas repetitivas",
-  "No sabés dónde se pierde dinero",
-  "Tus sistemas no se comunican entre sí",
-  "Querés usar IA pero no sabés por dónde empezar",
+import HomeChapterLabel from './HomeChapterLabel.vue';
+const pairs = [
+ ['Información repartida en planillas', 'Cada área trabaja con su versión. El contexto se pierde entre archivos.'],
+ ['Reportes que llegan tarde', 'La información aparece después del momento en que hacía falta decidir.'],
+ ['Tareas manuales que se repiten', 'Copiar, controlar y volver a cargar ocupa tiempo del equipo.'],
+ ['IA sin un punto de partida claro', 'Hay herramientas disponibles, pero falta definir un proceso donde aporten valor.'],
 ];
 </script>
+<template>
+ <section id="soluciones" class="home-chapter home-problems" data-home-chapter="problems" aria-labelledby="problemas-heading">
+  <div class="section-shell">
+   <HomeChapterLabel number="02" label="EL PROBLEMA" />
+   <div class="home-problem-layout">
+    <div><h2 id="problemas-heading" class="section-title">Tu operación ya tiene datos.<br><span>Hagamos que trabajen juntos.</span></h2><p class="section-description">Partimos de las fricciones del negocio para definir qué ordenar, qué conectar y qué automatizar.</p></div>
+    <dl class="home-frictions" data-home-moment="problems">
+     <div v-for="([problem, description], index) in pairs" :key="problem"><span class="home-friction-index" aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</span><dt>{{ problem }}</dt><dd>{{ description }}</dd></div>
+    </dl>
+   </div>
+   <p class="home-handoff home-handoff--frame">Un mismo registro. Un contexto compartido.</p>
+  </div>
+ </section>
+</template>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 490">
+  <defs>
+    <path id="topArc" d="M 72 230 A 170 170 0 0 1 402 230"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ec9e7"/>
+      <stop offset=".58" stop-color="#f5d927"/>
+      <stop offset="1" stop-color="#f3b125"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="474" height="490" fill="#fff"/>
+
+  <!-- exterior arcs -->
+  <path d="M238 18 A220 220 0 0 0 22 255" fill="none" stroke="#26a9d4" stroke-width="12"/>
+  <path d="M238 18 A220 220 0 0 1 452 255" fill="none" stroke="#0874aa" stroke-width="12"/>
+  <path d="M242 18 A220 220 0 0 1 452 255" fill="none" stroke="#e31b23" stroke-width="10" stroke-dasharray="210 490" stroke-dashoffset="-10"/>
+
+  <!-- outer seal rings -->
+  <circle cx="237" cy="233" r="192" fill="#fff" stroke="#c6a64a" stroke-width="5"/>
+  <circle cx="237" cy="233" r="183" fill="none" stroke="#d3b55d" stroke-width="2"/>
+  <circle cx="237" cy="233" r="165" fill="#fff" stroke="#c6a64a" stroke-width="3"/>
+
+  <!-- top curved municipality text -->
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="700" letter-spacing="1.5" fill="#111">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">MUNICIPALIDAD DE GARUHAPÉ</textPath>
+  </text>
+
+  <!-- central scene -->
+  <clipPath id="sceneClip"><circle cx="237" cy="245" r="125"/></clipPath>
+  <g clip-path="url(#sceneClip)">
+    <rect x="100" y="118" width="274" height="255" fill="url(#sky)"/>
+    <!-- sun rays -->
+    <g stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".75">
+      <path d="M265 128l-4 55"/><path d="M300 132l-18 54"/><path d="M332 145l-31 44"/>
+      <path d="M231 130l8 55"/><path d="M198 136l26 49"/>
+    </g>
+    <!-- hills -->
+    <path d="M95 230 C135 190 176 195 213 219 C250 184 292 187 345 218 L374 286 L100 286 Z" fill="#6dad31"/>
+    <path d="M95 248 C142 219 186 224 229 249 C274 218 318 222 379 250 L379 310 L95 310 Z" fill="#cc7d1a"/>
+    <!-- forest trees -->
+    <g fill="#128c3a" stroke="#0b672b" stroke-width="2">
+      <circle cx="176" cy="174" r="18"/><circle cx="206" cy="177" r="17"/><circle cx="164" cy="198" r="20"/>
+      <circle cx="202" cy="202" r="20"/><circle cx="186" cy="225" r="21"/>
+    </g>
+    <g stroke="#503114" stroke-width="6">
+      <path d="M184 238V163"/><path d="M184 184h-27"/><path d="M184 194h28"/><path d="M184 211h-31"/><path d="M184 219h28"/>
+    </g>
+    <!-- gear -->
+    <g transform="translate(265 225)">
+      <circle r="38" fill="#767676" stroke="#555" stroke-width="2"/>
+      <g fill="#bcbcbc">
+        <rect x="-6" y="-50" width="12" height="18"/><rect x="-6" y="32" width="12" height="18"/>
+        <rect x="-50" y="-6" width="18" height="12"/><rect x="32" y="-6" width="18" height="12"/>
+      </g>
+      <circle r="18" fill="#e5e5e5" stroke="#aaa" stroke-width="3"/>
+      <circle r="8" fill="#b29a61"/>
+    </g>
+    <!-- hydro dam -->
+    <g transform="translate(314 210)">
+      <rect x="0" y="0" width="52" height="66" rx="10" fill="#d9eef7" stroke="#75a8bd" stroke-width="2"/>
+      <path d="M8 21h36M8 38h36" stroke="#fff" stroke-width="4"/>
+      <path d="M9 65c4 18 14 27 20 34M26 65c2 18 8 27 13 34M41 65c0 18 3 28 6 34" stroke="#23aee3" stroke-width="6" fill="none"/>
+    </g>
+    <!-- water -->
+    <rect x="100" y="287" width="274" height="86" fill="#dff5fb"/>
+    <g stroke="#3a98c9" stroke-width="2.2" fill="none">
+      <path d="M110 300q10-8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/>
+      <path d="M110 318q10-8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/>
+      <path d="M110 336q10-8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/>
+    </g>
+    <!-- yerba/mate leaves -->
+    <g transform="translate(105 255) rotate(-25)">
+      <path d="M0 70 C18 20 40 4 80 0 C67 36 43 59 0 70Z" fill="#1b9b4c" stroke="#0c6f37" stroke-width="2"/>
+      <path d="M8 63L69 10" stroke="#0c6f37" stroke-width="3"/>
+      <path d="M22 51L15 32M35 40L29 19M50 27L46 11" stroke="#0c6f37" stroke-width="2"/>
+    </g>
+    <g transform="translate(126 300) rotate(-14)">
+      <path d="M0 55 C15 18 34 5 66 0 C57 30 37 48 0 55Z" fill="#1b9b4c" stroke="#0c6f37" stroke-width="2"/>
+      <path d="M8 49L57 8" stroke="#0c6f37" stroke-width="3"/>
+    </g>
+    <!-- red berries -->
+    <circle cx="198" cy="335" r="7" fill="#e51c23"/><circle cx="205" cy="345" r="6" fill="#e51c23"/>
+  </g>
+  <circle cx="237" cy="245" r="126" fill="none" stroke="#c6a64a" stroke-width="3"/>
+
+  <!-- ribbon -->
+  <path d="M41 337 L112 319 L126 373 L75 398 L41 337Z" fill="#f2f3f4" stroke="#111" stroke-width="3"/>
+  <path d="M433 337 L362 319 L348 373 L399 398 L433 337Z" fill="#f2f3f4" stroke="#111" stroke-width="3"/>
+  <path d="M78 357 Q237 405 396 357 L374 438 Q237 477 100 438Z" fill="#f5f5f5" stroke="#111" stroke-width="3"/>
+  <path d="M100 409 Q237 447 374 409" fill="none" stroke="#b6bdc3" stroke-width="2"/>
+
+  <text x="237" y="432" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="46" font-weight="700" letter-spacing="6" fill="#111">MISIONES</text>
+</svg>

@@ -1,0 +1,87 @@
+{
+  "capturedAt": "2026-10-03T19:27:52.315Z",
+  "origin": "http://127.0.0.1:5177",
+  "source": "21st.dev Waves Shader prompt, adapted to Vogel palette",
+  "captures": [
+    {
+      "name": "inicio-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": false
+    },
+    {
+      "name": "cursor-activo-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": false
+    },
+    {
+      "name": "cursor-neutral-escritorio",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": false
+    },
+    {
+      "name": "inicio-tablet",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "documentWidth": 768,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": false
+    },
+    {
+      "name": "inicio-movil",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "documentWidth": 390,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": false
+    },
+    {
+      "name": "inicio-escritorio-reduced-motion",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentWidth": 1440,
+      "canvasCount": 1,
+      "canvasReady": true,
+      "hostPosition": "fixed",
+      "webgl": "WebGL 1.0 (OpenGL ES 2.0 Chromium)",
+      "reducedMotion": true
+    }
+  ],
+  "errors": [],
+  "status": 200
+}
