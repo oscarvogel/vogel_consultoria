@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import sharp from 'sharp';
 const require=createRequire(import.meta.url);let chromium;
 try{({chromium}=require('playwright'));}catch{({chromium}=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));}
 const base=process.env.NARRATIVE_URL||'http://127.0.0.1:5192',out=resolve('docs/capturas/spatial-phase-02');
@@ -13,6 +14,16 @@ async function ready(page){page.on('pageerror',e=>errors.push(e.message));page.o
 async function seek(page,p){await page.evaluate(p=>scrollTo({top:(document.querySelector('.narrative-arc').offsetHeight-innerHeight)*p,behavior:'instant'}),p);await page.waitForTimeout(180);}
 try{
  const page=await browser.newPage({viewport:{width:1440,height:900}});await ready(page);await page.waitForSelector('.narrative-live');
+ // Regression: the legacy surface's opaque mask must not create a horizontal
+ // navy-to-black step above the terrain. Compare quiet pixels across its edge.
+ const legacyEdge=await page.locator('.landscape-hero .data-landscape').evaluate(el=>Math.round(el.getBoundingClientRect().top));
+ const edgeImage=await sharp(await page.screenshot()).extract({left:32,top:legacyEdge-2,width:96,height:4}).removeAlpha().raw().toBuffer();
+ for(let channel=0;channel<3;channel++){
+  let above=0,below=0;
+  for(let x=0;x<96;x++){above+=edgeImage[x*3+channel];below+=edgeImage[(3*96+x)*3+channel];}
+  assert(Math.abs(above-below)/96<2,'Hero has a horizontal color seam at the legacy landscape edge');
+ }
+ report.checks.push('Hero background continuity across legacy surface edge');
  assert.equal(await page.locator('canvas').count(),1);assert.equal(await page.locator('.landscape-canvas,.pin-spacer,.site-waves-host').count(),0);
  assert.equal((await triggers(page)).filter(id=>id==='vogel-spatial-narrative').length,1);assert(!(await triggers(page)).includes('vogel-spatial-core'));
  await page.evaluate(async()=>{window.__canvas=document.querySelector('canvas');
@@ -76,7 +87,7 @@ try{
  await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});await page.waitForTimeout(100);assert((await state(page)).running);
  await page.evaluate(()=>{window.__loss=document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context');window.__loss.loseContext();});await page.waitForTimeout(150);assert.equal(await page.locator('.narrative-live').count(),0);assert.equal((await state(page)).running,false);
  await page.evaluate(()=>window.__loss.restoreContext());await page.waitForSelector('.narrative-live');assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));
- await page.emulateMedia({reducedMotion:'reduce'});await page.waitForSelector('canvas',{state:'detached'});assert(!(await triggers(page)).includes('vogel-spatial-narrative'));assert(await page.locator('.narrative-poster').first().evaluate(e=>e.naturalWidth>0));
+ await page.emulateMedia({reducedMotion:'reduce'});await page.waitForSelector('canvas',{state:'detached'});assert(!(await triggers(page)).includes('vogel-spatial-narrative'));assert(await page.locator('.landscape-hero .landscape-poster').isVisible());assert(await page.locator('.narrative-poster').first().evaluate(e=>e.naturalWidth>0));
  await page.locator('#complejidad').evaluate(e=>scrollTo({top:e.getBoundingClientRect().top+scrollY-112,behavior:'instant'}));await page.screenshot({path:resolve(out,'reduced-motion.png')});
  await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForSelector('.narrative-live');
  await page.evaluate(()=>document.querySelector('#app').__vue_app__.unmount());assert.equal(await page.locator('canvas').count(),0);assert.deepEqual(await triggers(page),[]);assert.equal(await page.locator('html.lenis').count(),0);await page.close();
@@ -93,6 +104,6 @@ try{
  const reduced=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});await ready(reduced);await reduced.waitForTimeout(200);assert.equal(await reduced.locator('canvas').count(),0);assert.equal(await reduced.evaluate(()=>performance.getEntriesByType('resource').some(e=>/\/three/.test(e.name))),false);await reduced.close();
  const loading=await browser.newPage({viewport:{width:1440,height:900}});await loading.route(/\/node_modules\/\.vite\/deps\/three/,async route=>{await new Promise(r=>setTimeout(r,600));await route.continue();});await ready(loading);await loading.evaluate(()=>document.querySelector('#app').__vue_app__.unmount());await loading.waitForTimeout(1000);assert.equal(await loading.locator('canvas').count(),0);await loading.close();
  assert.deepEqual(errors,[]);
- report.checks=['intro → complexity → systems','exact reverse poses','one persistent canvas/renderer','four stable geometries and draw calls','stable GPU buffers','HTML anchor projection','one runtime Lenis','single arc ScrollTrigger','resize during morph','no Hero CTA overlap','keyboard destinations','hash navigation','pause after handoff','pointer neutral return','document visibility pause','same canvas context recovery','dynamic reduced motion','two mobile viewports without Three','no WebGL','initial reduced motion without Three','async unmount cleanup'];
+ report.checks=['Hero background continuity across legacy surface edge','intro → complexity → systems','exact reverse poses','one persistent canvas/renderer','four stable geometries and draw calls','stable GPU buffers','HTML anchor projection','one runtime Lenis','single arc ScrollTrigger','resize during morph','no Hero CTA overlap','keyboard destinations','hash navigation','pause after handoff','pointer neutral return','document visibility pause','same canvas context recovery','dynamic reduced motion','two mobile viewports without Three','no WebGL','initial reduced motion without Three','async unmount cleanup'];
  await writeFile(resolve(out,'validation.json'),JSON.stringify({...report,errors},null,2));console.log('ok - Phase 2 browser; evidence '+out);
 }finally{await browser.close();}

@@ -17,7 +17,11 @@
     "test:narrative": "node scripts/test-landscape.mjs motion",
     "test:narrative:behavior": "node scripts/test-landscape.mjs behavior",
     "test:spatial:narrative": "node scripts/test-spatial-narrative.mjs",
-    "test:spatial:narrative:browser": "node scripts/test-spatial-narrative-browser.mjs"
+    "test:spatial:narrative:browser": "node scripts/test-spatial-narrative-browser.mjs",
+    "test:spatial:phase03": "node scripts/test-spatial-phase03.mjs",
+    "test:spatial:phase03:browser": "node scripts/test-spatial-phase03-browser.mjs",
+    "capture:spatial:phase03": "node scripts/capture-phase03.mjs",
+    "benchmark:spatial:phase03": "node scripts/benchmark-spatial-phase03.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

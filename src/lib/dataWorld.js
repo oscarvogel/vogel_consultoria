@@ -19,7 +19,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float core=exp(-d*d*mix(48.,5.,v
 float halo=exp(-d*d*6.)*.24;float alpha=(core+halo)*vLight*vFade*uIntensity*uVisibility;
 if(alpha<.006)discard;gl_FragColor=vec4(vColor,alpha);}`;
 
-export function createDataWorld(T, scene, mobile = false, narrative = false) {
+export function createDataWorld(T, scene, mobile = false, narrative = false, phase03 = false) {
   const pointsGeometry=new T.BufferGeometry();
   const cols=mobile?151:321,rows=mobile?91:181,pos=[],colors=[],lights=[],sizes=[],lines=[];
   const point=(x,z)=>[(x/(cols-1)-.5)*42,0,12-z/(rows-1)*70];
@@ -38,7 +38,8 @@ export function createDataWorld(T, scene, mobile = false, narrative = false) {
   pointsGeometry.setAttribute('aLight',new T.Float32BufferAttribute(lights,1));
   pointsGeometry.setAttribute('aSize',new T.Float32BufferAttribute(sizes,1));
   const uniforms={uTime:{value:0},uIntensity:{value:1},uVisibility:{value:1},uConnections:{value:1},uDepth:{value:80},
-    uDispersion:{value:0},uOrder:{value:0},uClusters:{value:0},uPointer:{value:new T.Vector2()}};
+    uDispersion:{value:0},uOrder:{value:0},uClusters:{value:0},uPointer:{value:new T.Vector2()},
+    uFlow:{value:0},uData:{value:0},uIntelligence:{value:0},uClarity:{value:0},uConvergence:{value:0},uPulsePhase:{value:0},uSelectionPhase:{value:0}};
   const morphShader=narrative?`uniform float uDispersion;uniform float uOrder;uniform vec2 uPointer;
     vec3 terrainMorph(vec3 p){vec3 ordered=vec3(p.x,p.y*.18,p.z);
       p.x+=sin(p.z*.65+p.x*.8)*uDispersion*.48;
@@ -56,7 +57,7 @@ export function createDataWorld(T, scene, mobile = false, narrative = false) {
   void main(){vec3 p=position;p.y=heightAt(p.xz);vec4 mv=modelViewMatrix*vec4(p,1.);vFade=1.-smoothstep(20.,uDepth,-mv.z);gl_Position=projectionMatrix*mv;}`),
   fragmentShader:'uniform float uConnections;varying float vFade;void main(){gl_FragColor=vec4(.23,.32,.38,.08*vFade*uConnections);}',transparent:true,depthWrite:false});
   scene.add(new T.LineSegments(lineGeometry,lineMaterial));
-  const clusters=narrative?createClusterWorld(T,scene,uniforms):null;
+  const clusters=narrative?createClusterWorld(T,scene,uniforms,phase03):null;
   return { uniforms, anchor:clusters?.anchor, update(time, state) {
     uniforms.uTime.value=time;
     if(state) {
@@ -67,6 +68,9 @@ export function createDataWorld(T, scene, mobile = false, narrative = false) {
       uniforms.uDispersion.value=state.dispersion??0;
       uniforms.uOrder.value=state.order??0;
       uniforms.uClusters.value=state.clusters??0;
+      uniforms.uFlow.value=state.flow??0;uniforms.uData.value=state.data??0;
+      uniforms.uIntelligence.value=state.intelligence??0;uniforms.uClarity.value=state.clarity??0;uniforms.uConvergence.value=state.convergence??0;
+      uniforms.uPulsePhase.value=state.pulsePhase??0;uniforms.uSelectionPhase.value=state.selectionPhase??0;
     }
   }, dispose() {
     clusters?.dispose();

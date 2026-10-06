@@ -16,19 +16,20 @@ import WhatsAppButton from './components/WhatsAppButton.vue';
 import { useScrollReveal } from './composables/useScrollReveal.js';
 import './styles/home.css';
 useScrollReveal();
-const narrativeEnabled = import.meta.env.VITE_SPATIAL_NARRATIVE === 'true';
+const phase03Enabled = import.meta.env.VITE_SPATIAL_PHASE_03 === 'true';
+const narrativeEnabled = phase03Enabled || import.meta.env.VITE_SPATIAL_NARRATIVE === 'true';
 const spatialEnabled = narrativeEnabled || import.meta.env.VITE_SPATIAL_CORE === 'true';
 provide(spatialOwnershipKey, spatialEnabled);
 const SpatialExperience = spatialEnabled ? defineAsyncComponent(() => import('./components/SpatialExperience.vue')) : null;
 </script>
 <template>
   <div class="home-page">
-    <SpatialExperience v-if="spatialEnabled" :narrative="narrativeEnabled" />
+    <SpatialExperience v-if="spatialEnabled" :narrative="narrativeEnabled" :phase03="phase03Enabled" />
     <div class="home-page-content">
       <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
       <Navbar />
       <main id="main-content" tabindex="-1">
-        <SpatialNarrativeArc v-if="narrativeEnabled" />
+        <SpatialNarrativeArc v-if="narrativeEnabled" :phase03="phase03Enabled" />
         <HeroSection v-else />
         <ServicesSection />
         <MiniCasesSection />

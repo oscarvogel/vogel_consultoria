@@ -145,4 +145,12 @@ Las advisories del detector sobre tamaños heredados de metadata y el negro téc
 
 ## Preparación para Phase 03
 
+### Corrección de continuidad del Hero — 2026-10-06
+
+La captura del usuario mostró un borde horizontal a aproximadamente el 30% del Hero. El modo narrativo ocultaba el poster heredado, pero conservaba su contenedor `.data-landscape`, incluido el pseudo-elemento `::after` con máscara opaca y su halo. Ese navy casi negro se superponía al fondo del mundo persistente y producía un cambio abrupto de color.
+
+Ahora `.narrative-live` oculta la superficie heredada completa dentro del arco; el canvas persistente conserva su propia máscara progresiva. La regla se desactiva al perder contexto, activar reduced motion o usar el fallback, restaurando la composición estática. No cambia el Core de Fase 1, el Hero convencional, el cierre ni los tokens.
+
+Validación local: build correcto y suite de navegador de Fase 2 completa. Se añadió una regresión que compara píxeles por encima y debajo del borde heredado, además de verificar la visibilidad del poster del Hero al activar reduced motion. Evidencia local a 1885×909: `docs/capturas/hero-narrative-before.png` y `docs/capturas/hero-narrative-after.png`. No se avanzó a Fase 3.
+
 La separación de poses/rangos, el adaptador y los uniforms permiten estudiar capítulos futuros sin duplicar motor. Antes de extender, revisar la dirección narrativa con evidencia visual, confirmar alcance, medir hardware y volver a comprobar pausas, reversibilidad, lectura, presupuesto de geometría y fallbacks. Phase 03 no está implementada; Servicios y capítulos posteriores siguen siendo editoriales. No ampliar ahora el trigger, las siete definiciones Core, ni el renderer al cierre.

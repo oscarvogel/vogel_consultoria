@@ -1,17 +1,17 @@
 import { createSpatialEngine } from './spatialEngine.js';
 import { createCameraRig } from './cameraRig.js';
 import { createSpatialSceneController } from './sceneController.js';
-import { narrativeScenes, narrativeRanges } from './narrativeScenes.js';
+import { narrativeScenes, narrativeRanges, phase03Config, samplePhase03 } from './narrativeScenes.js';
 import { loadSiteMotion } from '../composables/useSiteMotion.js';
 
 const clamp=value=>Math.max(0,Math.min(1,value));
 /** An adapter for the same core: one scroll owner, no additional animation loop. */
-export function mountSpatialNarrative(host) {
+export function mountSpatialNarrative(host, { phase03 = false } = {}) {
   const page=host.closest('.home-page'), arc=page.querySelector('.narrative-arc');
   const hero=arc.querySelector('.landscape-hero'), progress=arc.querySelector('.narrative-progress');
   const labels=[...arc.querySelectorAll('.spatial-cluster-labels li')];
   const count=progress.querySelector('.narrative-count'), current=progress.querySelector('.narrative-current');
-  const controller=createSpatialSceneController(narrativeScenes,narrativeRanges);
+  const controller=createSpatialSceneController(phase03?phase03Config.scenes:narrativeScenes,phase03?phase03Config.ranges:narrativeRanges);
   const eligibility=matchMedia('(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
   let disposed=false, generation=0, cleanSession;
   host.className='spatial-narrative-host';
@@ -19,7 +19,7 @@ export function mountSpatialNarrative(host) {
     const version=++generation;cleanSession?.();cleanSession=undefined;
     arc.classList.remove('narrative-unavailable');
     if(disposed||!eligibility.matches) return;
-    let engine, rig, trigger, resize, intersection, idle, inView=false, distance=1, start=0, handoff=0;
+    let engine, rig, trigger, resize, intersection, idle, inView=false, distance=1, start=0, handoff=0, unit=1, exitDistance=1;
     const widths=new Float32Array(4), heights=new Float32Array(4), xs=new Float32Array(4), ys=new Float32Array(4);
     const reading=[];
     let activeIndex=-1, worldPointerX=0, worldPointerY=0;
@@ -34,11 +34,18 @@ export function mountSpatialNarrative(host) {
       arc.style.removeProperty('--intro-retreat');progress.style.opacity='0';
       labels.forEach(label=>{label.style.opacity='0';label.style.removeProperty('transform');});
       host.style.opacity='0';
+      host.style.visibility='hidden';
     }
     cleanSession=clean;
     function fail(){clean();arc.classList.add('narrative-unavailable');}
+    function syncVisibility(){const r=arc.getBoundingClientRect();inView=r.bottom>0&&r.top<innerHeight;}
     function measure() {
-      distance=Math.max(1,arc.offsetHeight-innerHeight);
+      // Resize/context recovery may arrive before queued intersection entries.
+      // Read current bounds once at those lifecycle boundaries, never per frame.
+      syncVisibility();
+      unit=phase03?arc.offsetHeight/phase03Config.height:innerHeight;
+      distance=Math.max(1,phase03?unit*phase03Config.end:arc.offsetHeight-innerHeight);
+      exitDistance=Math.max(1,arc.offsetHeight-distance);
       start=arc.getBoundingClientRect().top+scrollY;
       engine.resize(innerWidth,innerHeight);
       labels.forEach((label,i)=>{widths[i]=label.offsetWidth;heights[i]=label.offsetHeight;});
@@ -51,17 +58,17 @@ export function mountSpatialNarrative(host) {
     }
     function update() {
       const offset=scrollY-start, p=clamp(offset/distance);
-      handoff=clamp((offset-distance)/innerHeight);
-      const state=controller.setProgress(p);rig.setTransition(state.from,state.to,state.blend);
+      handoff=clamp((offset-distance)/exitDistance);
+      const state=phase03?samplePhase03(controller,offset/unit):controller.setProgress(p);rig.setTransition(state.from,state.to,state.blend);
       arc.style.setProperty('--intro-retreat',String(clamp(offset/innerHeight)));
       progress.style.setProperty('--arc-progress',String(p));progress.style.opacity=String(1-handoff);
-      const index=p<.38?0:p<.82?1:2;
-      if(index!==activeIndex){activeIndex=index;count.textContent=`0${index+1} / 03`;current.textContent=['INTRO','COMPLEJIDAD','SISTEMAS'][index];}
+      const index=phase03?state.chapterIndex:p<.38?0:p<.82?1:2;
+      if(index!==activeIndex){activeIndex=index;count.textContent=`0${index+1} / ${phase03?'07':'03'}`;current.textContent=phase03?phase03Config.chapters[index].label:['INTRO','COMPLEJIDAD','SISTEMAS'][index];}
       // World persists through the handoff, then pauses under the editorial sections.
       host.style.opacity=String(1-handoff);
-      const intro=1-clamp(p/.38), lower=handoff*82;
+      const intro=1-clamp(phase03?offset/(unit*1.14):p/.38), lower=handoff*82;
       host.style.maskImage=`linear-gradient(transparent ${intro*22+lower}%,#000 ${intro*50+lower+(1-intro)*(1-handoff)*8}%,#000 88%,transparent)`;
-      if(offset>=distance+innerHeight||offset<-innerHeight){engine.pause();neutral();labels.forEach(l=>l.style.opacity='0');}
+      if(offset>=arc.offsetHeight||offset<-innerHeight){engine.pause();neutral();labels.forEach(l=>l.style.opacity='0');}
       else if(inView)engine.start(render);
     }
     function render(now,dt,elapsed) {
@@ -87,31 +94,43 @@ export function mountSpatialNarrative(host) {
         if(visible)labels[i].style.transform=`translate3d(${x}px,${y}px,0)`;
       }
       page.classList.add('narrative-live');
+      if(host.style.visibility==='hidden')host.style.visibility='visible';
     }
     try {
       const [T,{ScrollTrigger}]=await Promise.all([import('three'),loadSiteMotion()]);
       await document.fonts?.ready;
       if(disposed||version!==generation||!eligibility.matches)return;
-      engine=createSpatialEngine(T,{narrative:true,onContextLost(){page.classList.remove('narrative-live');labels.forEach(l=>l.style.opacity='0');},onContextRestored(){measure();},onError:fail});
+      engine=createSpatialEngine(T,{narrative:true,phase03,onContextLost(){host.style.visibility='hidden';page.classList.remove('narrative-live');labels.forEach(l=>l.style.opacity='0');},onContextRestored(){measure();},onError:fail});
       rig=createCameraRig(T,engine.camera);
       const canvas=engine.renderer.domElement;canvas.className='spatial-canvas';host.append(canvas);
       // Same read-only diagnostic contract as Phase 1; snapshot is development-only evidence tooling.
-      canvas.__vogelSpatial={getState:()=>({...engine.getState(),progress:controller.getState().progress,from:controller.getState().from.id,to:controller.getState().to.id,
+      const bufferRegistry=new WeakMap();let nextBuffer=0;
+      engine.scene.children.forEach(o=>Object.values(o.geometry.attributes).forEach(a=>{
+        if(!bufferRegistry.has(a.array))bufferRegistry.set(a.array,++nextBuffer);
+      }));
+      canvas.__vogelSpatial={getState:()=>({...engine.getState(),phase:phase03?3:2,progress:controller.getState().progress,from:controller.getState().from.id,to:controller.getState().to.id,
+        ...(phase03?{chapter:controller.getState().chapter,localProgress:controller.getState().localProgress,
+          flow:controller.getState().flow,data:controller.getState().data,intelligence:controller.getState().intelligence,
+          clarity:controller.getState().clarity,convergence:controller.getState().convergence,pulsePhase:controller.getState().pulsePhase,selectionPhase:controller.getState().selectionPhase,
+          attributes:engine.scene.children.map(o=>Object.fromEntries(Object.entries(o.geometry.attributes).map(([key,a])=>[key,{id:bufferRegistry.get(a.array)??-1,attributeId:a.id,bytes:a.array.byteLength}]))),
+          uniformValues:Object.fromEntries(Object.entries(engine.uniforms).filter(([key,u])=>key!=='uTime'&&typeof u.value==='number').map(([key,u])=>[key,u.value]))}:{}),
         order:controller.getState().order,dispersion:controller.getState().dispersion,handoff,position:engine.camera.position.toArray(),quaternion:engine.camera.quaternion.toArray(),
         geometryIds:engine.scene.children.map(o=>o.geometry.uuid),bufferIds:engine.scene.children.map(o=>o.geometry.attributes.position.array.byteLength)}),
         ...(import.meta.env.DEV?{snapshot({poster=false}={}){
           const time=engine.uniforms.uTime.value, clusters=engine.uniforms.uClusters.value,
             position=engine.camera.position.clone(), quaternion=engine.camera.quaternion.clone();
           engine.uniforms.uTime.value=0;
-          if(poster){engine.camera.position.set(9,14,8);engine.camera.lookAt(0,1,-22);engine.uniforms.uClusters.value=2.2;}
+          const pointer=engine.uniforms.uPointer.value.clone();engine.uniforms.uPointer.value.set(0,0);
+          if(poster){engine.camera.position.set(phase03?12:9,14,phase03?3:8);engine.camera.lookAt(0,1,phase03?-28:-22);engine.uniforms.uClusters.value=phase03?1.2:2.2;}
           engine.renderer.render(engine.scene,engine.camera);
           const image=canvas.toDataURL('image/png');engine.uniforms.uTime.value=time;
           engine.uniforms.uClusters.value=clusters;
+          engine.uniforms.uPointer.value.copy(pointer);
           engine.camera.position.copy(position);engine.camera.quaternion.copy(quaternion);return image;}}:{})};
       measure();
       trigger=ScrollTrigger.create({id:'vogel-spatial-narrative',trigger:arc,start:'top top',end:()=>`+=${arc.offsetHeight}`,invalidateOnRefresh:true,onUpdate:update,onRefresh:measure});
       resize=new ResizeObserver(()=>{measure();ScrollTrigger.refresh();});resize.observe(arc);
-      intersection=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(inView)update();else {engine.pause();neutral();labels.forEach(l=>l.style.opacity='0');}});
+      intersection=new IntersectionObserver(()=>{syncVisibility();if(inView)update();else {engine.pause();neutral();labels.forEach(l=>l.style.opacity='0');}});
       intersection.observe(arc);
       window.addEventListener('pointermove',pointer,{passive:true});window.addEventListener('pointerout',neutral);
     } catch {if(version===generation&&!disposed)fail();}

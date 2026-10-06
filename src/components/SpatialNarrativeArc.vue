@@ -1,12 +1,13 @@
 <script setup>
 import HeroSection from './HeroSection.vue';
-import { clusterDefinitions } from '../lib/narrativeScenes.js';
+import { clusterDefinitions, phase03Config } from '../lib/narrativeScenes.js';
 import { servicePages } from '../data/servicePages.js';
 import '../styles/spatialNarrative.css';
 const destinations=['sistemas-a-medida','mantenimiento-de-equipos','desarrollo-web'].map(id=>servicePages[id]);
+defineProps({phase03:{type:Boolean,default:false}});
 </script>
 <template>
-  <div class="narrative-arc" data-chapter-motion>
+  <div class="narrative-arc" :class="{'narrative-phase03':phase03}" data-chapter-motion>
     <HeroSection />
     <section id="complejidad" class="narrative-moment narrative-complexity" aria-labelledby="complexity-title">
       <div class="section-shell narrative-copy">
@@ -28,9 +29,23 @@ const destinations=['sistemas-a-medida','mantenimiento-de-equipos','desarrollo-w
       </div>
       <img class="narrative-poster" src="/landscape/systems.webp" width="1440" height="900" alt="" loading="lazy">
     </section>
+    <template v-if="phase03">
+      <section v-for="moment in phase03Config.moments" :key="moment.id" :id="moment.anchor" class="narrative-moment narrative-extension" :style="{'--moment-height':moment.height*100+'svh'}" :aria-labelledby="moment.id+'-title'" :data-spatial-scene="moment.id">
+        <div class="section-shell narrative-copy">
+          <p class="narrative-marker">{{moment.marker}} / {{moment.label}}</p>
+          <h2 :id="moment.id+'-title'">{{moment.title}}</h2>
+          <p>{{moment.copy}}</p>
+          <p class="narrative-equivalent">{{moment.meaning}}</p>
+          <ul v-if="moment.id==='data'" class="narrative-metadata" aria-label="Lectura conceptual del sistema">
+            <li>OPERACIÓN / ACTIVA</li><li>FLUJO / ESTABLE</li><li>INFORMACIÓN / CONSOLIDADA</li>
+          </ul>
+        </div>
+        <img class="narrative-poster" :src="'/landscape/'+moment.id+'.webp'" width="1440" height="900" alt="" loading="lazy">
+      </section>
+    </template>
     <ol class="spatial-cluster-labels" aria-hidden="true">
       <li v-for="(c,i) in clusterDefinitions" :key="c.name"><span>{{String(i+1).padStart(2,'0')}} / {{c.name}}</span></li>
     </ol>
-    <div class="narrative-progress" aria-hidden="true"><span class="narrative-count">01 / 03</span><span class="narrative-current">INTRO</span><i></i></div>
+    <div class="narrative-progress" aria-hidden="true"><span class="narrative-count">01 / {{phase03?'07':'03'}}</span><span class="narrative-current">INTRO</span><i></i></div>
   </div>
 </template>

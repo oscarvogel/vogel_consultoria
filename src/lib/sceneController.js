@@ -16,7 +16,7 @@ export function resetScene() { scene = neutral; }
 export function createSpatialSceneController(scenes, ranges) {
   const state = { progress: 0, from: scenes[0], to: scenes[0], blend: 0,
     intensity: 1, visibility: 1, connections: 1, depth: 80 };
-  const scalarKeys = ['intensity', 'visibility', 'connections', 'depth', 'dispersion', 'order', 'clusters'];
+  const scalarKeys = ['intensity', 'visibility', 'connections', 'depth', 'dispersion', 'order', 'clusters', 'flow', 'data', 'intelligence', 'clarity', 'convergence'];
   function setTransition(fromId, toId, progress) {
     const from = scenes.find(s => s.id === fromId), to = scenes.find(s => s.id === toId);
     if (!from || !to) throw new RangeError('Unknown spatial scene');

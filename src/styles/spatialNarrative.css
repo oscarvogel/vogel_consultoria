@@ -16,7 +16,10 @@
 .spatial-narrative-host{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;overflow:hidden}
 .narrative-live .home-page-content{z-index:auto}
 .narrative-live .narrative-arc,.narrative-live .narrative-moment,.narrative-live .landscape-hero{isolation:auto;background:transparent}
-.narrative-live .narrative-arc .landscape-poster,.narrative-live .narrative-poster{visibility:hidden}
+/* The persistent world owns the Hero background, including its fade. Hide the
+   legacy surface as a whole: its opaque ::after mask otherwise leaves a seam
+   at 30% of the Hero. Removing narrative-live restores the complete fallback. */
+.narrative-live .narrative-arc .data-landscape,.narrative-live .narrative-poster{visibility:hidden}
 .narrative-live .spatial-narrative-host{opacity:1}
 .narrative-live .narrative-moment::before{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#05090f 0%,rgb(5 9 15/.88) 26%,transparent 68%);pointer-events:none}
 .narrative-live .narrative-arc .hero-copy{transform:translateY(calc(var(--intro-retreat,0)*-48px)) scale(calc(1 - var(--intro-retreat,0)*.025));transform-origin:center top}
@@ -48,3 +51,15 @@
   .narrative-copy{padding:0;margin:0}.narrative-poster{height:480px;margin:0}
 }
 @media(max-width:1023px),(prefers-reduced-motion:reduce){.spatial-narrative-host{display:none}.narrative-moment{padding-top:64px}.narrative-copy h2{max-width:16ch}}
+
+/* Phase 3 has local editorial lengths rather than repeating 150svh. */
+.narrative-metadata{display:flex;flex-direction:column;gap:10px;margin-top:28px;color:var(--color-muted);font-size:10px;letter-spacing:.12em;list-style:none;padding:0}
+.narrative-equivalent{font-size:13px!important;line-height:1.6!important;max-width:42ch!important;margin-top:24px;color:var(--color-muted)}
+.narrative-live .narrative-equivalent{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .narrative-phase03:not(.narrative-unavailable) .narrative-extension{height:var(--moment-height)}
+}
+@media(max-width:1023px){
+  .narrative-phase03 .narrative-extension{padding-top:48px}
+  .narrative-phase03 .narrative-extension .narrative-poster{height:240px;margin-top:12px}
+}

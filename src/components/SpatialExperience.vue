@@ -9,7 +9,7 @@ import { terrainAnchors, terrainHeight } from '../lib/dataWorld.js';
 import '../styles/spatial.css';
 import { mountSpatialNarrative } from '../lib/mountSpatialNarrative.js';
 
-const props=defineProps({ narrative:{type:Boolean,default:false} });
+const props=defineProps({ narrative:{type:Boolean,default:false},phase03:{type:Boolean,default:false} });
 const host = ref(null);
 let disposed = false, generation = 0, stopSession, eligibility;
 const controller = props.narrative ? null : createSpatialSceneController(spatialScenes);
@@ -104,7 +104,7 @@ async function reconcile() {
   } catch { clean(); /* The existing posters remain visible. */ }
 }
 onMounted(() => {
-  if(props.narrative){stopSession=mountSpatialNarrative(host.value);return;}
+  if(props.narrative){stopSession=mountSpatialNarrative(host.value,{phase03:props.phase03});return;}
   eligibility = matchMedia('(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
   eligibility.addEventListener('change',reconcile); reconcile();
 });

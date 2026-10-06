@@ -1,13 +1,13 @@
 import { createDataWorld } from './dataWorld.js';
 
 /** Shared renderer owner. Clients supply updates, never their own render loop. */
-export function createSpatialEngine(T, { mobile = false, narrative = false, onContextLost, onContextRestored, onError } = {}) {
-  const renderer = new T.WebGLRenderer({ alpha: true, antialias: false, powerPreference: 'low-power' });
+export function createSpatialEngine(T, { mobile = false, narrative = false, phase03 = false, powerPreference = 'low-power', onContextLost, onContextRestored, onError } = {}) {
+  const renderer = new T.WebGLRenderer({ alpha: true, antialias: false, powerPreference });
   renderer.setClearColor(0x05090f, 0);
   const scene = new T.Scene();
   const camera = new T.PerspectiveCamera(47, 1, .1, 110);
   let world;
-  try { world = createDataWorld(T, scene, mobile, narrative); }
+  try { world = createDataWorld(T, scene, mobile, narrative, phase03); }
   catch (error) { renderer.dispose(); renderer.forceContextLoss(); throw error; }
   let frame = 0, last = 0, elapsed = 0, callback, disposed = false, lost = false, wanted = false;
   let width = 0, height = 0, frames = 0;
