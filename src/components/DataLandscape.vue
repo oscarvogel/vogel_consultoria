@@ -1,9 +1,12 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { inject, onMounted, onUnmounted, ref } from 'vue';
+import { spatialOwnershipKey } from '../lib/spatialScenes.js';
+const spatialOwned = inject(spatialOwnershipKey, false);
 const props = defineProps({ variant: { type: String, default: 'hero' } });
 const host = ref(null);
 let unregister, disposed = false;
 onMounted(async () => {
+ if (spatialOwned) return;
  try { const { registerLandscape } = await import('../lib/dataLandscape.js');
  if (!disposed) unregister = registerLandscape(host.value, props.variant);
  } catch { /* Static landscape remains visible. */ }

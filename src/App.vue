@@ -1,4 +1,6 @@
 <script setup>
+import { provide, defineAsyncComponent } from 'vue';
+import { spatialOwnershipKey } from './lib/spatialScenes.js';
 import Navbar from './components/Navbar.vue';
 import HeroSection from './components/HeroSection.vue';
 import EvidenceSection from './components/EvidenceSection.vue';
@@ -13,9 +15,13 @@ import WhatsAppButton from './components/WhatsAppButton.vue';
 import { useScrollReveal } from './composables/useScrollReveal.js';
 import './styles/home.css';
 useScrollReveal();
+const spatialEnabled = import.meta.env.VITE_SPATIAL_CORE === 'true';
+provide(spatialOwnershipKey, spatialEnabled);
+const SpatialExperience = spatialEnabled ? defineAsyncComponent(() => import('./components/SpatialExperience.vue')) : null;
 </script>
 <template>
   <div class="home-page">
+    <SpatialExperience v-if="spatialEnabled" />
     <div class="home-page-content">
       <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
       <Navbar />

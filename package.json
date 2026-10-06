@@ -11,6 +11,8 @@
     "preview": "vite preview",
     "test": "node scripts/test-site.mjs",
     "test:contrast": "node scripts/check-contrast.mjs",
+    "test:spatial": "node scripts/test-spatial-core.mjs",
+    "test:spatial:browser": "node scripts/test-spatial-browser.mjs",
     "test:ui": "node scripts/test-landscape.mjs ui",
     "test:narrative": "node scripts/test-landscape.mjs motion",
     "test:narrative:behavior": "node scripts/test-landscape.mjs behavior"

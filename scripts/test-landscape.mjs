@@ -116,7 +116,7 @@ try{
   await page.unroute('https://api.web3forms.com/submit');await page.route('https://api.web3forms.com/submit',route=>route.fulfill({status:500,contentType:'application/json',headers:{'access-control-allow-origin':'*'},body:'{"success":false}'}));
   await form.locator('[type=submit]').click();await page.locator('#contacto [role=alert]').waitFor();await page.close();
   const videoContext=await browser.newContext({viewport:{width:1440,height:1000},recordVideo:{dir:join(out,'video'),size:{width:1440,height:1000}}});
-  const videoPage=await videoContext.newPage();await ready(videoPage);await videoPage.waitForSelector('.landscape-live');await videoPage.waitForTimeout(1000);
+  const videoPage=await videoContext.newPage();await ready(videoPage);await videoPage.waitForSelector('.landscape-live,.spatial-live');await videoPage.waitForTimeout(1000);
   for(const id of ['soluciones','casos','clientes','metodologia','nosotros','contacto']){await videoPage.locator('#'+id).evaluate(e=>e.scrollIntoView({behavior:'smooth',block:'start'}));await videoPage.waitForTimeout(850);}
   for(const id of ['nosotros','metodologia','casos','inicio']){await videoPage.locator('#'+id).evaluate(e=>e.scrollIntoView({behavior:'smooth',block:'start'}));await videoPage.waitForTimeout(650);}
   await videoContext.close();results.push({kind:'behavior',checks:['touch menu','Escape and focus return','outside click','anchor and hash reload','form empty/invalid/loading/success/error with local responses','optional phone payload','recorded forward/back desktop traversal']});console.log('ok - menu touch/Escape/outside, anchors/reload, local form states and recorded desktop traversal');

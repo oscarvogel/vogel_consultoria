@@ -1,0 +1,11 @@
+/* Prototype-only decorative strip. Opaque masks keep text and controls readable. */
+.spatial-experience{position:fixed;inset:auto 0 0;height:70svh;z-index:1;pointer-events:none;opacity:0;overflow:hidden;mask-image:linear-gradient(transparent calc(100% - 160px),#000 100%)}
+.spatial-live .spatial-experience{opacity:.45}
+.spatial-experience.spatial-hero{height:70svh;mask-image:linear-gradient(transparent,#000 20%,#000 65%,transparent)}
+.spatial-live .spatial-experience.spatial-hero{opacity:1}
+.spatial-live .home-page-content{z-index:auto}
+.spatial-live .landscape-hero,.spatial-live .home-section,.spatial-live .solutions-section,.spatial-live .home-contact{isolation:auto}
+.spatial-canvas{display:block;width:100%;height:100%;pointer-events:none}
+.spatial-live .spatial-surface-live .landscape-poster{opacity:0}
+.spatial-live .home-section>.section-shell,.spatial-live .solutions-section>.section-shell,.spatial-live .evidence-section>section{z-index:2}
+@media(max-width:1023px),(prefers-reduced-motion:reduce){.spatial-experience{display:none}}

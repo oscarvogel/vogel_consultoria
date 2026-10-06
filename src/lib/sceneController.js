@@ -11,3 +11,25 @@ export function setScene(input = {}) {
 }
 export function getScene() { return scene; }
 export function resetScene() { scene = neutral; }
+
+/** Per-world progress state; legacy ambient-shader exports above remain independent. */
+export function createSpatialSceneController(scenes) {
+  const state = { progress: 0, from: scenes[0], to: scenes[0], blend: 0,
+    intensity: 1, visibility: 1, connections: 1, depth: 80 };
+  const scalarKeys = ['intensity', 'visibility', 'connections', 'depth'];
+  function setTransition(fromId, toId, progress) {
+    const from = scenes.find(s => s.id === fromId), to = scenes.find(s => s.id === toId);
+    if (!from || !to) throw new RangeError('Unknown spatial scene');
+    const p = Number.isFinite(progress) ? Math.max(0, Math.min(1, progress)) : 0;
+    state.from = from; state.to = to; state.blend = p*p*(3-2*p);
+    for (const key of scalarKeys) state[key] = from[key] + (to[key]-from[key])*state.blend;
+    return state;
+  }
+  function setProgress(progress) {
+    state.progress = Number.isFinite(progress) ? Math.max(0,Math.min(1,progress)) : 0;
+    const step = state.progress * (scenes.length-1), index = Math.min(scenes.length-2, Math.floor(step));
+    return setTransition(scenes[index].id, scenes[index+1].id, step-index);
+  }
+  setProgress(0);
+  return { setProgress, setTransition, reset: () => setProgress(0), getState: () => state };
+}
