@@ -15,7 +15,9 @@
     "test:spatial:browser": "node scripts/test-spatial-browser.mjs",
     "test:ui": "node scripts/test-landscape.mjs ui",
     "test:narrative": "node scripts/test-landscape.mjs motion",
-    "test:narrative:behavior": "node scripts/test-landscape.mjs behavior"
+    "test:narrative:behavior": "node scripts/test-landscape.mjs behavior",
+    "test:spatial:narrative": "node scripts/test-spatial-narrative.mjs",
+    "test:spatial:narrative:browser": "node scripts/test-spatial-narrative-browser.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

@@ -7,10 +7,12 @@ import { createSpatialEngine } from '../lib/spatialEngine.js';
 import { createCameraRig } from '../lib/cameraRig.js';
 import { terrainAnchors, terrainHeight } from '../lib/dataWorld.js';
 import '../styles/spatial.css';
+import { mountSpatialNarrative } from '../lib/mountSpatialNarrative.js';
 
+const props=defineProps({ narrative:{type:Boolean,default:false} });
 const host = ref(null);
 let disposed = false, generation = 0, stopSession, eligibility;
-const controller = createSpatialSceneController(spatialScenes);
+const controller = props.narrative ? null : createSpatialSceneController(spatialScenes);
 async function reconcile() {
   const version = ++generation;
   stopSession?.(); stopSession = undefined;
@@ -102,6 +104,7 @@ async function reconcile() {
   } catch { clean(); /* The existing posters remain visible. */ }
 }
 onMounted(() => {
+  if(props.narrative){stopSession=mountSpatialNarrative(host.value);return;}
   eligibility = matchMedia('(min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
   eligibility.addEventListener('change',reconcile); reconcile();
 });

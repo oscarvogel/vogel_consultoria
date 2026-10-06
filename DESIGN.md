@@ -198,3 +198,17 @@ El menú desktop ocupa el centro de una grilla `1fr auto 1fr`, independientement
 - **Don't** ocultar contenido esencial detrás de animaciones o WebGL.
 - **Don't** añadir un shader global, pins narrativos o liquid glass a este sistema.
 - **Don't** afirmar identidad absoluta de assets: interiores conservan algunas ilustraciones conceptuales azules.
+
+### Extensión de superficie: arco espacial optativo — Phase 02 (2026-10-06)
+
+Esta extensión describe únicamente la Home con `VITE_SPATIAL_NARRATIVE=true`; conserva el frontmatter, los tokens y las reglas anteriores para la identidad general y los modos existentes. Es independiente de `VITE_SPATIAL_CORE`, tiene precedencia cuando ambos están activos y permanece desactivada por defecto. El modo Core de Phase 01 conserva sus siete definiciones. La especificación y evidencia están en `docs/SPATIAL_PHASE_02_INTRO_COMPLEXITY_SYSTEMS.md`.
+
+**The Arco Optativo Rule.** INTRO → COMPLEJIDAD → SISTEMAS utiliza el mismo mundo, renderer, cámara y ciclo de vida durante un arco de cuatro alturas de pantalla: Hero (100svh) y dos momentos editoriales (150svh cada uno). El contenido HTML avanza en flujo nativo; la escena decorativa se transforma de información dispersa a relaciones ordenadas. No añade pin, snap ni otra instancia Lenis. Servicios y los capítulos posteriores conservan su contenido y flujo.
+
+La luz ámbar y los puntos institucionales azules continúan sobre navy. La jerarquía general Clash Display / Chillax y la V oficial permanecen intactas. El texto ocupa la izquierda y los grupos el centro/derecha. Las cuatro etiquetas HTML proyectadas nombran Operación, Administración, Información y Reportes; no reciben foco ni eventos y cuentan con un resumen semántico separado. El indicador numerado corresponde a los momentos de este arco, no establece una nueva regla global de metadata.
+
+**The Lectura Antes del Mundo Rule.** La escena suprime etiquetas fuera del encuadre, detrás de cámara, dentro del área de lectura o en colisión. Los enlaces reales de Sistemas siguen visibles y operables con teclado. La lectura no depende de la posición de partículas ni de completar una animación.
+
+La mejora se activa desde 1024px, con puntero preciso y sin movimiento reducido. Móvil, touch y movimiento reducido presentan HTML con posters del propio mundo, sin importar Three.js. En escritorio con movimiento reducido o fallo de WebGL, texto y poster forman dos columnas editoriales; en móvil el poster ocupa una franja de 320px. Si WebGL falla, se retira la reserva de cuatro alturas; perder y restaurar el contexto temporalmente conserva el canvas y muestra los posters. El renderer pausa tras el traspaso hacia Servicios y el cierre usa su poster estático.
+
+La profundidad procede de materiales aditivos y morph procedural; no introduce luces de escena, sombras, texturas ni tokens de marca. El terreno previo comparte uniforms con 512 puntos agrupados y 171 segmentos de relación. Buffers estables y dos draw calls adicionales mantienen el total observado en cuatro geometrías, cuatro draw calls y cero texturas. Esta regla describe el presupuesto de esta superficie; no autoriza extender el arco a más capítulos.

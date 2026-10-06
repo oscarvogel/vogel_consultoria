@@ -25,3 +25,6 @@ outputs/
 docs/ftp-backups/
 docs/capturas/
 docs/heygen/auditoria-futuro-local/
+
+# Development-only visual review artifacts.
+.impeccable/review/

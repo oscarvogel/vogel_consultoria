@@ -1,0 +1,50 @@
+/* First arc only. Editorial content remains in document flow, including links. */
+.narrative-arc{position:relative;background:#05090f}
+.narrative-moment{position:relative;overflow:hidden;padding:64px 0 0;isolation:isolate}
+.narrative-copy{position:relative;z-index:3}
+.narrative-marker{font-size:11px;letter-spacing:.22em;color:var(--color-action);margin-bottom:24px}
+.narrative-copy h2{font-size:clamp(36px,4vw,60px);font-weight:450;line-height:1.08;letter-spacing:-.035em;max-width:12ch;margin-bottom:24px}
+.narrative-copy>p:not(.narrative-marker){max-width:38ch;line-height:1.65;font-size:18px;color:var(--color-muted)}
+.narrative-area-summary{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px;font-size:10px;letter-spacing:.12em;color:var(--color-muted)}
+.narrative-poster{display:block;width:100%;height:320px;object-fit:cover;object-position:62% center;margin-top:24px;mask-image:linear-gradient(transparent,#000 12%,#000 90%,transparent)}
+.narrative-destinations{display:flex;flex-direction:column;align-items:start;gap:4px;margin-top:28px}
+.narrative-destinations a{display:flex;justify-content:space-between;gap:32px;min-height:44px;align-items:center;font-size:14px;color:var(--color-text)}
+.narrative-destinations a span,.narrative-destinations a:hover{color:var(--color-action)}
+.narrative-progress{display:none;pointer-events:none}
+/* Measurable before the first frame, so clipping uses actual label dimensions. */
+.spatial-cluster-labels{display:block;visibility:hidden;position:fixed;inset:0;z-index:4;margin:0;padding:0;list-style:none;pointer-events:none}
+.spatial-narrative-host{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;overflow:hidden}
+.narrative-live .home-page-content{z-index:auto}
+.narrative-live .narrative-arc,.narrative-live .narrative-moment,.narrative-live .landscape-hero{isolation:auto;background:transparent}
+.narrative-live .narrative-arc .landscape-poster,.narrative-live .narrative-poster{visibility:hidden}
+.narrative-live .spatial-narrative-host{opacity:1}
+.narrative-live .narrative-moment::before{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#05090f 0%,rgb(5 9 15/.88) 26%,transparent 68%);pointer-events:none}
+.narrative-live .narrative-arc .hero-copy{transform:translateY(calc(var(--intro-retreat,0)*-48px)) scale(calc(1 - var(--intro-retreat,0)*.025));transform-origin:center top}
+.narrative-live .spatial-cluster-labels{visibility:visible}
+.spatial-cluster-labels li{position:absolute;left:0;top:0;opacity:0;font-size:10px;letter-spacing:.14em;white-space:nowrap;color:#c3cbd4;border-bottom:1px solid rgb(255 188 84/.35);padding:10px 0;will-change:transform}
+.narrative-live .narrative-area-summary{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.narrative-live .narrative-progress{position:fixed;right:24px;top:48%;z-index:5;display:flex;flex-direction:column;gap:10px;text-align:right;font-size:9px;letter-spacing:.16em;color:#9ea8b5}
+.narrative-count{color:#d7dce2}.narrative-progress i{height:1px;background:#ffbc54;transform:scaleX(var(--arc-progress,0));transform-origin:right}
+.narrative-live .solutions-section{isolation:auto;background:linear-gradient(180deg,transparent,var(--color-surface) 320px,var(--color-surface) calc(100% - 160px),var(--color-background))}
+.narrative-live .solutions-section>.section-shell{z-index:3}
+@media(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .narrative-arc:not(.narrative-unavailable) .landscape-hero{height:100svh;min-height:0;max-height:none}
+  .narrative-arc:not(.narrative-unavailable) .narrative-moment{height:150svh;padding:0;display:flex;align-items:center}
+  .narrative-arc:not(.narrative-unavailable) .narrative-copy{width:100%}
+  .narrative-arc:not(.narrative-unavailable) .narrative-poster{position:absolute;inset:0;height:100%;z-index:0;margin:0}
+  .narrative-arc .terrain-label{transform:translate(-50%,-100%)}
+  .narrative-arc .terrain-label--systems{top:max(62%,480px);left:20%}
+  .narrative-arc .terrain-label--automation{top:max(64%,490px);left:58%}
+  .narrative-arc .terrain-label--data{top:max(72%,550px);left:80%;right:auto}
+  .narrative-arc .hero-copy{padding-top:clamp(126px,16svh,180px)}
+}
+@media(min-width:1024px){
+  .narrative-unavailable .narrative-moment{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;padding:96px max(32px,calc((100vw - 1200px)/2))}
+  .narrative-unavailable .narrative-copy{padding:0;margin:0}
+  .narrative-unavailable .narrative-poster{height:480px;margin:0}
+}
+@media(min-width:1024px) and (prefers-reduced-motion:reduce){
+  .narrative-moment{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;padding:96px max(32px,calc((100vw - 1200px)/2))}
+  .narrative-copy{padding:0;margin:0}.narrative-poster{height:480px;margin:0}
+}
+@media(max-width:1023px),(prefers-reduced-motion:reduce){.spatial-narrative-host{display:none}.narrative-moment{padding-top:64px}.narrative-copy h2{max-width:16ch}}

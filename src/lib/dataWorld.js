@@ -1,3 +1,4 @@
+import { createClusterWorld } from './clusterWorld.js';
 export const terrainAnchors=[['systems',-8,-8],['automation',4,-13],['data',7,-3]];
 export function terrainHeight(x,z,time){return Math.sin(x*.36+z*.12)*.46+Math.sin(z*.31-x*.09)*.44+Math.sin(x*.56-z*.18)*Math.sin(z*.24)*.23+Math.exp(-Math.pow((x+2)*.18,2)-Math.pow((z+8)*.12,2))*1.1+Math.sin(z*.18+x*.12+time)*.13;}
 const heightShader=`float heightAt(vec2 p){
@@ -18,7 +19,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float core=exp(-d*d*mix(48.,5.,v
 float halo=exp(-d*d*6.)*.24;float alpha=(core+halo)*vLight*vFade*uIntensity*uVisibility;
 if(alpha<.006)discard;gl_FragColor=vec4(vColor,alpha);}`;
 
-export function createDataWorld(T, scene, mobile = false) {
+export function createDataWorld(T, scene, mobile = false, narrative = false) {
   const pointsGeometry=new T.BufferGeometry();
   const cols=mobile?151:321,rows=mobile?91:181,pos=[],colors=[],lights=[],sizes=[],lines=[];
   const point=(x,z)=>[(x/(cols-1)-.5)*42,0,12-z/(rows-1)*70];
@@ -36,23 +37,39 @@ export function createDataWorld(T, scene, mobile = false) {
   pointsGeometry.setAttribute('aColor',new T.Float32BufferAttribute(colors,3));
   pointsGeometry.setAttribute('aLight',new T.Float32BufferAttribute(lights,1));
   pointsGeometry.setAttribute('aSize',new T.Float32BufferAttribute(sizes,1));
-  const uniforms={uTime:{value:0},uIntensity:{value:1},uVisibility:{value:1},uConnections:{value:1},uDepth:{value:80}};
-  const material=new T.ShaderMaterial({uniforms,vertexShader,fragmentShader,transparent:true,depthWrite:false,blending:T.AdditiveBlending});
+  const uniforms={uTime:{value:0},uIntensity:{value:1},uVisibility:{value:1},uConnections:{value:1},uDepth:{value:80},
+    uDispersion:{value:0},uOrder:{value:0},uClusters:{value:0},uPointer:{value:new T.Vector2()}};
+  const morphShader=narrative?`uniform float uDispersion;uniform float uOrder;uniform vec2 uPointer;
+    vec3 terrainMorph(vec3 p){vec3 ordered=vec3(p.x,p.y*.18,p.z);
+      p.x+=sin(p.z*.65+p.x*.8)*uDispersion*.48;
+      p.y+=sin(p.x*1.1-p.z*.3)*uDispersion*.38;
+      p=mix(p,ordered,uOrder);
+      p.y+=.08*exp(-length(p.xz-vec2(uPointer.x*12.,-20.+uPointer.y*10.))*.25);
+      return p;}`:'';
+  const morph=source=>narrative?source.replace('void main()',`${morphShader}\nvoid main()`).replace('p.y=heightAt(p.xz);','p.y=heightAt(p.xz);p=terrainMorph(p);'):source;
+  const terrainVertex=narrative?vertexShader.replace('vColor=aColor;',
+    'vColor=mix(vec3(.16,.29,.41),aColor,smoothstep(.55,.95,sin(p.x*.17-p.z*.11))*.6+.08);'):vertexShader;
+  const material=new T.ShaderMaterial({uniforms,vertexShader:morph(terrainVertex),fragmentShader,transparent:true,depthWrite:false,blending:T.AdditiveBlending});
   scene.add(new T.Points(pointsGeometry,material));
   const lineGeometry=new T.BufferGeometry();lineGeometry.setAttribute('position',new T.Float32BufferAttribute(lines,3));
-  const lineMaterial=new T.ShaderMaterial({uniforms,vertexShader:`uniform float uTime;uniform float uDepth;varying float vFade;${heightShader}
-  void main(){vec3 p=position;p.y=heightAt(p.xz);vec4 mv=modelViewMatrix*vec4(p,1.);vFade=1.-smoothstep(20.,uDepth,-mv.z);gl_Position=projectionMatrix*mv;}`,
+  const lineMaterial=new T.ShaderMaterial({uniforms,vertexShader:morph(`uniform float uTime;uniform float uDepth;varying float vFade;${heightShader}
+  void main(){vec3 p=position;p.y=heightAt(p.xz);vec4 mv=modelViewMatrix*vec4(p,1.);vFade=1.-smoothstep(20.,uDepth,-mv.z);gl_Position=projectionMatrix*mv;}`),
   fragmentShader:'uniform float uConnections;varying float vFade;void main(){gl_FragColor=vec4(.23,.32,.38,.08*vFade*uConnections);}',transparent:true,depthWrite:false});
   scene.add(new T.LineSegments(lineGeometry,lineMaterial));
-  return { uniforms, update(time, state) {
+  const clusters=narrative?createClusterWorld(T,scene,uniforms):null;
+  return { uniforms, anchor:clusters?.anchor, update(time, state) {
     uniforms.uTime.value=time;
     if(state) {
       uniforms.uIntensity.value=state.intensity;
       uniforms.uVisibility.value=state.visibility;
       uniforms.uConnections.value=state.connections;
       uniforms.uDepth.value=state.depth;
+      uniforms.uDispersion.value=state.dispersion??0;
+      uniforms.uOrder.value=state.order??0;
+      uniforms.uClusters.value=state.clusters??0;
     }
   }, dispose() {
+    clusters?.dispose();
     pointsGeometry.dispose(); material.dispose(); lineGeometry.dispose(); lineMaterial.dispose();
     scene.clear();
   }};

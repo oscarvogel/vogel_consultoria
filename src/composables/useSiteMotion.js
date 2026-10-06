@@ -67,7 +67,7 @@ export async function initStoryReveal(root = document, selector = ".reveal, .sto
     const hero = root.querySelector?.('.landscape-hero');
     if (!hero) return;
     const scene = gsap.context(() => {
-      gsap.to(hero.querySelector('.hero-copy'), { y: -64, ease: 'none', scrollTrigger: {
+      if (!hero.closest('.narrative-arc')) gsap.to(hero.querySelector('.hero-copy'), { y: -64, ease: 'none', scrollTrigger: {
         trigger: hero, start: 'top top', end: 'bottom top', scrub: .6, invalidateOnRefresh: true } });
       const intro = root.querySelector('.solutions-section .section-introduction');
       if (intro) gsap.fromTo(intro, { y: 48 }, { y: 0, ease: 'none', scrollTrigger: {
