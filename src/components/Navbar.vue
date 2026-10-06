@@ -1,263 +1,354 @@
+<script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+import logoVogel from '../assets/brand/vogel-v-amber.svg';
+import { servicePages } from '../data/servicePages.js';
+import casesIcon from '../assets/vogel-navbar-svg-icons/casos.svg?raw';
+import chevronIcon from '../assets/vogel-navbar-svg-icons/chevron-down.svg?raw';
+import methodologyIcon from '../assets/vogel-navbar-svg-icons/como-trabajamos.svg?raw';
+import menuIcon from '../assets/vogel-navbar-svg-icons/menu.svg?raw';
+import aboutIcon from '../assets/vogel-navbar-svg-icons/nosotros.svg?raw';
+import portalIcon from '../assets/vogel-navbar-svg-icons/portal.svg?raw';
+import resourcesIcon from '../assets/vogel-navbar-svg-icons/recursos.svg?raw';
+import servicesIcon from '../assets/vogel-navbar-svg-icons/servicios.svg?raw';
+import diagnosticIcon from '../assets/vogel-navbar-svg-icons/agendar-diagnostico.svg?raw';
+
+const isOpen = ref(false);
+const menuButton = ref(null);
+const servicesMenu = ref(null);
+const header = ref(null);
+const currentPath = ref('/');
+const activeSection = ref('');
+const isScrolled = ref(false);
+const sectionIds = ['servicios', 'casos', 'metodologia', 'nosotros'];
+let scrollFrame = 0;
+const legacyServiceIds = {
+  'sistemas-a-medida': 'sistemas',
+  'dashboards-ejecutivos': 'dashboards',
+  'automatizacion-de-procesos': 'automatizacion',
+  'contaflow-api-facturacion-electronica': 'contaflow',
+  'talleres-ia': 'talleres',
+  'desarrollo-web': 'web',
+};
+
+const serviceLinks = [
+  ...Object.values(servicePages).map((service) => ({
+    label: service.shortTitle,
+    href: service.path,
+    analyticsCta: `navbar_service_${legacyServiceIds[service.id] || service.id}`,
+  })),
+  { label: 'Inteligencia artificial', href: '/inteligencia-artificial/', analyticsCta: 'navbar_service_ia' },
+  { label: 'Automatizaciones ARCA', href: '/automatizaciones/', analyticsCta: 'navbar_service_automatizaciones_arca' },
+];
+
+const links = [
+  { label: 'Casos', href: '/#casos', section: 'casos', icon: casesIcon },
+  { label: 'Recursos', href: '/recursos/', icon: resourcesIcon },
+  { label: 'Nosotros', href: '/#nosotros', section: 'nosotros', icon: aboutIcon },
+];
+
+function normalizePath(path) {
+  const withoutTrailingSlashes = path.replace(/\/+$/, '');
+  return `${withoutTrailingSlashes || ''}/`;
+}
+
+function isRouteActive(href) {
+  const targetPath = href.split(/[?#]/, 1)[0];
+  if (!targetPath || targetPath === '/') return false;
+
+  const current = normalizePath(currentPath.value);
+  const target = normalizePath(targetPath);
+  return current === target || current.startsWith(target);
+}
+
+function isSectionActive(section) {
+  return currentPath.value === '/' && activeSection.value === section;
+}
+
+function isNavItemActive(item) {
+  return Boolean(item.section && isSectionActive(item.section)) || isRouteActive(item.href);
+}
+
+function ariaCurrentFor(item) {
+  if (!isNavItemActive(item)) return undefined;
+  return item.section ? 'location' : 'page';
+}
+
+function isServicesActive() {
+  return isSectionActive('servicios') || serviceLinks.some((item) => isRouteActive(item.href));
+}
+
+function updateActiveLocation() {
+  isScrolled.value = window.scrollY > 24;
+  currentPath.value = normalizePath(window.location.pathname);
+  if (currentPath.value !== '/') {
+    activeSection.value = '';
+    return;
+  }
+
+  const marker = window.innerHeight * 0.36;
+  let currentSection = '';
+  let nearestTop = -Infinity;
+  for (const id of sectionIds) {
+    const section = document.getElementById(id);
+    const top = section?.getBoundingClientRect().top;
+    if (top !== undefined && top <= marker && top >= nearestTop) { currentSection = id; nearestTop = top; }
+  }
+  activeSection.value = currentSection;
+}
+
+function scheduleLocationUpdate() {
+  if (scrollFrame) return;
+  scrollFrame = window.requestAnimationFrame(() => {
+    scrollFrame = 0;
+    updateActiveLocation();
+  });
+}
+
+function closeMenu() {
+  isOpen.value = false;
+  if (servicesMenu.value) servicesMenu.value.open = false;
+}
+
+function escape(event) {
+  if (event.key !== 'Escape') return;
+  const target = isOpen.value
+    ? menuButton.value
+    : servicesMenu.value?.open
+      ? servicesMenu.value.querySelector('summary')
+      : null;
+  closeMenu();
+  target?.focus();
+}
+
+function outside(event) {
+  if (!header.value?.contains(event.target)) closeMenu();
+}
+
+onMounted(() => {
+  updateActiveLocation();
+  window.addEventListener('scroll', scheduleLocationUpdate, { passive: true });
+  window.addEventListener('resize', scheduleLocationUpdate, { passive: true });
+  window.addEventListener('hashchange', scheduleLocationUpdate);
+  window.addEventListener('popstate', scheduleLocationUpdate);
+  document.addEventListener('keydown', escape);
+  document.addEventListener('pointerdown', outside);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', scheduleLocationUpdate);
+  window.removeEventListener('resize', scheduleLocationUpdate);
+  window.removeEventListener('hashchange', scheduleLocationUpdate);
+  window.removeEventListener('popstate', scheduleLocationUpdate);
+  document.removeEventListener('keydown', escape);
+  document.removeEventListener('pointerdown', outside);
+  if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+});
+</script>
+
 <template>
-  <header class="sticky top-0 z-50 border-b border-vogel-gray/10 bg-vogel-deep/85 backdrop-blur" role="banner" @keydown.esc="isOpen = false">
-    <div class="section-shell flex h-20 items-center justify-between gap-4">
-      <a href="#inicio" class="flex shrink-0 items-center gap-3">
-        <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-auto rounded-sm 2xl:h-11" loading="eager" decoding="async" />
-        <div class="hidden min-[1700px]:block">
-          <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoría</p>
-          <p class="text-xs text-vogel-gray/70">Soluciones integrales para empresas</p>
-        </div>
+  <header ref="header" class="site-header" :class="{ 'is-menu-open': isOpen, 'is-scrolled': isScrolled }">
+    <div class="nav-shell">
+      <a href="/#inicio" class="brand-link" aria-label="Vogel Consultoría — inicio">
+        <img :src="logoVogel" alt="" width="44" height="44" />
+        <span>VOGEL<span>CONSULTORÍA</span></span>
       </a>
 
-      <nav class="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-5" role="navigation" aria-label="Navegación principal">
-        <template v-for="item in links" :key="item.href">
-          <div v-if="item.children" class="group relative">
-            <a
-              :href="item.href"
-              class="inline-flex items-center gap-1 whitespace-nowrap text-[13px] font-medium text-vogel-gray transition hover:text-white 2xl:text-sm"
-              aria-label="Servicios"
-              :data-analytics-cta="item.analyticsCta"
-              :data-analytics-funnel="item.analyticsFunnel"
-              :data-analytics-step="item.analyticsStep"
-            >
-              {{ item.label }}
-              <svg class="h-3.5 w-3.5 transition group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
-              </svg>
-            </a>
-            <div
-              class="invisible absolute left-1/2 top-full z-50 mt-3 w-72 -translate-x-1/2 rounded-2xl border border-vogel-gray/15 bg-vogel-navy/95 p-3 opacity-0 shadow-glow backdrop-blur transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
-            >
-              <a
-                v-for="service in item.children"
-                :key="service.href"
-                :href="service.href"
-                class="block rounded-xl px-4 py-3 transition hover:bg-vogel-blue/15 focus:bg-vogel-blue/15"
-                :data-analytics-cta="service.analyticsCta"
-                data-analytics-funnel="lead_journey"
-                data-analytics-step="navbar_services"
-              >
-                <span class="block text-sm font-bold text-white">{{ service.label }}</span>
-                <span class="mt-1 block text-xs leading-relaxed text-vogel-muted">{{ service.description }}</span>
-              </a>
-            </div>
-          </div>
-          <a
-            v-else
-            :href="item.href"
-            class="whitespace-nowrap text-[13px] font-medium text-vogel-gray transition hover:text-white 2xl:text-sm"
-            :data-analytics-cta="item.analyticsCta"
-            :data-analytics-funnel="item.analyticsFunnel"
-            :data-analytics-step="item.analyticsStep"
+      <nav aria-label="Navegación principal" class="desktop-nav">
+        <details ref="servicesMenu" class="services-menu" :class="{ 'is-current': isServicesActive() }">
+          <summary
+            class="nav-link service-trigger"
+            :aria-current="isServicesActive() ? (currentPath === '/' ? 'location' : 'page') : undefined"
           >
-            {{ item.label }}
-          </a>
-        </template>
-      </nav>
+            <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
+            <span>Servicios</span>
+            <span class="nav-icon nav-chevron" v-html="chevronIcon" aria-hidden="true"></span>
+          </summary>
+          <div class="services-dropdown" aria-label="Servicios">
+            <a
+              href="/#servicios"
+              :aria-current="isSectionActive('servicios') ? 'location' : undefined"
+              @click="closeMenu"
+            >
+              <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
+              <span>Ver todos los servicios</span>
+            </a>
+            <a
+              v-for="item in serviceLinks"
+              :key="item.href"
+              :href="item.href"
+              :aria-current="isRouteActive(item.href) ? 'page' : undefined"
+              :class="{ 'is-current': isRouteActive(item.href) }"
+              :data-analytics-cta="item.analyticsCta"
+              data-analytics-funnel="lead_journey"
+              data-analytics-step="home"
+              @click="closeMenu"
+            >{{ item.label }}</a>
+            <a href="/#charla-ia-2026" @click="closeMenu">Capacitaciones</a>
+            <a
+              href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-cta="navbar_accountants_ai_survey_desktop"
+            >Encuesta IA para contadores</a>
+          </div>
+        </details>
 
-      <div class="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
-        <ActionButton
-          label="Encuesta IA"
-          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
-          :external="true"
-          variant="accent"
-          data-analytics-cta="navbar_accountants_ai_survey_desktop"
-          data-analytics-funnel="accountants_survey"
-          data-analytics-step="home"
-        />
-        <div class="hidden">
-          <ActionButton
-            label="Ingresar al portal"
-            href="https://portal.vogelconsultoria.com.ar"
-            :external="true"
-            variant="secondary"
-            data-analytics-cta="navbar_portal_access_desktop"
-            data-analytics-funnel="portal_access"
-            data-analytics-step="home"
-          />
-        </div>
-        <ActionButton
-          label="Agendar reunión"
-          href="#contacto"
-          data-analytics-cta="navbar_schedule_desktop"
-          data-analytics-funnel="lead_journey"
-          data-analytics-step="home"
-        />
-      </div>
-
-      <button
-        type="button"
-        class="inline-flex rounded-md border border-vogel-gray/30 p-2 text-vogel-gray xl:hidden"
-        @click="isOpen = !isOpen"
-        :aria-expanded="isOpen ? 'true' : 'false'"
-        aria-controls="mobile-nav"
-        :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"
-      >
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-
-    <div v-if="isOpen" id="mobile-nav" class="border-t border-vogel-gray/15 bg-vogel-navy xl:hidden" role="navigation" aria-label="Navegación móvil">
-      <div class="section-shell flex flex-col gap-3 py-5">
         <a
           v-for="item in links"
           :key="item.href"
           :href="item.href"
-          class="text-sm font-medium text-vogel-gray hover:text-white"
-          :data-analytics-cta="item.analyticsCta"
-          :data-analytics-funnel="item.analyticsFunnel"
-          :data-analytics-step="item.analyticsStep"
-          @click="isOpen = false"
+          class="nav-link"
+          :class="{ 'is-current': isNavItemActive(item) }"
+          :aria-current="ariaCurrentFor(item)"
         >
-          {{ item.label }}
+          <span class="nav-icon" v-html="item.icon" aria-hidden="true"></span>
+          <span>{{ item.label }}</span>
         </a>
-        <div class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-3">
-          <p class="px-2 text-xs font-bold uppercase tracking-[0.22em] text-vogel-amber">Servicios</p>
-          <div class="mt-2 grid gap-1">
-            <a
-              v-for="service in serviceLinks"
-              :key="service.href"
-              :href="service.href"
-              class="rounded-xl px-3 py-2 text-sm font-medium text-vogel-gray hover:bg-vogel-blue/15 hover:text-white"
-              :data-analytics-cta="service.analyticsCta"
-              data-analytics-funnel="lead_journey"
-              data-analytics-step="mobile_services"
-              @click="isOpen = false"
-            >
-              {{ service.label }}
-            </a>
-          </div>
-        </div>
-        <ActionButton
-          label="Responder encuesta IA para contadores"
-          href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
-          :external="true"
-          variant="accent"
-          data-analytics-cta="navbar_accountants_ai_survey_mobile"
-          data-analytics-funnel="accountants_survey"
-          data-analytics-step="home"
-        />
-        <ActionButton
-          label="Agendar reunión"
-          href="#contacto"
-          data-analytics-cta="navbar_schedule_mobile"
-          data-analytics-funnel="lead_journey"
-          data-analytics-step="home"
-        />
-        <ActionButton
-          label="Ingresar al portal"
+      </nav>
+
+      <div class="nav-actions">
+        <a
+          class="portal-link nav-link"
           href="https://portal.vogelconsultoria.com.ar"
-          :external="true"
-          variant="secondary"
-          data-analytics-cta="navbar_portal_access_mobile"
-          data-analytics-funnel="portal_access"
-          data-analytics-step="home"
-        />
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-cta="navbar_portal_access_desktop"
+        >
+          <span class="nav-icon" v-html="portalIcon" aria-hidden="true"></span>
+          <span>Ingresar al portal</span>
+        </a>
+        <a href="/#contacto" class="action-button action-primary nav-cta" data-analytics-cta="navbar_schedule_desktop">
+          <span class="nav-icon" v-html="diagnosticIcon" aria-hidden="true"></span>
+          <span>Agendar diagnóstico</span>
+        </a>
+        <button
+          ref="menuButton"
+          type="button"
+          class="menu-toggle"
+          :aria-expanded="isOpen"
+          aria-controls="mobile-navigation"
+          :aria-label="isOpen ? 'Cerrar menú' : 'Abrir menú'"
+          @click="isOpen = !isOpen"
+        >
+          <span v-if="!isOpen" class="nav-icon menu-toggle-icon" v-html="menuIcon" aria-hidden="true"></span>
+          <svg v-else class="menu-close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="m6 6 12 12M6 18 18 6" />
+          </svg>
+        </button>
       </div>
     </div>
+
+    <nav v-if="isOpen" id="mobile-navigation" class="mobile-nav" aria-label="Navegación móvil">
+      <a
+        href="/#servicios"
+        class="mobile-nav-link nav-link"
+        :class="{ 'is-current': isSectionActive('servicios') }"
+        :aria-current="isSectionActive('servicios') ? 'location' : undefined"
+        @click="closeMenu"
+      >
+        <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
+        <span>Servicios</span>
+      </a>
+      <a
+        v-for="item in links"
+        :key="item.href"
+        :href="item.href"
+        class="mobile-nav-link nav-link"
+        :class="{ 'is-current': isNavItemActive(item) }"
+        :aria-current="ariaCurrentFor(item)"
+        :data-analytics-cta="item.analyticsCta"
+        data-analytics-funnel="lead_journey"
+        data-analytics-step="home"
+        @click="closeMenu"
+      >
+        <span class="nav-icon" v-html="item.icon" aria-hidden="true"></span>
+        <span>{{ item.label }}</span>
+      </a>
+      <details class="mobile-service-menu" :class="{ 'is-current': isServicesActive() }">
+        <summary class="mobile-nav-link nav-link">
+          <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
+          <span>Explorar servicios</span>
+          <span class="nav-icon nav-chevron" v-html="chevronIcon" aria-hidden="true"></span>
+        </summary>
+        <a
+          v-for="item in serviceLinks"
+          :key="item.href"
+          :href="item.href"
+          :aria-current="isRouteActive(item.href) ? 'page' : undefined"
+          :class="{ 'is-current': isRouteActive(item.href) }"
+          :data-analytics-cta="item.analyticsCta"
+          data-analytics-funnel="lead_journey"
+          data-analytics-step="home"
+          @click="closeMenu"
+        >{{ item.label }}</a>
+      </details>
+      <a href="/#charla-ia-2026" class="mobile-nav-link nav-link" @click="closeMenu">
+        <span>Capacitaciones</span>
+      </a>
+      <a
+        href="https://portal.vogelconsultoria.com.ar/encuesta-contadores-ia"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-nav-link nav-link"
+        data-analytics-cta="navbar_accountants_ai_survey_mobile"
+      >Encuesta IA para contadores</a>
+      <a
+        href="https://portal.vogelconsultoria.com.ar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-nav-link nav-link"
+        data-analytics-cta="navbar_portal_access_mobile"
+      >
+        <span class="nav-icon" v-html="portalIcon" aria-hidden="true"></span>
+        <span>Ingresar al portal</span>
+      </a>
+      <a class="action-button action-primary nav-cta" data-analytics-cta="navbar_schedule_mobile" href="/#contacto" @click="closeMenu">
+        <span class="nav-icon" v-html="diagnosticIcon" aria-hidden="true"></span>
+        <span>Agendar diagnóstico</span>
+      </a>
+    </nav>
   </header>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import ActionButton from "./ActionButton.vue";
-import logoVogel from "../assets/brand/logo-vogel-generated.webp";
 
-const isOpen = ref(false);
-
-const serviceLinks = [
-  {
-    label: "Sistemas a medida",
-    href: "/sistemas-a-medida/",
-    description: "Procesos, trazabilidad y operaciones ordenadas.",
-    analyticsCta: "navbar_service_sistemas",
-  },
-  {
-    label: "Dashboards ejecutivos",
-    href: "/dashboards-ejecutivos/",
-    description: "Indicadores claros para direccion y gestion.",
-    analyticsCta: "navbar_service_dashboards",
-  },
-  {
-    label: "Automatizacion de procesos",
-    href: "/automatizacion-de-procesos/",
-    description: "Menos carga manual y menos errores repetitivos.",
-    analyticsCta: "navbar_service_automatizacion",
-  },
-  {
-    label: "Automatizaciones ARCA",
-    href: "/automatizaciones/",
-    description: "Flujos mensuales para estudios contables.",
-    analyticsCta: "navbar_service_automatizaciones_arca",
-  },
-  {
-    label: "ContaFlow API",
-    href: "/contaflow-api-facturacion-electronica/",
-    description: "Facturacion electronica por API para desarrolladores.",
-    analyticsCta: "navbar_service_contaflow",
-  },
-  {
-    label: "Inteligencia artificial",
-    href: "/inteligencia-artificial/",
-    description: "IA aplicada a tareas, datos y decisiones.",
-    analyticsCta: "navbar_service_ia",
-  },
-  {
-    label: "Talleres IA",
-    href: "/talleres-ia/",
-    description: "Capacitacion practica para equipos.",
-    analyticsCta: "navbar_service_talleres",
-  },
-  {
-    label: "Desarrollo web",
-    href: "/desarrollo-web/",
-    description: "Sitios claros, rapidos y orientados a conversion.",
-    analyticsCta: "navbar_service_web",
-  },
-];
-
-const links = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Capacitaciones", href: "#charla-ia-2026" },
-  {
-    label: "Servicios",
-    href: "#servicios",
-    children: serviceLinks,
-    analyticsCta: "navbar_services_menu",
-    analyticsFunnel: "lead_journey",
-    analyticsStep: "home",
-  },
-  { label: "Soluciones", href: "#soluciones" },
-  {
-    label: "Automatizaciones",
-    href: "/automatizaciones/",
-    analyticsCta: "navbar_automatizaciones_arca",
-    analyticsFunnel: "lead_journey",
-    analyticsStep: "home",
-  },
-  {
-    label: "IA",
-    href: "/inteligencia-artificial/",
-    analyticsCta: "navbar_go_to_ia",
-    analyticsFunnel: "lead_journey",
-    analyticsStep: "home",
-  },
-  {
-    label: "Recursos",
-    href: "/recursos/",
-    analyticsCta: "navbar_resources",
-    analyticsFunnel: "content_discovery",
-    analyticsStep: "navbar",
-  },
-  { label: "Quién soy", href: "#nosotros" },
-  {
-    label: "Contacto",
-    href: "#contacto",
-    analyticsCta: "navbar_contact_link",
-    analyticsFunnel: "lead_journey",
-    analyticsStep: "home",
-  },
-];
-</script>
+<style scoped>
+.site-header{position:fixed;inset:0 0 auto;z-index:60;background:transparent;transition:background-color 240ms ease-out,border-color 240ms ease-out;border-bottom:1px solid transparent;color:var(--color-text)}
+.site-header.is-scrolled,.site-header.is-menu-open{background:rgb(var(--vogel-navy)/.97);border-color:var(--color-border)}
+.nav-shell{max-width:1520px;width:90%;margin:auto;min-height:94px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px}
+.is-scrolled .nav-shell{min-height:76px}
+.brand-link{display:flex;align-items:center;justify-self:start;gap:16px;flex-shrink:0}
+.brand-link>img{width:38px;height:38px}
+.brand-link>span{font-size:24px;font-weight:500;letter-spacing:.2em;color:#fff;line-height:1.1}
+.brand-link>span>span{display:block;font-size:9px;letter-spacing:.47em;font-weight:400;margin-top:7px}
+.desktop-nav{display:flex;align-items:center;gap:32px}
+.nav-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:13px;color:var(--color-text);transition:color 180ms ease-out}
+.nav-link:hover,.nav-link:focus-visible,.nav-link.is-current,.services-menu.is-current>summary{color:var(--color-action)}
+.nav-link:active{transform:translateY(1px)}
+.desktop-nav .nav-icon,.portal-link .nav-icon,.nav-cta .nav-icon{display:none}
+.desktop-nav .nav-chevron{display:inline-flex;width:12px;height:12px}
+.nav-icon{display:inline-flex;width:18px;height:18px;flex-shrink:0;color:currentColor}
+.nav-icon :deep(svg){width:100%;height:100%}
+.nav-icon :deep(svg *){stroke:currentColor}
+.nav-actions{display:flex;align-items:center;justify-self:end;gap:24px}
+.portal-link{border-right:1px solid var(--color-border);padding-right:24px;white-space:nowrap}
+.nav-cta{min-height:44px;padding:12px 20px;font-size:13px;white-space:nowrap;gap:18px}
+.nav-cta::after{content:'';width:18px;height:18px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.services-menu{position:relative}
+.service-trigger{cursor:pointer;list-style:none}
+.service-trigger::-webkit-details-marker{display:none}
+.services-dropdown{position:absolute;top:calc(100% + 14px);left:-24px;width:300px;background:var(--color-panel);padding:14px;border:1px solid var(--color-border);border-radius:10px;box-shadow:0 16px 40px rgb(0 0 0/.25)}
+.services-dropdown a{display:flex;align-items:center;gap:8px;padding:10px 12px;min-height:44px;font-size:14px;line-height:1.4;border-radius:6px}
+.services-dropdown a:hover,.services-dropdown a.is-current{background:rgb(var(--vogel-amber)/.08);color:var(--color-action)}
+.menu-toggle{display:none;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--color-border);border-radius:8px}
+.mobile-nav{background:var(--color-panel);max-height:calc(100svh - 80px);overflow:auto;padding:16px 5% 28px;border-top:1px solid var(--color-border)}
+.mobile-nav-link{display:flex;gap:14px;padding:10px 6px;font-size:16px}
+.mobile-nav .nav-cta{display:flex;margin-top:14px}
+.mobile-service-menu summary{list-style:none;cursor:pointer}
+.mobile-service-menu summary::-webkit-details-marker{display:none}
+.mobile-service-menu>a{display:block;min-height:44px;padding:10px 0 10px 38px;font-size:14px}
+.mobile-service-menu>a:hover,.mobile-service-menu>a.is-current{color:var(--color-action)}
+@media(max-width:1199px){.nav-shell{gap:24px}.desktop-nav{gap:22px}.brand-link{gap:10px}.brand-link>span{font-size:21px}.nav-actions{gap:16px}.portal-link{padding-right:16px}.nav-cta{padding-inline:16px;font-size:12px}}
+@media(min-width:1024px) and (max-width:1100px){.nav-actions{gap:12px}.portal-link{padding-right:12px}.nav-cta{padding-inline:12px;font-size:11px;gap:12px}}
+@media(max-width:1023px){.desktop-nav,.portal-link{display:none}.menu-toggle{display:flex}.nav-shell{grid-template-columns:1fr auto;width:calc(100% - 40px);min-height:80px;gap:20px}.brand-link>span{font-size:22px}}
+@media(max-width:639px){.nav-shell{width:calc(100% - 32px);min-height:80px;gap:12px}.brand-link>img{width:32px;height:32px}.brand-link>span{font-size:20px}.brand-link>span>span{font-size:8px;letter-spacing:.35em}.nav-actions>.nav-cta{display:none}.is-scrolled .nav-shell{min-height:72px}}
+</style>

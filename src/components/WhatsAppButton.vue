@@ -1,9 +1,10 @@
 <template>
   <a
+    v-show="!contactVisible"
     :href="waLink"
     target="_blank"
     rel="noopener noreferrer"
-    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-green-400 bg-green-500 text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-green-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep sm:h-auto sm:w-auto sm:px-4 sm:py-3"
+    class="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center gap-2 rounded-full border border-vogel-blueLight/40 bg-vogel-navy text-sm font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-vogel-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vogel-amber focus-visible:ring-offset-2 focus-visible:ring-offset-vogel-deep max-[639px]:hidden sm:h-auto sm:w-auto sm:px-4 sm:py-3"
     aria-label="Hablar por WhatsApp"
     data-analytics-cta="floating_whatsapp"
     data-analytics-funnel="lead_journey"
@@ -19,5 +20,15 @@
 </template>
 
 <script setup>
+import {ref,onMounted,onUnmounted} from 'vue';
+const contactVisible=ref(false);
+let observer;
+onMounted(()=>{
+  const contact=document.getElementById('contacto');
+  if(!contact || !('IntersectionObserver' in window))return;
+  observer=new IntersectionObserver(([entry])=>{contactVisible.value=entry.isIntersecting;});
+  observer.observe(contact);
+});
+onUnmounted(()=>observer?.disconnect());
 const waLink = "https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa";
 </script>

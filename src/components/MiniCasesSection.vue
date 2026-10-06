@@ -1,63 +1,37 @@
-<template>
-  <section id="casos" class="py-20 sm:py-24" aria-labelledby="mini-cases-heading">
-    <div class="section-shell">
-      <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-        <div class="reveal">
-          <p class="text-xs font-bold uppercase tracking-[0.28em] text-vogel-amber">Mini-casos</p>
-          <h2 id="mini-cases-heading" class="mt-3 font-display text-3xl font-bold leading-tight text-white sm:text-4xl">
-            Problemas reales, soluciones aplicadas con criterio
-          </h2>
-          <p class="mt-4 text-sm leading-relaxed text-vogel-muted sm:text-base">
-            Compartimos casos anónimos cuando no corresponde publicar nombres, pero sí el tipo de problema,
-            la solución y el resultado operativo buscado.
-          </p>
-        </div>
-
-        <div class="grid gap-5">
-          <article
-            v-for="(miniCase, index) in miniCases"
-            :key="miniCase.rubro"
-            class="reveal rounded-3xl border border-vogel-gray/20 bg-white/[0.04] p-5 shadow-glow sm:p-7"
-            :class="`reveal-d${index + 1}`"
-          >
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p class="text-xs font-bold uppercase tracking-[0.22em] text-vogel-blueLight">Caso anonimo</p>
-                <h3 class="mt-2 font-display text-2xl font-bold text-white">{{ miniCase.rubro }}</h3>
-              </div>
-              <span class="w-fit rounded-full border border-vogel-amber/35 bg-vogel-amber/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-vogel-amber">
-                Datos de produccion
-              </span>
-            </div>
-
-            <div class="mt-6 grid gap-4 md:grid-cols-3">
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Problema</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.problema }}</p>
-              </div>
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Solucion</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.solucion }}</p>
-              </div>
-              <div class="rounded-2xl border border-vogel-gray/15 bg-vogel-navy/45 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-vogel-amber">Resultado</p>
-                <p class="mt-3 text-sm leading-relaxed text-vogel-gray">{{ miniCase.resultado }}</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-const miniCases = [
-  {
-    rubro: "Forestal",
-    problema: "falta de datos de produccion para seguir el trabajo operativo con informacion confiable.",
-    solucion: "sistema de recoleccion de datos en campo para registrar informacion desde el lugar donde ocurre la operacion.",
-    resultado: "dashboards interactivos para visualizar produccion, comparar informacion y facilitar decisiones de gestion.",
-  },
+import field from '../assets/cases/forestal-campo.png';
+import LandscapeTraces from './LandscapeTraces.vue';
+import review from '../assets/cases/forestal-revision.png';
+import dashboard from '../assets/cases/forestal-dashboard.png';
+import dashboardDesktop from '../assets/cases/forestal-dashboard-desktop.png';
+const steps = [
+ {label:'Registrar',title:'Registrar donde ocurre el trabajo.',text:'Equipo, proceso, tiempos y producción reunidos en un registro de campo.',image:field,height:901,alt:'Formulario de producción forestal con datos de demostración.'},
+ {label:'Revisar',title:'Revisar antes de consolidar.',text:'El operador revisa la jornada. La información conserva su contexto y trazabilidad.',image:review,height:1449,alt:'Pantalla de revisión de un registro forestal ficticio.'},
+ {label:'Decidir',title:'Convertir el registro en una decisión.',text:'Indicadores, evolución y detalle operativo en una vista compartida de producción.',image:dashboard,desktopImage:dashboardDesktop,height:1873,alt:'Dashboard operativo forestal. Todos los valores son ficticios.'},
 ];
 </script>
+<template>
+ <section id="casos" class="home-section home-forest" data-home-chapter="forest" aria-labelledby="mini-cases-heading">
+  <LandscapeTraces variant="evidence" />
+  <div class="section-shell">
+   <div class="section-introduction"><h2 id="mini-cases-heading" class="section-title">Del registro en campo<br>a la decisión operativa.</h2><p>Caso forestal anónimo.<br>Interfaz real · datos de demostración.<br>Las cifras no representan resultados de un cliente.</p></div>
+   <div class="forest-track">
+    <div class="forest-stage">
+     <ol class="case-steps" aria-label="Del campo a la decisión">
+      <li v-for="(step,index) in steps" :key="step.label" class="case-step" :class="{'step-current':index===0}"><span>{{ String(index+1).padStart(2,'0') }}</span><h3>{{ step.label }}</h3><p>{{ step.text }}</p></li>
+     </ol>
+     <div class="forest-screens">
+      <figure v-for="(step,index) in steps" :key="step.label" class="case-screen" :class="{'case-screen--dashboard':index===2}">
+       <div class="forest-image" :class="{'forest-image--field':index===0,'forest-image--review':index===1,'forest-image--dashboard':index===2}">
+        <picture><source v-if="step.desktopImage" media="(min-width:1024px)" :srcset="step.desktopImage"/><img :src="step.image" :alt="step.alt" width="390" :height="step.height" loading="lazy" decoding="async"/></picture>
+        <div v-if="index < 2" class="forest-context"><span>{{ step.label }} en campo</span><h4>{{ step.title }}</h4><p>{{ step.text }}</p></div>
+       </div>
+       <figcaption><span>{{ step.title }}</span><a :href="step.desktopImage || step.image" target="_blank" rel="noopener noreferrer" class="text-link" :aria-label="'Abrir captura completa: '+step.label">Abrir captura completa</a></figcaption>
+      </figure>
+     </div>
+     <div class="forest-footer"><span>Interfaz real · datos de demostración</span><a href="/dashboards-ejecutivos/" class="text-link" data-analytics-cta="home_forest_dashboard">Conocer el servicio de dashboards</a></div>
+    </div>
+   </div>
+  </div>
+ </section>
+</template>

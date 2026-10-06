@@ -1,0 +1,80 @@
+{
+  "scope": "Tokens vigentes sobre superficies sólidas. No certifica contraste en cada frame del paisaje, imágenes ni fondos compuestos.",
+  "rows": [
+    {
+      "foreground": "white",
+      "background": "navy",
+      "ratio": 19.95
+    },
+    {
+      "foreground": "gray",
+      "background": "navy",
+      "ratio": 15.8
+    },
+    {
+      "foreground": "muted",
+      "background": "navy",
+      "ratio": 9.72
+    },
+    {
+      "foreground": "blueLight",
+      "background": "navy",
+      "ratio": 10.95
+    },
+    {
+      "foreground": "white",
+      "background": "deep",
+      "ratio": 18.83
+    },
+    {
+      "foreground": "gray",
+      "background": "deep",
+      "ratio": 14.91
+    },
+    {
+      "foreground": "muted",
+      "background": "deep",
+      "ratio": 9.18
+    },
+    {
+      "foreground": "blueLight",
+      "background": "deep",
+      "ratio": 10.34
+    },
+    {
+      "foreground": "white",
+      "background": "slate",
+      "ratio": 17.72
+    },
+    {
+      "foreground": "gray",
+      "background": "slate",
+      "ratio": 14.03
+    },
+    {
+      "foreground": "muted",
+      "background": "slate",
+      "ratio": 8.63
+    },
+    {
+      "foreground": "blueLight",
+      "background": "slate",
+      "ratio": 9.73
+    },
+    {
+      "foreground": "navy",
+      "background": "amber",
+      "ratio": 11.95
+    },
+    {
+      "foreground": "white",
+      "background": "blue",
+      "ratio": 6.45
+    },
+    {
+      "foreground": "white",
+      "background": "bright",
+      "ratio": 5.03
+    }
+  ]
+}

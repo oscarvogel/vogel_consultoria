@@ -1,34 +1,33 @@
-<template>
-  <section class="pb-24 pt-10">
-    <div class="section-shell">
-      <div class="relative overflow-hidden rounded-3xl border border-vogel-amber/30 px-6 py-16 text-center sm:px-10 sm:py-20">
-        <div class="ambient-blob h-80 w-80 bg-vogel-blue/30" style="top: -80px; left: -80px;"></div>
-        <div class="ambient-blob h-60 w-60 bg-vogel-amber/20" style="bottom: -50px; right: -50px;"></div>
-        <div class="absolute inset-0 -z-10 bg-gradient-to-br from-vogel-blue/30 via-vogel-deep to-vogel-navy"></div>
+<script setup>
+import ActionButton from "./ActionButton.vue";
+const diagnosticItems = [
+  "Contexto del equipo y de sus tareas",
+  "Fuentes de información y herramientas disponibles",
+  "Casos concretos para probar",
+  "Criterios de revisión, permisos y alcance",
+];
+</script>
 
-        <div class="relative reveal">
-          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-vogel-amber">Tu próximo paso</p>
-          <h2 class="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight text-white sm:text-5xl">
-            La IA no es el futuro.<br class="hidden sm:block" />
-            <span class="text-vogel-amber">Es una ventaja competitiva hoy.</span>
-          </h2>
-          <a
-            :href="waLink"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-10 inline-flex rounded-full border border-vogel-amber bg-vogel-amber px-8 py-3.5 text-base font-semibold text-vogel-deep transition hover:-translate-y-0.5 hover:bg-white"
-            data-analytics-cta="ia_final_whatsapp"
-            data-analytics-funnel="lead_journey"
-            data-analytics-step="ia"
-          >
-            Hablar por WhatsApp
-          </a>
+<template>
+  <section id="diagnostico" class="section-space">
+    <div class="section-shell grid gap-10 border-t border-vogel-gray/20 pt-12 lg:grid-cols-[1fr_0.8fr]">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-vogel-amber">Próximo paso</p>
+        <h2 class="section-title mt-3 max-w-3xl">Definamos un uso de IA con contexto.</h2>
+        <p class="section-description mt-5">La conversación sirve para elegir una tarea, revisar su información y acordar cómo comprobar si la asistencia aporta valor.</p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <ActionButton label="Agendar diagnóstico" href="/#contacto" variant="accent" data-analytics-cta="ia_offer_diagnostic_whatsapp" data-analytics-funnel="lead_journey" data-analytics-step="ia" />
+          <ActionButton label="Consultar por WhatsApp" href="https://wa.me/543743667526" :external="true" variant="secondary" data-analytics-cta="ia_final_whatsapp" data-analytics-funnel="lead_journey" data-analytics-step="ia" />
         </div>
       </div>
+      <ul class="ia-diagnostic-list">
+        <li v-for="item in diagnosticItems" :key="item">{{ item }}</li>
+      </ul>
     </div>
   </section>
 </template>
 
-<script setup>
-const waLink = "https://wa.me/543743667526?text=Hola%20quiero%20implementar%20IA%20en%20mi%20empresa";
-</script>
+<style scoped>
+.ia-diagnostic-list{margin:0;padding:0;list-style:none;border-top:1px solid var(--color-border)}
+.ia-diagnostic-list li{padding:18px 0;border-bottom:1px solid var(--color-border);font-size:15px;line-height:1.5;color:var(--color-text)}
+</style>

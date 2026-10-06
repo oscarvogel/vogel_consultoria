@@ -1,68 +1,25 @@
-<template>
-  <section class="py-20 sm:py-24" aria-labelledby="proceso-heading">
-    <div class="section-shell">
-      <SectionHeading
-        id="proceso-heading"
-        eyebrow="Cómo trabajamos"
-        title="Metodología clara para implementar con foco en impacto"
-        class="reveal"
-      />
-
-      <div class="relative mt-14">
-        <!-- Connecting line desktop -->
-        <div
-          class="absolute left-0 right-0 top-[2.4rem] hidden h-px bg-gradient-to-r from-transparent via-vogel-blue/50 to-transparent md:block"
-          aria-hidden="true"
-        ></div>
-
-        <ol class="grid gap-6 md:grid-cols-4">
-          <li
-            v-for="(step, index) in steps"
-            :key="step.label"
-            class="reveal group relative flex flex-col items-start"
-            :class="`reveal-d${index + 1}`"
-          >
-            <div
-              class="relative z-10 mb-5 flex h-[4.8rem] w-[4.8rem] items-center justify-center rounded-full border-2 border-vogel-blue bg-vogel-navy font-display text-lg font-bold text-white shadow-glow transition duration-300 group-hover:border-vogel-amber group-hover:shadow-glow-amber"
-            >
-              {{ String(index + 1).padStart(2, "0") }}
-            </div>
-
-            <div class="w-full rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-5 transition duration-300 group-hover:border-vogel-blue/50">
-              <p class="text-xs font-semibold uppercase tracking-[0.1em] text-vogel-amber">{{ step.eyebrow }}</p>
-              <h3 class="mt-1 font-display text-base font-bold text-white">{{ step.label }}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-vogel-muted">{{ step.description }}</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
-import SectionHeading from "./SectionHeading.vue";
-
-const steps = [
-  {
-    eyebrow: "Paso 01",
-    label: "Diagnóstico",
-    description: "Entendemos tu operación, detectamos fricciones y priorizamos oportunidades de impacto.",
-  },
-  {
-    eyebrow: "Paso 02",
-    label: "Diseño de solución",
-    description: "Definimos la arquitectura y el enfoque antes de escribir una línea de código.",
-  },
-  {
-    eyebrow: "Paso 03",
-    label: "Implementación",
-    description: "Desarrollamos, integramos y desplegamos con ciclos cortos y feedback continuo.",
-  },
-  {
-    eyebrow: "Paso 04",
-    label: "Mejora continua",
-    description: "Medimos resultados, ajustamos y escalamos la solución con el crecimiento del negocio.",
-  },
+import diagnosticIcon from '../assets/vogel-navbar-svg-icons/agendar-diagnostico.svg?raw';
+import LandscapeTraces from './LandscapeTraces.vue';
+import designIcon from '../assets/vogel-navbar-svg-icons/servicios.svg?raw';
+import implementationIcon from '../assets/vogel-navbar-svg-icons/como-trabajamos.svg?raw';
+import resultsIcon from '../assets/vogel-navbar-svg-icons/casos.svg?raw';
+const steps=[
+ {label:'Diagnóstico',icon:diagnosticIcon,description:'Entendemos tu operación y priorizamos las fricciones que vale la pena resolver.'},
+ {label:'Diseño',icon:designIcon,description:'Definimos el alcance, el circuito y la solución antes de construir.'},
+ {label:'Implementación',icon:implementationIcon,description:'Desarrollamos e integramos por etapas, con tu equipo y feedback continuo.'},
+ {label:'Resultados',icon:resultsIcon,description:'Medimos, ajustamos y acompañamos la mejora de la operación.'}
 ];
 </script>
+<template>
+ <section id="metodologia" class="home-section home-process" data-home-chapter="methodology" aria-labelledby="proceso-heading">
+  <LandscapeTraces variant="method" />
+  <div class="section-shell">
+   <div class="section-introduction"><h2 id="proceso-heading" class="section-title">Un proceso claro.<br>De principio a resultados.</h2><a class="text-link" href="#contacto">Empezar con un diagnóstico</a></div>
+   <div class="home-method" data-home-moment="methodology">
+    <div class="home-method-line" aria-hidden="true"><span></span></div>
+    <ol><li v-for="(step,index) in steps" :key="step.label"><div class="home-method-marker"><span aria-hidden="true" v-html="step.icon"></span><span>{{ String(index+1).padStart(2,'0') }}</span></div><h3>{{ step.label }}</h3><p>{{ step.description }}</p></li></ol>
+   </div>
+  </div>
+ </section>
+</template>

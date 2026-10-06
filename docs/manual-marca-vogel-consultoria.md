@@ -1,6 +1,8 @@
 # Manual de marca - Vogel Consultoria
 
-Version: 2026-05-28
+Version: 2026-10-04
+
+Actualización autorizada: la decisión explícita del usuario reemplaza logo, tipografía y paleta de la web anterior. La referencia visual aprobada se conserva fuera de Git. Las secciones 4–9 y 14–15 fijan la identidad vigente; el posicionamiento y la voz empresarial mantienen su alcance original. El baseline se conserva en `docs/history/paisaje-datos-2026-10-04/`.
 Sitio de referencia: https://vogelconsultoria.com.ar/
 Uso principal: guia para crear piezas visuales, landings, publicaciones, presentaciones, documentos comerciales y material institucional de Vogel Consultoria.
 
@@ -75,202 +77,68 @@ Profesional, claro, directo y orientado a resultados. La marca habla con segurid
 
 ## 4. Identidad visual
 
-La identidad visual de Vogel Consultoria combina azul profundo, azul institucional, blanco, gris claro y acento ambar. La estetica debe sentirse tecnologica, corporativa y premium, con recursos visuales de datos, dashboards, nodos, lineas de conexion y profundidad.
-
-### Atributos visuales
-
-- Fondo oscuro azul profundo.
-- Alto contraste con texto blanco o gris claro.
-- Acentos ambar para llamadas a la accion, indicadores y puntos de foco.
-- Azul institucional para tecnologia, conexion y confianza.
-- Imagenes de dashboards, redes de datos, interfaces y procesos.
-- Composiciones limpias, con aire y jerarquia clara.
+Paisaje de datos: base casi negra azul, luz ámbar y una jerarquía tipográfica de Clash Display en titulares y Chillax en lectura e interfaz. Claridad, confianza, precisión y cercanía práctica se expresan con aire, lectura estable y evidencia real. El paisaje decorativo de puntos y conexiones acompaña hero y cierre; el resto del sitio se organiza con superficies oscuras y separadores finos.
 
 ## 5. Logo
 
-### Version principal
+La versión principal vigente es la V ámbar vectorial, acompañada por la palabra de marca aprobada. Mantener el asset oficial sin redibujarlo; cuando el wordmark se renderice como texto de interfaz, utilizar Chillax con el espaciado actual.
 
-Usar el logo con monograma OV, nodos de conexion y texto "Vogel Consultoria".
+Assets oficiales vigentes:
 
-Assets disponibles:
+- `src/assets/brand/vogel-v-amber.svg`
+- `public/logo-vogel-amber.svg`
 
-- `src/assets/brand/logo-vogel-generated.webp`
-- `src/assets/brand/logo-vogel-generated.png`
-- `src/assets/logo-vogel.webp`
-- `src/assets/logo-vogel.png`
-- `public/logo-vogel.png`
-
-### Rasgos del logo
-
-- Monograma OV.
-- Letra O blanca con trazo circular.
-- Letra V en azul.
-- Nodos ambar conectados por lineas, asociados a datos, procesos y tecnologia.
-- Fondo azul oscuro en la version completa.
-
-### Uso recomendado
-
-- En fondos oscuros, usar version completa o isotipo con buen contraste.
-- En piezas pequenas, usar el isotipo o el logo simplificado si el texto pierde legibilidad.
-- En encabezados y portadas, dejar margen generoso alrededor del logo.
-- En piezas institucionales, ubicar el logo arriba a la izquierda o centrado segun formato.
-
-### Area de seguridad
-
-Mantener alrededor del logo un espacio minimo equivalente a la altura del nodo ambar o, en usos grandes, al 10% del ancho del logo. Ningun texto, borde o grafico debe tocar el logo.
-
-### Usos incorrectos
-
-- No deformar, estirar ni comprimir.
-- No aplicar sombras duras o efectos 3D adicionales.
-- No cambiar los colores principales.
-- No ubicar sobre fondos con poco contraste.
-- No encerrar en contenedores recargados.
-- No usar el logo pesado en UI si existe una version WebP optimizada.
+Los logos OV anteriores permanecen como archivos históricos; no son la identidad para nuevas piezas. Mantener proporciones del SVG, nitidez, contraste y un margen libre mínimo del 10% de su ancho. No deformar, añadir sombras duras, efectos 3D ni contenedores recargados. El vector es la primera opción para UI y formatos escalables.
 
 ## 6. Paleta cromatica
 
-### Colores principales
-
 | Nombre | HEX | Uso |
 |---|---:|---|
-| Vogel Deep | `#0F2A44` | Fondo principal, secciones oscuras, base institucional |
-| Vogel Navy | `#0B2035` | Fondo profundo, cards oscuras, overlays |
-| Vogel Slate | `#162F49` | Paneles, variantes de fondo, separadores sutiles |
-| Vogel Blue | `#1E5FA8` | Color institucional, links, bordes activos, acentos tecnologicos |
-| Vogel Bright | `#196ECF` | Azul de refuerzo para botones, graficos y highlights |
-| Vogel Blue Light | `#8BC5FF` | Detalles, textos secundarios destacados, lineas de datos |
-| Vogel Amber | `#F2A900` | CTA, puntos de foco, nodos, indicadores y pequenos acentos |
-| Vogel Gray | `#E5E7EB` | Texto claro, bordes suaves, superficies claras |
-| Vogel Muted | `#8EA8C3` | Texto secundario y metadata |
-| Blanco | `#FFFFFF` | Titulares, contraste maximo |
+| Vogel Navy | `#05090F` | Fondo casi negro azul |
+| Vogel Deep | `#0A121B` | Superficies oscuras |
+| Vogel Slate | `#101923` | Paneles y dropdown |
+| Vogel Amber | `#FFBC54` | Acciones, enlaces, foco, puntos de datos |
+| Vogel Gray | `#E2E5EA` | Texto de lectura y bordes con opacidad |
+| Vogel Muted | `#ACB6C3` | Metadata y descripciones |
+| Blanco | `#FFFFFF` | Titulares |
+| Vogel Blue | `#1E5FA8` | Ilustraciones y gráficos heredados |
+| Vogel Bright | `#196ECF` | Refuerzo en assets conceptuales |
+| Vogel Blue Light | `#8BC5FF` | Detalles conceptuales y estados existentes |
 
-### Proporcion de uso
-
-- 60% azul profundo y navy.
-- 20% azul institucional y variantes.
-- 15% blanco, gris claro y muted para texto.
-- 5% ambar como acento.
-
-El ambar debe usarse con moderacion. Funciona mejor cuando senala accion, oportunidad, alerta positiva o foco visual.
-
-### Combinaciones recomendadas
-
-- Fondo `#0F2A44` + texto blanco + CTA `#F2A900`.
-- Fondo `#0B2035` + borde `rgba(229,231,235,0.15)` + iconos `#F2A900`.
-- Gradiente oscuro de `#0F2A44` a `#0B2035` con brillos suaves en `#1E5FA8`.
-- Cards con imagen y overlay azul oscuro para mantener legibilidad.
-
-### Evitar
-
-- Piezas dominadas por ambar.
-- Fondos blancos muy extensos sin presencia azul.
-- Gradientes multicolor ajenos a la paleta.
-- Verdes, rojos o violetas como colores protagonistas.
+Fuente normativa: `src/styles/tokens.css`. El fondo oscuro debe dominar; el ámbar se concentra en acción y datos luminosos. No fijar una cuota porcentual como medición del sitio. CTA principal con gradiente cálido `#FFC869` a `#F5B34C` y texto `#080D14`; su gradiente no habilita fondos ámbar extensos. Evitar gradientes multicolor y colores ajenos como protagonistas.
 
 ## 7. Tipografia
 
-### Fuentes oficiales del sitio
+Clash Display es la fuente de titulares; Chillax se utiliza en cuerpo, navegación, controles y palabra de marca renderizada como texto. Ambas familias son variables, con rango 200–700, se sirven como WOFF2 desde el dominio de Vogel y usan ui-sans-serif/system-ui/sans-serif como fallback. Sus binarios se resuelven desde el CSS API oficial de Fontshare antes de `npm run dev` y `npm run build`; no se guardan en este repositorio público porque la ITF Free Font License prohíbe redistribuirlos mediante repositorios. Conservar esta licencia y la procedencia en `docs/licencias/`.
 
-- Titulares: `Syne`
-- Texto y UI: `DM Sans`
-
-Import actual usado en la web:
-
-```html
-https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap
-```
-
-### Jerarquia recomendada
-
-- H1 / portada: Syne Bold o ExtraBold.
-- H2 / secciones: Syne Bold.
-- Bajadas: DM Sans Regular o Medium.
-- Botones: DM Sans Semibold.
-- Eyebrows: DM Sans Semibold, uppercase, tracking amplio.
-
-### Reglas
-
-- Titulares grandes, contundentes y legibles.
-- No usar demasiadas familias tipograficas.
-- Evitar texto muy fino sobre fondos oscuros.
-- Mantener interlineado comodo en parrafos.
-- En piezas sociales, limitar la cantidad de texto y aumentar contraste.
+Clash Display: titulares entre 450 y 600, con preferencia por 500 en tamaños grandes y sin usar bold 700 de forma automática. Chillax: lectura 400, navegación y controles 500, CTA 600. Diferenciar jerarquía con tamaño, interlineado y espacio. Mantener inputs de al menos 16px, contraste legible, interlineado cómodo y texto secundario claro. Para piezas sociales, reducir texto antes que reducir excesivamente su tamaño.
 
 ## 8. Sistema grafico
 
-### Recursos visuales propios de la marca
+Paisajes de puntos, conexiones finas, dashboards, procesos y evidencia operativa. La home usa paisaje en hero y cierre, tres capturas forestales reales con datos de demostración y ocho logos SVG de clientes. FEMAG debe identificarse como proyecto en desarrollo. Oscar se presenta sin retrato hasta contar con una fotografía real autorizada.
 
-- Nodos conectados.
-- Lineas de circuito o flujo.
-- Dashboards con KPIs.
-- Tarjetas de datos.
-- Graficos de barras, lineas y alertas.
-- Interfaces oscuras con acentos azules y ambar.
-- Brillos suaves y profundidad controlada.
-- Texturas muy sutiles, como grano o fondos de red.
+Assets:
 
-### Imagenes recomendadas
+- `public/landscape/`: posters estáticos obtenidos del canvas de producción.
+- `src/assets/brand/vogel-v-amber.svg`: V vigente.
+- `src/assets/hero/` y `src/assets/services/`: ilustraciones conceptuales anteriores conservadas en algunas páginas interiores.
+- `docs/social/`: material previo; revisar logo, tipografía y colores antes de reutilizarlo.
 
-Usar imagenes que muestren tecnologia aplicada al negocio:
+La continuidad parcial de assets azules no implica identidad absoluta entre home e interiores. Identificar demostraciones y procedencia; no usar cifras ficticias como resultados de clientes ni imágenes generadas como interfaces operativas reales.
 
-- Dashboard ejecutivo.
-- Panel de indicadores.
-- Red de datos o inteligencia conectada.
-- Interfaces administrativas.
-- Equipos trabajando con informacion.
-- Automatizaciones y flujos.
-- Escenarios de oficina o gestion, si se ven reales y sobrios.
-
-Assets existentes utiles:
-
-- `src/assets/hero/network-intelligence.webp`
-- `src/assets/hero/dashboard-mockup.webp`
-- `src/assets/services/services-overview.webp`
-- `src/assets/services/cards/sistemas-a-medida.webp`
-- `src/assets/services/cards/dashboards-ejecutivos.webp`
-- `src/assets/services/cards/automatizacion-procesos.webp`
-- `src/assets/services/cards/ia-aplicada.webp`
-- `src/assets/services/cards/talleres-capacitacion-ia.webp`
-- `src/assets/services/cards/desarrollo-web.webp`
-- `docs/social/linkedin/portada-linkedin-vogel-consultoria-safe.png`
-
-### Tratamiento de imagen
-
-- Aplicar overlay azul oscuro para integrar la imagen a la marca.
-- Mantener contraste suficiente para texto.
-- Usar recortes que muestren informacion, pantallas o conexion.
-- Evitar imagenes demasiado genericas o stock.
-- Evitar fondos borrosos sin relacion con gestion, datos o tecnologia.
+Actualización autorizada del 2026-10-04: los ecos del paisaje acompañan toda la narrativa intermedia: Soluciones, caso forestal, clientes/proyectos, método, Oscar y recursos. Sus variantes `flow`, `evidence`, `network`, `method`, `trajectory` y `editorial` alternan fases y conexiones laterales. Las áreas de lectura se mantienen limpias, con decoración marginal e inferior; hero y contacto conservan sus paisajes vigentes. Los SVG son `aria-hidden`, sin foco ni interacción.
 
 ## 9. Composicion
 
-### Layout para piezas visuales
+Grilla sencilla, titular claro, espacio amplio, CTA concreto y visuales vinculados a datos o gestión. Cabecera abierta con V, navegación y acciones de portal/diagnóstico. Las secciones fluyen sin pins narrativos; la profundidad se concentra en el paisaje, sin shader global ni liquid glass.
 
-Estructura recomendada:
+En móvil, apilar columnas y conservar etiquetas/CTA en flujo para evitar superposición. Controles de 8–9px, etiquetas de 10px y paneles de 12–16px; marcos de 20px cuando corresponde. Líneas finas y separación tonal organizan el contenido. Las capacidades no requieren una tarjeta por bloque.
 
-1. Logo o identificador de marca.
-2. Mensaje principal en alto contraste.
-3. Bajada breve orientada a beneficio.
-4. Elemento visual de datos, dashboard o red.
-5. CTA o dato de contacto.
-6. Acento ambar pequeno para dirigir la mirada.
+El paisaje es una mejora progresiva: conserva poster estático con movimiento reducido o sin WebGL, pausa fuera de pantalla y con documento oculto. Mensajes y acciones nunca dependen de su animación.
 
-### Reglas de composicion
+Las conexiones laterales de cinco nodos se limitan a márgenes de 64–150px (7vw), con trazos ámbar (.17) y ramificaciones azul claro (.11); se ocultan hasta 1199px inclusive. Tres ondas de 61 puntos cada una ocupan la franja inferior del padding, de 80px en escritorio y 46px en tablet/móvil; permanecen visibles en todos los tamaños. Soluciones conserva su entrada/salida tonal navy–deep.
 
-- Usar una grilla simple y ordenada.
-- Dejar aire alrededor del logo y el titular.
-- Evitar saturar con texto.
-- El titular debe poder leerse en 2 segundos.
-- Usar el ambar para un solo punto focal por pieza.
-- El fondo debe acompanarse con profundidad, no competir con el mensaje.
-
-### Bordes y tarjetas
-
-- Bordes suaves y modernos.
-- Radios recomendados: 12 a 24 px en piezas visuales, 8 a 16 px en UI densa.
-- Bordes finos en gris claro o azul con baja opacidad.
-- Cards oscuras con transparencia o overlay, no superficies totalmente planas cuando se busca look premium.
+En escritorio elegible (ancho mínimo 1024px, alto mínimo 800px, sin movimiento reducido), las ondas admiten un desplazamiento discreto de 12px a −8px ligado al scroll (`scrub: .8`), sin pin. Móvil y movimiento reducido conservan las ondas estáticas en posición neutral. La línea del método conecta cuatro nodos y progresa con scroll en ese mismo escritorio; con movimiento reducido permanece completa y en móvil usa segmentos estáticos en dos columnas. Mantener siempre lectura, foco y clics despejados.
 
 ## 10. Iconografia
 
@@ -437,13 +305,13 @@ Palabras utiles:
 ### Presentaciones
 
 - Formato: 16:9.
-- Portada con fondo azul oscuro, logo, titular y visual tecnico.
+- Portada con fondo casi negro azul, V ámbar, titulares en Clash Display, texto/UI en Chillax y visual técnico.
 - Slides internas con mucho aire, maximo 3 ideas por slide.
 - Usar ambar solo para destacar el concepto principal.
 
 ### Documentos comerciales
 
-- Fondo blanco permitido, pero con encabezados azul profundo.
+- Fondo blanco permitido en documentos comerciales, con encabezados casi negro azul y Clash Display; Chillax para lectura y UI.
 - Usar ambar para separadores, bullets o llamados.
 - Mantener tipografia sobria.
 - Incluir logo en portada y pie de pagina.
@@ -453,7 +321,7 @@ Palabras utiles:
 Usar este prompt como base y adaptar formato, mensaje y destino:
 
 ```text
-Crear una pieza visual para Vogel Consultoria, consultoria tecnologica premium para empresas argentinas. Estilo corporativo, moderno y sobrio, con fondo azul profundo (#0F2A44 / #0B2035), acentos en azul institucional (#1E5FA8) y ambar (#F2A900), texto blanco y gris claro. Incluir estetica de dashboards, datos, nodos conectados, automatizacion e inteligencia artificial aplicada al negocio. La composicion debe sentirse clara, ejecutiva y confiable, sin parecer generica ni excesivamente futurista.
+Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar fondo casi negro azul (#05090F / #0A121B), paneles #101923, acento ámbar #FFBC54, texto blanco/gris #E2E5EA, Clash Display en titulares y Chillax en lectura/UI. Logo vigente: V ámbar SVG. Visuales de paisaje de datos, dashboards, conexiones y procesos; composición sobria, clara y confiable. Las ilustraciones azules anteriores solo son continuidad conceptual cuando su uso está justificado.
 
 Mensaje principal: "[TITULAR]"
 Bajada: "[BAJADA]"
@@ -465,8 +333,8 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 
 ## 15. Checklist antes de publicar una pieza
 
-- El logo se ve nitido y no esta deformado.
-- La pieza usa azul profundo como base visual.
+- La V ámbar oficial se ve nítida y no está deformada.
+- La pieza usa casi negro azul como base visual, Clash Display en titulares y Chillax en lectura/UI.
 - El ambar aparece como acento, no como color dominante.
 - El titular se entiende en pocos segundos.
 - El texto tiene buen contraste en mobile.
@@ -479,7 +347,7 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 ## 16. Referencias usadas
 
 - Sitio publico: https://vogelconsultoria.com.ar/
-- Paleta y fuentes: `tailwind.config.js`, `src/style.css`, `index.html`
+- Paleta y fuentes: `src/styles/tokens.css`, `tailwind.config.js`, `src/styles/home.css`, `DESIGN.md`
 - Mensajes y servicios: `src/components/HeroSection.vue`, `src/components/ServicesSection.vue`, `src/data/servicePages.js`
 - Logo y assets: `src/assets/brand/`, `src/assets/hero/`, `src/assets/services/`
 - Piezas sociales existentes: `docs/social/`

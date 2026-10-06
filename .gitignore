@@ -1,5 +1,9 @@
 node_modules/
 dist/
+public/fonts/clash-display-variable.woff2
+public/fonts/chillax-variable.woff2
+# Visual QA evidence stays local; production demo captures live under src/assets.
+docs/capturas/
 .agents/
 .superpowers/
 .codegraph/
@@ -19,4 +23,5 @@ linkedin-posts/
 .vite-preview.log
 outputs/
 docs/ftp-backups/
+docs/capturas/
 docs/heygen/auditoria-futuro-local/

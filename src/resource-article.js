@@ -5,6 +5,7 @@ import { getServicePage } from "./data/servicePages.js";
 import { initAnalytics } from "./lib/analytics.js";
 import "./style.css";
 
+
 const root = document.getElementById("resource-article-app");
 const resourceId = root?.dataset.resourceId;
 const resource = getResource(resourceId);

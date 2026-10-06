@@ -1,62 +1,12 @@
 <script setup>
 import { resources } from "../data/resources.js";
+import { useScrollReveal } from "../composables/useScrollReveal.js";
+useScrollReveal();
 import Navbar from "./Navbar.vue";
 import FooterSection from "./FooterSection.vue";
 import WhatsAppButton from "./WhatsAppButton.vue";
 </script>
-
-<template>
-  <div class="relative min-h-screen overflow-x-hidden">
-    <a class="skip-link" href="#resources-content">Saltar al contenido principal</a>
-    <Navbar />
-
-    <main id="resources-content" tabindex="-1">
-      <section class="relative isolate overflow-hidden py-16 sm:py-20">
-        <div class="ambient-blob left-[-9rem] top-[-8rem] h-72 w-72 bg-vogel-blue/25"></div>
-        <div class="ambient-blob bottom-[-10rem] right-[-8rem] h-80 w-80 bg-vogel-amber/10"></div>
-
-        <div class="section-shell">
-          <div class="max-w-3xl">
-            <p class="text-xs font-bold uppercase tracking-[0.32em] text-vogel-amber">Recursos</p>
-            <h1 class="mt-5 font-display text-4xl font-bold leading-tight text-white sm:text-6xl">
-              Guias para ordenar tecnologia, datos e IA en empresas
-            </h1>
-            <p class="mt-6 text-lg leading-relaxed text-vogel-gray sm:text-xl">
-              Ideas practicas para decidir mejor antes de invertir en sistemas, dashboards, automatizaciones o capacitacion.
-            </p>
-          </div>
-
-          <div class="mt-12 grid gap-5 lg:grid-cols-3">
-            <article
-              v-for="resource in resources"
-              :key="resource.id"
-              class="rounded-2xl border border-vogel-gray/15 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:border-vogel-amber/50 hover:bg-vogel-amber/5"
-            >
-              <p class="text-xs font-bold uppercase tracking-[0.24em] text-vogel-blueLight">{{ resource.eyebrow }}</p>
-              <h2 class="mt-4 font-display text-2xl font-bold leading-tight text-white">
-                <a :href="resource.path">{{ resource.title }}</a>
-              </h2>
-              <p class="mt-4 text-sm leading-relaxed text-vogel-gray">{{ resource.summary }}</p>
-              <div class="mt-5 flex items-center justify-between gap-4 text-xs font-semibold text-vogel-muted">
-                <span>{{ resource.readTime }}</span>
-                <span>{{ resource.published }}</span>
-              </div>
-              <a
-                :href="resource.path"
-                class="mt-6 inline-flex items-center justify-center rounded-full border border-vogel-amber/45 px-4 py-2 text-sm font-bold text-vogel-amber transition hover:bg-vogel-amber hover:text-vogel-navy"
-                data-analytics-cta="resource_read"
-                :data-analytics-label="resource.id"
-                data-analytics-location="resources_index"
-              >
-                Leer guia
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <FooterSection />
-    <WhatsAppButton />
-  </div>
-</template>
+<template><div class="resources-page"><a class="skip-link" href="#resources-content">Saltar al contenido principal</a><Navbar/><main id="resources-content" tabindex="-1"><section class="section-space"><div class="section-shell"><header class="editorial-header" data-chapter="resources"><h1>Guías para decidir con claridad.</h1><p class="section-description">Ideas prácticas para ordenar tecnología, datos e IA en empresas. Un punto de partida para detectar oportunidades y definir prioridades antes de invertir.</p></header><div class="resource-list"><article v-for="resource in resources" :key="resource.id" class="resource-row" data-chapter="reading"><div class="resource-meta"><p>{{ resource.eyebrow }}</p><span>{{ resource.readTime }}</span><time :datetime="resource.published">{{ new Intl.DateTimeFormat('es-AR',{dateStyle:'medium',timeZone:'UTC'}).format(new Date(resource.published)) }}</time></div><div><h2><a :href="resource.path">{{ resource.title }}</a></h2><p>{{ resource.summary }}</p><a :href="resource.path" class="text-link inline-flex min-h-11 items-center" data-analytics-cta="resource_read" :data-analytics-label="resource.id" data-analytics-funnel="content_discovery">Leer guía <span aria-hidden="true" class="ml-3">→</span></a></div></article></div></div></section></main><FooterSection/><WhatsAppButton/></div></template>
+<style scoped>
+.resource-row{display:grid;grid-template-columns:.3fr 1fr;gap:48px;padding-block:40px;border-top:1px solid var(--color-border)}.resource-meta{font-size:13px;line-height:1.8;color:var(--color-muted)}.resource-meta span,.resource-meta time{display:block;margin-top:10px}.resource-meta p{color:var(--color-link)}.resource-row h2{font-size:clamp(24px,3vw,36px);line-height:1.2;max-width:35ch;font-weight:600}.resource-row h2 a:hover{color:var(--color-link)}.resource-row>div>p{max-width:65ch;margin-block:20px;line-height:1.8;color:var(--color-muted)}@media(max-width:639px){.resource-row{grid-template-columns:1fr;gap:20px}.resource-meta{display:flex;gap:16px;flex-wrap:wrap}.resource-meta span,.resource-meta time{margin:0}}
+</style>
