@@ -2,6 +2,13 @@ node_modules/
 dist/
 public/fonts/clash-display-variable.woff2
 public/fonts/chillax-variable.woff2
+# Visual QA screenshots stay local; production demo captures live under src/assets.
+docs/capturas/**/*.png
+docs/capturas/**/*.jpg
+docs/capturas/**/*.jpeg
+docs/capturas/**/*.webp
+docs/capturas/**/*.mp4
+docs/capturas/**/*.webm
 .agents/
 .superpowers/
 .codegraph/
