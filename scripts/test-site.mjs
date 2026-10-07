@@ -136,34 +136,64 @@ function testViteInputs() {
     assert(viteConfig.includes(`${id}/index.html`), `vite.config.js: missing input for ${id}`);
   }
   assert(viteConfig.includes("recursos/index.html"), "vite.config.js: missing resources index input");
+  for (const page of ["soluciones", "estudio", "contacto"]) {
+    assert(viteConfig.includes(`${page}/index.html`), `vite.config.js: missing ${page} portfolio input`);
+  }
   for (const id of expectedResourceIds) {
     assert(viteConfig.includes(`recursos/${id}/index.html`), `vite.config.js: missing input for resource ${id}`);
   }
 }
 
+function testPortfolioDestinations() {
+  const app = readProjectFile("src/App.vue");
+  const nav = readProjectFile("src/components/home/PortfolioNav.vue");
+  const navbar = readProjectFile("src/components/Navbar.vue");
+  const solutions = readProjectFile("src/components/home/destinations/SolutionsDestination.vue");
+  const resourcesPage = readProjectFile("src/components/home/destinations/ResourcesDestination.vue");
+  const studio = readProjectFile("src/components/home/destinations/StudioDestination.vue");
+  const contact = readProjectFile("src/components/home/destinations/ContactDestination.vue");
+
+  for (const page of ["soluciones", "recursos", "estudio", "contacto"]) {
+    const html = readProjectFile(`${page}/index.html`);
+    assert(html.includes("/src/main.js") && html.includes("rel=\"canonical\""), `${page}: needs portfolio entry and canonical URL`);
+  }
+  for (const route of ["/soluciones/", "/recursos/", "/estudio/", "/contacto/"]) {
+    assert(nav.includes(`href:'${route}'`) && app.includes(route), `portfolio route is not connected: ${route}`);
+  }
+  assert(nav.includes(":aria-current") && nav.includes("activeLabel"), "portfolio navigation must expose the active destination");
+  assert(navbar.includes('href="/estudio/" class="info-button"'), "Info header action must resolve to Studio");
+  assert(app.includes("['servicios', '/soluciones/#servicios']") && app.includes("['metodologia', '/estudio/#metodologia']"), "legacy Info hashes must map to their new destination");
+  assert(solutions.includes("capabilities") && solutions.includes("alsoServices"), "Solutions must reuse capability data");
+  assert(resourcesPage.includes("from '../../../data/resources.js'") && resourcesPage.includes("resource.path"), "Resources must reuse published resource data and routes");
+  assert(studio.includes("methodSteps") && studio.includes("oscarProfile") && studio.includes("FEMAG"), "Studio must reuse method and profile data and keep FEMAG status");
+  assert(contact.includes("useContactForm") && contact.includes('id=\"contacto\"') && contact.includes('type=\"tel\"'), "Contact must reuse the form and retain its optional phone field");
+}
+
 function testDiscoveryFiles() {
   const sitemap = readProjectFile("public/sitemap.xml");
   const llms = readProjectFile("public/llms.txt");
-  const servicesSection = readProjectFile("src/components/ServicesSection.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
   const campaignUrl = "https://vogelconsultoria.com.ar/automatizaciones/";
 
   for (const id of expectedServiceIds) {
     const url = `https://vogelconsultoria.com.ar/${id}/`;
     assert(sitemap.includes(`<loc>${url}</loc>`), `sitemap.xml: missing ${url}`);
     assert(llms.includes(url), `llms.txt: missing ${url}`);
-    assert(servicesSection.includes(id) && servicesSection.includes("servicePages"), `ServicesSection.vue: missing home link for ${id}`);
+    assert(info.includes("Object.values(servicePages)") && servicePages[id].path === `/${id}/`, `InfoPanel.vue: missing home link for ${id}`);
   }
 
-  assert(servicesSection.includes("/inteligencia-artificial/"), "ServicesSection.vue: missing IA page link");
-  assert(
-    servicePages["contaflow-api-facturacion-electronica"].summary.includes("API"),
-    "ServicesSection.vue: missing ContaFlow service card copy",
-  );
-  assert(servicesSection.includes("path:'/automatizaciones/'") && servicesSection.includes(':href="service.path"'), "ServicesSection.vue: missing home link for automatizaciones campaign");
+  assert(info.includes("/inteligencia-artificial/"), "InfoPanel.vue: missing IA page link");
+  assert(servicePages["contaflow-api-facturacion-electronica"].summary.includes("API"), "ContaFlow service copy must keep the API reference");
+  assert(info.includes("/automatizaciones/"), "InfoPanel.vue: missing home link for automatizaciones campaign");
   assert(sitemap.includes(`<loc>${campaignUrl}</loc>`), "sitemap.xml: missing automatizaciones campaign URL");
   assert(llms.includes(campaignUrl), "llms.txt: missing automatizaciones campaign URL");
   assert(sitemap.includes("https://vogelconsultoria.com.ar/recursos/"), "sitemap.xml: missing resources index");
   assert(llms.includes("https://vogelconsultoria.com.ar/recursos/"), "llms.txt: missing resources index");
+  for (const page of ["soluciones", "estudio", "contacto"]) {
+    const url = `https://vogelconsultoria.com.ar/${page}/`;
+    assert(sitemap.includes(`<loc>${url}</loc>`), `sitemap.xml: missing ${url}`);
+    assert(llms.includes(url), `llms.txt: missing ${url}`);
+  }
   for (const id of expectedResourceIds) {
     const url = `https://vogelconsultoria.com.ar/recursos/${id}/`;
     assert(sitemap.includes(`<loc>${url}</loc>`), `sitemap.xml: missing ${url}`);
@@ -171,43 +201,23 @@ function testDiscoveryFiles() {
   }
 }
 
-function testNavbarServicesMenu() {
+function testInfoPanelMenu() {
   const navbar = readProjectFile("src/components/Navbar.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
 
-  assert(navbar.includes("serviceLinks"), "Navbar.vue: missing serviceLinks menu data");
-  assert(navbar.includes('aria-label="Servicios"'), "Navbar.vue: missing accessible services menu label");
-  assert(navbar.includes("Servicios"), "Navbar.vue: missing Servicios menu text");
-  assert(navbar.includes("/recursos/"), "Navbar.vue: missing Recursos link");
-  assert(navbar.includes("/automatizaciones/"), "Navbar.vue: missing Automatizaciones campaign link");
-
-  for (const id of expectedServiceIds) {
-    assert(navbar.includes("Object.values(servicePages)") && servicePages[id].path === `/${id}/`, `Navbar.vue: missing service menu link for ${id}`);
+  assert(navbar.includes("InfoPanel") && navbar.includes('aria-controls="info-panel"') && navbar.includes(":aria-expanded"), "Navbar.vue: Info button must control the panel accessibly");
+  assert(info.includes('role="dialog"') && info.includes('aria-modal="true"'), "InfoPanel.vue: panel must be an accessible dialog");
+  assert(info.includes("Escape"), "InfoPanel.vue: Escape must close the panel");
+  assert(info.includes("/recursos/") && info.includes("Servicios"), "InfoPanel.vue: missing Servicios or Recursos entries");
+  for (const hash of ["contacto", "nosotros", "metodologia", "recursos", "servicios"]) {
+    assert(info.includes(`id="${hash}"`) && navbar.includes(`'${hash}'`), `legacy anchor #${hash} must open the panel at its section`);
   }
-
-  assert(navbar.includes("/inteligencia-artificial/"), "Navbar.vue: missing IA service menu link");
 }
 
-function testNavbarBrandAndCurrentState() {
+function testNavbarBrandAndViewToggle() {
   const navbar = readProjectFile("src/components/Navbar.vue");
-  const iconFiles = [
-    "agendar-diagnostico.svg?raw",
-    "casos.svg?raw",
-    "chevron-down.svg?raw",
-    "como-trabajamos.svg?raw",
-    "menu.svg?raw",
-    "nosotros.svg?raw",
-    "portal.svg?raw",
-    "recursos.svg?raw",
-    "servicios.svg?raw",
-  ];
-
-  for (const icon of iconFiles) {
-    assert(navbar.includes(icon), `Navbar.vue: missing inline navigation icon ${icon}`);
-  }
-
-  assert(navbar.includes("aria-current"), "Navbar.vue: current route and section must be announced");
-  assert(navbar.includes("requestAnimationFrame") && navbar.includes("cancelAnimationFrame"), "Navbar.vue: scroll tracking must be frame scheduled and cleaned up");
-  assert(navbar.includes("vogel-v-amber.svg") && navbar.includes("is-scrolled"), "Navbar.vue: missing new brand or readable scrolling treatment");
+  assert(navbar.includes("vogel-v-amber.svg"), "Navbar.vue: missing brand mark");
+  assert(navbar.includes("aria-pressed") && navbar.includes("update:view"), "Navbar.vue: carousel/grid toggle must expose its state");
   assert(!navbar.includes("backdrop-filter:"), "Navbar.vue: obsolete glass treatment");
 }
 
@@ -224,29 +234,43 @@ function testAnalyticsEventAttributes() {
   assert(analytics.includes("analytics_label"), "analytics.js: must send custom analytics labels");
   assert(analytics.includes("analytics_location"), "analytics.js: must send custom analytics locations");
   assert(analytics.includes("gtag(\"consent\", \"default\""), "analytics.js: must set Google Consent Mode defaults");
+  assert(analytics.includes("renderPrivacySettingsButton"), "analytics.js: users must be able to reopen privacy preferences");
+  assert(analytics.includes("getStoredConsent() !== \"granted\""), "analytics.js: events must be gated by explicit consent");
+  assert(!analytics.includes('document.addEventListener("submit"'), "analytics.js: submit attempts must not be counted as successful contacts");
   assert(analytics.includes("return \"whatsapp\""), "analytics.js: must avoid sending WhatsApp numbers to GA4");
   assert(analytics.includes("return \"email\""), "analytics.js: must avoid sending email addresses to GA4");
 }
 
+function testContactPrivacyDisclosureAndHeaders() {
+  const contact = readProjectFile("src/components/home/destinations/ContactDestination.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
+  const headers = readProjectFile("public/.htaccess");
+
+  assert(contact.includes('aria-describedby="contacto-datos-notice"') && contact.includes("Web3Forms"), "ContactDestination.vue: the form must describe its processor and data flow");
+  assert(info.includes('aria-describedby="info-contacto-datos-notice"') && info.includes("Evitá incluir información sensible"), "InfoPanel.vue: the form must expose its privacy notice to assistive technology");
+  for (const header of ["X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "X-Frame-Options", "Strict-Transport-Security"]) {
+    assert(headers.includes(header), `public/.htaccess: missing ${header}`);
+  }
+  assert(headers.includes("env=vogel_https"), "public/.htaccess: HSTS must only be emitted on HTTPS requests");
+}
+
 function testCommercialEmailDestination() {
-  const ctaSection = readProjectFile("src/components/CTASection.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
   const footerSection = readProjectFile("src/components/FooterSection.vue");
 
   assert(
-    ctaSection.includes("mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20un%20diagn%C3%B3stico"),
-    "CTASection.vue: Agendar por email must use oscar@vogelconsultoria.com.ar",
+    info.includes("mailto:oscar@vogelconsultoria.com.ar?subject=Quiero%20agendar%20un%20diagn%C3%B3stico"),
+    "InfoPanel.vue: Agendar por email must use oscar@vogelconsultoria.com.ar",
   );
   assert(footerSection.includes("mailto:oscar@vogelconsultoria.com.ar"), "FooterSection.vue: footer email must use oscar@vogelconsultoria.com.ar");
 }
 
 function testResourcesContent() {
-  const app = readProjectFile("src/App.vue");
-  const section = readProjectFile("src/components/HomeEvidence.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
   const resourceIndex = readProjectFile("recursos/index.html");
 
-  assert(app.includes("ServicesSection") && readProjectFile("src/components/SecondaryContent.vue").includes('kind="resources"'), "home capabilities must include resource discovery");
-  assert(section.includes("content_discovery"), "ResourcesSection.vue: resource links must be analytics-tagged");
-  assert(resourceIndex.includes('<script type="module" src="/src/resources.js"></script>'), "recursos/index.html: missing resources entry script");
+  assert(info.includes("resources") && info.includes('id="recursos"'), "home must expose resource discovery in the Info panel");
+  assert(resourceIndex.includes('<script type="module" src="/src/main.js"></script>'), "recursos/index.html: missing portfolio entry script");
 
   assert(
     JSON.stringify(resources.map((resource) => resource.id).sort()) === JSON.stringify([...expectedResourceIds].sort()),
@@ -270,29 +294,29 @@ function testResourcesContent() {
   }
 }
 
-function testMiniCasesSection() {
+function testHomeStage() {
   const app = readProjectFile("src/App.vue");
-  const section = readProjectFile("src/components/MiniCasesSection.vue");
+  const stage = readProjectFile("src/components/home/HomeStage.vue");
+  const cards = readProjectFile("src/data/homeCards.js");
   const content = readProjectFile("src/data/forestCase.js");
-  assert(section.includes("forestCase.steps"), "legacy forest case must consume the shared content");
 
-  assert(app.includes("MiniCasesSection"), "App.vue: MiniCasesSection must be mounted on home");
-  assert(content.includes("forestal"), "MiniCasesSection.vue: missing forestal rubro");
+  assert(app.includes("HomeStage") && app.includes("Preloader"), "App.vue: home stage and preloader must be mounted");
+  assert(stage.includes("<h1") && stage.includes("keydown"), "HomeStage.vue: needs a real h1 and keyboard navigation");
+  assert(stage.includes("reducedPortfolioMotion"), "HomeStage.vue: wheel glide must respect reduced motion");
+  for (const id of ["forestCase", "webProjects"]) assert(cards.includes(id), `homeCards.js: missing source ${id}`);
+  assert(!cards.includes("FEMAG") && cards.includes("Datos de demostración"), "homeCards.js: gallery must contain published projects only");
+  assert(readProjectFile("src/components/home/InfoPanel.vue").includes("FEMAG · En desarrollo"), "Info: FEMAG must carry its development label");
+  assert(content.includes("registro de producción anónimo"), "production-registry case must be explicitly anonymous");
   assert(content.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
-  assert(content.includes("registro de campo"), "forest case must explain field collection");
-  assert(content.includes("Indicadores, evolución y detalle operativo"), "forest case must explain decision support");
-  assert(content.includes("Caso forestal anónimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
 }
 
 function testPortalAccessLinks() {
-  const navbar = readProjectFile("src/components/Navbar.vue");
-  const hero = readProjectFile("src/components/HeroSection.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
   const portalUrl = "https://portal.vogelconsultoria.com.ar";
 
-  assert(navbar.includes(portalUrl), "Navbar.vue: missing portal access link");
-  assert(navbar.includes("Ingresar al portal"), "Navbar.vue: portal access link must be clearly labeled");
-  assert(hero.includes("Explorar soluciones") && navbar.includes("Agendar diagnóstico"), "Hero and navbar must expose their agreed actions");
-  assert(navbar.includes("navbar_portal_access"), "Navbar.vue: missing portal analytics");
+  assert(info.includes(portalUrl), "InfoPanel.vue: missing portal access link");
+  assert(info.includes("Ingresar al portal"), "InfoPanel.vue: portal access link must be clearly labeled");
+  assert(info.includes("navbar_portal_access"), "InfoPanel.vue: missing portal analytics");
 }
 
 function testUiRefinements() {
@@ -307,6 +331,8 @@ function testUiRefinements() {
   assert(serviceTemplate.includes("service-main-cta") && serviceTemplate.includes('aria-label="Ruta de navegación"'), "service pages must expose one prominent CTA and a compact breadcrumb");
   const whatsapp=readProjectFile("src/components/WhatsAppButton.vue");
   assert(whatsapp.includes("max-[639px]:hidden"), "floating WhatsApp must be hidden on narrow mobile screens");
+  const info=readProjectFile("src/components/home/InfoPanel.vue");
+  assert(info.includes('type="tel" name="Telefono" autocomplete="tel"') && !info.includes('id="contacto-telefono" required'), "contact phone must be a custom optional tel field");
   const survey=readProjectFile("src/SurveyApp.vue");
   assert(survey.includes("8000") && survey.includes('role="status"') && survey.includes("Abrir encuesta en otra pestaña"), "survey must expose accessible loading and a persistent external form link");
   assert(survey.includes("Correo de contacto") && survey.includes("opcional"), "survey copy must clarify that its email field is optional");
@@ -316,12 +342,6 @@ function testUiRefinements() {
   assert(!iaExamples.includes("ai-use-cases.webp"), "IA use cases should not use decorative mock UI artwork");
   assert(!readProjectFile("automatizaciones/index.html").includes("/src/assets/ia/ai-operations.webp"), "ARCA page should not use the generic blue artwork");
   assert(readProjectFile("automatizaciones/index.html").includes("hero-flow__list"), "ARCA page should use its own process diagram");
-  const contact=readProjectFile("src/components/CTASection.vue");
-  assert(contact.includes('type="tel" name="Telefono" autocomplete="tel"'), "contact phone must be a custom optional tel field");
-  assert(!contact.includes('id="contacto-telefono" required'), "phone must remain optional");
-  const proof=readProjectFile("src/components/ClientProof.vue");
-  assert(proof.includes("webProjects"), "early proof must use the existing project catalogue");
-  assert(readProjectFile("scripts/capture-landscape-poster.mjs").includes("toDataURL"), "Landscape poster must be exported from the canvas buffer, without HTML overlays");
   const provenance=JSON.parse(readProjectFile("public/clients/provenance.json"));
   for(const file of Object.keys(provenance.sources)) assert(fs.existsSync(path.join(root,"public/clients",file)), `missing local client logo ${file}`);
   for(const file of ["index.html","src/SurveyApp.vue",...expectedServiceIds.map(id=>`${id}/index.html`)]) {
@@ -330,18 +350,12 @@ function testUiRefinements() {
 }
 
 function testAboutCvSection() {
-  const about = readProjectFile("src/components/AboutSection.vue");
-  const navbar = readProjectFile("src/components/Navbar.vue");
-  const footer = readProjectFile("src/components/FooterSection.vue");
+  const info = readProjectFile("src/components/home/InfoPanel.vue");
+  const oscar = readProjectFile("src/data/oscar.js");
   const cvPath = path.join(root, "public", "cv-jose-oscar-vogel.pdf");
 
-  assert(about.includes('id="nosotros"'), "AboutSection.vue: section must present the personal profile");
-  assert(about.includes("Tecnología con criterio de negocio") && about.includes("Oscar Vogel es desarrollador"), "AboutSection.vue: missing heading or named biography");
-  assert(about.includes("Capacidades técnicas") && !about.includes('value: "Python, Django y MySQL"'), "AboutSection.vue: stack must be presented as a capability");
-  assert(about.includes("/cv-jose-oscar-vogel.pdf"), "AboutSection.vue: missing CV download link");
-  assert(about.includes("about_download_cv"), "AboutSection.vue: missing CV analytics marker");
-  assert(navbar.includes("Nosotros"), "Navbar.vue: missing Quién soy navigation label");
-  assert(footer.includes("Nosotros"), "FooterSection.vue: missing Quién soy footer link");
+  assert(info.includes('id="nosotros"') && info.includes("oscarProfile.cv"), "InfoPanel.vue: profile section must link the CV");
+  assert(oscar.includes("/cv-jose-oscar-vogel.pdf"), "oscar.js: missing CV path");
   assert(fs.existsSync(cvPath), "public/cv-jose-oscar-vogel.pdf: missing downloadable CV asset");
   assert(fs.statSync(cvPath).size > 5000, "public/cv-jose-oscar-vogel.pdf: CV asset looks unexpectedly small");
 }
@@ -350,13 +364,15 @@ const tests = [
   ["service data", testServiceData],
   ["HTML entrypoints and JSON-LD", testHtmlEntrypoints],
   ["Vite inputs", testViteInputs],
+  ["portfolio destinations", testPortfolioDestinations],
   ["discovery files", testDiscoveryFiles],
-  ["navbar services menu", testNavbarServicesMenu],
-  ["navbar brand and current state", testNavbarBrandAndCurrentState],
+  ["info panel menu", testInfoPanelMenu],
+  ["navbar brand and view toggle", testNavbarBrandAndViewToggle],
   ["analytics event attributes", testAnalyticsEventAttributes],
+  ["contact privacy disclosure and server headers", testContactPrivacyDisclosureAndHeaders],
   ["commercial email destination", testCommercialEmailDestination],
   ["resources content", testResourcesContent],
-  ["mini cases section", testMiniCasesSection],
+  ["home stage", testHomeStage],
   ["portal access links", testPortalAccessLinks],
   ["about CV section", testAboutCvSection],
   ["UI refinements assets and contact", testUiRefinements],

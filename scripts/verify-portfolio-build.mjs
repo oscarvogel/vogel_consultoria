@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+const manifest=JSON.parse(await fs.readFile('public/projects/provenance.json','utf8'));let bytes=0;
+const extra=manifest.generatedCardArt||[];for(const image of extra){const data=await fs.readFile('public'+image.path);assert.equal(crypto.createHash('sha256').update(data).digest('hex'),image.sha256);bytes+=data.length;}
+for(const project of manifest.projects){assert.equal(project.status,'captured');for(const image of project.derived){const data=await fs.readFile('public'+image.path);assert.equal(crypto.createHash('sha256').update(data).digest('hex'),image.sha256);bytes+=data.length;}}
+for(const slug of ['estudio','proyectos/caso-forestal',...manifest.projects.map(p=>'proyectos/'+p.id)]){const html=await fs.readFile('dist/'+slug+'/index.html','utf8');assert(html.includes('https://vogelconsultoria.com.ar/'+slug+'/'));const response=await fetch((process.env.PORTFOLIO_TEST_URL||'http://127.0.0.1:5201')+'/'+slug+'/');assert.equal(response.status,200);assert((await response.text()).includes('src="/assets/'));}
+console.log(`ok - 10 direct build routes; ${manifest.projects.reduce((n,p)=>n+p.derived.length,0)} image SHA256 hashes; ${bytes} public WebP bytes`);

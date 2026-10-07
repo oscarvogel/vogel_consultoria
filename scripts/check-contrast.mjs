@@ -12,5 +12,15 @@ for(const [foreground,background] of [["navy","amber"],["white","blue"],["white"
  const ratio=contrast(channels[foreground],channels[background]);assert(ratio>=4.5,foreground+" / "+background+" below 4.5");rows.push({foreground,background,ratio:Number(ratio.toFixed(2))});
 }
 fs.mkdirSync(new URL("../docs/verificaciones/",import.meta.url),{recursive:true});
-fs.writeFileSync(new URL("../docs/verificaciones/contraste.json",import.meta.url),JSON.stringify({scope:"Tokens vigentes sobre superficies sólidas. No certifica contraste en cada frame del paisaje, imágenes ni fondos compuestos.",rows},null,2)+"\n");
+// Evidence file only: on Windows an editor or antivirus can hold it open for a moment; that must not fail the check.
+function writeEvidence(content){
+ const target=new URL("../docs/verificaciones/contraste.json",import.meta.url);
+ for(let attempt=1;attempt<=5;attempt++){
+  try{fs.writeFileSync(target,content);return;}catch(error){
+   if(attempt===5){console.warn("aviso: no se pudo escribir contraste.json ("+error.code+"); la verificación sí pasó");return;}
+   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)),0,0,250);
+  }
+ }
+}
+writeEvidence(JSON.stringify({scope:"Tokens vigentes sobre superficies sólidas. No certifica contraste en cada frame del paisaje, imágenes ni fondos compuestos.",rows},null,2)+"\n");
 console.log("ok - "+rows.length+" pares de tokens sobre superficies sólidas superan 4.5:1; paisaje y fondos compuestos fuera del cálculo estático");

@@ -6,11 +6,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(root, "public", "fonts");
 const families = [
   {
-    family: "Clash Display",
-    slug: "clash-display",
-    filename: "clash-display-variable.woff2",
-  },
-  {
     family: "Chillax",
     slug: "chillax",
     filename: "chillax-variable.woff2",

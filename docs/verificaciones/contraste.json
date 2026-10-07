@@ -4,77 +4,77 @@
     {
       "foreground": "white",
       "background": "navy",
-      "ratio": 19.95
+      "ratio": 16.05
     },
     {
       "foreground": "gray",
       "background": "navy",
-      "ratio": 15.8
+      "ratio": 16.05
     },
     {
       "foreground": "muted",
       "background": "navy",
-      "ratio": 9.72
+      "ratio": 7.37
     },
     {
       "foreground": "blueLight",
       "background": "navy",
-      "ratio": 10.95
+      "ratio": 12
     },
     {
       "foreground": "white",
       "background": "deep",
-      "ratio": 18.83
+      "ratio": 15.14
     },
     {
       "foreground": "gray",
       "background": "deep",
-      "ratio": 14.91
+      "ratio": 15.14
     },
     {
       "foreground": "muted",
       "background": "deep",
-      "ratio": 9.18
+      "ratio": 6.95
     },
     {
       "foreground": "blueLight",
       "background": "deep",
-      "ratio": 10.34
+      "ratio": 11.32
     },
     {
       "foreground": "white",
       "background": "slate",
-      "ratio": 17.72
+      "ratio": 13.48
     },
     {
       "foreground": "gray",
       "background": "slate",
-      "ratio": 14.03
+      "ratio": 13.48
     },
     {
       "foreground": "muted",
       "background": "slate",
-      "ratio": 8.63
+      "ratio": 6.19
     },
     {
       "foreground": "blueLight",
       "background": "slate",
-      "ratio": 9.73
+      "ratio": 10.08
     },
     {
       "foreground": "navy",
       "background": "amber",
-      "ratio": 11.95
+      "ratio": 10.91
     },
     {
       "foreground": "white",
       "background": "blue",
-      "ratio": 6.45
+      "ratio": 8.57
     },
     {
       "foreground": "white",
       "background": "bright",
-      "ratio": 5.03
+      "ratio": 5.62
     }
   ]
 }
