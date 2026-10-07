@@ -4,10 +4,11 @@ const ANALYTICS_BOUND_FLAG = "__vogelAnalyticsBound";
 const VIEWED_STEPS_FLAG = "__vogelAnalyticsViewedSteps";
 const CONSENT_STORAGE_KEY = "vogel_analytics_consent";
 const CONSENT_BANNER_ID = "vogel-consent-banner";
+const PRIVACY_BUTTON_ID = "vogel-privacy-settings";
 const CONSENT_GRANTED = {
-  ad_storage: "granted",
-  ad_user_data: "granted",
-  ad_personalization: "granted",
+  ad_storage: "denied",
+  ad_user_data: "denied",
+  ad_personalization: "denied",
   analytics_storage: "granted",
 };
 const CONSENT_DENIED = {
@@ -16,6 +17,7 @@ const CONSENT_DENIED = {
   ad_personalization: "denied",
   analytics_storage: "denied",
 };
+let consentInMemory = "";
 
 function getMeasurementId() {
   return import.meta.env.VITE_GA_MEASUREMENT_ID?.trim() || "";
@@ -41,10 +43,6 @@ function getLinkLabel(link) {
   );
 }
 
-function getFormLabel(form) {
-  return sanitizeText(form.getAttribute("aria-label") || form.id || form.name || "contact_form");
-}
-
 function getAnalyticsContext(element) {
   return {
     cta_name: sanitizeText(element.dataset.analyticsCta),
@@ -58,13 +56,20 @@ function getAnalyticsContext(element) {
 
 function getStoredConsent() {
   try {
-    return window.localStorage.getItem(CONSENT_STORAGE_KEY);
+    const storedConsent = window.localStorage.getItem(CONSENT_STORAGE_KEY);
+    if (storedConsent === "granted" || storedConsent === "denied") {
+      return storedConsent;
+    }
   } catch {
-    return "";
+    // Keep the current page's choice if browser storage is unavailable.
   }
+
+  return consentInMemory;
 }
 
 function storeConsent(value) {
+  consentInMemory = value;
+
   try {
     window.localStorage.setItem(CONSENT_STORAGE_KEY, value);
   } catch {
@@ -77,21 +82,31 @@ function getConsentState() {
 }
 
 function updateConsent(value) {
+  const measurementId = getMeasurementId();
+  const hasGrantedConsent = value === "granted";
   const consentState = value === "granted" ? CONSENT_GRANTED : CONSENT_DENIED;
 
-  storeConsent(value);
-  window.gtag("consent", "update", consentState);
+  storeConsent(hasGrantedConsent ? "granted" : "denied");
 
-  const banner = document.getElementById(CONSENT_BANNER_ID);
-  banner?.remove();
+  if (measurementId) {
+    window[`ga-disable-${measurementId}`] = !hasGrantedConsent;
+  }
+
+  if (hasGrantedConsent && measurementId) {
+    ensureGtag(measurementId);
+  } else if (typeof window.gtag === "function") {
+    window.gtag("consent", "update", consentState);
+  }
+
+  closeConsentBanner({ restoreFocus: true });
 }
 
 function createConsentButton(label, value, primary = false) {
   const button = document.createElement("button");
   button.type = "button";
   button.textContent = label;
-  button.style.border = primary ? "1px solid var(--color-action)" : "1px solid rgba(229,231,235,.35)";
-  button.style.borderRadius = "8px";
+  button.style.border = primary ? "1px solid var(--color-action)" : "1px solid var(--color-border)";
+  button.style.borderRadius = "6px";
   button.style.background = primary ? "var(--color-action)" : "transparent";
   button.style.color = primary ? "var(--color-action-text)" : "var(--color-text)";
   button.style.font = "600 13px/1.2 'Chillax', Arial, sans-serif";
@@ -102,35 +117,59 @@ function createConsentButton(label, value, primary = false) {
   return button;
 }
 
-function renderConsentBanner() {
-  if (getStoredConsent() || document.getElementById(CONSENT_BANNER_ID) || !document.body) {
+function closeConsentBanner({ restoreFocus = false } = {}) {
+  document.getElementById(CONSENT_BANNER_ID)?.remove();
+  const settingsButton = document.getElementById(PRIVACY_BUTTON_ID);
+  settingsButton?.setAttribute("aria-expanded", "false");
+
+  if (restoreFocus) {
+    settingsButton?.focus({ preventScroll: true });
+  }
+}
+
+function renderConsentBanner({ focus = false } = {}) {
+  const existingBanner = document.getElementById(CONSENT_BANNER_ID);
+
+  if (existingBanner) {
+    if (focus) existingBanner.querySelector("button")?.focus({ preventScroll: true });
     return;
   }
 
-  const banner = document.createElement("div");
+  if (!document.body) return;
+
+  const banner = document.createElement("section");
   banner.id = CONSENT_BANNER_ID;
-  banner.setAttribute("role", "dialog");
-  banner.setAttribute("aria-label", "Preferencias de medicion");
+  banner.setAttribute("role", "region");
+  banner.setAttribute("aria-labelledby", "vogel-consent-title");
+  banner.setAttribute("aria-describedby", "vogel-consent-description");
   banner.style.position = "fixed";
   banner.style.left = "16px";
   banner.style.right = "16px";
-  banner.style.bottom = "16px";
-  banner.style.zIndex = "9999";
+  banner.style.bottom = window.innerWidth < 720 ? "max(68px, calc(56px + env(safe-area-inset-bottom)))" : "16px";
+  banner.style.zIndex = "80";
   banner.style.display = "grid";
   banner.style.gap = "12px";
-  banner.style.maxWidth = "620px";
+  banner.style.maxWidth = "560px";
   banner.style.margin = "0 auto";
   banner.style.padding = "16px";
-  banner.style.border = "1px solid rgba(229,231,235,.22)";
-  banner.style.borderRadius = "18px";
+  banner.style.border = "1px solid var(--color-border)";
+  banner.style.borderRadius = "10px";
   banner.style.background = "var(--color-panel)";
   banner.style.boxShadow = "0 18px 50px rgba(0,0,0,.35)";
   banner.style.color = "var(--color-text)";
   banner.style.font = "400 14px/1.5 'Chillax', Arial, sans-serif";
 
+  const title = document.createElement("h2");
+  title.id = "vogel-consent-title";
+  title.textContent = "Privacidad y medición";
+  title.tabIndex = -1;
+  title.style.margin = "0";
+  title.style.font = "600 16px/1.3 'Chillax', Arial, sans-serif";
+
   const text = document.createElement("p");
+  text.id = "vogel-consent-description";
   text.textContent =
-    "Usamos Google Analytics para medir visitas y mejorar el sitio. Podemos guardar cookies de medicion y publicidad solo si aceptas.";
+    "Google Analytics es opcional y mide visitas para ayudarnos a evaluar el sitio. No se carga hasta que aceptes; solo habilitamos analítica, sin personalización publicitaria. Podés cambiar tu elección desde Privacidad.";
   text.style.margin = "0";
 
   const actions = document.createElement("div");
@@ -138,12 +177,55 @@ function renderConsentBanner() {
   actions.style.flexWrap = "wrap";
   actions.style.gap = "10px";
   actions.append(
-    createConsentButton("Aceptar medicion", "granted", true),
-    createConsentButton("Solo necesario", "denied"),
+    createConsentButton("Aceptar analítica", "granted", true),
+    createConsentButton("Rechazar opcional", "denied"),
   );
 
-  banner.append(text, actions);
+  banner.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeConsentBanner({ restoreFocus: true });
+    }
+  });
+
+  banner.append(title, text, actions);
   document.body.appendChild(banner);
+  document.getElementById(PRIVACY_BUTTON_ID)?.setAttribute("aria-expanded", "true");
+
+  if (focus) {
+    banner.querySelector("button")?.focus({ preventScroll: true });
+  }
+}
+
+function renderPrivacySettingsButton() {
+  if (!document.body || document.getElementById(PRIVACY_BUTTON_ID)) return;
+
+  const button = document.createElement("button");
+  button.id = PRIVACY_BUTTON_ID;
+  button.type = "button";
+  button.textContent = "Privacidad";
+  button.setAttribute("aria-label", "Abrir preferencias de privacidad y analítica");
+  button.setAttribute("aria-expanded", "false");
+  button.style.position = "fixed";
+  button.style.left = "max(12px, env(safe-area-inset-left))";
+  button.style.bottom = "max(12px, env(safe-area-inset-bottom))";
+  button.style.zIndex = "40";
+  button.style.minHeight = "44px";
+  button.style.padding = "0 12px";
+  button.style.border = "1px solid var(--color-border)";
+  button.style.borderRadius = "6px";
+  button.style.background = "var(--color-panel, #262523)";
+  button.style.color = "var(--color-text, #F3F1E2)";
+  button.style.font = "500 12px/1.2 'Chillax', Arial, sans-serif";
+  button.style.cursor = "pointer";
+  button.addEventListener("click", () => {
+    if (document.getElementById(CONSENT_BANNER_ID)) {
+      closeConsentBanner();
+      return;
+    }
+
+    renderConsentBanner({ focus: true });
+  });
+  document.body.appendChild(button);
 }
 
 function getDestination(target) {
@@ -204,6 +286,7 @@ function isContactIntentLink(href) {
 }
 
 function ensureGtag(measurementId) {
+  window[`ga-disable-${measurementId}`] = false;
   window.dataLayer = window.dataLayer || [];
 
   if (typeof window.gtag !== "function") {
@@ -212,10 +295,9 @@ function ensureGtag(measurementId) {
     };
   }
 
-  window.gtag("consent", "default", {
-    ...getConsentState(),
-    wait_for_update: 500,
-  });
+  const consentState = getConsentState();
+  window.gtag("consent", "default", consentState);
+  window.gtag("consent", "update", consentState);
 
   if (window[ANALYTICS_READY_FLAG]) {
     return;
@@ -235,6 +317,8 @@ function ensureGtag(measurementId) {
   window.gtag("config", measurementId, {
     page_path: window.location.pathname,
     page_title: document.title,
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
   });
 
   window[ANALYTICS_READY_FLAG] = true;
@@ -243,7 +327,12 @@ function ensureGtag(measurementId) {
 export function trackEvent(eventName, params = {}) {
   const measurementId = getMeasurementId();
 
-  if (!measurementId || typeof window === "undefined" || typeof window.gtag !== "function") {
+  if (
+    !measurementId ||
+    typeof window === "undefined" ||
+    getStoredConsent() !== "granted" ||
+    typeof window.gtag !== "function"
+  ) {
     return;
   }
 
@@ -311,27 +400,6 @@ function bindContactTracking() {
     }
   });
 
-  document.addEventListener("submit", (event) => {
-    const form = event.target;
-
-    if (!(form instanceof HTMLFormElement)) {
-      return;
-    }
-
-    const action = form.getAttribute("action")?.trim() || "";
-    const isTrackedForm =
-      action.includes("formsubmit.co") || action.includes("web3forms.com") || form.dataset.analyticsCta;
-
-    if (!isTrackedForm) {
-      return;
-    }
-
-    trackEvent("contact_form_submit", {
-      ...getBaseParams(form),
-      form_name: getFormLabel(form),
-    });
-  });
-
   const viewedSteps = (window[VIEWED_STEPS_FLAG] = window[VIEWED_STEPS_FLAG] || new Set());
   const observedViews = document.querySelectorAll("[data-analytics-view]");
 
@@ -375,7 +443,17 @@ export function initAnalytics() {
     return;
   }
 
-  ensureGtag(measurementId);
   bindContactTracking();
-  renderConsentBanner();
+
+  renderPrivacySettingsButton();
+
+  if (getStoredConsent() === "granted") {
+    ensureGtag(measurementId);
+  } else {
+    window[`ga-disable-${measurementId}`] = true;
+    if (typeof window.gtag === "function") {
+      window.gtag("consent", "update", CONSENT_DENIED);
+    }
+    renderConsentBanner();
+  }
 }
