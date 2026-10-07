@@ -1,17 +1,22 @@
-/* Shared reference-led treatment for the complete institutional site. */
+/* Lenguaje Core-A para las páginas interiores: carbón, crema, titulares extendidos y ámbar solo como acento. */
 .service-page,.ia-page,.resources-page,.resource-article,.survey-page{background:var(--color-background)}
-.service-page main,.ia-page main,.resources-page main,.resource-article main{padding-top:96px}
-.service-page h1,.ia-page h1,.resources-page h1,.resource-article h1,.survey-page h1{font-weight:450!important;letter-spacing:-.035em;line-height:1.12}
-.service-page h2,.ia-page h2,.resources-page h2,.resource-article h2,.survey-page h2{font-weight:500!important}
+.service-page main,.ia-page main,.resources-page main,.resource-article main{padding-top:88px}
+.service-page section,.ia-page section{padding-block:clamp(56px,7vw,104px)}
+.service-page [class*="uppercase"][class*="tracking-"],.ia-page [class*="uppercase"][class*="tracking-"]{color:var(--color-link);letter-spacing:.12em}
+.service-page [class*="backdrop-blur"],.ia-page [class*="backdrop-blur"]{backdrop-filter:none}
 .service-page main>section:first-child,.ia-page main>section:first-child,.resources-page main>section:first-child,.resource-article main>article>header,.survey-page main>section:first-child{background:var(--color-background)}
+.service-page h1,.ia-page h1,.resources-page h1,.resource-article h1,.survey-page h1{font-size:clamp(1.9rem,3.9vw,3.5rem)!important;line-height:1!important;letter-spacing:-.045em}
+.service-page h2,.ia-page h2,.resources-page h2,.resource-article h2,.survey-page h2{font-size:clamp(1.5rem,2.8vw,2.5rem);line-height:1.02!important}
+.service-page article,.ia-page article,.resources-page article,.resource-article article{transition:transform 220ms var(--ease-story),border-color 220ms ease-out,background-color 220ms ease-out}
 .service-page .chapter-layout{display:block;margin-top:48px}
 .service-page .chapter-step{min-height:0;height:auto;padding:32px 0;border-top:1px solid var(--color-border)}
 .service-page .chapter-copy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
 .service-page .chapter-step-index{display:none}
 .service-page .chapter-mobile-art,.service-page .chapter-visual{display:none}
-.service-page .chapter-step h3{font-size:26px;font-weight:450}
+.service-page .chapter-step h3{font-size:22px}
 .service-page .chapter-step p,.service-page .chapter-detail-list{color:var(--color-muted);line-height:1.8;font-size:16px}
 .resource-article article>div{max-width:1180px}
 .resources-page article{background:var(--color-panel)}
 .survey-page .bg-white h2,.survey-page .bg-white p{color:inherit}
-@media(max-width:767px){.service-page .chapter-copy{grid-template-columns:1fr;gap:0}.service-page main,.ia-page main,.resources-page main,.resource-article main{padding-top:80px}}
+@media(max-width:767px){.service-page .chapter-copy{grid-template-columns:1fr;gap:0}.service-page main,.ia-page main,.resources-page main,.resource-article main{padding-top:76px}}
+@media (prefers-reduced-motion:reduce){.service-page article,.ia-page article,.resources-page article,.resource-article article{transition:none}}

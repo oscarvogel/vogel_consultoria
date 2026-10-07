@@ -1,0 +1,146 @@
+{
+  "an-asociados": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "indufor": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "forestal-paraguay": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "forestal-garuhape": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "servin-lgsm": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "h21": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "amitrac": {
+    "desktop": {
+      "width": 1425,
+      "height": 2600
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 375,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "municipalidad-garuhape": {
+    "desktop": {
+      "width": 1440,
+      "height": 2577
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
+    },
+    "mobile": {
+      "width": 390,
+      "height": 2200
+    },
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  }
+}

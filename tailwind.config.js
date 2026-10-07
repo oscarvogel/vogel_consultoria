@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Clash Display", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Archivo Variable", "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["Chillax", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {

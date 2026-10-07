@@ -1,6 +1,6 @@
 <template>
+  <aside v-show="!contactVisible" aria-label="Contacto por WhatsApp">
   <a
-    v-show="!contactVisible"
     :href="waLink"
     target="_blank"
     rel="noopener noreferrer"
@@ -17,6 +17,7 @@
     </svg>
     <span class="hidden sm:inline">Hablar por WhatsApp</span>
   </a>
+  </aside>
 </template>
 
 <script setup>

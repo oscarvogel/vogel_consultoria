@@ -1,9 +1,14 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import react from "@vitejs/plugin-react";
+import Components from "unplugin-vue-components/vite";
+import { PrimeVueResolver } from "@primevue/auto-import-resolver";
 
 export default defineConfig({
-  plugins: [vue(), react()],
+  plugins: [
+    vue(),
+    // Auto-importa componentes PrimeVue al usarlos en plantillas; sin uso no añade nada al bundle.
+    Components({ dts: false, resolvers: [PrimeVueResolver()] }),
+  ],
   resolve: {
     preserveSymlinks: true,
   },
@@ -26,6 +31,19 @@ export default defineConfig({
       },
       input: {
         main: "index.html",
+        portfolio0: "info/index.html",
+        portfolioSolutions: "soluciones/index.html",
+        portfolioStudio: "estudio/index.html",
+        portfolioContact: "contacto/index.html",
+        portfolio1: "proyectos/caso-forestal/index.html",
+        portfolio2: "proyectos/an-asociados/index.html",
+        portfolio3: "proyectos/indufor/index.html",
+        portfolio4: "proyectos/forestal-paraguay/index.html",
+        portfolio5: "proyectos/forestal-garuhape/index.html",
+        portfolio6: "proyectos/servin-lgsm/index.html",
+        portfolio7: "proyectos/h21/index.html",
+        portfolio8: "proyectos/amitrac/index.html",
+        portfolio9: "proyectos/municipalidad-garuhape/index.html",
         iaLegacy: "ia.html",
         inteligenciaArtificial: "inteligencia-artificial/index.html",
         encuestaContadores: "encuesta-contadores/index.html",

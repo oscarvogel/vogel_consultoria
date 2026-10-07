@@ -1,0 +1,38 @@
+{
+  "an-asociados": {
+    "name": "AN Asociados",
+    "summary": "Consultora de higiene, seguridad laboral, medio ambiente y sistemas de gestión integrados para empresas de Argentina y Paraguay. Su sitio reúne servicios, clientes, equipo, proyectos y un blog."
+  },
+  "indufor": {
+    "name": "Indufor",
+    "summary": "Empresa de cosecha y transporte forestal sostenible con sede en Misiones. Su sitio presenta tres servicios: cosecha sostenible, transporte y gestión de residuos forestales."
+  },
+  "forestal-paraguay": {
+    "name": "Forestal Paraguay",
+    "summary": "Empresa de servicios forestales integrales para el sector forestal de Paraguay. Su sitio detalla servicios como trozado de madera, chips de biomasa, mantenimiento de caminos, transporte y descarga."
+  },
+  "forestal-garuhape": {
+    "name": "Forestal Garuhapé",
+    "summary": "Grupo de empresas dedicado a la consultoría y a los servicios forestales mecanizados en Argentina y Paraguay. Su sitio presenta cosecha, transporte, biomasa, playas de acopio, caminos forestales y consultoría."
+  },
+  "servin-lgsm": {
+    "name": "Servin LGSM",
+    "summary": "Estudio digital de Puerto Rico, Misiones, enfocado en diseño y desarrollo para empresas. Su sitio presenta sitios corporativos, software a medida, comercio electrónico e infraestructura y soporte."
+  },
+  "h21": {
+    "name": "H21",
+    "summary": "Empresa de fabricación e instalación de pisos industriales de hormigón para depósitos, plantas logísticas y comercios. Su sitio presenta pisos allanados y pulidos, el proceso de trabajo y obras realizadas."
+  },
+  "amitrac": {
+    "name": "Amitrac",
+    "summary": "Asociación que representa y acompaña al transporte automotor de cargas en Misiones. Su sitio reúne historia, misión, asociados, un blog con novedades del sector y vías de contacto."
+  },
+  "municipalidad-garuhape": {
+    "name": "Municipalidad de Garuhapé",
+    "summary": "Sitio institucional de la Municipalidad de Garuhapé, Misiones. Presenta autoridades, turismo, historia y las áreas municipales."
+  },
+  "caso-forestal": {
+    "name": "Sistema Registro de Producción",
+    "summary": "Sistema de registro de producción anónimo: del registro de producción en campo a un dashboard operativo. Interfaz real con datos de demostración; las cifras no representan resultados de un cliente."
+  }
+}

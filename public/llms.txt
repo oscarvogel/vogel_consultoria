@@ -5,6 +5,9 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 ## Sitio
 
 - Home: https://vogelconsultoria.com.ar/
+- Soluciones: https://vogelconsultoria.com.ar/soluciones/
+- Estudio: https://vogelconsultoria.com.ar/estudio/
+- Contacto: https://vogelconsultoria.com.ar/contacto/
 - Inteligencia artificial para empresas: https://vogelconsultoria.com.ar/inteligencia-artificial/
 - Sistemas a medida: https://vogelconsultoria.com.ar/sistemas-a-medida/
 - Dashboards ejecutivos: https://vogelconsultoria.com.ar/dashboards-ejecutivos/

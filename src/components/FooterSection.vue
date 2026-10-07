@@ -1,57 +1,26 @@
 <template>
-  <footer class="border-t border-vogel-gray/10 py-10" role="contentinfo" aria-label="Pie de página">
-    <div class="section-shell grid gap-6 text-sm text-vogel-gray sm:grid-cols-2 lg:grid-cols-4">
-      <div>
-        <h3 class="font-semibold text-white">Vogel Consultoría</h3>
-        <p class="mt-2">Tecnología con criterio de negocio</p>
-      </div>
-      <address class="not-italic">
-        <p>Email: <a href="mailto:oscar@vogelconsultoria.com.ar" class="hover:text-white" data-analytics-cta="footer_email" data-analytics-funnel="lead_journey" data-analytics-step="contact">oscar@vogelconsultoria.com.ar</a></p>
-        <p class="mt-1">WhatsApp: <a href="https://wa.me/543743667526" class="hover:text-white" data-analytics-cta="footer_whatsapp" data-analytics-funnel="lead_journey" data-analytics-step="contact">+54 3743 66-7526</a></p>
-        <p class="mt-1">Argentina</p>
+  <footer class="site-footer" role="contentinfo" aria-label="Pie de página">
+    <div class="footer-row">
+      <p class="footer-brand">Vogel Consultoría <span>Tecnología con criterio de negocio</span></p>
+      <address class="footer-contact">
+        <a href="mailto:oscar@vogelconsultoria.com.ar" data-analytics-cta="footer_email" data-analytics-funnel="lead_journey" data-analytics-step="contact">oscar@vogelconsultoria.com.ar</a>
+        <a href="https://wa.me/543743667526" data-analytics-cta="footer_whatsapp" data-analytics-funnel="lead_journey" data-analytics-step="contact">+54 3743 66-7526</a>
       </address>
-      <div>
-        <h3 class="font-semibold text-white">Links rápidos</h3>
-        <div class="mt-2 flex flex-wrap gap-4">
-          <a href="/#inicio" class="hover:text-white">Inicio</a>
-          <a href="/#servicios" class="hover:text-white">Servicios</a>
-          <a href="/recursos/" class="hover:text-white" data-analytics-cta="footer_resources" data-analytics-funnel="content_discovery" data-analytics-step="footer">Recursos</a>
-          <a href="/#soluciones" class="hover:text-white">Soluciones</a>
-          <a href="/#nosotros" class="hover:text-white">Nosotros</a>
-          <a href="/#contacto" class="hover:text-white" data-analytics-cta="footer_contact_link" data-analytics-funnel="lead_journey" data-analytics-step="contact">Contacto</a>
-        </div>
-      </div>
-      <div>
-        <h3 class="font-semibold text-white">Redes</h3>
-        <div class="mt-3 flex flex-wrap gap-3">
-          <a
-            href="https://www.instagram.com/vogelconsultoria.ar/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-vogel-gray/15 bg-white/[0.04] px-3 py-2 font-semibold text-vogel-gray transition hover:border-vogel-amber/60 hover:bg-vogel-amber/10 hover:text-white"
-            aria-label="Instagram de Vogel Consultoría"
-            data-analytics-cta="footer_instagram"
-            data-analytics-funnel="social_follow"
-            data-analytics-step="footer"
-          >
-            <span class="flex h-6 w-6 items-center justify-center rounded-full border border-vogel-amber/45 text-xs font-bold text-vogel-amber" aria-hidden="true">IG</span>
-            Instagram
-          </a>
-          <a
-            href="https://www.linkedin.com/company/123134273/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-vogel-gray/15 bg-white/[0.04] px-3 py-2 font-semibold text-vogel-gray transition hover:border-vogel-blueLight/60 hover:bg-vogel-blue/15 hover:text-white"
-            aria-label="LinkedIn de Vogel Consultoría"
-            data-analytics-cta="footer_linkedin"
-            data-analytics-funnel="social_follow"
-            data-analytics-step="footer"
-          >
-            <span class="flex h-6 w-6 items-center justify-center rounded-full border border-vogel-blueLight/45 text-xs font-bold text-vogel-blueLight" aria-hidden="true">in</span>
-            LinkedIn
-          </a>
-        </div>
-      </div>
+      <nav class="footer-links" aria-label="Enlaces del sitio">
+        <a href="/">Inicio</a>
+        <a href="/recursos/" data-analytics-cta="footer_resources" data-analytics-funnel="content_discovery" data-analytics-step="footer">Recursos</a>
+        <a href="/#contacto" data-analytics-cta="footer_contact_link" data-analytics-funnel="lead_journey" data-analytics-step="contact">Contacto</a>
+        <a href="https://www.instagram.com/vogelconsultoria.ar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Vogel Consultoría" data-analytics-cta="footer_instagram" data-analytics-funnel="social_follow" data-analytics-step="footer">Instagram</a>
+        <a href="https://www.linkedin.com/company/123134273/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Vogel Consultoría" data-analytics-cta="footer_linkedin" data-analytics-funnel="social_follow" data-analytics-step="footer">LinkedIn</a>
+      </nav>
     </div>
   </footer>
 </template>
+<style scoped>
+.site-footer{border-top:1px solid var(--color-border);padding:40px max(20px,2vw);font-size:14px;color:var(--color-muted)}
+.footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px;max-width:1520px;margin:auto}
+.footer-brand{margin:0;font-weight:600;color:var(--color-heading)}.footer-brand span{display:block;margin-top:4px;font-weight:400;color:var(--color-muted)}
+.footer-contact{display:grid;gap:4px;font-style:normal}
+.footer-links{display:flex;flex-wrap:wrap;gap:6px 22px}
+.site-footer a{display:inline-flex;min-height:32px;align-items:center;transition:color 160ms}.site-footer a:hover,.site-footer a:focus-visible{color:rgb(var(--vogel-amber))}
+</style>

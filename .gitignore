@@ -28,3 +28,11 @@ docs/heygen/auditoria-futuro-local/
 
 # Development-only visual review artifacts.
 .impeccable/review/
+
+# Licencia comercial pendiente: la fuente Ventura es de uso personal y no debe entrar al repositorio.
+src/assets/font/ventura/
+src/assets/font/ventura.zip
+# Fuentes originales (PNG generados) de las tarjetas: se conservan localmente; en el repositorio van sus WebP derivadas (scripts/derive-card-art.mjs).
+src/assets/*-card.png
+src/assets/H21-card.png
+src/assets/forestal-garuhap-sistema.png

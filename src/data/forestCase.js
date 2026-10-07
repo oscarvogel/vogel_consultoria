@@ -11,11 +11,11 @@ export const forestCase = Object.freeze({
   title:'Del registro en campo a la decisión operativa.',
   titleLines:Object.freeze(['Del registro en campo','a la decisión operativa.']),
   intro:'Un caso real de digitalización operativa.',
-  context:'Caso forestal anónimo.',
+  context:'Sistema de registro de producción anónimo.',
   disclaimer:'Interfaz real · datos de demostración',
   caveat:'Las cifras no representan resultados de un cliente.',
   // Single discreet note for the spatial sequence (legacy MiniCases keeps its own layout).
-  footnote:'Caso forestal anónimo · interfaz real con datos de demostración.',
+  footnote:'Sistema de registro de producción anónimo · interfaz real con datos de demostración.',
   service:'/dashboards-ejecutivos/',
   steps:Object.freeze([
     {id:'registrar',label:'Registrar',title:'Registrar donde ocurre el trabajo.',text:'Equipo, proceso, tiempos y producción reunidos en un registro de campo.',image:field,displayImage:fieldWebp,width:390,height:901,alt:'Formulario de producción forestal con datos de demostración.',cropTop:190,cropHeight:537,tallCropTop:0,tallCropHeight:780},
