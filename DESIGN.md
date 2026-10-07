@@ -1,275 +1,152 @@
 ---
 name: Vogel Consultoría
-description: Consultoría tecnológica sobre un paisaje de datos.
+description: Portfolio de estudio con trabajo real y superficies cálidas.
 colors:
-  deep: "rgb(10 18 27)"
-  navy: "rgb(5 9 15)"
-  slate: "rgb(16 25 35)"
-  blue: "rgb(30 95 168)"
-  bright: "rgb(25 110 207)"
-  blue-light: "rgb(139 197 255)"
-  amber: "rgb(255 188 84)"
-  gray: "rgb(226 229 234)"
-  muted: "rgb(172 182 195)"
-  white: "rgb(255 255 255)"
-  border: "rgb(226 229 234 / .18)"
+  charcoal: "#161515"
+  deep: "#1C1B1A"
+  slate: "#262523"
+  warm-panel: "#3b3933"
+  cream: "#F3F1E2"
+  muted: "#A8A596"
+  amber: "#FFBC54"
+  border: "rgb(243 241 226 / .16)"
   error: "#fecaca"
 typography:
   display:
-    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
-    fontSize: "clamp(44px, 3.65vw, 60px)"
-    fontWeight: 450
-    lineHeight: 1.04
-    letterSpacing: "-.04em"
+    fontFamily: "Archivo Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(32px, 3.4vw, 48px)"
+    fontWeight: 800
+    fontVariation: "'wdth' 125"
+    lineHeight: 0.92
+    letterSpacing: "-.03em"
   headline:
-    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
-    fontSize: "clamp(32px, 3.6vw, 50px)"
-    fontWeight: 450
-    lineHeight: 1.13
-    letterSpacing: "-.035em"
-  title:
-    fontFamily: "Clash Display, ui-sans-serif, sans-serif"
-    fontSize: "30px"
-    fontWeight: 450
+    fontFamily: "Archivo Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(25px, 3vw, 48px)"
+    fontWeight: 800
+    lineHeight: 1.08
+  reader-title:
+    fontFamily: "Archivo Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(36px, 5vw, 80px)"
+    fontWeight: 800
+    lineHeight: 1
   body:
-    fontFamily: "Chillax, ui-sans-serif, sans-serif"
+    fontFamily: "Chillax, ui-sans-serif, system-ui, sans-serif"
     fontSize: "16px"
+    fontWeight: 400
     lineHeight: 1.7
-  button:
-    fontFamily: "Chillax, ui-sans-serif, sans-serif"
-    fontSize: ".9375rem"
-    fontWeight: 600
-    lineHeight: 1.4
   label:
-    fontFamily: "Chillax, ui-sans-serif, sans-serif"
+    fontFamily: "Chillax, ui-sans-serif, system-ui, sans-serif"
     fontSize: "13px"
+    fontWeight: 500
+    lineHeight: 1.45
 rounded:
+  rail-control: "4px"
   control: "8px"
-  hero-control: "9px"
-  tag: "10px"
-  contact: "12px"
-  panel: "16px"
-  frame: "20px"
+  portfolio-panel: "12px"
+  interior-panel: "16px"
+  interior-frame: "20px"
 spacing:
-  inset-mobile: "20px"
-  inset-tablet: "32px"
-  inset-desktop: "40px"
-  section: "clamp(72px, 8vw, 124px)"
-  section-mobile: "64px"
+  compact: "8px"
+  control: "16px"
+  gallery-gap: "20px"
+  edge: "24px"
+  panel: "32px"
 components:
   button-primary:
-    backgroundColor: "linear-gradient(110deg,#ffc869,#f5b34c)"
-    textColor: "#080d14"
-    typography: "{typography.button}"
+    backgroundColor: "{colors.amber}"
+    textColor: "{colors.charcoal}"
     rounded: "{rounded.control}"
-    padding: "14px 23px"
+    padding: "0 22px"
+    height: "48px"
   button-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.gray}"
-    typography: "{typography.button}"
-    rounded: "{rounded.control}"
-    padding: "14px 23px"
-  contact-panel:
     backgroundColor: "{colors.slate}"
-    textColor: "{colors.gray}"
-    rounded: "{rounded.contact}"
-    padding: "32px"
-  terrain-label:
-    backgroundColor: "rgb(8 12 18 / .62)"
-    textColor: "#f5f5f5"
-    typography: "{typography.label}"
-    rounded: "{rounded.tag}"
-    padding: "10px 15px"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.control}"
+    height: "44px"
+  portfolio-card:
+    backgroundColor: "{colors.slate}"
+    textColor: "{colors.cream}"
+    rounded: "{rounded.portfolio-panel}"
 ---
 
 # Design System: Vogel Consultoría
 
 ## Overview
 
-**Creative North Star: "Paisaje de datos"**
+**Creative North Star: "Portfolio de estudio"**
 
-El paisaje de datos combina una base casi negra azul, luz ámbar y titulares Clash Display con lectura/UI Chillax. La identidad aprobada el 2026-10-04 sigue la referencia visual entregada por el usuario: V ámbar vectorial, cabecera abierta y lectura centrada. El archivo original se conserva fuera de Git. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.
-
-La decisión explícita de reemplazo visual actualiza la marca anterior. El posicionamiento premium para empresas argentinas y la voz clara, precisa y cercana siguen siendo compromisos de PRODUCT.md y del manual. El baseline anterior permanece en `docs/history/paisaje-datos-2026-10-04/`.
+La identidad coloca evidencia real en primer plano: imágenes amplias, titulares extendidos, navegación legible y superficies cálidas. La V oficial identifica una consultoría premium que explica tecnología con precisión y cercanía práctica.
 
 **Key Characteristics:**
-
-- V ámbar vectorial como identificador oficial.
-- Clash Display en titulares y Chillax en cuerpo/UI.
-- Fondo casi negro azul y ámbar como acento principal.
-- Flujo natural, divisiones finas y espacios amplios.
-- Capturas operativas reales identificadas como demostración.
-- Paisaje decorativo progresivo con alternativa estática.
-
-Especificación extraída el 2026-10-04 de tokens, estilos y componentes implementados. Fuente normativa de valores: `src/styles/tokens.css`; composición: `src/styles/home.css`, `src/styles/institutional.css` y `Navbar.vue`. Las ilustraciones azules existentes de algunas interiores continúan como assets conceptuales: la convergencia de tipografía, superficies y controles no implica reemplazo total de imágenes.
+- V ámbar oficial y una sola voz tipográfica.
+- Carbón dominante, crema de lectura y ámbar reservado a acción y foco.
+- Capturas originales a color, con procedencia y estados honestos.
+- Continuidad entre galería, Info y lectores de proyecto.
 
 ## Colors
 
 ### Primary
-
-ámbar cálido para acciones, enlaces, selección, foco y puntos luminosos del paisaje. El CTA principal usa un gradiente cálido localizado.
-
-### Secondary
-
-Azules institucionales heredados para gráficos e ilustraciones conceptuales. No desplazan al ámbar como acción principal ni definen una segunda identidad de UI.
+- **Ámbar Vogel:** acciones, foco y señales de navegación; su uso es selectivo.
 
 ### Neutral
+- **Carbón:** escenario y navegación.
+- **Deep y Slate:** superficies compartidas e interiores.
+- **Warm panel:** panel destacado de Info y controles del rail.
+- **Crema:** lectura sobre carbón y fondo de lectores de proyecto.
+- **Muted:** metadatos secundarios. Border separa superficies; error identifica errores de formulario y no es un acento decorativo.
 
-Navy casi negro como fondo, deep como superficie y slate como panel. Blanco para titulares, gris para lectura, muted para notas y un borde translúcido para divisiones. Error conserva su función semántica independiente.
-
-**The Foco ámbar Rule.** El ámbar identifica acciones, foco y puntos de datos; el fondo oscuro conserva el predominio compositivo.
-
-El frontmatter conserva los canales RGB compartidos por CSS y Tailwind. Los alias semánticos de fondo, panel, texto, acción y foco proceden de esos canales.
+**The Foco ámbar Rule.** El ámbar identifica acciones y foco; las capturas conservan sus colores originales.
 
 ## Typography
 
-Clash Display y Chillax se sirven como WOFF2 desde el dominio de Vogel. El script `scripts/ensure-fontshare-fonts.mjs` obtiene los archivos oficiales desde Fontshare antes de `npm run dev` y `npm run build`; sus binarios permanecen fuera del repositorio público según la ITF Free Font License. Las dos familias usan `font-display: swap` y fallback ui-sans-serif/system-ui/sans-serif. Clash Display ocupa el rol display; Chillax, lectura y UI.
+Archivo Variable define titulares en mayúsculas, ancho expandido (125%) y peso 800. Chillax sostiene cuerpo, controles y palabra de marca. La escala normativa figura en el frontmatter: títulos de galería hasta 48px, Info hasta 48px y lector hasta 80px; el lector móvil usa 34px. La grilla ajusta títulos al contenedor y la galería móvil usa 26–38px. Los interiores conservan su jerarquía responsive. Inputs de al menos 16px.
 
-El hero usa la escala display del frontmatter; por debajo de 768px cambia a `clamp(36px,9.7vw,52px)`, interlineado 1.12. Los titulares de sección pasan a 34px en móvil. Las capacidades usan 30px y 27px en móvil; cuerpo 16px, descripción de sección 18px y 16px en móvil. Inputs conservan al menos 16px. Metadata de paisaje usa 13px y 11px en móvil. Clash Display usa pesos 450–600; Chillax usa 400 para lectura, 500 para UI y 600 para acciones.
-
-**The Voz Única Rule.** Usar Clash Display en titulares y Chillax en lectura/UI; construir jerarquía con escala, espaciado y pesos moderados.
+**The Voz Única Rule.** Usar Archivo Variable en titulares y Chillax en lectura/UI.
 
 ## Layout
 
-Contenedor principal hasta 1280px, centrado con insets del frontmatter. La cabecera ocupa el 90% hasta 1520px; bajo 1024px muestra menú móvil y bajo 640px retira el CTA de la fila superior. La portada presenta título centrado «Convertimos procesos en información útil», paisaje inferior y enlaces contextuales. En móvil las etiquetas se distribuyen en una fila flexible en flujo después del CTA.
+Home reserva un rail proporcional (34.4vw) a la izquierda. Las panorámicas se centran verticalmente y alcanzan 1072×603px con proporción 16:9, separadas por 20px. La grilla usa tarjetas 4:5, separación de 24px y tres columnas, dos entre 768 y 1100px y una hasta 767px. En 390×844px la tarjeta mide 342×608px y el menú independiente tiene área mínima de 44px.
 
-Las secciones usan flujo nativo. Capacidades en dos columnas y una en móvil; capturas forestales en tres columnas y una en móvil; método en cuatro columnas y dos bajo 1024px. Nosotros, recursos/capacitación y contacto se apilan bajo 768px. Los interiores comparten fondo oscuro, Clash Display, Chillax, ámbar y capítulos sin pin. Se preservan contenido, formularios, APIs, precios y FAQs existentes.
-
-**The Lectura Continua Rule.** El contenido esencial permanece en flujo y legible sin WebGL ni animación.
+Info es una página completa carbón con paneles mates a la derecha en escritorio y lectura apilada en móvil. Los lectores usan crema y galerías desktop/mobile. Servicios y recursos conservan su composición. Las medidas de Home pertenecen a su brief y no obligan a futuras superficies.
 
 ## Elevation & Depth
 
-La profundidad procede del terreno de puntos, variaciones tonales y bordes finos. Las superficies informativas conservan lectura estable. La cabecera comienza transparente y toma fondo navy casi opaco al desplazar o abrir el menú; no tiene material liquid glass. El dropdown usa sombra localizada; el CTA tiene un brillo tenue.
-
-El paisaje se restringe a hero y cierre. Three.js se carga bajo demanda y comparte un renderer entre las dos superficies visibles. El ciclo de onda es de 20 segundos; el cursor vuelve al objetivo neutral tras 900ms y se aproxima suavemente durante unos 1.2 segundos. Pausa fuera de pantalla y con documento oculto; libera geometrías, materiales, renderer, observers y listeners al desmontar. Movimiento reducido y ausencia/pérdida de WebGL conservan posters estáticos de `public/landscape/`, obtenidos del canvas de producción. No hay dependencia visual de la animación para leer o actuar.
-
-### Ecos discretos del paisaje — actualización autorizada 2026-10-04
-
-La narrativa intermedia completa incorpora `LandscapeTraces.vue`: Soluciones (`flow`), caso forestal (`evidence`), clientes/proyectos (`network`), método (`method`), Oscar (`trajectory`) y recursos (`editorial`). Las variantes alternan laterales y fases para dar continuidad sin repetir una composición idéntica. Los rastros conservan áreas de lectura limpias y se concentran en márgenes y franjas inferiores del padding. Hero y contacto mantienen sus paisajes vigentes.
-
-Las conexiones laterales SVG usan cinco nodos por lado, trazos ámbar de opacidad .17 y ramificaciones azul claro de .11; ocupan `clamp(64px,7vw,150px)` y se ocultan hasta 1199px inclusive. Tres ondas inferiores de 61 puntos cada una permanecen visibles: franja de 80px en escritorio y 46px en tablet/móvil. Son decoración `aria-hidden`, sin foco ni captura de eventos. Soluciones conserva la transición tonal de entrada/salida navy–deep.
-
-En escritorio de al menos 1024px de ancho y 800px de alto, sin preferencia de movimiento reducido, las ondas se desplazan verticalmente de 12px a −8px vinculadas al scroll (`scrub: .8`), sin pin. En móvil y con movimiento reducido permanecen estáticas en posición neutral. El método conserva su línea de cuatro nodos, con `scaleX` de .08 a 1 y `scrub: .6` bajo las mismas condiciones de escritorio; con movimiento reducido queda completa y en móvil usa dos columnas con segmentos estáticos. Estos ecos no alteran la jerarquía del contenido ni añaden un segundo renderer WebGL.
+La profundidad procede del contraste tonal y la escala. Info usa superficies mates; las imágenes conservan legibilidad con el tratamiento de contraste de la tarjeta. Los interiores mantienen la sombra de panel existente. Sin vidrio ni decoración que sustituya evidencia.
 
 ## Shapes
 
-Controles moderadamente redondeados, tags de paisaje compactos y marcos discretos, según frontmatter. Las capacidades y método son bloques editoriales separados por líneas, sin obligar a encerrar cada contenido en tarjetas. El isotipo vectorial conserva proporciones y espacio libre.
+Controles del rail discretos (4px), acciones y campos (8px), tarjetas y paneles del portfolio (12px). Los interiores conservan paneles y marcos de 16px y 20px. No aplicar una sustitución global a páginas preservadas.
 
 ## Components
 
-### Actions and fields
+### Buttons
+Primario ámbar plano y texto carbón; secundario mate o de borde fino. Hover legible, foco visible ámbar y área mínima de 44px; acciones del formulario de 48px.
 
-CTA de home con gradiente cálido y texto oscuro; la variante base de interiores utiliza ámbar sólido. Acción secundaria transparente y foco global ámbar de 2px con offset 4px. El hero amplía su control a 54px mínimos y padding 16px 28px. Formularios mantienen labels, feedback y controles existentes, con texto de al menos 16px. No se infiere entrega efectiva del formulario a partir de su apariencia.
+### Cards / Containers
+Enlaces HTML reales con título y categoría. Imágenes reales a color, sin filtro monocromo. La falla de imagen conserva título, vínculo y estado explícito. La grilla muestra los mismos nueve proyectos.
+
+### Inputs / Fields
+Labels persistentes, fondo Deep, borde fino y foco visible. Teléfono opcional. Errores y éxito mantienen lectura y foco.
 
 ### Navigation
+Rail en escritorio y menú propio en móvil. Info y proyectos tienen URL real, cierre, Escape y regreso por History; se conserva posición y foco de la galería. Los hashes comerciales abren y enfocan la sección de Info.
 
-V SVG ámbar con palabra Vogel en Chillax cuando se renderiza como texto. Cabecera abierta con Servicios, Casos, Recursos y Nosotros; portal externo y diagnóstico como acciones. Servicios usa details con diez destinos. El menú móvil añade capacitación y encuesta; conserva cierre y navegación por teclado implementados.
+### Continuidad del portfolio
+El stage permanece montado al abrir páginas. GSAP Flip transforma carrusel/grilla y enlaza temporalmente imagen y lector; el puente se cancela al cambiar ruta o tamaño. Movimiento reducido evita transiciones espaciales y mantiene navegación completa.
 
-### Evidence and secondary content
-
-Cuatro capacidades con diez destinos, tres capturas de una operación forestal real con datos de demostración, ocho logos SVG de clientes y FEMAG identificado como desarrollo. Método, trayectoria de Oscar, recursos, capacitación y contacto preservan información útil. Los detalles secundarios permanecen colapsados inicialmente. Oscar se presenta con su retrato real y autorizado (src/assets/oscar/, con procedencia documentada); si la imagen falta o falla, el capítulo funciona solo con tipografía.
-
-**The Evidencia Clara Rule.** Identificar datos de demostración y proyectos en desarrollo; conservar la procedencia de imágenes y logos.
-
-### Deslizamiento y anclajes del paisaje
-
-La pasada de refinamiento añade Lenis con `lerp: .085` en escritorio desde 1024px, con puntero preciso y sin movimiento reducido. Comparte el ticker de GSAP; touch permanece nativo y los menús, textarea y select conservan su desplazamiento propio. La instancia y sus callbacks se eliminan al desmontar o cambiar la preferencia. Los anchors mantienen su comportamiento y hash nativos.
-
-El hero desplaza su texto hasta −64px, y la introducción de soluciones recorre 48px con `scrub: .6`; son transformaciones reversibles sin fijado ni snap. Un gradiente navy → deep suaviza el encuentro de ambas superficies. El paisaje mantiene colores y geometría aprobados.
-
-El menú desktop ocupa el centro de una grilla `1fr auto 1fr`, independientemente del ancho de marca y acciones. Las etiquetas desktop proyectan tres posiciones del terreno 3D sobre HTML; conectores de 68px terminan en esos puntos. Móvil conserva etiquetas en flujo y el fallback estático usa posiciones equivalentes.
+### Destinos editoriales
+Soluciones, Recursos, Estudio y Contacto son rutas propias que comparten el encabezado y el rail del portfolio. Cada destino reutiliza datos y formularios vigentes, con una composición editorial distinta según su contenido; las fichas individuales de servicios y artículos permanecen independientes. El botón Info apunta a Estudio y las URL históricas de Info conservan su destino mediante compatibilidad de ruta.
 
 ## Do's and Don'ts
 
-### Do:
-
+### Do
 - **Do** usar el SVG oficial de la V ámbar sin deformarlo.
-- **Do** reutilizar los tokens compartidos: Clash Display en titulares y Chillax en lectura/UI.
-- **Do** conservar el foco ámbar visible y controles legibles.
-- **Do** identificar las capturas forestales como interfaz real con datos de demostración.
-- **Do** mantener etiquetas y CTA móviles en flujo sin solapamientos.
-- **Do** conservar una alternativa estática para el paisaje y movimiento reducido.
+- **Do** conservar el foco visible y controles legibles.
+- **Do** identificar datos de demostración y conservar procedencia de capturas.
+- **Do** mantener FEMAG únicamente en Info como «En desarrollo».
 
-### Don't:
-
-- **Don't** reutilizar OV, Syne, Bricolage o DM Sans como identidad tipográfica actual.
-- **Don't** convertir cifras de demostración en resultados comerciales.
-- **Don't** generar, retocar ni sustituir el retrato de Oscar (solo la fotografía real autorizada, sin placeholders), ni presentar FEMAG como terminado.
-- **Don't** ocultar contenido esencial detrás de animaciones o WebGL.
-- **Don't** añadir pins narrativos o liquid glass a este sistema. El único postprocesado permitido es el pipeline del motor espacial (bloom, tone mapping, viñeta, grano), descrito en «Acabado cinematográfico».
-- **Don't** afirmar identidad absoluta de assets: interiores conservan algunas ilustraciones conceptuales azules.
-
-### Extensión de superficie: arco espacial optativo — Phase 02 (2026-10-06)
-
-Esta extensión describe únicamente la Home con `VITE_SPATIAL_NARRATIVE=true`; conserva el frontmatter, los tokens y las reglas anteriores para la identidad general y los modos existentes. Es independiente de `VITE_SPATIAL_CORE`, tiene precedencia cuando ambos están activos y permanece desactivada por defecto. El modo Core de Phase 01 conserva sus siete definiciones. La especificación y evidencia están en `docs/SPATIAL_PHASE_02_INTRO_COMPLEXITY_SYSTEMS.md`.
-
-**The Arco Optativo Rule.** INTRO → COMPLEJIDAD → SISTEMAS utiliza el mismo mundo, renderer, cámara y ciclo de vida durante un arco de cuatro alturas de pantalla: Hero (100svh) y dos momentos editoriales (150svh cada uno). El contenido HTML avanza en flujo nativo; la escena decorativa se transforma de información dispersa a relaciones ordenadas. No añade pin, snap ni otra instancia Lenis. Servicios y los capítulos posteriores conservan su contenido y flujo.
-
-La luz ámbar y los puntos institucionales azules continúan sobre navy. La jerarquía general Clash Display / Chillax y la V oficial permanecen intactas. El texto ocupa la izquierda y los grupos el centro/derecha. Las cuatro etiquetas HTML proyectadas nombran Operación, Administración, Información y Reportes; no reciben foco ni eventos y cuentan con un resumen semántico separado. El indicador numerado corresponde a los momentos de este arco, no establece una nueva regla global de metadata.
-
-**The Lectura Antes del Mundo Rule.** La escena suprime etiquetas fuera del encuadre, detrás de cámara, dentro del área de lectura o en colisión. Los enlaces reales de Sistemas siguen visibles y operables con teclado. La lectura no depende de la posición de partículas ni de completar una animación.
-
-La mejora se activa desde 1024px, con puntero preciso y sin movimiento reducido. Móvil, touch y movimiento reducido presentan HTML con posters del propio mundo, sin importar Three.js. En escritorio con movimiento reducido o fallo de WebGL, texto y poster forman dos columnas editoriales; en móvil el poster ocupa una franja de 320px. Si WebGL falla, se retira la reserva de cuatro alturas; perder y restaurar el contexto temporalmente conserva el canvas y muestra los posters. El renderer pausa tras el traspaso hacia Servicios y el cierre usa su poster estático.
-
-La profundidad procede de materiales aditivos y morph procedural; no introduce luces de escena, sombras ni tokens de marca. El terreno previo comparte uniforms con 512 puntos agrupados y 171 segmentos de relación. El presupuesto vigente de draw calls, geometrías y render targets está en `src/lib/renderBudget.js` (ver «Acabado cinematográfico»).
-
-### Extensión autorizada: continuidad del sistema — Phase 03 (2026-10-06)
-
-`VITE_SPATIAL_PHASE_03=true` extiende el mismo mundo hasta DECISIÓN y tiene precedencia sobre Narrative/Core. Permanece desactivado por defecto; el modo anterior de Phase 02 sigue disponible. El Hero y los primeros 400svh conservan su composición y recorrido. Los cuatro momentos nuevos añaden 110/110/100/80svh, sin pin, snap o scroll locking. Servicios y el contenido posterior permanecen íntegros.
-
-Automation significa **movimiento**: un pulso de actividad recorre la columna de conexiones existente y activa brevemente sus grupos. Data significa **patrón**: los mismos puntos encuentran columnas de altura y bandas, sin cifras comerciales, dashboards ni nuevas superficies flotantes. Intelligence significa **evaluación**: tres alternativas cortas surgen de un nodo del sistema y una gana intensidad ámbar. Decision significa **claridad**: las relaciones secundarias se atenúan, cuatro áreas convergen en una trayectoria útil y un contorno rectangular muy tenue prepara la salida futura. No muestra todavía producto real ni transforma el caso forestal.
-
-El scroll controla pulsos, morph y selección de forma reversible; el tiempo solo sostiene el ambiente. La cámara desciende hacia la circulación, se eleva para leer patrones, se aproxima moderadamente a la evaluación y estabiliza la convergencia. El navy y los azules siguen siendo la base; el ámbar se concentra en actividad, selección y conexiones relevantes. No redefine tokens, tipografías ni identidad.
-
-Una geometría adicional reúne las alternativas, convergencia y contorno; el presupuesto vigente está en `src/lib/renderBudget.js`. Los labels y textos siguen siendo HTML. Móvil, touch, movimiento reducido y fallo WebGL utilizan posters reproducibles del mismo mundo y equivalencias editoriales. La máscara heredada del Hero se oculta completa mientras el mundo persistente está activo, evitando el corte horizontal corregido después de Phase 02.
-
-
-### Extensión autorizada: Abstraction → Evidence — Phase 04 (2026-10-06)
-
-El paisaje explica relaciones. El caso demuestra aplicación. No mezclar ambos lenguajes indefinidamente: cuando aparece evidencia real, la interfaz toma protagonismo y WebGL retrocede.
-
-`VITE_SPATIAL_PHASE_04=true` incorpora el caso Forestal antes de Servicios, sin duplicar su presentación legacy. Un marco del mismo mundo se transforma en un figure HTML mediante proyección y docking reversible; las capturas nunca son texturas WebGL. Al terminar el portal el renderer pausa y Registrar → Revisar → Decidir continúa como secuencia DOM sobre navy casi plano. CSS sticky organiza el stage sin pin GSAP, snap o autoplay; móvil y fallbacks conservan flujo editorial.
-
-La numeración global procede de un catálogo único, 01 Intro → 08 Evidencia; Registrar/Revisar/Decidir poseen índices internos subordinados. Copy, alt, capturas y advertencias se comparten con legacy. Conservar explícitamente interfaz real/datos de demostración y ausencia de resultados de clientes. Los recortes sirven a la lectura, nunca cambian cifras, textos o UI; los originales siguen accesibles. Esta fase no autoriza rediseñar Servicios ni los capítulos posteriores.
-
-### Acabado cinematográfico del mundo espacial (2026-10-06)
-
-Sustituye las restricciones `low-power` / cero texturas / sin postprocesado de las fases 01–04, que producían un acabado plano. Detalle técnico en `docs/SPATIAL_VISUAL_OVERHAUL.md`.
-
-**The Luz con Intención Rule.** El mundo se renderiza en HDR lineal → bloom → ACES → sRGB, con viñeta y grano sutiles. Sólo superan el umbral de bloom las crestas, el pico central, los pulsos, la rama IA seleccionada, el hub de decisión y el contorno de evidencia: el ámbar sigue siendo acento. Navy y azules institucionales son la base; el fondo navy (`#05090f`) lo pinta el propio composite para fundirse con la página.
-
-**The Mundo Siempre Presente Rule.** Entre Intro y Decisión el mundo no colapsa a un vacío: cada capítulo cambia enfoque (bokeh por círculo de confusión), luz, niebla y encuadre. Un lens shift horizontal compone el mundo a la derecha mientras el copy ocupa la izquierda; en el portal vuelve a cero. La cámara recorre una única trayectoria continua; en los tramos de lectura deriva lentamente y acentúa la velocidad de scroll con roll/FOV mínimos que vuelven a reposo.
-
-**The Texto Revelado Rule.** Los titulares de capítulo suben por líneas enmascaradas y marcador, cuerpo y enlaces entran con curvas suaves, siempre en función del scroll (reversible, sin temporizadores). Las etiquetas proyectadas se desvanecen por distancia a los bordes en lugar de conmutar. El oscurecimiento detrás del copy es local y radial, nunca una banda de ancho completo.
-
-Calidad adaptativa por tiers (DPR, MSAA, escala de bloom, tamaño máximo de bokeh) protege el rendimiento; los navegadores automatizados fijan un tier para capturas deterministas.
-
-### Sistema editorial: cierre de la Home — Phase 05 (2026-10-06)
-
-`VITE_SPATIAL_PHASE_05=true` cierra la Home con un segundo sistema. Implica Phase 04 y, por tanto, toda la cadena (precedencia P05 → P04 → P03 → Narrative → Core → base). Permanece desactivada por defecto: la Home base y los modos anteriores no cambian. Detalle y evidencia en `docs/SPATIAL_PHASE_05_EDITORIAL_CLOSURE.md`.
-
-**Dos sistemas, una marca.**
-- **Spatial System** explica complejidad, conexión y transformación: 01 Intro → 08 Evidencia. WebGL, cámara y numeración de capítulos.
-- **Editorial System** explica método, experiencia, pensamiento y conversación. Flujo nativo, sin WebGL.
-
-> Motion explains systems. Editorial composition explains judgment.
-
-**The Cambio de Ritmo Rule.** Hasta Evidencia la Home es inmersión; después es claridad. Ninguna sección posterior intenta impresionar con escenas. El indicador espacial se apaga por completo antes de la primera sección editorial (`evidenceExit`, offsets 10.2–10.5) y no existe numeración 09–12.
-
-**Orden final.** Capacidades (`#soluciones`, `#servicios`) → Método Vogel (`#metodologia`) → Persona (`#nosotros`) → Trabajo real (`#clientes`) → Perspectivas (`#recursos`, `#charla-ia-2026`) → Conversación (`#contacto`). Todas las anclas anteriores se conservan.
-
-**Superficies.** Siguen siendo oscuras, con alternancia navy · deep · slate y sin superficie clara (la regla de documentos comerciales no se traslada a la web). El ritmo se obtiene con espacio (`clamp(96px,11vw,180px)`), escala tipográfica, líneas finas y el cambio de superficie; sin tarjetas ni sombras.
-
-**Capability Index.** Seis filas editoriales de ancho completo con `border-top`, número, título grande, una línea y flecha. Sin tarjetas, grid 2×2 ni iconos. Hover solo en puntero fino: el título se desplaza 6 px, la flecha se mueve y la línea se vuelve ámbar; el foco por teclado produce el mismo resultado. Los títulos no repiten los del arco espacial y las rutas que no caben en las seis filas quedan en la línea «También» (ninguna ruta de servicio deja de ser alcanzable).
-
-**Método Vogel.** Observar · Ordenar · Conectar · Decidir · Mejorar: lenguaje de trabajo de la consultora, nunca una metodología registrada. Diagrama SVG propio (Personas, Procesos, Datos y Tecnología convergen en un sistema que lleva a una decisión; Mejorar cierra el ciclo). Es legible sin JavaScript. Se dibuja una sola vez al entrar (≈2 s, sin pin ni scrub); en móvil se sustituye por una línea vertical.
-
-**Persona.** El capítulo funciona con o sin retrato. «+25 años» contextualizado como experiencia profesional, nunca como KPI comercial; hitos reales (1998, 2008, 2021, 2024) tomados de `src/data/oscar.js`, la misma fuente que usa `AboutSection`; capacidades en lista editorial, no como etiquetas. Las tecnologías concretas viven en el detalle desplegable.
-
-**Perspectivas.** Hasta tres guías reales de `resources.js`. La formación en IA se integra como bloque dentro de Perspectivas; no es una sección principal.
-
-**Conversación.** Formulario editorial (borde inferior, radios de 6 px, etiquetas en versalita, entradas de al menos 16 px) con la misma lógica, campos, estados y analíticas que la sección anterior (`useContactForm`). Dos acciones alternativas como máximo. El cierre recupera el paisaje ya ordenado como imagen fija (`public/landscape/closing-ordered.webp`): no hay GPU activa en la segunda mitad de la página.
-
-**Motion editorial.** Una sola propietaria (`useEditorialMotion`): entradas con Y ≤ 20 px y opacidad, una vez; líneas por trazo; foto con revelado de clip breve; sin animación por palabra, sin pin y sin scrub. Con reduced motion no se oculta ni se mueve nada.
-
-**Forma.** Controles de 6–8 px y marcos de 0–8 px; sin paneles de 20 px, sin sombras y sin vidrio. `LandscapeTraces` no se usa en el sistema editorial.
+### Don't
+- **Don't** añadir azules a la identidad, vidrio o gradientes multicolor.
+- **Don't** convertir datos de demostración en resultados comerciales.
+- **Don't** aplicar monocromo a las capturas reales del portfolio.
+- **Don't** introducir WebGL, videos o mockups de dispositivos en esta implementación.

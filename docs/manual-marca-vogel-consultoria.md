@@ -1,8 +1,8 @@
 # Manual de marca - Vogel Consultoria
 
-Version: 2026-10-04
+Version: 2026-10-06
 
-Actualización autorizada: la decisión explícita del usuario reemplaza logo, tipografía y paleta de la web anterior. La referencia visual aprobada se conserva fuera de Git. Las secciones 4–9 y 14–15 fijan la identidad vigente; el posicionamiento y la voz empresarial mantienen su alcance original. El baseline se conserva en `docs/history/paisaje-datos-2026-10-04/`.
+Actualización autorizada: la decisión explícita del usuario reemplaza logo, tipografía y paleta de la web anterior. La dirección vigente autorizada toma la composición de Corea y la adapta a la identidad Vogel; las capturas de comparación se conservan localmente fuera de Git. Las secciones 4–9 y 14–15 fijan la identidad vigente; el posicionamiento y la voz empresarial mantienen su alcance original. El baseline se conserva en `docs/history/paisaje-datos-2026-10-04/`.
 Sitio de referencia: https://vogelconsultoria.com.ar/
 Uso principal: guia para crear piezas visuales, landings, publicaciones, presentaciones, documentos comerciales y material institucional de Vogel Consultoria.
 
@@ -77,7 +77,7 @@ Profesional, claro, directo y orientado a resultados. La marca habla con segurid
 
 ## 4. Identidad visual
 
-Paisaje de datos: base casi negra azul, luz ámbar y una jerarquía tipográfica de Clash Display en titulares y Chillax en lectura e interfaz. Claridad, confianza, precisión y cercanía práctica se expresan con aire, lectura estable y evidencia real. El paisaje decorativo de puntos y conexiones acompaña hero y cierre; el resto del sitio se organiza con superficies oscuras y separadores finos.
+Portfolio de estudio: escenario casi negro cálido, texto crema, un carrusel horizontal de tarjetas grandes con titulares extendidos en mayúsculas y el ámbar como único acento. La referencia de lenguaje es coreastudios.com. Claridad, confianza, precisión y cercanía práctica se expresan con tarjetas amplias, aire, lectura estable y evidencia real.
 
 ## 5. Logo
 
@@ -94,59 +94,58 @@ Los logos OV anteriores permanecen como archivos históricos; no son la identida
 
 | Nombre | HEX | Uso |
 |---|---:|---|
-| Vogel Navy | `#05090F` | Fondo casi negro azul |
-| Vogel Deep | `#0A121B` | Superficies oscuras |
-| Vogel Slate | `#101923` | Paneles y dropdown |
-| Vogel Amber | `#FFBC54` | Acciones, enlaces, foco, puntos de datos |
-| Vogel Gray | `#E2E5EA` | Texto de lectura y bordes con opacidad |
-| Vogel Muted | `#ACB6C3` | Metadata y descripciones |
-| Blanco | `#FFFFFF` | Titulares |
-| Vogel Blue | `#1E5FA8` | Ilustraciones y gráficos heredados |
-| Vogel Bright | `#196ECF` | Refuerzo en assets conceptuales |
-| Vogel Blue Light | `#8BC5FF` | Detalles conceptuales y estados existentes |
+| Carbón | `#161515` | Fondo del sitio |
+| Deep | `#1C1B1A` | Superficies |
+| Slate | `#262523` | Paneles mates, botones secundarios, tarjetas sin imagen |
+| Warm panel | `#3b3933` | Panel destacado de Info y controles del rail |
+| Crema | `#F3F1E2` | Titulares y texto de lectura; bordes con opacidad |
+| Muted | `#A8A596` | Metadata y descripciones |
+| Vogel Amber | `#FFBC54` | Único acento: acciones, enlaces, foco, contador, punto del reloj |
 
-Fuente normativa: `src/styles/tokens.css`. El fondo oscuro debe dominar; el ámbar se concentra en acción y datos luminosos. No fijar una cuota porcentual como medición del sitio. CTA principal con gradiente cálido `#FFC869` a `#F5B34C` y texto `#080D14`; su gradiente no habilita fondos ámbar extensos. Evitar gradientes multicolor y colores ajenos como protagonistas.
+Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. Sin azules, sin gradientes multicolor y sin colores ajenos como protagonistas. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
+
+**Fondo del portfolio (Home):** degradé vertical del color de marca del proyecto centrado (abajo) a carbón (arriba), con una onda lenta y un grano leve (~7 %). Es la única excepción a «sin gradientes»: el color pertenece al cliente, no a la interfaz Vogel, y nunca reemplaza al ámbar en acciones. Los colores salen de los logos de cada cliente y se normalizan a un tono oscuro en `src/data/projectColors.json` (`scripts/derive-project-colors.mjs`); el texto sobre el degradado debe mantener 4.5:1 (lo verifica `npm run test:motion`). Amitrac usa azul por decisión expresa: es el color de su marca, independiente de Vogel. Servin LGSM (cian) y H21 (gris pizarra) también siguen su logo.
+
+**Fondo de los destinos** (Soluciones, Recursos, Estudio, Contacto): el mismo degradé con onda y grano, en un único tono de marca, el ámbar de Vogel oscurecido (`#704d1a`, ~27 % de luminosidad), con la mezcla reducida para que el texto atenuado conserve 4.5:1 (en destinos el gris atenuado sube un paso, a `rgb(192 189 173)`). El color transiciona al girar la rueda y hace juego con la luz cálida del retrato de Oscar.
+
+**Oscar Vogel en Estudio:** retrato recortado (fondo eliminado con un modelo de segmentación; facciones y color sin modificar) a la derecha, fijo y sangrando por el borde inferior y derecho como en la fotografía original; en tablet y móvil va en el flujo, bajo el título. El recorte fue solicitado expresamente por el titular el 2026-10-07: la autorización original de la foto decía «sin recorte» y esa condición queda registrada en `src/assets/oscar/provenance.json`.
+
+**Arte de tarjeta:** los nueve proyectos usan ilustraciones generadas con el logo del cliente como portada de tarjeta (`public/projects/<id>/art*.webp`, marcadas `kind: "generated"` en `provenance.json`). Son decorativas: la ficha del proyecto siempre muestra las capturas reales del sitio como evidencia.
 
 ## 7. Tipografia
 
-Clash Display es la fuente de titulares; Chillax se utiliza en cuerpo, navegación, controles y palabra de marca renderizada como texto. Ambas familias son variables, con rango 200–700, se sirven como WOFF2 desde el dominio de Vogel y usan ui-sans-serif/system-ui/sans-serif como fallback. Sus binarios se resuelven desde el CSS API oficial de Fontshare antes de `npm run dev` y `npm run build`; no se guardan en este repositorio público porque la ITF Free Font License prohíbe redistribuirlos mediante repositorios. Conservar esta licencia y la procedencia en `docs/licencias/`.
+Titulares en Archivo Variable (licencia OFL, paquete `@fontsource-variable/archivo`) con ancho 125%, peso 800 y mayúsculas, interlineado cerrado y tracking -0.045em; se reservan para h1/h2 y títulos de tarjeta. h3/h4 usan peso 700 y ancho 112% sin mayúsculas. Chillax se utiliza en cuerpo, navegación, controles y palabra de marca. Chillax es variable (200–700), se sirve como WOFF2 desde el dominio de Vogel con fallback ui-sans-serif/system-ui/sans-serif y se descarga del CSS API oficial de Fontshare antes de `npm run dev` y `npm run build`; no se guarda en este repositorio porque la ITF Free Font License prohíbe redistribuirla. Conservar licencia y procedencia en `docs/licencias/`.
 
-Clash Display: titulares entre 450 y 600, con preferencia por 500 en tamaños grandes y sin usar bold 700 de forma automática. Chillax: lectura 400, navegación y controles 500, CTA 600. Diferenciar jerarquía con tamaño, interlineado y espacio. Mantener inputs de al menos 16px, contraste legible, interlineado cómodo y texto secundario claro. Para piezas sociales, reducir texto antes que reducir excesivamente su tamaño.
+Chillax: lectura 400, navegación y controles 500, CTA 600. Mantener inputs de al menos 16px, contraste legible e interlineado cómodo. Para piezas sociales, reducir texto antes que reducir excesivamente su tamaño.
 
 ## 8. Sistema grafico
 
-Paisajes de puntos, conexiones finas, dashboards, procesos y evidencia operativa. La home usa paisaje en hero y cierre, tres capturas forestales reales con datos de demostración y ocho logos SVG de clientes. FEMAG debe identificarse como proyecto en desarrollo. Oscar se presenta con su fotografía real y autorizada (sin retoque ni retratos generados); si la imagen no está disponible, el capítulo se resuelve solo con tipografía, sin placeholders ni siluetas.
+Capturas reales desktop y mobile como evidencia principal. Home y grilla muestran exclusivamente nueve proyectos reales publicados, con imágenes en sus colores originales y sin filtros monocromos. Los servicios viven en Soluciones y el método, el perfil de Oscar y FEMAG en Estudio; FEMAG aparece allí únicamente como «En desarrollo». Oscar conserva su fotografía real autorizada, sin retoques ni retratos generados.
 
-Assets:
+Assets y procedencia:
 
-- `public/landscape/`: posters estáticos obtenidos del canvas de producción.
-- `src/assets/brand/vogel-v-amber.svg`: V vigente.
-- `src/assets/hero/` y `src/assets/services/`: ilustraciones conceptuales anteriores conservadas en algunas páginas interiores.
-- `docs/social/`: material previo; revisar logo, tipografía y colores antes de reutilizarlo.
+- `src/assets/brand/vogel-v-amber.svg`: V oficial vigente.
+- `public/projects/`: derivados WebP públicos del portfolio, con dimensiones en `src/data/projectMedia.json` y procedencia normativa en `public/projects/provenance.json`.
+- `src/assets/cases/`: interfaz forestal real con datos de demostración.
+- `docs/capturas/project-sources-2026-10-06/`: originales locales conservados; no incluir capturas pesadas en Git.
+- `docs/social/`: revisar identidad antes de reutilizar material previo.
 
-La continuidad parcial de assets azules no implica identidad absoluta entre home e interiores. Identificar demostraciones y procedencia; no usar cifras ficticias como resultados de clientes ni imágenes generadas como interfaces operativas reales.
-
-Actualización autorizada del 2026-10-04: los ecos del paisaje acompañan toda la narrativa intermedia: Soluciones, caso forestal, clientes/proyectos, método, Oscar y recursos. Sus variantes `flow`, `evidence`, `network`, `method`, `trajectory` y `editorial` alternan fases y conexiones laterales. Las áreas de lectura se mantienen limpias, con decoración marginal e inferior; hero y contacto conservan sus paisajes vigentes. Los SVG son `aria-hidden`, sin foco ni interacción.
+El caso forestal conserva Registrar → Revisar → Decidir y sus dos aclaraciones compartidas en `forestCase`. No inventar resultados, fechas, stacks o créditos. No utilizar imágenes generadas como evidencia operativa real.
 
 ## 9. Composicion
 
-Grilla sencilla, titular claro, espacio amplio, CTA concreto y visuales vinculados a datos o gestión. Cabecera abierta con V, navegación y acciones de portal/diagnóstico. Las secciones fluyen sin pins narrativos; la profundidad se concentra en el paisaje, sin shader global ni liquid glass.
+La Home sigue la composición Corea: rail izquierdo proporcional de 34.4vw, galería horizontal nativa, panorámicas 16:9 hasta 1072×603px centradas verticalmente, separación de 20px y títulos hasta 48px. La grilla muestra los mismos proyectos con proporción 4:5, gap24px y tres, dos o una columna. En 390×844px la tarjeta mide 342×608px, permite ver el siguiente proyecto y mantiene un menú propio con controles de al menos 44px.
 
-En móvil, apilar columnas y conservar etiquetas/CTA en flujo para evitar superposición. Controles de 8–9px, etiquetas de 10px y paneles de 12–16px; marcos de 20px cuando corresponde. Líneas finas y separación tonal organizan el contenido. Las capacidades no requieren una tarjeta por bloque.
+Los destinos editoriales son `/soluciones/`, `/recursos/`, `/estudio/` y `/contacto/`: página completa carbón, paneles mates cálidos y lectura editorial a la derecha en escritorio. `/info/` se conserva solo como alias de `/estudio/` (marcado `noindex` y con canonical a `/estudio/`). Proyectos tienen rutas `/proyectos/<id>/` y lectores crema con capturas desktop/mobile. El stage permanece montado para conservar posición, foco y continuidad al cerrar, usar Escape o volver por History. Las anclas comerciales abren y enfocan su sección en el destino correspondiente.
 
-El paisaje es una mejora progresiva: conserva poster estático con movimiento reducido o sin WebGL, pausa fuera de pantalla y con documento oculto. Mensajes y acciones nunca dependen de su animación.
-
-Las conexiones laterales de cinco nodos se limitan a márgenes de 64–150px (7vw), con trazos ámbar (.17) y ramificaciones azul claro (.11); se ocultan hasta 1199px inclusive. Tres ondas de 61 puntos cada una ocupan la franja inferior del padding, de 80px en escritorio y 46px en tablet/móvil; permanecen visibles en todos los tamaños. Soluciones conserva su entrada/salida tonal navy–deep.
-
-En escritorio elegible (ancho mínimo 1024px, alto mínimo 800px, sin movimiento reducido), las ondas admiten un desplazamiento discreto de 12px a −8px ligado al scroll (`scrub: .8`), sin pin. Móvil y movimiento reducido conservan las ondas estáticas en posición neutral. La línea del método conecta cuatro nodos y progresa con scroll en ese mismo escritorio; con movimiento reducido permanece completa y en móvil usa segmentos estáticos en dos columnas. Mantener siempre lectura, foco y clics despejados.
-
+Rueda con glide en puntero fino, drag, swipe táctil nativo y teclado; GSAP Flip enlaza vistas e imagen/lector. Movimiento reducido evita transiciones espaciales. Mensajes y acciones permanecen disponibles. Sin WebGL, videos, mockups de dispositivos, efectos de vidrio ni dependencias nuevas. Las páginas interiores existentes conservan su contenido y composición.
 ## 10. Iconografia
 
 Estilo recomendado:
 
 - Iconos lineales.
 - Trazo medio, simple y legible.
-- Color gris claro, azul claro o ambar segun jerarquia.
+- Color crema, gris cálido o ámbar según jerarquía.
 - Temas: codigo, dashboard, flujo, IA, capacitacion, web, analitica, automatizacion.
 
 Evitar:
@@ -305,13 +304,13 @@ Palabras utiles:
 ### Presentaciones
 
 - Formato: 16:9.
-- Portada con fondo casi negro azul, V ámbar, titulares en Clash Display, texto/UI en Chillax y visual técnico.
+- Portada con fondo carbón, V ámbar, titulares en Archivo Variable expandida, texto/UI en Chillax y visual técnico.
 - Slides internas con mucho aire, maximo 3 ideas por slide.
 - Usar ambar solo para destacar el concepto principal.
 
 ### Documentos comerciales
 
-- Fondo blanco permitido en documentos comerciales, con encabezados casi negro azul y Clash Display; Chillax para lectura y UI.
+- Fondo blanco permitido en documentos comerciales, con encabezados carbón y Archivo Variable expandida; Chillax para lectura y UI.
 - Usar ambar para separadores, bullets o llamados.
 - Mantener tipografia sobria.
 - Incluir logo en portada y pie de pagina.
@@ -321,7 +320,7 @@ Palabras utiles:
 Usar este prompt como base y adaptar formato, mensaje y destino:
 
 ```text
-Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar fondo casi negro azul (#05090F / #0A121B), paneles #101923, acento ámbar #FFBC54, texto blanco/gris #E2E5EA, Clash Display en titulares y Chillax en lectura/UI. Logo vigente: V ámbar SVG. Visuales de paisaje de datos, dashboards, conexiones y procesos; composición sobria, clara y confiable. Las ilustraciones azules anteriores solo son continuidad conceptual cuando su uso está justificado.
+Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar carbón #161515, paneles mates #262523 y #3b3933, crema #F3F1E2, metadata cálida #A8A596 y ámbar #FFBC54 como único acento. Archivo Variable expandida 125%, peso 800, mayúsculas en titulares; Chillax en lectura/UI. Logo vigente: V ámbar SVG oficial. Presentar tecnología aplicada con evidencia real y composición sobria; las capturas de proyectos conservan sus colores originales.
 
 Mensaje principal: "[TITULAR]"
 Bajada: "[BAJADA]"
@@ -334,7 +333,7 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 ## 15. Checklist antes de publicar una pieza
 
 - La V ámbar oficial se ve nítida y no está deformada.
-- La pieza usa casi negro azul como base visual, Clash Display en titulares y Chillax en lectura/UI.
+- La pieza usa carbón como base visual, Archivo Variable expandida en titulares y Chillax en lectura/UI.
 - El ambar aparece como acento, no como color dominante.
 - El titular se entiende en pocos segundos.
 - El texto tiene buen contraste en mobile.
@@ -347,7 +346,7 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 ## 16. Referencias usadas
 
 - Sitio publico: https://vogelconsultoria.com.ar/
-- Paleta y fuentes: `src/styles/tokens.css`, `tailwind.config.js`, `src/styles/home.css`, `DESIGN.md`
-- Mensajes y servicios: `src/components/HeroSection.vue`, `src/components/ServicesSection.vue`, `src/data/servicePages.js`
+- Paleta y fuentes: `src/styles/tokens.css`, `tailwind.config.js`, `src/components/home/`, `DESIGN.md`
+- Mensajes y servicios: `src/data/projects.js`, `src/data/homeCards.js`, `src/data/forestCase.js`, `src/data/servicePages.js`
 - Logo y assets: `src/assets/brand/`, `src/assets/hero/`, `src/assets/services/`
 - Piezas sociales existentes: `docs/social/`

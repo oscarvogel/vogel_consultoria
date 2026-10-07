@@ -1,332 +1,276 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T01:39:29.930135+00:00",
+  "generatedAt": "2026-10-06T22:16:37.8387237-03:00",
   "title": "Design System: Vogel Consultoría",
   "extensions": {
     "colorMeta": {
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Carbón",
+        "tonalRamp": [
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
+      },
       "deep": {
         "role": "neutral",
-        "displayName": "deep",
+        "displayName": "Deep cálido",
         "tonalRamp": [
-          "oklch(15.00% 0.02234 251.98)",
-          "oklch(26.43% 0.02234 251.98)",
-          "oklch(37.86% 0.02234 251.98)",
-          "oklch(49.29% 0.02234 251.98)",
-          "oklch(60.71% 0.02234 251.98)",
-          "oklch(72.14% 0.02234 251.98)",
-          "oklch(83.57% 0.02234 251.98)",
-          "oklch(95.00% 0.02234 251.98)"
-        ]
-      },
-      "navy": {
-        "role": "neutral",
-        "displayName": "navy",
-        "tonalRamp": [
-          "oklch(15.00% 0.01572 253.54)",
-          "oklch(26.43% 0.01572 253.54)",
-          "oklch(37.86% 0.01572 253.54)",
-          "oklch(49.29% 0.01572 253.54)",
-          "oklch(60.71% 0.01572 253.54)",
-          "oklch(72.14% 0.01572 253.54)",
-          "oklch(83.57% 0.01572 253.54)",
-          "oklch(95.00% 0.01572 253.54)"
-        ]
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
       "slate": {
         "role": "neutral",
-        "displayName": "slate",
+        "displayName": "Slate mate",
         "tonalRamp": [
-          "oklch(15.00% 0.02400 251.59)",
-          "oklch(26.43% 0.02400 251.59)",
-          "oklch(37.86% 0.02400 251.59)",
-          "oklch(49.29% 0.02400 251.59)",
-          "oklch(60.71% 0.02400 251.59)",
-          "oklch(72.14% 0.02400 251.59)",
-          "oklch(83.57% 0.02400 251.59)",
-          "oklch(95.00% 0.02400 251.59)"
-        ]
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
-      "blue": {
-        "role": "secondary",
-        "displayName": "blue",
-        "tonalRamp": [
-          "oklch(15.00% 0.13358 254.38)",
-          "oklch(26.43% 0.13358 254.38)",
-          "oklch(37.86% 0.13358 254.38)",
-          "oklch(49.29% 0.13358 254.38)",
-          "oklch(60.71% 0.13358 254.38)",
-          "oklch(72.14% 0.13358 254.38)",
-          "oklch(83.57% 0.13358 254.38)",
-          "oklch(95.00% 0.13358 254.38)"
-        ]
-      },
-      "bright": {
-        "role": "secondary",
-        "displayName": "bright",
-        "tonalRamp": [
-          "oklch(15.00% 0.16858 255.61)",
-          "oklch(26.43% 0.16858 255.61)",
-          "oklch(37.86% 0.16858 255.61)",
-          "oklch(49.29% 0.16858 255.61)",
-          "oklch(60.71% 0.16858 255.61)",
-          "oklch(72.14% 0.16858 255.61)",
-          "oklch(83.57% 0.16858 255.61)",
-          "oklch(95.00% 0.16858 255.61)"
-        ]
-      },
-      "blue-light": {
-        "role": "secondary",
-        "displayName": "blue-light",
-        "tonalRamp": [
-          "oklch(15.00% 0.10227 249.20)",
-          "oklch(26.43% 0.10227 249.20)",
-          "oklch(37.86% 0.10227 249.20)",
-          "oklch(49.29% 0.10227 249.20)",
-          "oklch(60.71% 0.10227 249.20)",
-          "oklch(72.14% 0.10227 249.20)",
-          "oklch(83.57% 0.10227 249.20)",
-          "oklch(95.00% 0.10227 249.20)"
-        ]
-      },
-      "amber": {
-        "role": "primary",
-        "displayName": "amber",
-        "tonalRamp": [
-          "oklch(15.00% 0.14133 75.46)",
-          "oklch(26.43% 0.14133 75.46)",
-          "oklch(37.86% 0.14133 75.46)",
-          "oklch(49.29% 0.14133 75.46)",
-          "oklch(60.71% 0.14133 75.46)",
-          "oklch(72.14% 0.14133 75.46)",
-          "oklch(83.57% 0.14133 75.46)",
-          "oklch(95.00% 0.14133 75.46)"
-        ]
-      },
-      "gray": {
+      "warm-panel": {
         "role": "neutral",
-        "displayName": "gray",
+        "displayName": "Panel cálido",
         "tonalRamp": [
-          "oklch(15.00% 0.00751 260.73)",
-          "oklch(26.43% 0.00751 260.73)",
-          "oklch(37.86% 0.00751 260.73)",
-          "oklch(49.29% 0.00751 260.73)",
-          "oklch(60.71% 0.00751 260.73)",
-          "oklch(72.14% 0.00751 260.73)",
-          "oklch(83.57% 0.00751 260.73)",
-          "oklch(95.00% 0.00751 260.73)"
-        ]
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Crema de lectura",
+        "tonalRamp": [
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
       "muted": {
         "role": "neutral",
-        "displayName": "muted",
+        "displayName": "Metadata cálida",
         "tonalRamp": [
-          "oklch(15.00% 0.02165 254.94)",
-          "oklch(26.43% 0.02165 254.94)",
-          "oklch(37.86% 0.02165 254.94)",
-          "oklch(49.29% 0.02165 254.94)",
-          "oklch(60.71% 0.02165 254.94)",
-          "oklch(72.14% 0.02165 254.94)",
-          "oklch(83.57% 0.02165 254.94)",
-          "oklch(95.00% 0.02165 254.94)"
-        ]
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
-      "white": {
-        "role": "neutral",
-        "displayName": "white",
+      "amber": {
+        "role": "primary",
+        "displayName": "Ámbar Vogel",
         "tonalRamp": [
-          "oklch(15.00% 0.00000 89.88)",
-          "oklch(26.43% 0.00000 89.88)",
-          "oklch(37.86% 0.00000 89.88)",
-          "oklch(49.29% 0.00000 89.88)",
-          "oklch(60.71% 0.00000 89.88)",
-          "oklch(72.14% 0.00000 89.88)",
-          "oklch(83.57% 0.00000 89.88)",
-          "oklch(95.00% 0.00000 89.88)"
-        ]
+          "oklch(15% 0.14 75)",
+          "oklch(26.43% 0.14 75)",
+          "oklch(37.86% 0.14 75)",
+          "oklch(49.29% 0.14 75)",
+          "oklch(60.71% 0.14 75)",
+          "oklch(72.14% 0.14 75)",
+          "oklch(83.57% 0.14 75)",
+          "oklch(95% 0.14 75)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
       "border": {
         "role": "neutral",
-        "displayName": "border",
+        "displayName": "Borde sutil",
         "tonalRamp": [
-          "oklch(15.00% 0.00751 260.73)",
-          "oklch(26.43% 0.00751 260.73)",
-          "oklch(37.86% 0.00751 260.73)",
-          "oklch(49.29% 0.00751 260.73)",
-          "oklch(60.71% 0.00751 260.73)",
-          "oklch(72.14% 0.00751 260.73)",
-          "oklch(83.57% 0.00751 260.73)",
-          "oklch(95.00% 0.00751 260.73)"
-        ]
+          "oklch(15% 0.012 90)",
+          "oklch(26.43% 0.012 90)",
+          "oklch(37.86% 0.012 90)",
+          "oklch(49.29% 0.012 90)",
+          "oklch(60.71% 0.012 90)",
+          "oklch(72.14% 0.012 90)",
+          "oklch(83.57% 0.012 90)",
+          "oklch(95% 0.012 90)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       },
       "error": {
         "role": "neutral",
-        "displayName": "error",
+        "displayName": "Error de formulario",
         "tonalRamp": [
-          "oklch(15.00% 0.05926 18.33)",
-          "oklch(26.43% 0.05926 18.33)",
-          "oklch(37.86% 0.05926 18.33)",
-          "oklch(49.29% 0.05926 18.33)",
-          "oklch(60.71% 0.05926 18.33)",
-          "oklch(72.14% 0.05926 18.33)",
-          "oklch(83.57% 0.05926 18.33)",
-          "oklch(95.00% 0.05926 18.33)"
-        ]
+          "oklch(15% 0.06 18)",
+          "oklch(26.43% 0.06 18)",
+          "oklch(37.86% 0.06 18)",
+          "oklch(49.29% 0.06 18)",
+          "oklch(60.71% 0.06 18)",
+          "oklch(72.14% 0.06 18)",
+          "oklch(83.57% 0.06 18)",
+          "oklch(95% 0.06 18)"
+        ],
+        "rampPurpose": "Rampa ilustrativa sintetizada para el panel; no añade colores normativos a la interfaz."
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Clash Display titulares",
-        "purpose": "Titulares de portada."
+        "displayName": "Archivo Variable expandida",
+        "purpose": "Titulares de galería en mayúsculas, ancho125%."
+      },
+      "headline": {
+        "displayName": "Archivo Info",
+        "purpose": "Titulares editoriales de Info."
+      },
+      "reader-title": {
+        "displayName": "Archivo lector",
+        "purpose": "Título del proyecto; móvil34px."
       },
       "body": {
         "displayName": "Chillax lectura y UI",
-        "purpose": "Cuerpo y UI."
+        "purpose": "Texto y controles."
+      },
+      "label": {
+        "displayName": "Chillax metadata",
+        "purpose": "Categorías y señales secundarias."
       }
     },
     "shadows": [
       {
-        "name": "panel",
-        "value": "0 24px 64px -32px rgb(var(--vogel-navy) / .75)",
-        "purpose": "Profundidad localizada de panel."
+        "name": "interior-panel",
+        "value": "0 24px 64px -32px rgb(0 0 0 / .7)",
+        "purpose": "Paneles de interiores conservados."
       }
     ],
     "motion": [
       {
-        "name": "landscape-wave",
-        "value": "20s",
-        "purpose": "Ciclo de onda del paisaje."
-      },
-      {
-        "name": "cursor-idle",
-        "value": "900ms",
-        "purpose": "Retorno del objetivo de cursor a neutral."
-      },
-      {
-        "name": "cursor-settle",
-        "value": "approximately 1.2s",
-        "purpose": "Aproximación suavizada al objetivo."
+        "name": "image-bridge",
+        "value": ".65s expo.out",
+        "purpose": "Puente Flip temporal tarjeta/lector; omitido con movimiento reducido."
       },
       {
         "name": "state-transition",
-        "value": "180ms ease-out",
-        "purpose": "Links y controles."
+        "value": "180ms",
+        "purpose": "Controles del rail."
       }
     ],
     "breakpoints": [
       {
-        "name": "sm",
-        "value": "640px"
+        "name": "portfolio-mobile",
+        "value": "767px"
       },
       {
-        "name": "md",
-        "value": "768px"
-      },
-      {
-        "name": "lg",
-        "value": "1024px"
-      },
-      {
-        "name": "nav-wide",
-        "value": "1200px"
+        "name": "portfolio-grid-two",
+        "value": "1100px"
       }
     ]
   },
   "components": [
     {
-      "name": "Diagnóstico",
+      "name": "Acción principal",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción comercial principal.",
-      "html": "<button class=\"ds-primary\">Agendar diagnóstico →</button>",
-      "css": ".ds-primary{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;background:linear-gradient(110deg,#ffc869,#f5b34c);color:#080d14;border:1px solid #f9bc59;border-radius:8px;padding:14px 23px;min-height:48px;font-size:15px;font-weight:600}.ds-primary:hover{border-color:var(--color-action)}.ds-primary:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}.ds-primary:active{transform:translateY(1px)}"
+      "description": "Contacto y acción comercial.",
+      "html": "<button class=\"ds-primary\">Agendar diagnóstico</button>",
+      "css": ".ds-primary{font-family:Chillax,sans-serif;background:#FFBC54;color:#161515;border:0;border-radius:8px;padding:0 22px;min-height:48px;font-size:15px;font-weight:600}.ds-primary:hover{background:#F3F1E2}.ds-primary:focus-visible{outline:2px solid #FFBC54;outline-offset:4px}.ds-primary:active{transform:translateY(1px)}"
     },
     {
-      "name": "Acción secundaria",
+      "name": "Cerrar Info",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Acción complementaria.",
-      "html": "<a class=\"ds-secondary\" href=\"#\">Ver soluciones</a>",
-      "css": ".ds-secondary{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;display:inline-flex;align-items:center;background:transparent;color:var(--color-text);border:1px solid var(--color-border);border-radius:8px;padding:14px 23px;min-height:48px;font-weight:600}.ds-secondary:hover{color:var(--color-action);border-color:var(--color-action)}.ds-secondary:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
+      "description": "Control mate de retorno.",
+      "html": "<button class=\"ds-close\">Cerrar</button>",
+      "css": ".ds-close{font-family:Chillax,sans-serif;background:#3b3933;color:#F3F1E2;min-height:44px;padding:0 14px;border:0;border-radius:8px}.ds-close:hover{background:#262523}.ds-close:focus-visible{outline:2px solid #FFBC54;outline-offset:4px}"
     },
     {
       "name": "Campo de contacto",
       "kind": "input",
-      "description": "Campo de formulario con label persistente.",
+      "description": "Label persistente y lectura cómoda.",
       "html": "<label class=\"ds-field\">Nombre<input placeholder=\"Tu nombre\"></label>",
-      "css": ".ds-field{font-family:var(--font-body);display:grid;gap:8px;color:var(--color-text)}.ds-field input{font-family:var(--font-body);background:rgb(var(--vogel-navy)/.8);color:var(--color-heading);padding:10px 16px;border:1px solid var(--color-border);border-radius:12px;font-size:16px}.ds-field input:hover{border-color:var(--color-action)}.ds-field input:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
+      "css": ".ds-field{font-family:Chillax,sans-serif;display:grid;gap:8px;color:#A8A596;font-size:13px}.ds-field input{font:16px Chillax,sans-serif;background:#1C1B1A;color:#F3F1E2;min-height:48px;padding:12px 14px;border:1px solid #F3F1E229;border-radius:8px}.ds-field input:hover{border-color:#FFBC54}.ds-field input:focus-visible{outline:2px solid #FFBC54;outline-offset:4px}"
     },
     {
-      "name": "Navegación abierta",
+      "name": "Navegación portfolio",
       "kind": "nav",
-      "description": "Fila de links sin envolvente de vidrio.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\">Servicios</a><a href=\"#\">Casos</a><a href=\"#\">Recursos</a><a href=\"#\">Nosotros</a></nav>",
-      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--font-body)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--color-text);font-size:13px;text-decoration:none}.ds-nav a:hover{color:var(--color-action)}.ds-nav a:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
+      "description": "Controles simples con estado activo.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Proyectos</a><a href=\"#\">Info</a></nav>",
+      "css": ".ds-nav{display:flex;gap:12px;font-family:Chillax,sans-serif}.ds-nav a{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:4px;color:#A8A596;text-decoration:none}.ds-nav a[aria-current],.ds-nav a:hover{background:#3b3933;color:#F3F1E2}.ds-nav a:focus-visible{outline:2px solid #FFBC54;outline-offset:4px}"
     },
     {
-      "name": "Etiqueta de paisaje",
-      "kind": "chip",
-      "refersTo": "terrain-label",
-      "description": "Enlace contextual sobre el paisaje.",
-      "html": "<a class=\"ds-tag\" href=\"#\"><span></span>Sistemas a medida</a>",
-      "css": ".ds-tag{font-family:var(--font-body);transition:color 180ms ease-out,border-color 180ms ease-out;display:inline-flex;align-items:center;gap:12px;min-height:42px;padding:10px 15px;border:1px solid rgb(237 239 243/.25);border-radius:10px;background:rgb(8 12 18/.62);color:#f5f5f5;font-size:13px}.ds-tag span{width:8px;height:8px;border-radius:50%;background:#ffbf60}.ds-tag:hover{border-color:var(--color-action);background:#121922}.ds-tag:focus-visible{outline:2px solid var(--color-focus);outline-offset:4px}"
-    },
-    {
-      "name": "Panel de contacto",
+      "name": "Tarjeta de proyecto",
       "kind": "card",
-      "refersTo": "contact-panel",
-      "description": "Superficie estable para información/formulario.",
-      "html": "<section class=\"ds-panel\"><h3>Conversemos sobre tu proceso</h3><p>Identificamos el problema y el próximo paso.</p></section>",
-      "css": ".ds-panel{font-family:var(--font-body);background:var(--color-panel);color:var(--color-text);border:1px solid var(--color-border);border-radius:12px;padding:32px}.ds-panel h3{font-size:24px;font-weight:450;line-height:1.3}.ds-panel p{font-size:16px;line-height:1.7;color:var(--color-muted)}"
+      "refersTo": "portfolio-card",
+      "description": "Fallback legible; en producto usa captura original.",
+      "html": "<a class=\"ds-card\" href=\"#\"><h2>Proyecto real</h2><span>Sitio web · Ver proyecto</span></a>",
+      "css": ".ds-card{display:flex;min-height:240px;flex-direction:column;justify-content:center;padding:24px;border-radius:12px;background:#262523;color:#F3F1E2;text-decoration:none}.ds-card h2{font-family:'Archivo Variable',sans-serif;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:32px;line-height:.92}.ds-card span{font:13px Chillax,sans-serif}.ds-card:hover{background:#3b3933}.ds-card:focus-visible{outline:2px solid #FFBC54;outline-offset:4px}"
+    },
+    {
+      "name": "Panel editorial",
+      "kind": "custom",
+      "description": "Superficie mate de Info.",
+      "html": "<section class=\"ds-panel\"><h2>Conversemos</h2><p>Identificamos el problema y el próximo paso.</p></section>",
+      "css": ".ds-panel{background:#262523;color:#F3F1E2;border-radius:12px;padding:32px;font:16px/1.7 Chillax,sans-serif}.ds-panel h2{font-family:'Archivo Variable',sans-serif;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.08}.ds-panel p{color:#A8A596}"
     }
   ],
   "narrative": {
-    "northStar": "Paisaje de datos",
-    "overview": "El paisaje de datos combina una base casi negra azul, luz ámbar, titulares Clash Display y lectura/UI Chillax. La identidad aprobada el 2026-10-04 toma la referencia «Consultoría tecnológica sobre paisaje de datos.png»: V ámbar vectorial, cabecera abierta y lectura centrada. La tecnología acompaña un mensaje empresarial directo, con evidencia verificable y jerarquía sobria.",
+    "northStar": "Portfolio de estudio",
+    "overview": "La identidad coloca evidencia real en primer plano: imágenes amplias, titulares extendidos, navegación legible y superficies cálidas. La V oficial identifica una consultoría premium que explica tecnología con precisión y cercanía práctica.",
     "keyCharacteristics": [
-      "V ámbar vectorial como identificador oficial.",
-      "Clash Display en titulares y Chillax en cuerpo/UI.",
-      "Fondo casi negro azul y ámbar como acento principal.",
-      "Flujo natural, divisiones finas y espacios amplios.",
-      "Capturas operativas reales identificadas como demostración.",
-      "Paisaje decorativo progresivo con alternativa estática."
+      "V ámbar oficial y una sola voz tipográfica.",
+      "Carbón dominante, crema de lectura y ámbar reservado a acción y foco.",
+      "Capturas originales a color, con procedencia y estados honestos.",
+      "Continuidad entre galería, Info y lectores de proyecto."
     ],
     "rules": [
       {
         "name": "The Foco ámbar Rule",
-        "body": "El ámbar identifica acciones, foco y puntos de datos; el fondo oscuro conserva el predominio compositivo.",
+        "body": "El ámbar identifica acciones y foco; las capturas conservan sus colores originales.",
         "section": "colors"
       },
       {
         "name": "The Voz Única Rule",
-        "body": "Usar Clash Display en titulares y Chillax en lectura/UI, ajustando escala y peso para establecer jerarquía.",
+        "body": "Usar Archivo Variable en titulares y Chillax en lectura/UI.",
         "section": "typography"
-      },
-      {
-        "name": "The Lectura Continua Rule",
-        "body": "El contenido esencial permanece en flujo y legible sin WebGL ni animación.",
-        "section": "layout"
-      },
-      {
-        "name": "The Evidencia Clara Rule",
-        "body": "Identificar datos de demostración y proyectos en desarrollo; conservar la procedencia de imágenes y logos.",
-        "section": "components"
       }
     ],
     "dos": [
       "**Do** usar el SVG oficial de la V ámbar sin deformarlo.",
-      "**Do** reutilizar los tokens compartidos: Clash Display en titulares y Chillax en lectura/UI.",
-      "**Do** conservar el foco ámbar visible y controles legibles.",
-      "**Do** identificar las capturas forestales como interfaz real con datos de demostración.",
-      "**Do** mantener etiquetas y CTA móviles en flujo sin solapamientos.",
-      "**Do** conservar una alternativa estática para el paisaje y movimiento reducido."
+      "**Do** conservar el foco visible y controles legibles.",
+      "**Do** identificar datos de demostración y conservar procedencia de capturas.",
+      "**Do** mantener FEMAG únicamente en Info como «En desarrollo»."
     ],
     "donts": [
-      "**Don't** reutilizar OV, Syne, Bricolage o DM Sans como identidad tipográfica actual.",
-      "**Don't** convertir cifras de demostración en resultados comerciales.",
-      "**Don't** inventar un retrato de Oscar ni presentar FEMAG como terminado.",
-      "**Don't** ocultar contenido esencial detrás de animaciones o WebGL.",
-      "**Don't** añadir un shader global, pins narrativos o liquid glass a este sistema.",
-      "**Don't** afirmar identidad absoluta de assets: interiores conservan algunas ilustraciones conceptuales azules."
+      "**Don't** añadir azules a la identidad, vidrio o gradientes multicolor.",
+      "**Don't** convertir datos de demostración en resultados comerciales.",
+      "**Don't** aplicar monocromo a las capturas reales del portfolio.",
+      "**Don't** introducir WebGL, videos o mockups de dispositivos en esta implementación."
     ]
   }
 }

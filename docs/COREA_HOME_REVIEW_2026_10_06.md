@@ -1,0 +1,111 @@
+# Vogel / Corea — revisión de la Home actual
+
+Fecha: 2026-10-06. Target estable: `src/App.vue`. Referencia inspeccionada: https://www.coreastudios.com/. Vista local: http://127.0.0.1:5198/.
+
+Method: dual-agent (A: /root/design_review · B: /root/technical_evidence)
+
+## Conclusión
+
+La nueva Home tiene una base coherente de portfolio, pero todavía no alcanza la referencia visual. La brecha principal es la selección y presentación de trabajos: Corea dedica el escenario a obras con imagen propia; Vogel abre con ilustraciones similares de servicios. El usuario confirmó **proyectos primero, servicios después** durante esta revisión.
+
+El próximo alcance debe mejorar composición, evidencia y legibilidad dentro del escenario existente. No requiere reconstruir la aplicación ni recuperar el paisaje espacial.
+
+## Estado verificado
+
+- HEAD local: `4f351f3`, respaldo del paisaje antes del rediseño. El rediseño actual contiene cambios locales y eliminaciones ya preparadas antes de esta revisión; se preservaron.
+- `App.vue` monta `Navbar`, `HomeStage`, `LiveClock` y `Preloader`. Bloquea el scroll del documento; el carrusel y la grilla tienen desplazamiento interno.
+- `homeCards.js` ofrece seis capacidades y tres tarjetas de casos. Forestal es cuarto; FEMAG y Sitios web no tienen imagen.
+- Archivo Variable, Chillax, carbón, crema y ámbar ya están implementados. No se propone cambiar esa identidad.
+- La Home no usa el motor espacial. GSAP/Lenis permanecen para interiores.
+- Info reúne propuesta, diez servicios, método, Oscar, recursos, contacto y portal.
+
+## Comparación visual
+
+En desktop, Corea reserva una zona lateral para marca y navegación; el trabajo protagonista empieza aproximadamente en el tercio derecho del viewport. Vogel distribuye la barra arriba y comienza el carrusel cerca del margen izquierdo: a 1280×720, la primera tarjeta mide 819×560 px y empieza en x=51 px. Copiar botones y tarjetas no reproduce por sí solo esta relación entre navegación y escenario.
+
+La referencia combina imágenes y secuencias audiovisuales específicas de cada obra. Las ilustraciones actuales de Vogel son SVG procedurales rasterizados, procedentes de `generate-service-card-images.mjs`; el filtro cálido las adapta cromáticamente, pero no las convierte en evidencia operativa. Hay que conservar los materiales reales y su procedencia. No se propone importar las obras, videos ni el gradiente multicolor de Corea.
+
+## Heurísticas
+
+Escala de juicio 0–4; esta puntuación describe usabilidad, no porcentaje de fidelidad ni certificación de calidad premium.
+
+| # | Heurística | Puntaje | Observación |
+|---|---|---:|---|
+| 1 | Estado del sistema | 3 | Vista seleccionada y contador disponibles. |
+| 2 | Lenguaje del usuario | 3 | Bajadas operativas claras; algunas denominaciones requieren contexto. |
+| 3 | Control y libertad | 3 | Grilla, teclado y cierre de Info funcionan. |
+| 4 | Consistencia | 3 | Identidad coherente; titulares pierden integridad según ancho. |
+| 5 | Prevención de errores | 3 | Validación HTML y estado de envío en fuente. |
+| 6 | Reconocimiento | 2 | Contacto y propuesta quedan bajo Info. |
+| 7 | Eficiencia | n/a | Superficie de presentación. |
+| 8 | Estética y minimalismo | 3 | Composición sobria, arte homogéneo y panel extenso. |
+| 9 | Recuperación de errores | 3 | Alternativa WhatsApp y mensaje de error en fuente; envío no probado. |
+| 10 | Ayuda/documentación | n/a | Portfolio comercial. |
+| | Total | **23/32** | Evaluación de diseño A. |
+
+## Fortalezas
+
+1. Tipografía y contraste dan una lectura inmediata a la tarjeta principal.
+2. Las bajadas expresan problemas concretos de negocio y la marca se mantiene contenida.
+3. Hay enlaces HTML, grilla alternativa, skip link, cierre y foco de Info. Forestal y FEMAG identifican demostración y desarrollo.
+
+## Prioridades
+
+1. **P1 — Titulares recortados.** Automatización desborda en grilla: 377 px de contenido frente a 339 px útiles; en carrusel de 360 px, 380 frente a 262. También hay palabras largas afectadas en otras tarjetas. `ProjectCard.vue:21,26,30` combina tamaños por viewport con `overflow:hidden`. Resolver composición por ancho real y modo, sin recortar palabras ni convertir el título en una etiqueta diminuta. Validar todas las tarjetas a 360/390 px y en grilla desktop. Ruta: `impeccable typeset` / `adapt`.
+2. **P1 — Los proyectos no tienen recorrido propio.** Forestal enlaza a Dashboards, FEMAG a Sistemas y Sitios web a Desarrollo web. La tarjeta anuncia un caso y termina en un servicio general. Darles destino específico y arte real; adelantar los proyectos según la decisión del usuario. FEMAG debe seguir identificado como En desarrollo y Forestal conservar los datos de demostración y la advertencia sobre cifras. Ruta: `impeccable shape` / `bolder`.
+3. **P2 — Falta la composición distintiva del escenario.** Ajustar la relación entre navegación lateral, espacio libre y obra protagonista; introducir navegación útil de Proyectos/Soluciones/Contacto, con adaptación móvil. Conservar V oficial y no copiar categorías ajenas como VFX o Directors. La grilla debe ser una reinterpretación compacta con jerarquía propia, no solo el mismo título central más pequeño. Ruta: `impeccable layout` / `typeset`.
+4. **P2 — Conversión escondida en un índice largo.** Info exige atravesar diez servicios, método, equipo y recursos antes de llegar al contacto. En móvil el CTA apareció tras aproximadamente 1500 px de recorrido. Mostrar contacto accesible desde el escenario y CTA junto a la propuesta; agrupar el contenido de Info y permitir saltos claros. Ruta: `impeccable clarify` / `distill`.
+5. **P2 — Continuidad funcional incompleta.** `/#contacto` muestra contacto pero enfoca Cerrar; Tab lleva a Sistemas y devuelve el panel arriba (scrollTop 1767→112). Enfocar la sección solicitada con `tabindex=-1`. El track enfocable tiene `outline:none`, por lo que necesita señal visible. El interior Sistemas desborda 42 px en 1280 px por la fila Entregables/Consultar alcance; permitir shrink y wrap según ancho. Ruta: `impeccable harden` / `adapt`.
+
+## Personas y recorrido
+
+- Primer visitante: reconoce servicios pero debe adivinar que Info contiene la consulta.
+- Visitante móvil: el recorte de palabras y el largo recorrido hasta contacto restan confianza.
+- Dirección que evalúa un proveedor: necesita ver trabajo propio, contexto y límites antes de valorar categorías.
+
+Carga cognitiva moderada: falta agrupar las diez opciones de Info y distinguir evidencia de capacidades. La primera impresión es sobria; la repetición de abstracciones crea un valle; Oscar y contacto recuperan confianza tarde. El pico debería ser el proyecto y el cierre una conversación clara.
+
+## Pruebas ejecutadas
+
+`npm test`: exit 0, 13 comprobaciones de contratos de fuente/contenido. **No son E2E y no detectaron los recortes observados.**
+
+`npm run build`: exit 0, Vite 5.4.21, 115 módulos, 3,75 s, sin errores ni warnings observados.
+
+Browser real a 1280×720, 390×844 y comprobación visual adicional a 360×800:
+
+- Home sin overflow del documento; grilla 3/1 columnas y scroll interno.
+- Flechas avanzan el contador; móvil activa snap táctil.
+- Info enfoca Cerrar, cicla Tab/Shift+Tab y Escape restaura foco.
+- Hash Contacto abre el panel y posiciona la sección; la continuidad posterior de foco falla como se describe arriba.
+- Formulario móvil cabe; no se envió ni se probó entrega real.
+- Reduced motion: preloader ausente, transición prácticamente nula y flecha inmediata.
+- Interior Sistemas: overflow reproducido, 1322 px de documento en 1280 px.
+
+Detector CLI ejecutado una vez: 26 hallazgos, 25 advisory y 1 warning. Reglas: font-size 17, radius 5, color 3, layout-transition 1. El warning anima padding en `InfoPanel.vue:140`. Los scrims negros y gran parte de tamaños/radios son decisiones legítimas no reflejadas en el catálogo; **no equivalen a 26 defectos de usuario**.
+
+Overlay ejecutado en pestaña de B, retirado y servidor temporal 8400 detenido. No quedó overlay visible al usuario. Se reutilizó el servidor 5198 y no se lo apagó. Emulaciones restauradas y pestañas de los reviewers cerradas. B verificó Git idéntico antes/después de sus comprobaciones, incluido el archivo de contraste.
+
+## Evidencia
+
+Capturas locales ignoradas por Git en `docs/capturas/corea-review-2026-10-06/`:
+
+- `a-corea-desktop.jpg`, `a-corea-mobile.jpg`.
+- `a-vogel-carousel-desktop.jpg`, `a-vogel-carousel-mobile.jpg`, `a-vogel-carousel-360.jpg`.
+- `a-vogel-grid-desktop.jpg`, `a-vogel-grid-mobile.jpg`.
+- `a-vogel-info-desktop.jpg`, `a-vogel-info-lead-mobile.jpg`, `a-vogel-info-mobile.jpg`.
+
+Logs técnicos: `C:/Users/roman/AppData/Local/Temp/vogel-critique-b-20261006/`.
+
+## Siguiente tanda recomendada
+
+Cerrar un primer tramo completo: escenario de proyectos → apertura del caso → acceso a contacto. Priorizar trabajos reales con sus límites; servicios después. Corregir tipos y navegación al mismo tiempo; luego afinar inercia, hover y transición entre vistas con una comparación desktop/móvil. No añadir loaders más largos ni efectos para compensar imágenes débiles.
+
+El orden preferido por el usuario queda registrado, pero la UI **no se reordenó durante esta auditoría**. No se modificó código, no se hizo commit, push ni deploy.
+
+## Contexto pendiente y límites
+
+`PRODUCT.md` todavía menciona navy/Clash. El manual actualiza 4–9, pero conserva lenguaje antiguo en 10/13–15. La autoridad de esta revisión fue la instrucción actual del usuario, DESIGN y las secciones vigentes del manual. Actualizar la documentación en la próxima tanda, sin reintroducir la dirección anterior.
+
+El briefing persistido de Impeccable apunta a `SpatialExperience.vue`, eliminado. Reemplazarlo por un briefing de Home cuando se desarrolle esta dirección. La configuración no registra comp-first/code-first; para una referencia live ya escogida, se recomienda code-first con capturas comparativas.
+
+No se midieron FPS, GPU, CLS ni entrega del formulario. No se auditó cada interior. No se inspeccionó el contenido completo de todas las obras de Corea. La revisión no certifica réplica pixel-perfect ni calidad premium final.

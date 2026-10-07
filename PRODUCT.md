@@ -15,7 +15,7 @@ Presentar servicios de sistemas, datos, automatización e IA; convertir interés
 Consultoría tecnológica premium con criterio de negocio, implementación concreta y acompañamiento práctico. Mostrar el proceso y las interfaces reales antes que promesas numéricas sin respaldo.
 
 ## Brand commitments
-Manual obligatorio: docs/manual-marca-vogel-consultoria.md. La decisión explícita del 2026-10-04 reemplaza la identidad visual anterior por V ámbar SVG (`src/assets/brand/vogel-v-amber.svg`), titulares Clash Display, lectura/UI Chillax, base casi negra azul y acento ámbar. Sigue la referencia visual aprobada por el usuario el 2026-10-04; el archivo original se conserva fuera de Git. El posicionamiento premium para empresas argentinas y el tono claro, preciso, profesional y cercano permanecen. Interfaces reales y datos de demostración se identifican como tales; proyectos en desarrollo se presentan con su estado real.
+Manual obligatorio: docs/manual-marca-vogel-consultoria.md. La dirección autorizada del 2026-10-06 presenta trabajo real en un portfolio inspirado en Corea: V ámbar SVG oficial, Archivo Variable expandida en titulares, Chillax en lectura/UI, carbón, crema y ámbar como único acento. Las capturas conservan los colores originales. El posicionamiento premium para empresas argentinas y el tono claro, preciso y cercano permanecen. Interfaces reales y datos de demostración se identifican como tales; FEMAG figura únicamente en Info como «En desarrollo».
 
 ## Boundaries
 Sitio institucional completo. Portal externo enlazado. Entrega local; publicación posterior. Caso forestal anónimo con interfaz real y datos ficticios identificados.
