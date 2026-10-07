@@ -1,0 +1,841 @@
+{
+  "capturedAt": "2026-10-07T00:54:33.380Z",
+  "captureMethod": "Browser screenshot fullPage; per-tab CDP viewport override; originals retained locally",
+  "derivativeMethod": "Unaltered colors; top crop and WebP compression; cover resize 1600x900",
+  "projects": [
+    {
+      "id": "an-asociados",
+      "status": "captured",
+      "url": "https://anasociados.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/an-asociados/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "777c7ba2bba3a3679b750cbed4a47578eea7e3ba27f9fd9689c3b5010258e693",
+          "source": "docs/capturas/project-sources-2026-10-06/an-asociados-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/an-asociados/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b7abe8dc933218d218a0bd8ddd4613207305fc1f67ebb44661221b2f4da2430e",
+          "source": "docs/capturas/project-sources-2026-10-06/an-asociados-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/an-asociados/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "6336f825cf86e198aa6641a20f648cd85f60b820a46d7b69cc406e3727579551",
+          "source": "docs/capturas/project-sources-2026-10-06/an-asociados-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/an-asociados/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "1e2db1561fa471ff1a0d7563893fb464b750aa7119f5346ea0d47dad2f6dbf18",
+          "source": "docs/capturas/project-sources-2026-10-06/an-asociados-desktop.jpg",
+          "derivedFrom": "/projects/an-asociados/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/an-asociados/art.webp",
+          "width": 1280,
+          "height": 960,
+          "sha256": "aeddc5552e3c84a93e34f13644dd1ba0ceb66860ceef4a38a4abd23b7d374d59",
+          "source": "src/assets/anasociados-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/an-asociados/art-800.webp",
+          "width": 640,
+          "height": 480,
+          "sha256": "7c126a784a9859668d394329d5ef9a768025eab1c7759e7d37d3cf93b7becab9",
+          "source": "src/assets/anasociados-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/an-asociados-desktop.jpg",
+        "width": 1425,
+        "height": 3889,
+        "sha256": "01fc6016f60076ccd5c98d2eaca42321c09dd66f5348852dcfd716303771caea",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 3889,
+          "width": 1440
+        },
+        "fullHeight": 3889
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/an-asociados-mobile.jpg",
+        "width": 375,
+        "height": 5580,
+        "sha256": "39f2fa99ca2d6d33ec32021fb168423ddae035b5adba466f052361359bf8733e",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 5580,
+          "width": 390
+        },
+        "fullHeight": 5580
+      }
+    },
+    {
+      "id": "indufor",
+      "status": "captured",
+      "url": "https://indufor.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/indufor/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "aeaa7008e292b85f1ffc67911c6b8132e897553b474816cda7c1ddd21ebf918c",
+          "source": "docs/capturas/project-sources-2026-10-06/indufor-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/indufor/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e8be8ef89992c47c4e96b6daf37b401e0e5ca848d9ff0bd62ffe699bc3d98297",
+          "source": "docs/capturas/project-sources-2026-10-06/indufor-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/indufor/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "45ef245bb33fc194809fa615b5874150d53a0d044f52292015bff009c4f33ea7",
+          "source": "docs/capturas/project-sources-2026-10-06/indufor-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/indufor/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "0e3f265280eaadb12a4247ee4c913468825b5b8eded8a28a9165a1debf600186",
+          "source": "docs/capturas/project-sources-2026-10-06/indufor-desktop.jpg",
+          "derivedFrom": "/projects/indufor/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/indufor/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "9d41995ffa08e9ef31cf4b09546993e5d626fa28de9e567e214b78e9b5f8c0da",
+          "source": "src/assets/indufor-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/indufor/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "b79f6d4c47ea16dc157e01a2b8095e6fa74778b7708e1c89d9f1f227489b58c9",
+          "source": "src/assets/indufor-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/indufor-desktop.jpg",
+        "width": 1425,
+        "height": 4698,
+        "sha256": "2ac809c7b19148269cded0ed94959ee3527999d73cb2ff513f28e03ddea64d74",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 4698,
+          "width": 1440
+        },
+        "fullHeight": 4698
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/indufor-mobile.jpg",
+        "width": 459,
+        "height": 6560,
+        "sha256": "ec22ca04f06ff6c6ecb9e620ba0f6dfd38f7c62991a187e01d564f6ea8a695bb",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6560,
+          "width": 390
+        },
+        "fullHeight": 6560
+      }
+    },
+    {
+      "id": "forestal-paraguay",
+      "status": "captured",
+      "url": "https://forestalparaguay.com/",
+      "derived": [
+        {
+          "path": "/projects/forestal-paraguay/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "9ec7e3ae959020f5ea005de57310f64460c5a5ee06253f6cedb7357ac0642948",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9a2ec3bdbca8d6ca3ef0f312661c6d8e19cc771e284673afe72d1b9ce7ae0958",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "d6cb8dd689697724cbcfb33380cd507d26c2d1ad0f3afcc182a27b77c7dad031",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "98cd85ce52a222086c1097a66e6ff1d9851d4af148b72f2a0a087b3e80673eb2",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-desktop.jpg",
+          "derivedFrom": "/projects/forestal-paraguay/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "3481db875b4a5066a1e6f4d2a0965af7a3d0014670c322e17ce3d57b9adfa04f",
+          "source": "src/assets/forestal-paraguay-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/forestal-paraguay/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "7773bfecb884e8096565ad01cc075c648a4667487257b99bf98eb62ae77bd4a6",
+          "source": "src/assets/forestal-paraguay-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-desktop.jpg",
+        "width": 1425,
+        "height": 3698,
+        "sha256": "a961264a2556b0ba4a8fe837bc6e6a18bf3005c76882e84b41db1d633e40ebe6",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 3698,
+          "width": 1440
+        },
+        "fullHeight": 3698
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/forestal-paraguay-mobile.jpg",
+        "width": 375,
+        "height": 6400,
+        "sha256": "9f9181baca071a1249735926e432ff3423e111fb246a0a7b05ad17da12020eb4",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6400,
+          "width": 390
+        },
+        "fullHeight": 6400
+      }
+    },
+    {
+      "id": "forestal-garuhape",
+      "status": "captured",
+      "url": "https://forestalgaruhape.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/forestal-garuhape/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "52400d3a65a33bd30f1bfb78ae44df43fcf5235cef937098e14af9750aa2a0c6",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "38b69e0c5105a03d21b42b84a6d043af17d1866f680833f5992b12fc9e4e2c98",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "8de96ce7e58c9dcf414380c87a7b3176bafb36bb6423332ea4653f247c79e29f",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "5a8c39d5297149f3bb6eee99108dc737f97712d3091a824caae8da7ee4bbd42d",
+          "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-desktop.jpg",
+          "derivedFrom": "/projects/forestal-garuhape/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "598ddf5f238ee0447841779e7db0e560ae6d720989c96dba23438b8d38bef529",
+          "source": "src/assets/forestal-garuhap-sistema.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/forestal-garuhape/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "21742e2ffa7204c2616e56d4d1e0e73604c097c79995eeb71a394452b6537293",
+          "source": "src/assets/forestal-garuhap-sistema.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-desktop.jpg",
+        "width": 1425,
+        "height": 6003,
+        "sha256": "472ae7a6b3bf638a717526a753f3a0d6fbca0a0066ed0683e0de6cf6eb10142b",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 6003,
+          "width": 1440
+        },
+        "fullHeight": 6003
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/forestal-garuhape-mobile.jpg",
+        "width": 375,
+        "height": 11337,
+        "sha256": "d64daa7c51517d8ee6bd3e150cf9a1a82ee126a322bf22d5a78b4d5dbad178b0",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 11337,
+          "width": 390
+        },
+        "fullHeight": 11337
+      }
+    },
+    {
+      "id": "servin-lgsm",
+      "status": "captured",
+      "url": "https://servinlgsm.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/servin-lgsm/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "ca7ec9196376143b171a6f46e034fb6cf4d0fca2f74a35d46f0def8e8fe362ab",
+          "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "669b1a9a79edc32a00ceb093c876ab563a450ca5f6b65df18371f2f6dceee1ab",
+          "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "448e463cf6c55b9879c727a4e3103ba4323892501d17655199593e561d594b6a",
+          "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "6c1e5d7cdd62ce433954a793faed44e277e84b7ede97f5c43cf7acf0aa0e8cd2",
+          "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-desktop.jpg",
+          "derivedFrom": "/projects/servin-lgsm/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/art.webp",
+          "width": 1280,
+          "height": 1280,
+          "sha256": "347dc96e5b94a3b64d0fd6304b6274a5feb0e3ee5790f5b1862ea9dc7205854f",
+          "source": "src/assets/servin-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/servin-lgsm/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "aa217dcb27088a7445924f7d35596643576b9482b837447eea7db14b2cadb197",
+          "source": "src/assets/servin-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-desktop.jpg",
+        "width": 1425,
+        "height": 5005,
+        "sha256": "026f346654da2124206e3148bf0e28588dc25625bf55d9df1b80076169a47a6c",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 5005,
+          "width": 1440
+        },
+        "fullHeight": 5005
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/servin-lgsm-mobile.jpg",
+        "width": 375,
+        "height": 6604,
+        "sha256": "439cbe25791d5f597654d6886e95d25ef9805e74196bed2098dda3bee9376042",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6604,
+          "width": 390
+        },
+        "fullHeight": 6604
+      }
+    },
+    {
+      "id": "h21",
+      "status": "captured",
+      "url": "https://h21.ar/",
+      "derived": [
+        {
+          "path": "/projects/h21/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "ef3e9ec4ec672e1cf945710eeaa153d81a7e9128ab89ca1ab7d8b3695548fc22",
+          "source": "docs/capturas/project-sources-2026-10-06/h21-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/h21/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "72f638fadadacd8f5abe578b1819a2a2297315753f8f23b6fee19e46c3d25be7",
+          "source": "docs/capturas/project-sources-2026-10-06/h21-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/h21/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "018312779e9ff953d477a525ec660c42cc25520861a041f92bf340bafb81a09c",
+          "source": "docs/capturas/project-sources-2026-10-06/h21-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/h21/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "f42e22cac08fc8f3bef365012cb6d7cc3aafd7f6fd22fcb1143c0305f3481d59",
+          "source": "docs/capturas/project-sources-2026-10-06/h21-desktop.jpg",
+          "derivedFrom": "/projects/h21/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/h21/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "218621927fcf8c851b9db9bb5e4e9217e27310ab9b27bb8d8656717055171cd1",
+          "source": "src/assets/H21-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/h21/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "6690540a66f34d108b291bf38ff538f4a921256c3b34d3d1f264c3fa837bfc16",
+          "source": "src/assets/H21-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/h21-desktop.jpg",
+        "width": 1425,
+        "height": 6781,
+        "sha256": "e3c48b0a7820af9da95b3c1c93996e87636db47eaab23680ce9a8eb35aa4d0db",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 6799,
+          "width": 1440
+        },
+        "fullHeight": 6781
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/h21-mobile.jpg",
+        "width": 375,
+        "height": 11696,
+        "sha256": "7b709aa13080b85d329000e8cfeecc31841fad860c17cc431833a2140793217b",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 11696,
+          "width": 390
+        },
+        "fullHeight": 11696
+      }
+    },
+    {
+      "id": "amitrac",
+      "status": "captured",
+      "url": "https://amitrac.ar/",
+      "derived": [
+        {
+          "path": "/projects/amitrac/desktop.webp",
+          "width": 1425,
+          "height": 2600,
+          "sha256": "4df3fd85575c2930c8815109b2af3aaddc119246f44aac893662b6b9b5745777",
+          "source": "docs/capturas/project-sources-2026-10-06/amitrac-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/amitrac/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "25fe22e399681ed255c66ae41b683e1308c115cee5a4f26fc7f9eb25a6a92795",
+          "source": "docs/capturas/project-sources-2026-10-06/amitrac-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/amitrac/mobile.webp",
+          "width": 375,
+          "height": 2200,
+          "sha256": "b29cd6cd9a19135ef8e7024dc371084424e86f0c85a0b69bd6f97f7a5df5565b",
+          "source": "docs/capturas/project-sources-2026-10-06/amitrac-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 375,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/amitrac/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "5f05e8ef8527aa7ec105b72ad5097bc69b17e6e21c539ac692fe2d6ac442b0ca",
+          "source": "docs/capturas/project-sources-2026-10-06/amitrac-desktop.jpg",
+          "derivedFrom": "/projects/amitrac/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1425,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/amitrac/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "0e3b24c0a7781c1497758cda116931d0917c21807ad0ffa7337c262198d2d2e8",
+          "source": "src/assets/amitrac-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/amitrac/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "8905d41d2fbf8b9151d06f2d598c52c8ae0573005c7cc43039bd966cc67c0fe7",
+          "source": "src/assets/amitrac-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/amitrac-desktop.jpg",
+        "width": 1425,
+        "height": 2949,
+        "sha256": "c94fcd212234172c74d386dd0ad9249e4385fc79af97e0252d0e78cde56ea989",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 2949,
+          "width": 1440
+        },
+        "fullHeight": 2949
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/amitrac-mobile.jpg",
+        "width": 375,
+        "height": 5731,
+        "sha256": "0615ae6ebde350c21d79729de6f69537e81521916f71cf3f050040af9207ffbc",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 5731,
+          "width": 390
+        },
+        "fullHeight": 5731
+      }
+    },
+    {
+      "id": "municipalidad-garuhape",
+      "status": "captured",
+      "url": "https://garuhape.gob.ar/",
+      "derived": [
+        {
+          "path": "/projects/municipalidad-garuhape/desktop.webp",
+          "width": 1440,
+          "height": 2577,
+          "sha256": "fb59ab7ce7d478d415ebf1d002163da5617adc656d36e5a24c5f1a8f887178d4",
+          "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2577
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6f849566859492fd5db7dc2b8ac604d5bbd54ef20748c3e78c91a27275b793e1",
+          "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "971c3ddd4a6e9e86fb8b630f0a2ba481286e7bc4f86eb2a4968be5f85f75e360",
+          "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "33b063bab4616f9cae6b753a9eb1146163cf6d4a21edb494fc0879bf8a7ed640",
+          "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-desktop.jpg",
+          "derivedFrom": "/projects/municipalidad-garuhape/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "920d8838b3a7e88d5a51c00c0ed50b9c018ddd02f8c7defac724ec397fc5d1c8",
+          "source": "src/assets/garuhape-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "6c3debc37b676004d265a34c1b48d56dcdfe77c77ecd750d1852d59c2fb31dc1",
+          "source": "src/assets/garuhape-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-desktop.jpg",
+        "width": 1440,
+        "height": 2577,
+        "sha256": "e4de8bccf93655edba0cc99b7dca212f98bd8dfe2275e0cf98f6d29b04518bf2",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 2577,
+          "width": 1440
+        },
+        "fullHeight": 2577
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-06/municipalidad-garuhape-mobile.jpg",
+        "width": 1440,
+        "height": 4147,
+        "sha256": "73adf0a777d66f143ec775b25d7738dd15f59882c6b4192937e299e4b4e49431",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 4147,
+          "width": 390
+        },
+        "fullHeight": 4147
+      }
+    }
+  ],
+  "generatedCardArt": [
+    {
+      "path": "/projects/caso-forestal/art.webp",
+      "width": 1280,
+      "height": 965,
+      "sha256": "38756c488dfa70229582a45f751d7e85969f9f09fa4e6b75bfbdf968595ffc5b",
+      "source": "src/assets/forestal-garuhape-card.png",
+      "kind": "generated"
+    },
+    {
+      "path": "/projects/caso-forestal/art-800.webp",
+      "width": 640,
+      "height": 483,
+      "sha256": "bbb020fca90d2e8aed184a29c516081799873e5ddb456b463a1b95480649c2e8",
+      "source": "src/assets/forestal-garuhape-card.png",
+      "kind": "generated"
+    }
+  ]
+}
