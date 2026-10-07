@@ -167,7 +167,7 @@ V SVG ámbar con palabra Vogel en Chillax cuando se renderiza como texto. Cabece
 
 ### Evidence and secondary content
 
-Cuatro capacidades con diez destinos, tres capturas de una operación forestal real con datos de demostración, ocho logos SVG de clientes y FEMAG identificado como desarrollo. Método, trayectoria de Oscar, recursos, capacitación y contacto preservan información útil. Los detalles secundarios permanecen colapsados inicialmente. Oscar se presenta sin retrato hasta contar con una foto real autorizada.
+Cuatro capacidades con diez destinos, tres capturas de una operación forestal real con datos de demostración, ocho logos SVG de clientes y FEMAG identificado como desarrollo. Método, trayectoria de Oscar, recursos, capacitación y contacto preservan información útil. Los detalles secundarios permanecen colapsados inicialmente. Oscar se presenta con su retrato real y autorizado (src/assets/oscar/, con procedencia documentada); si la imagen falta o falla, el capítulo funciona solo con tipografía.
 
 **The Evidencia Clara Rule.** Identificar datos de demostración y proyectos en desarrollo; conservar la procedencia de imágenes y logos.
 
@@ -194,9 +194,9 @@ El menú desktop ocupa el centro de una grilla `1fr auto 1fr`, independientement
 
 - **Don't** reutilizar OV, Syne, Bricolage o DM Sans como identidad tipográfica actual.
 - **Don't** convertir cifras de demostración en resultados comerciales.
-- **Don't** inventar un retrato de Oscar ni presentar FEMAG como terminado.
+- **Don't** generar, retocar ni sustituir el retrato de Oscar (solo la fotografía real autorizada, sin placeholders), ni presentar FEMAG como terminado.
 - **Don't** ocultar contenido esencial detrás de animaciones o WebGL.
-- **Don't** añadir un shader global, pins narrativos o liquid glass a este sistema.
+- **Don't** añadir pins narrativos o liquid glass a este sistema. El único postprocesado permitido es el pipeline del motor espacial (bloom, tone mapping, viñeta, grano), descrito en «Acabado cinematográfico».
 - **Don't** afirmar identidad absoluta de assets: interiores conservan algunas ilustraciones conceptuales azules.
 
 ### Extensión de superficie: arco espacial optativo — Phase 02 (2026-10-06)
@@ -211,7 +211,7 @@ La luz ámbar y los puntos institucionales azules continúan sobre navy. La jera
 
 La mejora se activa desde 1024px, con puntero preciso y sin movimiento reducido. Móvil, touch y movimiento reducido presentan HTML con posters del propio mundo, sin importar Three.js. En escritorio con movimiento reducido o fallo de WebGL, texto y poster forman dos columnas editoriales; en móvil el poster ocupa una franja de 320px. Si WebGL falla, se retira la reserva de cuatro alturas; perder y restaurar el contexto temporalmente conserva el canvas y muestra los posters. El renderer pausa tras el traspaso hacia Servicios y el cierre usa su poster estático.
 
-La profundidad procede de materiales aditivos y morph procedural; no introduce luces de escena, sombras, texturas ni tokens de marca. El terreno previo comparte uniforms con 512 puntos agrupados y 171 segmentos de relación. Buffers estables y dos draw calls adicionales mantienen el total observado en cuatro geometrías, cuatro draw calls y cero texturas. Esta regla describe el presupuesto de esta superficie; no autoriza extender el arco a más capítulos.
+La profundidad procede de materiales aditivos y morph procedural; no introduce luces de escena, sombras ni tokens de marca. El terreno previo comparte uniforms con 512 puntos agrupados y 171 segmentos de relación. El presupuesto vigente de draw calls, geometrías y render targets está en `src/lib/renderBudget.js` (ver «Acabado cinematográfico»).
 
 ### Extensión autorizada: continuidad del sistema — Phase 03 (2026-10-06)
 
@@ -221,4 +221,55 @@ Automation significa **movimiento**: un pulso de actividad recorre la columna de
 
 El scroll controla pulsos, morph y selección de forma reversible; el tiempo solo sostiene el ambiente. La cámara desciende hacia la circulación, se eleva para leer patrones, se aproxima moderadamente a la evaluación y estabiliza la convergencia. El navy y los azules siguen siendo la base; el ámbar se concentra en actividad, selección y conexiones relevantes. No redefine tokens, tipografías ni identidad.
 
-El presupuesto de esta extensión es cinco draw calls/geometrías y cero texturas: una geometría adicional reúne las alternativas, convergencia y contorno. Los labels y textos siguen siendo HTML. Móvil, touch, movimiento reducido y fallo WebGL utilizan posters reproducibles del mismo mundo y equivalencias editoriales. La máscara heredada del Hero se oculta completa mientras el mundo persistente está activo, evitando el corte horizontal corregido después de Phase 02.
+Una geometría adicional reúne las alternativas, convergencia y contorno; el presupuesto vigente está en `src/lib/renderBudget.js`. Los labels y textos siguen siendo HTML. Móvil, touch, movimiento reducido y fallo WebGL utilizan posters reproducibles del mismo mundo y equivalencias editoriales. La máscara heredada del Hero se oculta completa mientras el mundo persistente está activo, evitando el corte horizontal corregido después de Phase 02.
+
+
+### Extensión autorizada: Abstraction → Evidence — Phase 04 (2026-10-06)
+
+El paisaje explica relaciones. El caso demuestra aplicación. No mezclar ambos lenguajes indefinidamente: cuando aparece evidencia real, la interfaz toma protagonismo y WebGL retrocede.
+
+`VITE_SPATIAL_PHASE_04=true` incorpora el caso Forestal antes de Servicios, sin duplicar su presentación legacy. Un marco del mismo mundo se transforma en un figure HTML mediante proyección y docking reversible; las capturas nunca son texturas WebGL. Al terminar el portal el renderer pausa y Registrar → Revisar → Decidir continúa como secuencia DOM sobre navy casi plano. CSS sticky organiza el stage sin pin GSAP, snap o autoplay; móvil y fallbacks conservan flujo editorial.
+
+La numeración global procede de un catálogo único, 01 Intro → 08 Evidencia; Registrar/Revisar/Decidir poseen índices internos subordinados. Copy, alt, capturas y advertencias se comparten con legacy. Conservar explícitamente interfaz real/datos de demostración y ausencia de resultados de clientes. Los recortes sirven a la lectura, nunca cambian cifras, textos o UI; los originales siguen accesibles. Esta fase no autoriza rediseñar Servicios ni los capítulos posteriores.
+
+### Acabado cinematográfico del mundo espacial (2026-10-06)
+
+Sustituye las restricciones `low-power` / cero texturas / sin postprocesado de las fases 01–04, que producían un acabado plano. Detalle técnico en `docs/SPATIAL_VISUAL_OVERHAUL.md`.
+
+**The Luz con Intención Rule.** El mundo se renderiza en HDR lineal → bloom → ACES → sRGB, con viñeta y grano sutiles. Sólo superan el umbral de bloom las crestas, el pico central, los pulsos, la rama IA seleccionada, el hub de decisión y el contorno de evidencia: el ámbar sigue siendo acento. Navy y azules institucionales son la base; el fondo navy (`#05090f`) lo pinta el propio composite para fundirse con la página.
+
+**The Mundo Siempre Presente Rule.** Entre Intro y Decisión el mundo no colapsa a un vacío: cada capítulo cambia enfoque (bokeh por círculo de confusión), luz, niebla y encuadre. Un lens shift horizontal compone el mundo a la derecha mientras el copy ocupa la izquierda; en el portal vuelve a cero. La cámara recorre una única trayectoria continua; en los tramos de lectura deriva lentamente y acentúa la velocidad de scroll con roll/FOV mínimos que vuelven a reposo.
+
+**The Texto Revelado Rule.** Los titulares de capítulo suben por líneas enmascaradas y marcador, cuerpo y enlaces entran con curvas suaves, siempre en función del scroll (reversible, sin temporizadores). Las etiquetas proyectadas se desvanecen por distancia a los bordes en lugar de conmutar. El oscurecimiento detrás del copy es local y radial, nunca una banda de ancho completo.
+
+Calidad adaptativa por tiers (DPR, MSAA, escala de bloom, tamaño máximo de bokeh) protege el rendimiento; los navegadores automatizados fijan un tier para capturas deterministas.
+
+### Sistema editorial: cierre de la Home — Phase 05 (2026-10-06)
+
+`VITE_SPATIAL_PHASE_05=true` cierra la Home con un segundo sistema. Implica Phase 04 y, por tanto, toda la cadena (precedencia P05 → P04 → P03 → Narrative → Core → base). Permanece desactivada por defecto: la Home base y los modos anteriores no cambian. Detalle y evidencia en `docs/SPATIAL_PHASE_05_EDITORIAL_CLOSURE.md`.
+
+**Dos sistemas, una marca.**
+- **Spatial System** explica complejidad, conexión y transformación: 01 Intro → 08 Evidencia. WebGL, cámara y numeración de capítulos.
+- **Editorial System** explica método, experiencia, pensamiento y conversación. Flujo nativo, sin WebGL.
+
+> Motion explains systems. Editorial composition explains judgment.
+
+**The Cambio de Ritmo Rule.** Hasta Evidencia la Home es inmersión; después es claridad. Ninguna sección posterior intenta impresionar con escenas. El indicador espacial se apaga por completo antes de la primera sección editorial (`evidenceExit`, offsets 10.2–10.5) y no existe numeración 09–12.
+
+**Orden final.** Capacidades (`#soluciones`, `#servicios`) → Método Vogel (`#metodologia`) → Persona (`#nosotros`) → Trabajo real (`#clientes`) → Perspectivas (`#recursos`, `#charla-ia-2026`) → Conversación (`#contacto`). Todas las anclas anteriores se conservan.
+
+**Superficies.** Siguen siendo oscuras, con alternancia navy · deep · slate y sin superficie clara (la regla de documentos comerciales no se traslada a la web). El ritmo se obtiene con espacio (`clamp(96px,11vw,180px)`), escala tipográfica, líneas finas y el cambio de superficie; sin tarjetas ni sombras.
+
+**Capability Index.** Seis filas editoriales de ancho completo con `border-top`, número, título grande, una línea y flecha. Sin tarjetas, grid 2×2 ni iconos. Hover solo en puntero fino: el título se desplaza 6 px, la flecha se mueve y la línea se vuelve ámbar; el foco por teclado produce el mismo resultado. Los títulos no repiten los del arco espacial y las rutas que no caben en las seis filas quedan en la línea «También» (ninguna ruta de servicio deja de ser alcanzable).
+
+**Método Vogel.** Observar · Ordenar · Conectar · Decidir · Mejorar: lenguaje de trabajo de la consultora, nunca una metodología registrada. Diagrama SVG propio (Personas, Procesos, Datos y Tecnología convergen en un sistema que lleva a una decisión; Mejorar cierra el ciclo). Es legible sin JavaScript. Se dibuja una sola vez al entrar (≈2 s, sin pin ni scrub); en móvil se sustituye por una línea vertical.
+
+**Persona.** El capítulo funciona con o sin retrato. «+25 años» contextualizado como experiencia profesional, nunca como KPI comercial; hitos reales (1998, 2008, 2021, 2024) tomados de `src/data/oscar.js`, la misma fuente que usa `AboutSection`; capacidades en lista editorial, no como etiquetas. Las tecnologías concretas viven en el detalle desplegable.
+
+**Perspectivas.** Hasta tres guías reales de `resources.js`. La formación en IA se integra como bloque dentro de Perspectivas; no es una sección principal.
+
+**Conversación.** Formulario editorial (borde inferior, radios de 6 px, etiquetas en versalita, entradas de al menos 16 px) con la misma lógica, campos, estados y analíticas que la sección anterior (`useContactForm`). Dos acciones alternativas como máximo. El cierre recupera el paisaje ya ordenado como imagen fija (`public/landscape/closing-ordered.webp`): no hay GPU activa en la segunda mitad de la página.
+
+**Motion editorial.** Una sola propietaria (`useEditorialMotion`): entradas con Y ≤ 20 px y opacidad, una vez; líneas por trazo; foto con revelado de clip breve; sin animación por palabra, sin pin y sin scrub. Con reduced motion no se oculta ni se mueve nada.
+
+**Forma.** Controles de 6–8 px y marcos de 0–8 px; sin paneles de 20 px, sin sombras y sin vidrio. `LandscapeTraces` no se usa en el sistema editorial.

@@ -21,13 +21,43 @@
    at 30% of the Hero. Removing narrative-live restores the complete fallback. */
 .narrative-live .narrative-arc .data-landscape,.narrative-live .narrative-poster{visibility:hidden}
 .narrative-live .spatial-narrative-host{opacity:1}
-.narrative-live .narrative-moment::before{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,#05090f 0%,rgb(5 9 15/.88) 26%,transparent 68%);pointer-events:none}
+/* Local, soft darkening behind the copy instead of a full-width band over the world. */
+.narrative-live .narrative-copy::before{content:'';position:absolute;z-index:-1;left:-14vw;top:50%;width:min(1100px,76vw);height:170%;transform:translateY(-50%);pointer-events:none;
+  background:radial-gradient(ellipse 52% 48% at 34% 50%,rgb(5 9 15/.84),rgb(5 9 15/.55) 46%,rgb(5 9 15/0) 100%)}
+.narrative-live .narrative-copy h2{font-size:clamp(44px,4.9vw,78px);line-height:1;letter-spacing:-.045em;margin-bottom:30px}
+.narrative-live .narrative-copy h2 .narrative-line{padding-bottom:.1em;margin-bottom:-.1em}
+.narrative-live .narrative-copy>p:not(.narrative-marker){font-size:17px;line-height:1.7;color:#aeb6c1}
+.narrative-live .narrative-marker{display:flex;align-items:center;gap:14px}
+.narrative-live .narrative-marker::before{content:'';width:28px;height:1px;background:linear-gradient(90deg,transparent,currentColor)}
+.narrative-live .narrative-destinations a{border-bottom:1px solid rgb(237 239 243/.08);min-width:300px;transition:color 220ms var(--ease-out),border-color 220ms var(--ease-out)}
+.narrative-live .narrative-destinations a:hover{border-color:rgb(255 188 84/.45)}
+.narrative-live .narrative-destinations a span{transition:transform 220ms var(--ease-out)}
+.narrative-live .narrative-destinations a:hover span{transform:translateX(6px)}
+/* Hero terrain labels: quiet glass markers that belong to the world, not boxed cards. */
+.narrative-live .narrative-arc .terrain-label{border-color:rgb(237 239 243/.1);border-radius:999px;background:rgb(6 10 16/.38);backdrop-filter:blur(10px) saturate(1.2);-webkit-backdrop-filter:blur(10px) saturate(1.2);font-size:12px;letter-spacing:.04em;padding:9px 16px 9px 13px}
+.narrative-live .narrative-arc .terrain-label:hover{border-color:rgb(255 188 84/.55);background:rgb(10 16 24/.6)}
+.narrative-live .narrative-arc .terrain-label>span{width:6px;height:6px;box-shadow:0 0 0 4px rgb(255 188 84/.12),0 0 14px rgb(255 185 75/.7)}
+.narrative-live .narrative-arc .terrain-label i{background:linear-gradient(rgb(255 188 84/.85),rgb(255 188 84/0))}
 .narrative-live .narrative-arc .hero-copy{transform:translateY(calc(var(--intro-retreat,0)*-48px)) scale(calc(1 - var(--intro-retreat,0)*.025));transform-origin:center top}
 .narrative-live .spatial-cluster-labels{visibility:visible}
-.spatial-cluster-labels li{position:absolute;left:0;top:0;opacity:0;font-size:10px;letter-spacing:.14em;white-space:nowrap;color:#c3cbd4;border-bottom:1px solid rgb(255 188 84/.35);padding:10px 0;will-change:transform}
+.spatial-cluster-labels li{position:absolute;left:0;top:0;opacity:0;font-size:10px;letter-spacing:.16em;white-space:nowrap;color:#c3cbd4;padding:10px 0 10px 16px;will-change:transform,opacity}
+.spatial-cluster-labels li::before{content:'';position:absolute;left:0;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:#ffbc54;box-shadow:0 0 10px rgb(255 188 84/.8)}
+.spatial-cluster-labels li::after{content:'';position:absolute;left:16px;right:0;bottom:4px;height:1px;background:linear-gradient(90deg,rgb(255 188 84/.5),rgb(255 188 84/0))}
 .narrative-live .narrative-area-summary{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.narrative-live .narrative-progress{position:fixed;right:24px;top:48%;z-index:5;display:flex;flex-direction:column;gap:10px;text-align:right;font-size:9px;letter-spacing:.16em;color:#9ea8b5}
-.narrative-count{color:#d7dce2}.narrative-progress i{height:1px;background:#ffbc54;transform:scaleX(var(--arc-progress,0));transform-origin:right}
+.narrative-live .narrative-progress{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:5;display:grid;grid-template-columns:auto 1px;grid-template-rows:auto auto auto;column-gap:16px;row-gap:8px;align-items:center;text-align:right;font-size:9px;letter-spacing:.18em;color:#9ea8b5}
+.narrative-count{color:#d7dce2;grid-column:1;font-variant-numeric:tabular-nums}
+.narrative-current,.narrative-substep{grid-column:1}
+.narrative-progress i{display:none}
+/* Vertical chapter rail: one tick per chapter, the active one in amber. */
+.narrative-rail{grid-column:2;grid-row:1/span 3;display:flex;flex-direction:column;gap:7px;margin:0;padding:0;list-style:none}
+.narrative-rail li{width:1px;height:14px;background:rgb(237 239 243/.18);transition:background-color 400ms var(--ease-out),height 400ms var(--ease-out),box-shadow 400ms var(--ease-out)}
+.narrative-rail li.is-past{background:rgb(255 188 84/.4)}
+.narrative-rail li.is-active{height:30px;background:#ffbc54;box-shadow:0 0 12px rgb(255 188 84/.55)}
+.narrative-progress.is-swapping .narrative-count,.narrative-progress.is-swapping .narrative-current{animation:narrative-swap 520ms var(--ease-out) both}
+.narrative-progress.is-swapping .narrative-current{animation-delay:60ms}
+.narrative-progress.is-back .narrative-count,.narrative-progress.is-back .narrative-current{animation-name:narrative-swap-back}
+@keyframes narrative-swap{from{opacity:0;transform:translateY(9px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@keyframes narrative-swap-back{from{opacity:0;transform:translateY(-9px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
 .narrative-live .solutions-section{isolation:auto;background:linear-gradient(180deg,transparent,var(--color-surface) 320px,var(--color-surface) calc(100% - 160px),var(--color-background))}
 .narrative-live .solutions-section>.section-shell{z-index:3}
 @media(min-width:1024px) and (pointer:fine) and (prefers-reduced-motion:no-preference){

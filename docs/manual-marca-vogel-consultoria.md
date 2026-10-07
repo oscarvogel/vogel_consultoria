@@ -115,7 +115,7 @@ Clash Display: titulares entre 450 y 600, con preferencia por 500 en tamaños gr
 
 ## 8. Sistema grafico
 
-Paisajes de puntos, conexiones finas, dashboards, procesos y evidencia operativa. La home usa paisaje en hero y cierre, tres capturas forestales reales con datos de demostración y ocho logos SVG de clientes. FEMAG debe identificarse como proyecto en desarrollo. Oscar se presenta sin retrato hasta contar con una fotografía real autorizada.
+Paisajes de puntos, conexiones finas, dashboards, procesos y evidencia operativa. La home usa paisaje en hero y cierre, tres capturas forestales reales con datos de demostración y ocho logos SVG de clientes. FEMAG debe identificarse como proyecto en desarrollo. Oscar se presenta con su fotografía real y autorizada (sin retoque ni retratos generados); si la imagen no está disponible, el capítulo se resuelve solo con tipografía, sin placeholders ni siluetas.
 
 Assets:
 

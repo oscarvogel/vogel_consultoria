@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import {RENDER_BUDGET} from '../src/lib/renderBudget.js';
+const budget=RENDER_BUDGET.core;
 import {createRequire} from 'node:module';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -32,7 +34,7 @@ try {
  for(const p of [0,.5,1,.5,0]) {
   await page.evaluate(p=>scrollTo({top:(document.querySelector('main').offsetHeight-innerHeight)*p,behavior:'instant'}),p);
   await page.waitForTimeout(500);const s=await state(page);report.samples.push(s);
-  assert(Math.abs(s.progress-p)<.015);assert.equal(s.calls,2);assert.equal(s.geometries,2);
+  assert(Math.abs(s.progress-p)<.015);assert.equal(s.calls,budget.calls);assert.equal(s.geometries,budget.geometries);
   assert(await page.evaluate(()=>document.querySelector('canvas')===window.__spatialCanvas));
   await page.screenshot({path:join(out,`desktop-${p}-${report.samples.length}.png`)});
  }
@@ -62,7 +64,7 @@ try {
   heaps.push((await cdp.send('Performance.getMetrics')).metrics.find(m=>m.name==='JSHeapUsedSize').value);
  }
  report.performance.heapAfterGC=heaps;
- assert.equal((await state(page)).geometries,2);assert.equal(await page.locator('canvas').count(),1);
+ assert.equal((await state(page)).geometries,budget.geometries);assert.equal(await page.locator('canvas').count(),1);
  await page.evaluate(()=>{const canvas=document.querySelector('canvas');window.__loss=canvas.getContext('webgl2').getExtension('WEBGL_lose_context');window.__loss.loseContext();});
  await page.waitForTimeout(200);assert.equal(await page.locator('.spatial-live').count(),0);assert.equal((await state(page)).running,false);
  await page.evaluate(()=>window.__loss.restoreContext());await page.waitForSelector('.spatial-live');

@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import {RENDER_BUDGET} from '../src/lib/renderBudget.js';
+const budget=RENDER_BUDGET.narrative;
 import {createRequire} from 'node:module';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
@@ -33,7 +35,7 @@ try{
  const identity=await state(page);
  for(const [name,p] of [['intro',0],['entry',.3],['complexity',.5],['mid-transform',.735],['systems',.95],['services',1.2],['systems-reverse',.95],['complexity-reverse',.5],['intro-reverse',0]]){
   await seek(page,p);const s=await state(page);report.samples.push({name,...s});
-  assert(Math.abs(s.progress-Math.min(1,p))<.002);assert.equal(s.calls,4);assert.equal(s.geometries,4);assert.equal(s.textures,0);
+  assert(Math.abs(s.progress-Math.min(1,p))<.002);assert.equal(s.calls,budget.calls);assert.equal(s.geometries,budget.geometries);assert.equal(s.textures,budget.textures);
   assert.deepEqual(s.geometryIds,identity.geometryIds);assert.deepEqual(s.bufferIds,identity.bufferIds);
   assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));
   if(!name.includes('reverse'))await page.screenshot({path:resolve(out,`${name}.png`)});
@@ -62,7 +64,7 @@ try{
 
  // Required desktop heights and live resize, while retaining the same canvas and GPU resources.
  for(const viewport of [{width:1440,height:700},{width:1920,height:1080},{width:1440,height:900}]){
-  await page.setViewportSize(viewport);await seek(page,.735);const s=await state(page);assert(s.running);assert.equal(s.geometries,4);
+  await page.setViewportSize(viewport);await seek(page,.735);const s=await state(page);assert(s.running);assert.equal(s.geometries,budget.geometries);
   assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await seek(page,0);
   const overlap=await page.evaluate(()=>{const a=document.querySelector('.hero-copy .action-button').getBoundingClientRect();return [...document.querySelectorAll('.terrain-label')].some(e=>{const b=e.getBoundingClientRect();return a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;});});assert.equal(overlap,false);
@@ -82,8 +84,8 @@ try{
  const after=(await cdp.send('Performance.getMetrics')).metrics;const heaps=[];
  for(let round=0;round<3;round++){for(let i=0;i<6;i++)await seek(page,i%2?0:.95);await cdp.send('HeapProfiler.collectGarbage');heaps.push((await cdp.send('Performance.getMetrics')).metrics.find(m=>m.name==='JSHeapUsedSize').value);}
  report.performance={before,after,frameIntervals:intervals,heapAfterGC:heaps,powerPreference:await page.evaluate(()=>document.querySelector('canvas').getContext('webgl2').getContextAttributes().powerPreference)};
- const elapsedBefore=(await state(page)).elapsed;
- await page.evaluate(()=>{window.__originalHidden=Object.getOwnPropertyDescriptor(Document.prototype,'hidden');Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));});await page.waitForTimeout(100);assert.equal((await state(page)).running,false);assert.equal((await state(page)).elapsed,elapsedBefore);
+ // Capture and pause in one browser task: RAF may run between separate evaluate calls.
+ const elapsedBefore=await page.evaluate(()=>{const elapsed=document.querySelector('canvas').__vogelSpatial.getState().elapsed;window.__originalHidden=Object.getOwnPropertyDescriptor(Document.prototype,'hidden');Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});document.dispatchEvent(new Event('visibilitychange'));return elapsed;});await page.waitForTimeout(100);assert.equal((await state(page)).running,false);assert.equal((await state(page)).elapsed,elapsedBefore);
  await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});await page.waitForTimeout(100);assert((await state(page)).running);
  await page.evaluate(()=>{window.__loss=document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context');window.__loss.loseContext();});await page.waitForTimeout(150);assert.equal(await page.locator('.narrative-live').count(),0);assert.equal((await state(page)).running,false);
  await page.evaluate(()=>window.__loss.restoreContext());await page.waitForSelector('.narrative-live');assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));

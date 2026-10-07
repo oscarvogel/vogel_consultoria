@@ -1,0 +1,43 @@
+{
+  "script": "node scripts/derive-forest-case.mjs",
+  "encoding": "lossless WebP",
+  "sourceProvenance": "provenance.json",
+  "images": [
+    {
+      "original": "src/assets/cases/forestal-campo.png",
+      "derived": "src/assets/cases/forestal-campo.webp",
+      "sha256": "b1e717fcc842eea19033c246cb94959754241f3606e5b4fde308bf9c414ceaae",
+      "pngBytes": 64420,
+      "webpBytes": 34838,
+      "pixelIdentical": true,
+      "serve": true
+    },
+    {
+      "original": "src/assets/cases/forestal-revision.png",
+      "derived": "src/assets/cases/forestal-revision.webp",
+      "sha256": "c0a7a41758552f6aafa55ac8ca0296347dc3b35fcff454ef7d14b74fc3df65da",
+      "pngBytes": 98893,
+      "webpBytes": 52548,
+      "pixelIdentical": true,
+      "serve": true
+    },
+    {
+      "original": "src/assets/cases/forestal-dashboard.png",
+      "derived": "src/assets/cases/forestal-dashboard.webp",
+      "sha256": "613a0401a731fd4a8aea1df5ebfd24ee59318ea138d1dd700f44e380bb024d11",
+      "pngBytes": 128464,
+      "webpBytes": 72446,
+      "pixelIdentical": true,
+      "serve": true
+    },
+    {
+      "original": "src/assets/cases/forestal-dashboard-desktop.png",
+      "derived": "src/assets/cases/forestal-dashboard-desktop.webp",
+      "sha256": "c98092ad2cac8d25c47d07fd72edafff65ec94ae94562c8c28eae5ace9e77f90",
+      "pngBytes": 192224,
+      "webpBytes": 106706,
+      "pixelIdentical": true,
+      "serve": true
+    }
+  ]
+}

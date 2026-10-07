@@ -273,13 +273,15 @@ function testResourcesContent() {
 function testMiniCasesSection() {
   const app = readProjectFile("src/App.vue");
   const section = readProjectFile("src/components/MiniCasesSection.vue");
+  const content = readProjectFile("src/data/forestCase.js");
+  assert(section.includes("forestCase.steps"), "legacy forest case must consume the shared content");
 
   assert(app.includes("MiniCasesSection"), "App.vue: MiniCasesSection must be mounted on home");
-  assert(section.includes("forestal"), "MiniCasesSection.vue: missing forestal rubro");
-  assert(section.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
-  assert(section.includes("registro de campo"), "forest case must explain field collection");
-  assert(section.includes("Indicadores, evolución y detalle operativo"), "forest case must explain decision support");
-  assert(section.includes("Caso forestal anónimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
+  assert(content.includes("forestal"), "MiniCasesSection.vue: missing forestal rubro");
+  assert(content.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
+  assert(content.includes("registro de campo"), "forest case must explain field collection");
+  assert(content.includes("Indicadores, evolución y detalle operativo"), "forest case must explain decision support");
+  assert(content.includes("Caso forestal anónimo"), "MiniCasesSection.vue: mini case must be explicitly anonymous");
 }
 
 function testPortalAccessLinks() {

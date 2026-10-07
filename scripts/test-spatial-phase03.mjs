@@ -4,6 +4,8 @@ import {createSpatialSceneController} from '../src/lib/sceneController.js';
 import {createCameraRig} from '../src/lib/cameraRig.js';
 import {createDataWorld} from '../src/lib/dataWorld.js';
 import {phase03Config,samplePhase03,clusterDefinitions,dataPosition,narrativeScenes,narrativeRanges} from '../src/lib/narrativeScenes.js';
+import {RENDER_BUDGET} from '../src/lib/renderBudget.js';
+import {DUST_PER_POINT,FLOW_PER_SEGMENT} from '../src/lib/clusterWorld.js';
 const controller=createSpatialSceneController(phase03Config.scenes,phase03Config.ranges),camera=new T.PerspectiveCamera(),rig=createCameraRig(T,camera);
 const scene=new T.Scene(),world=createDataWorld(T,scene,false,true,true);
 const objects=[...scene.children],geometries=objects.map(o=>o.geometry);
@@ -12,8 +14,11 @@ function sample(offset){
  const state=samplePhase03(controller,offset);rig.setTransition(state.from,state.to,state.blend);rig.update(0);world.update(0,state);
  return {position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),scalars:Object.fromEntries(Object.entries(world.uniforms).filter(([key,u])=>typeof u.value==='number').map(([key,u])=>[key,u.value])),chapter:state.chapter,local:state.localProgress};
 }
-assert.equal(phase03Config.height,8);assert.equal(scene.children.length,5);
-assert.equal(scene.children[2].geometry.attributes.position.count,512);
+const byName=name=>scene.children.find(o=>o.name===name);
+assert.equal(phase03Config.height,8);assert.deepEqual(scene.children.map(o=>o.name),RENDER_BUDGET.phase03.objects);
+assert.equal(byName('clusters').geometry.attributes.position.count,512);
+assert.equal(byName('dust').geometry.attributes.position.count,512*DUST_PER_POINT);
+assert.equal(byName('threadFlow').geometry.attributes.position.count,byName('threads').geometry.attributes.position.count/2*FLOW_PER_SEGMENT);
 const phase02=createSpatialSceneController(narrativeScenes,narrativeRanges);
 for(let i=0;i<=300;i++){
  const offset=i/100,s=samplePhase03(controller,offset),old=phase02.setProgress(offset/3);
@@ -37,7 +42,7 @@ assert.equal(sample(7.05).scalars.uFlow,0);assert.equal(sample(7.05).scalars.uCo
 const target=new T.Vector3(),expected=new T.Vector3();
 sample(5.1);clusterDefinitions.forEach((c,i)=>{world.anchor(i,target);dataPosition(...c.ordered,i,0,expected);expected.y+=.08*Math.exp(-Math.hypot(expected.x,expected.z+20)*.25);assert(target.distanceTo(expected)<1e-12);});
 // Pattern bands have constant x per lane and ascending heights, unlike the organic source.
-const g=scene.children[2].geometry,a=g.attributes.aData;
+const g=byName('clusters').geometry,a=g.attributes.aData;
 assert.equal(a.getX(10),a.getX(20));assert(a.getY(20)>a.getY(10));
 world.dispose();assert.equal(scene.children.length,0);
 console.log('ok - Phase 3 continuity, full shader-state reversal, legacy poses, patterns, anchors and every attribute/buffer stable');

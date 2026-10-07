@@ -1,20 +1,13 @@
 <script setup>
-import field from '../assets/cases/forestal-campo.png';
 import LandscapeTraces from './LandscapeTraces.vue';
-import review from '../assets/cases/forestal-revision.png';
-import dashboard from '../assets/cases/forestal-dashboard.png';
-import dashboardDesktop from '../assets/cases/forestal-dashboard-desktop.png';
-const steps = [
- {label:'Registrar',title:'Registrar donde ocurre el trabajo.',text:'Equipo, proceso, tiempos y producción reunidos en un registro de campo.',image:field,height:901,alt:'Formulario de producción forestal con datos de demostración.'},
- {label:'Revisar',title:'Revisar antes de consolidar.',text:'El operador revisa la jornada. La información conserva su contexto y trazabilidad.',image:review,height:1449,alt:'Pantalla de revisión de un registro forestal ficticio.'},
- {label:'Decidir',title:'Convertir el registro en una decisión.',text:'Indicadores, evolución y detalle operativo en una vista compartida de producción.',image:dashboard,desktopImage:dashboardDesktop,height:1873,alt:'Dashboard operativo forestal. Todos los valores son ficticios.'},
-];
+import { forestCase } from '../data/forestCase.js';
+const steps = forestCase.steps;
 </script>
 <template>
  <section id="casos" class="home-section home-forest" data-home-chapter="forest" aria-labelledby="mini-cases-heading">
   <LandscapeTraces variant="evidence" />
   <div class="section-shell">
-   <div class="section-introduction"><h2 id="mini-cases-heading" class="section-title">Del registro en campo<br>a la decisión operativa.</h2><p>Caso forestal anónimo.<br>Interfaz real · datos de demostración.<br>Las cifras no representan resultados de un cliente.</p></div>
+   <div class="section-introduction"><h2 id="mini-cases-heading" class="section-title">{{forestCase.titleLines[0]}}<br>{{forestCase.titleLines[1]}}</h2><p>{{forestCase.context}}<br>{{ forestCase.disclaimer }}.<br>{{ forestCase.caveat }}</p></div>
    <div class="forest-track">
     <div class="forest-stage">
      <ol class="case-steps" aria-label="Del campo a la decisión">
@@ -29,7 +22,7 @@ const steps = [
        <figcaption><span>{{ step.title }}</span><a :href="step.desktopImage || step.image" target="_blank" rel="noopener noreferrer" class="text-link" :aria-label="'Abrir captura completa: '+step.label">Abrir captura completa</a></figcaption>
       </figure>
      </div>
-     <div class="forest-footer"><span>Interfaz real · datos de demostración</span><a href="/dashboards-ejecutivos/" class="text-link" data-analytics-cta="home_forest_dashboard">Conocer el servicio de dashboards</a></div>
+     <div class="forest-footer"><span>{{ forestCase.disclaimer }}</span><a :href="forestCase.service" class="text-link" data-analytics-cta="home_forest_dashboard">Conocer el servicio de dashboards</a></div>
     </div>
    </div>
   </div>

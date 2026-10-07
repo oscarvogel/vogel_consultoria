@@ -19,7 +19,11 @@ const header = ref(null);
 const currentPath = ref('/');
 const activeSection = ref('');
 const isScrolled = ref(false);
-const sectionIds = ['servicios', 'casos', 'metodologia', 'nosotros'];
+// Phase 05 closes the Home editorially: Capacidades · Casos · Método · Perspectivas · Nosotros + «Conversemos».
+const phase05 = import.meta.env.VITE_SPATIAL_PHASE_05 === 'true';
+const sectionIds = phase05 ? ['servicios', 'casos', 'metodologia', 'recursos', 'nosotros'] : ['servicios', 'casos', 'metodologia', 'nosotros'];
+const servicesLabel = phase05 ? 'Capacidades' : 'Servicios';
+const ctaLabel = phase05 ? 'Conversemos' : 'Agendar diagnóstico';
 let scrollFrame = 0;
 const legacyServiceIds = {
   'sistemas-a-medida': 'sistemas',
@@ -40,7 +44,12 @@ const serviceLinks = [
   { label: 'Automatizaciones ARCA', href: '/automatizaciones/', analyticsCta: 'navbar_service_automatizaciones_arca' },
 ];
 
-const links = [
+const links = phase05 ? [
+  { label: 'Casos', href: '/#casos', section: 'casos', icon: casesIcon },
+  { label: 'Método', href: '/#metodologia', section: 'metodologia', icon: methodologyIcon },
+  { label: 'Perspectivas', href: '/#recursos', section: 'recursos', icon: resourcesIcon },
+  { label: 'Nosotros', href: '/#nosotros', section: 'nosotros', icon: aboutIcon },
+] : [
   { label: 'Casos', href: '/#casos', section: 'casos', icon: casesIcon },
   { label: 'Recursos', href: '/recursos/', icon: resourcesIcon },
   { label: 'Nosotros', href: '/#nosotros', section: 'nosotros', icon: aboutIcon },
@@ -160,7 +169,7 @@ onUnmounted(() => {
             :aria-current="isServicesActive() ? (currentPath === '/' ? 'location' : 'page') : undefined"
           >
             <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
-            <span>Servicios</span>
+            <span>{{ servicesLabel }}</span>
             <span class="nav-icon nav-chevron" v-html="chevronIcon" aria-hidden="true"></span>
           </summary>
           <div class="services-dropdown" aria-label="Servicios">
@@ -219,7 +228,7 @@ onUnmounted(() => {
         </a>
         <a href="/#contacto" class="action-button action-primary nav-cta" data-analytics-cta="navbar_schedule_desktop">
           <span class="nav-icon" v-html="diagnosticIcon" aria-hidden="true"></span>
-          <span>Agendar diagnóstico</span>
+          <span>{{ ctaLabel }}</span>
         </a>
         <button
           ref="menuButton"
@@ -247,7 +256,7 @@ onUnmounted(() => {
         @click="closeMenu"
       >
         <span class="nav-icon" v-html="servicesIcon" aria-hidden="true"></span>
-        <span>Servicios</span>
+        <span>{{ servicesLabel }}</span>
       </a>
       <a
         v-for="item in links"
@@ -304,7 +313,7 @@ onUnmounted(() => {
       </a>
       <a class="action-button action-primary nav-cta" data-analytics-cta="navbar_schedule_mobile" href="/#contacto" @click="closeMenu">
         <span class="nav-icon" v-html="diagnosticIcon" aria-hidden="true"></span>
-        <span>Agendar diagnóstico</span>
+        <span>{{ ctaLabel }}</span>
       </a>
     </nav>
   </header>

@@ -5,7 +5,7 @@ import "lenis/dist/lenis.css";
 let motionModules;
 let textModule;
 
-async function loadTextMotion() {
+export async function loadTextMotion() {
   const motion = await loadSiteMotion();
   textModule ||= import("gsap/SplitText").then(module => {
     const SplitText = module.SplitText || module.default;

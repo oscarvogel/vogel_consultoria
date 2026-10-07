@@ -4,6 +4,20 @@ import { createCameraRig } from '../src/lib/cameraRig.js';
 import { spatialScenes } from '../src/lib/spatialScenes.js';
 import { createSpatialSceneController } from '../src/lib/sceneController.js';
 import { createSpatialEngine } from '../src/lib/spatialEngine.js';
+import { RENDER_BUDGET } from '../src/lib/renderBudget.js';
+import { POST_BUDGET } from '../src/lib/postPipeline.js';
+import { QUALITY_TIERS, createQualityGovernor } from '../src/lib/qualityGovernor.js';
+
+// Adaptive quality: hysteresis, cooldown, ceiling and lock.
+{
+  const g=createQualityGovernor({initial:1});
+  for(let i=0;i<60;i++)g.sample(1/60);assert.equal(g.tier,1,'never above the initial tier');
+  for(let i=0;i<20;i++)g.sample(.035);assert.equal(g.tier,1,'a short spike does not downgrade');
+  let changed=0;for(let i=0;i<200;i++)changed+=g.sample(.04);assert(g.tier>1&&changed<=2,'sustained slowness downgrades within cooldown');
+  const slow=g.tier;for(let i=0;i<600;i++)g.sample(1/120);assert(g.tier<slow&&g.tier>=1,'recovers back to the ceiling only');
+  g.lock(3);for(let i=0;i<600;i++)g.sample(1/120);assert.equal(g.tier,3,'locked tier is stable for deterministic captures');
+  assert.equal(g.sample(NaN),false);assert(QUALITY_TIERS.every((t,i)=>!i||t.dpr<=QUALITY_TIERS[i-1].dpr));
+}
 
 const controller = createSpatialSceneController(spatialScenes);
 const camera = new T.PerspectiveCamera(47,1,.1,110), rig = createCameraRig(T,camera);
@@ -34,14 +48,19 @@ globalThis.document=new EventTarget(); document.hidden=false;
 globalThis.devicePixelRatio=2;
 let renderers=0, renders=0, disposals=0;
 class Renderer {
-  constructor(){renderers++;this.domElement=new EventTarget();this.domElement.remove=()=>{};this.info={render:{calls:2},memory:{geometries:2,textures:0}};}
-  setClearColor(){} setPixelRatio(){} setSize(){} render(){renders++;} dispose(){disposals++;} forceContextLoss(){}
+  constructor(){renderers++;this.domElement=new EventTarget();this.domElement.remove=()=>{};this.extensions={has:()=>false};
+    this.info={autoReset:true,reset(){},render:{calls:RENDER_BUDGET.core.calls},memory:{geometries:RENDER_BUDGET.core.geometries,textures:RENDER_BUDGET.core.textures}};}
+  setClearColor(){} setPixelRatio(){} setSize(){} setRenderTarget(){} clear(){} getContext(){return {};}
+  render(){renders++;} dispose(){disposals++;} forceContextLoss(){}
 }
 let failures=0;
 const engine=createSpatialEngine({...T,WebGLRenderer:Renderer},{onError(){failures++;}});
+assert.equal(engine.renderer.info.autoReset,false,'multi-pass frames count draw calls across passes');
+assert.deepEqual(engine.scene.children.map(o=>o.name),RENDER_BUDGET.core.objects);
 engine.resize(1440,700); engine.start(); engine.start(); assert.equal(pending.size,1);
 function frame(now){const [id,callback]=pending.entries().next().value;pending.delete(id);callback(now);}
-frame(100);assert.equal(renders,1);assert.equal(pending.size,1);
+// One scene pass plus the post chain per frame.
+frame(100);assert.equal(renders,1+POST_BUDGET.calls);assert.equal(pending.size,1);
 document.hidden=true;document.dispatchEvent(new Event('visibilitychange'));assert.equal(pending.size,0);
 document.hidden=false;document.dispatchEvent(new Event('visibilitychange'));assert.equal(pending.size,1);
 engine.renderer.domElement.dispatchEvent(new Event('webglcontextlost',{cancelable:true}));assert.equal(pending.size,0);

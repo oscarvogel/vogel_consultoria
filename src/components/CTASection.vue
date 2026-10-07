@@ -1,58 +1,9 @@
 <script setup>
-import { shallowRef, ref, nextTick } from "vue";
 import ActionButton from "./ActionButton.vue";
 import DataLandscape from "./DataLandscape.vue";
-import { trackEvent } from "../lib/analytics.js";
+import { useContactForm } from "../composables/useContactForm.js";
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || "";
-
-const state = shallowRef("idle");
-const successMessage = ref(null);
-const nameInput = ref(null); // idle | loading | success | error
-
-async function handleSubmit(event) {
-  const form = event.currentTarget;
-
-  if (state.value === "loading") {
-    return;
-  }
-
-  state.value = "loading";
-
-  const data = new FormData(form);
-
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { Accept: "application/json" },
-      body: data,
-    });
-
-    const json = await response.json();
-
-    if (response.ok && json.success) {
-      state.value = "success";
-      trackEvent("contact_form_submit", {
-        page_location: window.location.pathname,
-        placement: "contacto",
-        form_name: "Formulario de contacto",
-      });
-      form.reset();
-      await nextTick();
-      successMessage.value?.focus();
-    } else {
-      state.value = "error";
-    }
-  } catch {
-    state.value = "error";
-  }
-}
-
-async function resetForm() {
-  state.value = "idle";
-  await nextTick();
-  nameInput.value?.focus();
-}
+const { accessKey: WEB3FORMS_KEY, state, successMessage, nameInput, handleSubmit, resetForm } = useContactForm();
 </script>
 
 <template>

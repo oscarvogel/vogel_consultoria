@@ -4,11 +4,7 @@ import { resources } from '../data/resources.js';
 defineProps({ kind: { type: String, required: true } });
 </script>
 <template>
- <div v-if="kind==='clients'" class="home-client-proof">
-  <p>Desarrollo web para empresas y organizaciones</p>
-  <ul class="proof-list"><li v-for="project in webProjects" :key="project.url"><a :href="project.url" target="_blank" rel="noopener noreferrer" :aria-label="'Visitar sitio de '+project.name" data-analytics-cta="home_client_site" :data-analytics-label="project.name"><img v-if="project.logo" :src="project.logo" :alt="project.name" width="280" height="160" loading="lazy" decoding="async"/><span v-else>{{ project.name }}</span></a></li></ul>
- </div>
- <div v-else-if="kind==='training'" id="charla-ia-2026" class="home-training">
+ <div v-if="kind==='training'" id="charla-ia-2026" class="home-training">
   <details class="home-detail"><summary>IA práctica para instituciones y empresas</summary>
    <div class="home-training-body"><div><p>Dictamos encuentros aplicados para equipos que necesitan entender, probar y usar inteligencia artificial con criterio profesional.</p><p>Ya dictamos esta charla para profesionales en Ciencias Económicas junto al <a href="https://www.consejomisiones.org.ar/" target="_blank" rel="noopener noreferrer" class="text-link">CPCE Misiones</a>.</p></div>
     <dl><div><dt>IA aplicada al trabajo profesional</dt><dd>Herramientas para documentación, planillas, reportes, investigación y automatizaciones controladas.</dd></div><div><dt>Método y criterio de uso</dt><dd>Contexto, fuentes, restricciones y verificación para no perder control.</dd></div><div><dt>Taller práctico adaptable</dt><dd>Contenido ajustado a profesionales, equipos, instituciones y empresas.</dd></div></dl>

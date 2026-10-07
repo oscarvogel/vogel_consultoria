@@ -1,0 +1,32 @@
+{
+  "origin": "Fotografía real de Oscar Vogel, provista y autorizada por el titular para su publicación en el sitio.",
+  "original": {
+    "file": "src/assets/oscar_vogel_imagen.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 1913514,
+    "sha256": "2b10af29b9dd7f70a21df9fd6f2f6a1483f3fc8c4a41ca72b90a0677b66e153d"
+  },
+  "derivation": "Redimensionado y codificación WebP (calidad 82). Sin retoque, recorte ni modificación de facciones.",
+  "generator": "scripts/derive-oscar-portrait.mjs",
+  "outputs": [
+    {
+      "file": "src/assets/oscar/oscar-vogel-480.webp",
+      "width": 480,
+      "bytes": 18252,
+      "sha256": "15d351b6b115699a4e5cd6fbe84e2839bf81a22c6d1e07637656017e8053717b"
+    },
+    {
+      "file": "src/assets/oscar/oscar-vogel-720.webp",
+      "width": 720,
+      "bytes": 35448,
+      "sha256": "7dfa0a6529218a3c14aa6a9d69ae650aba4617bef96664b23923a4d33a34bf2d"
+    },
+    {
+      "file": "src/assets/oscar/oscar-vogel-1024.webp",
+      "width": 1024,
+      "bytes": 63166,
+      "sha256": "65eabca8899090a31ba66118562b5272a9e57add43bd4d1f592150096e682e8c"
+    }
+  ]
+}

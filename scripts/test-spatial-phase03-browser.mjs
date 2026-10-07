@@ -4,6 +4,10 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import sharp from 'sharp';
 import {createHash} from 'node:crypto';
+import * as T from 'three';
+import {createCameraPath} from '../src/lib/cameraPath.js';
+import {RENDER_BUDGET} from '../src/lib/renderBudget.js';
+const budget=RENDER_BUDGET.phase03;
 const require=createRequire(import.meta.url);let chromium;
 try{({chromium}=require('playwright'));}catch{({chromium}=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));}
 const base=process.env.PHASE03_URL||'http://127.0.0.1:5194',out=resolve('docs/capturas/spatial-phase-03');
@@ -13,18 +17,19 @@ const states=[['systems',2.85],['entering-automation',3.3],['automation',4.05],[
 const read=page=>page.evaluate(()=>document.querySelector('canvas').__vogelSpatial.getState());
 const triggers=page=>page.evaluate(async()=>{const {ScrollTrigger}=await import('/src/composables/useSiteMotion.js').then(m=>m.loadSiteMotion());return ScrollTrigger.getAll().map(t=>t.vars.id).filter(Boolean);});
 async function ready(page){page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error'&&/Shader Error|VALIDATE_STATUS|INVALID_OPERATION/.test(m.text()))errors.push(m.text());});await page.goto(base);await page.evaluate(()=>document.fonts.ready);}
+// The camera follows one continuous path; its pure pose is a function of the beat only.
+const cameraPath=createCameraPath(T),expectedPose={position:new T.Vector3(),target:new T.Vector3(),fov:0};
 async function seek(page,offset){
  await page.evaluate(offset=>scrollTo({top:document.querySelector('.narrative-arc').offsetHeight/8*offset,behavior:'instant'}),offset);
  await page.waitForTimeout(180);
- if(offset<8)await page.waitForFunction(async offset=>{
-  const s=document.querySelector('canvas').__vogelSpatial.getState();
-  if(!s.running||Math.abs(s.progress-Math.min(1,offset/7.2))>.001||Math.abs(s.uniformValues.uData-s.data)>1e-10||Math.abs(s.uniformValues.uConvergence-s.convergence)>1e-10)return false;
-  const {phase03Config}=await import('/src/lib/narrativeScenes.js');
-  const range=phase03Config.ranges.find(r=>s.progress<=r.end)||phase03Config.ranges.at(-1);
-  const p=Math.max(0,Math.min(1,(s.progress-range.start)/(range.end-range.start))),blend=p*p*(3-2*p);
-  const from=phase03Config.scenes.find(scene=>scene.id===range.from),to=phase03Config.scenes.find(scene=>scene.id===range.to);
-  return s.position.every((v,i)=>Math.abs(v-(from.position[i]+(to.position[i]-from.position[i])*blend))<1e-8);
- },offset);
+ if(offset<8){
+  try{await page.waitForFunction(offset=>{
+   const s=document.querySelector('canvas').__vogelSpatial.getState();
+   return s.running&&Math.abs(s.progress-Math.min(1,offset/7.2))<=.001&&Math.abs(s.uniformValues.uData-s.data)<=1e-10&&Math.abs(s.uniformValues.uConvergence-s.convergence)<=1e-10;
+  },offset);}catch(e){console.log('seek diagnostic',offset,page.viewportSize(),await page.evaluate(()=>{const s=document.querySelector('canvas').__vogelSpatial.getState();return {running:s.running,lost:s.lost,progress:s.progress,beat:s.beat,data:[s.data,s.uniformValues.uData],convergence:[s.convergence,s.uniformValues.uConvergence],live:!!document.querySelector('.narrative-live'),hidden:document.hidden};}));throw e;}
+  const s=await read(page);cameraPath.sample(s.beat,expectedPose);
+  assert(new T.Vector3().fromArray(s.position).distanceTo(expectedPose.position)<1e-8,`camera pose off the path at ${offset}`);
+ }
 }
 function narrative(s){return {position:s.position,quaternion:s.quaternion,flow:s.flow,data:s.data,intelligence:s.intelligence,clarity:s.clarity,convergence:s.convergence,pulse:s.pulsePhase,selection:s.selectionPhase,local:s.localProgress,chapter:s.chapter,uniforms:s.uniformValues};}
 async function frozenPixels(page){const data=await page.evaluate(()=>document.querySelector('canvas').__vogelSpatial.snapshot());const pixels=await sharp(Buffer.from(data.split(',')[1],'base64')).raw().toBuffer();return createHash('sha256').update(pixels).digest('hex');}
@@ -50,7 +55,7 @@ try{
  for(let c=0;c<3;c++){let delta=0;for(let x=0;x<96;x++)delta+=pixels[x*3+c]-pixels[(3*96+x)*3+c];assert(Math.abs(delta)/96<2);}
  const identity=await read(page),forward=new Map(),images=new Map();
  for(const [name,offset] of states){await seek(page,offset);const s=await read(page);forward.set(offset,narrative(s));report.samples.push({name,offset,...s});
-  assert.equal(s.calls,5);assert.equal(s.geometries,5);assert.equal(s.textures,0);assert.deepEqual(s.attributes,identity.attributes);assert.deepEqual(s.geometryIds,identity.geometryIds);
+  assert.equal(s.calls,budget.calls);assert.equal(s.geometries,budget.geometries);assert.equal(s.textures,budget.textures);assert.deepEqual(s.attributes,identity.attributes);assert.deepEqual(s.geometryIds,identity.geometryIds);
   assert(!s.attributes.some(g=>Object.values(g).some(a=>a.id===-1)));assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));
   await labels(page);await page.screenshot({path:resolve(out,`${name}-1440x900.png`)});
   images.set(offset,await frozenPixels(page));
@@ -65,7 +70,7 @@ try{
  // Resize and real loss/recovery in each new scene without changing canvas.
  for(const [name,offset] of states.filter(([name])=>['automation','data','intelligence','decision'].includes(name))){
   await seek(page,offset);await page.setViewportSize({width:1440,height:700});await seek(page,offset);await labels(page);
-  assert.deepEqual((await read(page)).attributes,identity.attributes);assert.equal((await read(page)).calls,5);
+  assert.deepEqual((await read(page)).attributes,identity.attributes);assert.equal((await read(page)).calls,budget.calls);
   await page.evaluate(()=>{window.__loss=document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context');window.__loss.loseContext();});
   await page.waitForFunction(()=>!document.querySelector('.narrative-live'));assert.equal((await read(page)).running,false);assert(await page.locator('.landscape-hero .landscape-poster').isVisible());
   assert.equal(await page.locator('.spatial-narrative-host').evaluate(e=>getComputedStyle(e).visibility),'hidden');
@@ -74,7 +79,7 @@ try{
   await page.evaluate(()=>window.__loss.restoreContext());
   try{await page.waitForSelector('.narrative-live');}catch(e){console.log('context diagnostic',name,await page.evaluate(()=>({classes:document.querySelector('.home-page').className,hidden:document.hidden,canvas:document.querySelector('canvas')?.__vogelSpatial.getState(),contextLost:document.querySelector('canvas')?.getContext('webgl2')?.isContextLost()})));throw e;}
   assert(await page.evaluate(()=>document.querySelector('canvas')===window.__canvas));
-  assert.equal((await read(page)).calls,5);await page.setViewportSize({width:1440,height:900});await seek(page,offset);
+  assert.equal((await read(page)).calls,budget.calls);await page.setViewportSize({width:1440,height:900});await seek(page,offset);
   assert.equal(await frozenPixels(page),images.get(offset),`rendered world changed after resize/context recovery: ${name}`);
   report.checks.push(`resize/context recovery: ${name}`);
  }
@@ -109,6 +114,6 @@ try{
  const fallback=await browser.newPage({viewport:{width:1440,height:900}});await fallback.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return type.startsWith('webgl')?null:get.call(this,type,...args);};});await ready(fallback);await fallback.waitForSelector('.narrative-unavailable');assert.equal(await fallback.locator('canvas').count(),0);
  await fallback.locator('[data-spatial-scene="decision"]').scrollIntoViewIfNeeded();await fallback.waitForFunction(()=>document.querySelector('[data-spatial-scene="decision"] img').naturalWidth>0);await fallback.screenshot({path:resolve(out,'no-webgl.png')});assert(!(await triggers(fallback)).includes('vogel-spatial-narrative'));await fallback.close();
  const loading=await browser.newPage({viewport:{width:1440,height:900}});await loading.route(/\/node_modules\/\.vite\/deps\/three/,async route=>{await new Promise(r=>setTimeout(r,600));await route.continue();});await ready(loading);await loading.evaluate(()=>document.querySelector('#app').__vue_app__.unmount());await loading.waitForTimeout(1000);assert.equal(await loading.locator('canvas').count(),0);await loading.close();
- assert.deepEqual(errors,[]);report.checks.push('full reverse camera and shader state','all attributes and buffers stable','five draws/geometries; zero textures','one canvas/renderer/Lenis/arc trigger','pulses and branching owned by scroll','labels without overlap','Hero seam regression','handoff pause','hash and keyboard links','document hidden pause','bounded repeated-traversal heap','mobile and initial reduced motion without Three','dynamic reduced motion cleanup','no WebGL','async unmount');
+ assert.deepEqual(errors,[]);report.checks.push('full reverse camera and shader state','all attributes and buffers stable','render budget: scene + post passes, geometries and targets','one canvas/renderer/Lenis/arc trigger','pulses and branching owned by scroll','labels without overlap','Hero seam regression','handoff pause','hash and keyboard links','document hidden pause','bounded repeated-traversal heap','mobile and initial reduced motion without Three','dynamic reduced motion cleanup','no WebGL','async unmount');
  await writeFile(resolve(out,'validation.json'),JSON.stringify({...report,errors},null,2));console.log('ok - Phase 3 browser; evidence '+out);
 }finally{await browser.close();}
