@@ -3,8 +3,7 @@ import { createRequire } from 'node:module';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 const require=createRequire(import.meta.url);
-let chromium;
-try {({chromium}=require('playwright'));} catch {({chromium}=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));}
+const { chromium } = require('playwright');
 const output=path.resolve('docs/capturas/segunda-pasada-2026-10-03/estados');
 await mkdir(output,{recursive:true});
 const browser=await chromium.launch({headless:true});

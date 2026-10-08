@@ -1,7 +1,7 @@
 import {createRequire} from 'node:module';
 import fs from 'node:fs/promises';
 const require=createRequire(import.meta.url);
-let playwright;try{playwright=require('playwright');}catch{playwright=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');}
+const playwright=require('playwright');
 const axeSource=await fs.readFile(require.resolve('axe-core/axe.min.js'),'utf8');
 const base=process.env.PORTFOLIO_TEST_URL||'http://127.0.0.1:5198';
 const routes=['/','/soluciones/','/recursos/','/estudio/','/contacto/','/proyectos/caso-forestal/','/proyectos/an-asociados/','/recursos/cuando-conviene-sistema-a-medida/'];

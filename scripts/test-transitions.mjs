@@ -6,7 +6,7 @@
 import {createRequire} from 'node:module';
 import assert from 'node:assert/strict';
 const require=createRequire(import.meta.url);
-let playwright;try{playwright=require('playwright');}catch{playwright=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');}
+const playwright=require('playwright');
 const base=process.env.PORTFOLIO_TEST_URL||'http://127.0.0.1:5198';
 // Real scrollbars (Playwright hides them by default) so a layout shift on Windows is visible to the test.
 const browser=await playwright.chromium.launch({headless:true,ignoreDefaultArgs:['--hide-scrollbars']});

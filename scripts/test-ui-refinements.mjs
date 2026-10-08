@@ -4,9 +4,7 @@ import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 const require=createRequire(import.meta.url);
-let chromium;
-try{({chromium}=require('playwright'));}
-catch{({chromium}=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));}
+const { chromium } = require('playwright');
 const base=process.env.UI_REVIEW_URL||'http://127.0.0.1:5190';
 const out=process.env.UI_REVIEW_OUTPUT||join(tmpdir(),'vogel-capitulos-2026-10-04','ui');
 await mkdir(out,{recursive:true});

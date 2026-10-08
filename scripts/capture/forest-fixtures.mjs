@@ -4,9 +4,11 @@ import { spawn } from 'node:child_process'
 import { setTimeout as sleep } from 'node:timers/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
-const frontendDir = resolve(process.env.FOREST_FRONTEND || "C:/Users/roman/Desktop/Desarrollo/Proyectos/registros_produccion/registro_produccion/frontend")
-const { chromium } = await import(pathToFileURL(join(frontendDir, "node_modules/playwright/index.mjs")).href)
-const repoDir = resolve(frontendDir, '..')
+const frontendDir = process.env.FOREST_FRONTEND
+if (!frontendDir) throw new Error('Set FOREST_FRONTEND to the registros_produccion frontend checkout; the derived screenshots are already committed, so this is only needed to regenerate them.')
+const resolvedFrontendDir = resolve(frontendDir)
+const { chromium } = await import(pathToFileURL(join(resolvedFrontendDir, "node_modules/playwright/index.mjs")).href)
+const repoDir = resolve(resolvedFrontendDir, '..')
 const outputRoot = join(resolve(fileURLToPath(new URL("../../docs/capturas/forestal", import.meta.url))), Number(process.env.CAPTURE_WIDTH || 390) >= 1024 ? 'desktop' : 'mobile')
 const publicOutputRoot = outputRoot
 const host = '127.0.0.1'
@@ -327,9 +329,9 @@ async function captureRoleExtras(page, role) {
 
 async function startVite() {
   if (process.env.DOCS_CAPTURE_BASE_URL) return null
-  const viteEntry = join(frontendDir, 'node_modules', 'vite', 'bin', 'vite.js')
+  const viteEntry = join(resolvedFrontendDir, 'node_modules', 'vite', 'bin', 'vite.js')
   const child = spawn(process.execPath, [viteEntry, '--host', host, '--port', String(port)], {
-    cwd: frontendDir,
+    cwd: resolvedFrontendDir,
     stdio: 'ignore',
     windowsHide: true,
   })

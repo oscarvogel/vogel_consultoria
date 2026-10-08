@@ -5,7 +5,7 @@ import {createRequire} from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
 const require=createRequire(import.meta.url);
-let playwright;try{playwright=require('playwright');}catch{playwright=require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');}
+const playwright=require('playwright');
 const base=process.env.PORTFOLIO_TEST_URL||'http://127.0.0.1:5205';
 const routes=[...fs.readFileSync('public/sitemap.xml','utf8').matchAll(/<loc>https:\/\/vogelconsultoria\.com\.ar([^<]*)<\/loc>/g)].map(m=>m[1]);
 for(const id of Object.keys(JSON.parse(fs.readFileSync('src/data/projectSummaries.json','utf8'))))routes.push(`/proyectos/${id}/`);

@@ -5,12 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const require = createRequire(import.meta.url);
-let chromium;
-try {
-  ({ chromium } = require('playwright'));
-} catch {
-  ({ chromium } = require('C:/Users/roman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
-}
+const { chromium } = require("playwright");
 
 const output = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../docs/capturas/navbar-liquid-glass-2026-10-03');
 const origin = 'http://127.0.0.1:5177';
