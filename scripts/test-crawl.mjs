@@ -24,7 +24,7 @@ for(const route of [...new Set(routes)]){
  current=route;const response=await page.goto(base+route,{waitUntil:'load'});await page.waitForTimeout(900);
  if(!response||response.status()>=400)problems.push(`${route}: HTTP ${response?.status()}`);
  await page.evaluate(async()=>{for(let y=0;y<document.documentElement.scrollHeight;y+=700){scrollTo(0,y);await new Promise(r=>setTimeout(r,80));}scrollTo(0,0);});await page.waitForTimeout(700);
- const found=await page.evaluate(()=>({h1:[...document.querySelectorAll('h1')].filter(h=>h.checkVisibility()).length,broken:[...document.images].filter(i=>i.complete&&i.naturalWidth===0&&i.currentSrc).map(i=>i.currentSrc),links:[...document.querySelectorAll('a[href]')].map(a=>a.href)}));
+ const found=await page.evaluate(()=>({h1:[...document.querySelectorAll('h1')].filter(h=>h.checkVisibility({visibilityProperty:true,opacityProperty:true})).length,broken:[...document.images].filter(i=>i.complete&&i.naturalWidth===0&&i.currentSrc).map(i=>i.currentSrc),links:[...document.querySelectorAll('a[href]')].map(a=>a.href)}));
  if(found.h1!==1)problems.push(`${route}: ${found.h1} <h1> elements`);
  for(const src of found.broken)problems.push(`${route}: broken image ${src.replace(base,'')}`);
  for(const href of found.links){if(href.startsWith(base)){const url=new URL(href);internal.add(url.pathname)}else if(/^https?:/.test(href))external.add(new URL(href).origin);}

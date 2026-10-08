@@ -133,8 +133,10 @@ const currentPage = computed(() => destinations[props.page] || StudioDestination
 @media (max-width: 380px) { .studio-portrait { margin-right: -16px; } }
 @media (min-width: 1100px) {
   [data-destination="studio"] { --fig-h: min(88vh, 980px); --fig-w: calc(var(--fig-h) * .593); padding-right: calc(var(--fig-w) * .84 + 24px); }
-  [data-destination="studio"] .destination-inner { position: relative; z-index: 2; width: 100%; container-type: inline-size; }
-  [data-destination="studio"] .destination-header h1 { max-width: none; font-size: min(80px, 11cqw); overflow-wrap: normal; }
+  /* No container-type/contain/transform here: any of them would turn this box into the containing block of the fixed portrait. */
+  [data-destination="studio"] .destination-inner { position: relative; z-index: 2; width: 100%; }
+  [data-destination="studio"] { --col: calc(100vw - max(calc(var(--portfolio-edge) + 48px), 38vw) - (var(--fig-w) * .84 + 24px)); }
+  [data-destination="studio"] .destination-header h1 { max-width: none; font-size: min(80px, calc(var(--col) / 9.4)); overflow-wrap: normal; }
   [data-destination="studio"] .destination-method-list { grid-template-columns: 1fr; }
   [data-destination="studio"] .destination-method-list li, [data-destination="studio"] .destination-method-list li + li { display: grid; grid-template-columns: minmax(0, 150px) minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-left: 0; }
   [data-destination="studio"] .destination-method-list li + li { border-top: 1px solid var(--color-border); }

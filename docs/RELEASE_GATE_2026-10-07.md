@@ -57,6 +57,12 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 - **Rendimiento (móvil, CPU 4×, 4G rápida):** una regresión detectada y corregida — el LCP de Home subió a 4,5 s porque el `preload` seguía apuntando a la imagen anterior; con el preload correcto vuelve a 2,1 s. Estudio: 2,36 s.
 - **Herramientas:** el recorte usa `rembg` (modelo `birefnet-portrait`, 973 MB) en un entorno Python temporal fuera del repositorio; el modelo queda en caché en `~/.rembg` y puede borrarse. Presupuesto `projectsTotal` subido a 6 MB.
 
+## Iteración posterior: transiciones entre vistas
+
+- **Causa 1 (la vista se cortaba):** el escenario de Proyectos se ocultaba con `display:none` al navegar (opacidad 1,00 → 0,00 en un solo fotograma) y solo animaban los textos. Ahora el escenario se desvanece y asienta (`is-away`, 340/520 ms), el destino entra por opacidad, el reloj y el selector de la cabecera también hacen fundido, y `scrollbar-gutter: stable` evita el salto lateral al aparecer el scroll.
+- **Causa 2 (Oscar entraba por abajo):** la transición de ruta aplicaba `transform` al contenedor del retrato (`position:fixed`), que pasaba a ser su bloque contenedor: durante ~330 ms la figura estaba en `top=754/bottom=1546` (fuera de una pantalla de 900 px) y luego saltaba a `top=108`. Se eliminan el `transform` de la transición y el `container-type` del contenedor; regla de diseño: ningún ancestro de un elemento fijo lleva `transform`, `filter`, `container-type` ni `contain`.
+- **Prueba nueva `test:transitions`** (6 comprobaciones, ya en la compuerta): muestrea cada fotograma de Proyectos ⇄ Estudio ⇄ Soluciones y la carga directa; falla si una vista cambia más de 0,45 de opacidad entre fotogramas, si el retrato sale del viewport o salta verticalmente, o si un control fijo se desplaza lateralmente. Se ejecutó antes del arreglo para reproducir el fallo.
+
 ## Defectos y límites conocidos
 
 - En las cards de Indufor y Forestal Garuhapé el título de la tarjeta se superpone al nombre que ya trae la ilustración (redundante, legible).

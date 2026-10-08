@@ -16,7 +16,7 @@ defineProps({ accent: { type: String, default: '#161515' }, active: Boolean, sof
 .stage-backdrop {
   position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
   background: linear-gradient(to top, color-mix(in srgb, var(--accent) 62%, #161515) 0%, color-mix(in srgb, var(--accent) 30%, #161515) 34%, #161515 70%);
-  transition: --accent 900ms cubic-bezier(.22, 1, .36, 1);
+  transition: --accent 650ms cubic-bezier(.22, 1, .36, 1);
 }
 /* The swell breathes vertically; the wave inside it flows sideways. One tile = one viewport, so the loop is seamless. */
 .backdrop-swell { position: absolute; inset: auto 0 0; height: 44%; transform-origin: bottom; animation: backdrop-breathe 11s ease-in-out infinite alternate; }

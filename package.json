@@ -16,6 +16,7 @@
     "test:portfolio": "node scripts/test-portfolio-browser.mjs",
     "test:a11y": "node scripts/test-a11y.mjs",
     "test:motion": "node scripts/test-motion.mjs",
+    "test:transitions": "node scripts/test-transitions.mjs",
     "test:budgets": "node scripts/check-budgets.mjs",
     "test:crawl": "node scripts/test-crawl.mjs",
     "release:gate": "node scripts/release-gate.mjs",

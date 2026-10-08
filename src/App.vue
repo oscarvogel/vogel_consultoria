@@ -236,12 +236,14 @@ onBeforeUnmount(() => {
       id="main-content"
       tabindex="-1"
       :inert="route.kind !== 'home' || menuOpen || undefined"
-      :class="{ 'portfolio-covered': route.kind !== 'home' }"
+      :class="{ 'portfolio-covered': route.kind === 'project' }"
     >
-      <HomeStage ref="stage" :view="view" :active="route.kind === 'home' && !menuOpen" @active-change="centredProject = $event" @scroll-state="browsing = browsing || $event" />
+      <HomeStage ref="stage" :view="view" :away="route.kind === 'destination'" :active="route.kind === 'home' && !menuOpen" @active-change="centredProject = $event" @scroll-state="browsing = browsing || $event" />
     </main>
-    <div v-if="route.kind === 'home'" class="portfolio-clock" :inert="menuOpen || undefined"><LiveClock /></div>
-    <Transition name="portfolio-destination">
+    <Transition name="portfolio-fade">
+      <div v-if="route.kind === 'home'" class="portfolio-clock" :inert="menuOpen || undefined"><LiveClock /></div>
+    </Transition>
+    <Transition name="portfolio-destination" mode="out-in">
       <PortfolioDestination v-if="route.kind === 'destination'" :key="route.destination" :page="route.destination" />
     </Transition>
     <ProjectDetail v-if="route.kind === 'project'" :project="route.project" @close="close" @ready="ready" />
@@ -257,17 +259,22 @@ onBeforeUnmount(() => {
 @keyframes vogel-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .vogel-slide, .vogel-rise { animation: vogel-fade 1ms both; } @keyframes vogel-fade { to { opacity: 1; } } }
 html.is-stage, html.is-stage body { height: 100%; overflow: hidden; }
+/* Keep the scrollbar's room reserved so fixed controls do not slide sideways when a destination gains scroll. */
+html { scrollbar-gutter: stable; }
 html.has-info-open body { overflow: hidden; }
 .portfolio-covered { display: none !important; }
 .portfolio-clock { position: fixed; bottom: 24px; right: 24px; z-index: 20; color: var(--color-muted); font-size: 12px; }
 .portfolio-image-bridge { position: fixed; z-index: 95; pointer-events: none; overflow: hidden; border-radius: 12px; }
 .portfolio-image-bridge img { width: 100%; height: 100%; object-fit: cover; }
-.portfolio-destination-enter-active, .portfolio-destination-leave-active { transition: opacity 180ms ease, transform 220ms ease; }
-.portfolio-destination-enter-from { opacity: 0; transform: translateY(8px); }
-.portfolio-destination-leave-to { opacity: 0; transform: translateY(-4px); }
+/* A whole view fades, not just its text. Opacity only: a transform on an ancestor would become the containing block of
+   position:fixed descendants (Oscar's portrait) and make them jump when the transition ends. */
+.portfolio-destination-enter-active { transition: opacity 520ms cubic-bezier(.22, 1, .36, 1) 120ms; }
+.portfolio-destination-leave-active { transition: opacity 240ms ease; }
+.portfolio-destination-enter-from, .portfolio-destination-leave-to { opacity: 0; }
+.portfolio-fade-enter-active, .portfolio-fade-leave-active { transition: opacity 360ms ease; }
+.portfolio-fade-enter-from, .portfolio-fade-leave-to { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-destination-enter-active, .portfolio-destination-leave-active { transition: none; }
-  .portfolio-destination-enter-from, .portfolio-destination-leave-to { transform: none; }
+  .portfolio-destination-enter-active, .portfolio-destination-leave-active, .portfolio-fade-enter-active, .portfolio-fade-leave-active { transition: none; }
 }
 @media (max-width: 767px) { .portfolio-clock { display: none; } }
 </style>

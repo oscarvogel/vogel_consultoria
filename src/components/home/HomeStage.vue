@@ -3,7 +3,7 @@ import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import ProjectCard from './ProjectCard.vue';
 import { homeCards } from '../../data/homeCards.js';
 import { loadPortfolioMotion, reducedPortfolioMotion } from '../../lib/portfolioMotion.js';
-const props = defineProps({ view: { type: String, default: 'carousel' }, active: { type: Boolean, default: true } });
+const props = defineProps({ view: { type: String, default: 'carousel' }, active: { type: Boolean, default: true }, away: Boolean });
 const emit = defineEmits(['active-change', 'scroll-state']);
 let reportedId = null, reportedCompact = null;
 // Tells the backdrop which project is centred and the wheel whether the visitor started browsing projects.
@@ -112,7 +112,7 @@ onBeforeUnmount(() => {disposed=true;viewRevision++; stop();cancelAnimationFrame
 defineExpose({snapshot,restore,cardElement});
 </script>
 <template>
-  <section class="home-stage" :class="`is-${view}`" aria-label="Proyectos de Vogel Consultoría">
+  <section class="home-stage" :class="[`is-${view}`, { 'is-away': away }]" aria-label="Proyectos de Vogel Consultoría">
     <h1 class="sr-only">Vogel Consultoría: sistemas, automatización, datos e inteligencia artificial para empresas en Argentina</h1>
     <div ref="track" class="stage-track" :class="{'is-dragging':drag?.moved}" :tabindex="view === 'carousel' ? 0 : -1" aria-label="Galería de proyectos. Flechas izquierda y derecha para recorrer."
       @dragstart.prevent @scroll.passive="onScroll" @keydown="onKey" @pointerdown="onPointerDown" @pointermove="onPointerMove" @pointerup="onPointerUp" @pointercancel="onPointerUp" @click.capture="onClick">
@@ -122,7 +122,10 @@ defineExpose({snapshot,restore,cardElement});
 </template>
 <style scoped>
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.home-stage{position:fixed;inset:0;overflow:hidden}
+.home-stage{position:fixed;inset:0;overflow:hidden;transition:opacity 340ms ease,transform 520ms cubic-bezier(.22,1,.36,1),visibility 0s}
+/* Leaving for a destination: the stage fades and settles back instead of vanishing (its own transform, never an ancestor's). */
+.home-stage.is-away{opacity:0;transform:scale(.985);pointer-events:none;visibility:hidden;transition:opacity 340ms ease,transform 520ms cubic-bezier(.22,1,.36,1),visibility 0s 340ms}
+@media(prefers-reduced-motion:reduce){.home-stage,.home-stage.is-away{transition:none}}
 .stage-track{height:100%;display:flex;align-items:center;gap:20px;overflow-x:auto;overflow-y:hidden;padding:58px 24px 58px var(--portfolio-edge);scrollbar-width:none;overscroll-behavior-x:contain}
 .stage-track::-webkit-scrollbar{display:none}.stage-track:focus-visible{outline:2px solid var(--color-focus);outline-offset:-6px}
 .is-carousel .project-card{height:min(calc(100svh - 96px),603px);width:min(calc((100svh - 96px) * 16 / 9),1072px);aspect-ratio:16/9}

@@ -51,6 +51,7 @@ try{
       ['browser journeys, viewports, reduced motion, forms','npm run test:portfolio',{env,ok:o=>count(o,/^ok - /gm)}],
       ['axe accessibility (8 routes × 3 viewports)','npm run test:a11y',{env,ok:o=>count(o,/violations=0/g)}],
       ['motion stress and shared-image continuity','npm run test:motion',{env,ok:o=>count(o,/^ok - /gm)}],
+      ['view transitions (no cuts, portrait stays in the viewport)','npm run test:transitions',{env,ok:o=>count(o,/^ok - /gm)}],
       ['site crawl (console, images, links, h1)','npm run test:crawl',{env,ok:o=>count(o,/^ok - /gm)}],
     ];
     for(const [name,command,options] of browser){if(!step(name,command,options)){passed=false;break;}}

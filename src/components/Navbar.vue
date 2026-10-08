@@ -15,10 +15,10 @@ onBeforeUnmount(()=>{window.removeEventListener('hashchange',syncFromHash);docum
 <template>
   <header class="site-header" :class="{'is-portfolio':portfolio}" :inert="open || undefined">
     <a href="/" class="brand-link" aria-label="Vogel Consultoría — inicio"><img :src="logoVogel" alt="" width="26" height="26"/><span>Vogel Consultoría</span></a>
-    <div v-if="view" class="view-toggle" role="group" aria-label="Vista">
+    <Transition name="toggle-fade"><div v-if="view" class="view-toggle" role="group" aria-label="Vista">
       <button type="button" :aria-pressed="view==='carousel'" aria-label="Vista de carrusel" @click="emit('update:view','carousel')"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="4" width="14" height="12" rx="1"/></svg></button>
       <button type="button" :aria-pressed="view==='grid'" aria-label="Vista de grilla" @click="emit('update:view','grid')"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="6" height="6"/><rect x="11" y="3" width="6" height="6"/><rect x="3" y="11" width="6" height="6"/><rect x="11" y="11" width="6" height="6"/></svg></button>
-    </div>
+    </div></Transition>
     <a v-if="portfolio" href="/estudio/" class="info-button">Info</a>
     <button v-else ref="infoButton" type="button" class="info-button" :aria-expanded="open" aria-controls="info-panel" @click="open=true">Info</button>
   </header>
@@ -27,6 +27,7 @@ onBeforeUnmount(()=>{window.removeEventListener('hashchange',syncFromHash);docum
 <style scoped>
 .site-header{position:fixed;inset:0 0 auto;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;height:72px;padding-inline:max(20px,2vw);color:var(--color-text)}
 .brand-link{display:inline-flex;align-items:center;gap:10px;justify-self:start;min-height:44px;font-size:15px;color:var(--color-heading)}
+.toggle-fade-enter-active,.toggle-fade-leave-active{transition:opacity 320ms ease}.toggle-fade-enter-from,.toggle-fade-leave-to{opacity:0}@media(prefers-reduced-motion:reduce){.toggle-fade-enter-active,.toggle-fade-leave-active{transition:none}}
 .view-toggle{display:flex;gap:0;padding:0}.view-toggle button{display:grid;place-items:center;width:44px;height:44px;border-radius:4px;color:var(--color-muted);transition:background-color 160ms,color 160ms}.view-toggle button[aria-pressed=true]{background:#3b3933;color:var(--color-heading)}.view-toggle button:hover{color:var(--color-heading)}
 .info-button{grid-column:3;justify-self:end;display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:90px;padding:0 20px;border-radius:4px;background:#3b3933;font-size:14px;color:var(--color-heading);transition:background-color 160ms,color 160ms}.info-button:hover{background:var(--color-action);color:var(--color-action-text)}
 .is-portfolio{height:82px;padding-inline:24px}.is-portfolio .view-toggle{position:absolute;left:var(--portfolio-edge);top:20px}.is-portfolio .info-button{position:absolute;right:24px;top:20px}.is-portfolio .brand-link img{display:none}
