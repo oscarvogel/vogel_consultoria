@@ -51,6 +51,10 @@ try{
   const colors=JSON.parse(await (await import('node:fs/promises')).readFile('src/data/projectColors.json','utf8'));
   const toRgb=hex=>`rgb(${[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)).join(', ')})`;
   await page.locator('.stage-track').focus();await page.keyboard.press('Home');await page.waitForTimeout(1400);
+  // Neighbouring projects must read as different backdrops: the hue of consecutive cards differs by at least 30 degrees.
+  const hueOf=hex=>{const [r,g,b]=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255),max=Math.max(r,g,b),d=max-Math.min(r,g,b);if(!d)return 0;const x=max===r?((g-b)/d)%6:max===g?(b-r)/d+2:(r-g)/d+4;return (x*60+360)%360;};
+  const cardIds=await page.locator('.project-card').evaluateAll(cards=>cards.map(card=>card.dataset.projectId));
+  for(let i=1;i<cardIds.length;i++){const gap=Math.abs(hueOf(colors[cardIds[i-1]])-hueOf(colors[cardIds[i]]));assert(Math.min(gap,360-gap)>=30,`${cardIds[i-1]} and ${cardIds[i]} are neighbours with almost the same colour (${Math.round(Math.min(gap,360-gap))} degrees)`);}
   const accentOf=()=>page.evaluate(()=>getComputedStyle(document.querySelector('.stage-backdrop')).getPropertyValue('--accent').trim());
   const ids=await page.locator('.project-card').evaluateAll(cards=>cards.map(card=>card.dataset.projectId));
   // Cream text over the brightest backdrop pixel behind the clock, per project colour (text hidden while sampling).

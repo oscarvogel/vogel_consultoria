@@ -24,9 +24,17 @@ export const forestProject = withArt('caso-forestal', {
   cta: 'home_case_forestal', forest: true, accent: projectColors['caso-forestal'],
 });
 // Soluciones lives in Info. The portfolio contains verified work; card art only dresses the card.
-export const homeCards = [forestProject, ...webProjects.filter(project => project.available).map(project => withArt(project.id, {
+const cards = [forestProject, ...webProjects.filter(project => project.available).map(project => withArt(project.id, {
   ...project, title: project.name, category: project.type, tag: 'Proyecto web',
   href: `/proyectos/${project.id}/`, image: project.cover, imageSmall: project.cover.replace('cover.webp', 'cover-800.webp'), cta: `home_case_${project.id}`,
   accent: projectColors[project.id],
 }))];
+// Display order: neighbouring projects must not share a backdrop colour (greens, cool blues and the olive are interleaved).
+// The first card stays the Sistema Registro de Producción: index.html preloads its art as the LCP image.
+// scripts/test-motion.mjs fails if two neighbours are less than 30° apart in hue.
+export const displayOrder = ['caso-forestal', 'amitrac', 'indufor', 'an-asociados', 'forestal-paraguay', 'h21', 'forestal-garuhape', 'servin-lgsm', 'municipalidad-garuhape'];
+export const homeCards = [...cards].sort((a, b) => {
+  const position = id => { const at = displayOrder.indexOf(id); return at === -1 ? displayOrder.length : at; };
+  return position(a.id) - position(b.id);
+});
 export const getProject = id => homeCards.find(project => project.id === id) || null;
