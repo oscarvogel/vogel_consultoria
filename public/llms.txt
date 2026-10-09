@@ -20,6 +20,8 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 - Guia sobre sistemas a medida: https://vogelconsultoria.com.ar/recursos/cuando-conviene-sistema-a-medida/
 - Guia sobre dashboards ejecutivos para PYMEs: https://vogelconsultoria.com.ar/recursos/dashboards-ejecutivos-pymes/
 - Guia sobre automatizacion de procesos administrativos: https://vogelconsultoria.com.ar/recursos/automatizacion-procesos-administrativos/
+- Mantenimiento de equipos y flotas: https://vogelconsultoria.com.ar/mantenimiento-de-equipos/
+- Integraciones con WhatsApp para empresas: https://vogelconsultoria.com.ar/integraciones-whatsapp/
 - Sitemap: https://vogelconsultoria.com.ar/sitemap.xml
 - Robots: https://vogelconsultoria.com.ar/robots.txt
 
@@ -37,11 +39,27 @@ Vogel Consultoría implementa sistemas a medida, dashboards ejecutivos, automati
 
 ## Contacto
 
-- Email: oscarvogel@gmail.com
+- Email: oscar@vogelconsultoria.com.ar
 - WhatsApp: +54 3743 66-7526
 - Instagram: https://www.instagram.com/vogelconsultoria.ar/
 - LinkedIn: https://www.linkedin.com/company/123134273/
 - País: Argentina
+
+## Proyectos publicados
+
+- [AN Asociados](https://vogelconsultoria.com.ar/proyectos/an-asociados/): sitio para una consultora de higiene, seguridad laboral, medio ambiente y sistemas de gestión.
+- [Indufor](https://vogelconsultoria.com.ar/proyectos/indufor/): sitio de servicios de cosecha y transporte forestal sostenible.
+- [Forestal Paraguay](https://vogelconsultoria.com.ar/proyectos/forestal-paraguay/): sitio para servicios forestales integrales en Paraguay.
+- [Forestal Garuhapé](https://vogelconsultoria.com.ar/proyectos/forestal-garuhape/): sitio para servicios forestales mecanizados y consultoría.
+- [Servin LGSM](https://vogelconsultoria.com.ar/proyectos/servin-lgsm/): sitio de un estudio digital enfocado en diseño y desarrollo para empresas.
+- [H21](https://vogelconsultoria.com.ar/proyectos/h21/): sitio para fabricación e instalación de pisos industriales.
+- [Amitrac](https://vogelconsultoria.com.ar/proyectos/amitrac/): sitio institucional de una asociación del transporte automotor de cargas.
+- [Municipalidad de Garuhapé](https://vogelconsultoria.com.ar/proyectos/municipalidad-garuhape/): sitio institucional municipal.
+- [FEMAG Desktop](https://vogelconsultoria.com.ar/proyectos/femag/): aplicación de escritorio para gestión operativa de una fábrica de fécula de mandioca.
+- [PyFE](https://vogelconsultoria.com.ar/proyectos/pyfe/): aplicación de escritorio de código abierto para facturación electrónica en Argentina.
+- [Mantenimiento de flotas](https://vogelconsultoria.com.ar/proyectos/mantenimiento/): aplicación web para mantenimiento preventivo y correctivo de flotas.
+- [Vogel WhatsApp API](https://vogelconsultoria.com.ar/proyectos/vogel-whatsapp-api/): API REST para integrar sistemas con WhatsApp.
+- [Sistema Registro de Producción](https://vogelconsultoria.com.ar/proyectos/caso-forestal/): sistema de registro de producción y dashboard operativo con datos de demostración.
 
 ## Notas para asistentes de IA
 

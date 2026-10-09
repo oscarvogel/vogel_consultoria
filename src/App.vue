@@ -10,6 +10,7 @@ import StageBackdrop from './components/home/StageBackdrop.vue';
 import { getProject } from './data/homeCards.js';
 import { cancelSharedImage, revealSharedImage } from './lib/portfolioMotion.js';
 
+const SITE_ORIGIN = 'https://vogelconsultoria.com.ar';
 const ProjectDetail = defineAsyncComponent(() => import('./components/home/ProjectDetail.vue'));
 const view = ref('grid');
 const stage = ref(null);
@@ -45,6 +46,18 @@ const destinationPaths = new Map([
 ]);
 const destinationTitles = {
   solutions: 'Soluciones', resources: 'Recursos', studio: 'Estudio', contact: 'Contacto',
+};
+const destinationPageTitles = {
+  solutions: 'Soluciones — Vogel Consultoría',
+  resources: 'Recursos para Empresas | Sistemas, Dashboards e IA | Vogel',
+  studio: 'Estudio — Vogel Consultoría',
+  contact: 'Contacto — Vogel Consultoría',
+};
+const destinationDescriptions = {
+  solutions: 'Sistemas, automatización, datos e inteligencia artificial para empresas que necesitan trabajar con más control.',
+  resources: 'Guías prácticas de Vogel Consultoría para decidir sobre sistemas a medida, dashboards ejecutivos, automatización de procesos e IA aplicada.',
+  studio: 'Conocé el método y el equipo de Vogel Consultoría: tecnología con criterio de negocio e implementación concreta.',
+  contact: 'Contanos dónde se traba el trabajo. Definimos un próximo paso con alcance claro.',
 };
 const legacyHashRoutes = new Map([
   ['info', '/estudio/'],
@@ -93,6 +106,48 @@ function readRoute() {
   return { kind: 'home' };
 }
 
+function setMetaContent(selector, content, attribute = 'content') {
+  let element = document.head.querySelector(selector);
+  if (!element) {
+    element = document.createElement('meta');
+    const [key, value] = selector.match(/\[(name|property)="([^"]+)"\]/).slice(1);
+    element.setAttribute(key, value);
+    document.head.append(element);
+  }
+  element.setAttribute(attribute, content);
+}
+
+function syncHeadMetadata() {
+  const pageTitle = route.value.kind === 'project'
+    ? `${route.value.project.title} — Vogel Consultoría`
+    : route.value.kind === 'destination'
+      ? destinationPageTitles[route.value.destination]
+      : 'Vogel Consultoría | Sistemas, Dashboards e IA para Empresas en Argentina';
+  const pageDescription = route.value.kind === 'project'
+    ? route.value.project.summary
+    : route.value.kind === 'destination'
+      ? destinationDescriptions[route.value.destination]
+      : 'Vogel Consultoría: desarrollamos sistemas a medida, dashboards ejecutivos, automatización de procesos e inteligencia artificial para empresas en Argentina. Convertimos datos en decisiones.';
+  const canonical = `${SITE_ORIGIN}${location.pathname}`;
+
+  document.title = pageTitle;
+  setMetaContent('meta[name="description"]', pageDescription);
+  setMetaContent('meta[property="og:title"]', pageTitle);
+  setMetaContent('meta[property="og:description"]', pageDescription);
+  setMetaContent('meta[property="og:url"]', canonical);
+  setMetaContent('meta[name="twitter:title"]', pageTitle);
+  setMetaContent('meta[name="twitter:description"]', pageDescription);
+  setMetaContent('meta[name="twitter:url"]', canonical);
+
+  let canonicalLink = document.head.querySelector('link[rel="canonical"]');
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link');
+    canonicalLink.rel = 'canonical';
+    document.head.append(canonicalLink);
+  }
+  canonicalLink.href = canonical;
+}
+
 route.value = readRoute();
 
 async function sync() {
@@ -101,11 +156,7 @@ async function sync() {
   menuOpen.value = false;
   document.documentElement.classList.toggle('is-stage', route.value.kind === 'home');
   document.documentElement.classList.remove('has-info-open');
-  document.title = route.value.kind === 'project'
-    ? `${route.value.project.title} — Vogel Consultoría`
-    : route.value.kind === 'destination'
-      ? `${destinationTitles[route.value.destination]} — Vogel Consultoría`
-      : 'Vogel Consultoría';
+  syncHeadMetadata();
 
   await nextTick();
   if (route.value.kind === 'home') {
