@@ -63,6 +63,15 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 - **Causa 2 (Oscar entraba por abajo):** la transición de ruta aplicaba `transform` al contenedor del retrato (`position:fixed`), que pasaba a ser su bloque contenedor: durante ~330 ms la figura estaba en `top=754/bottom=1546` (fuera de una pantalla de 900 px) y luego saltaba a `top=108`. Se eliminan el `transform` de la transición y el `container-type` del contenedor; regla de diseño: ningún ancestro de un elemento fijo lleva `transform`, `filter`, `container-type` ni `contain`.
 - **Prueba nueva `test:transitions`** (6 comprobaciones, ya en la compuerta): muestrea cada fotograma de Proyectos ⇄ Estudio ⇄ Soluciones y la carga directa; falla si una vista cambia más de 0,45 de opacidad entre fotogramas, si el retrato sale del viewport o salta verticalmente, o si un control fijo se desplaza lateralmente. Se ejecutó antes del arreglo para reproducir el fallo.
 
+## Iteración posterior: logo real, azul base, FEMAG y capturas completas (2026-10-08)
+
+- **Capturas completas:** `scripts/capture-project-sources.mjs` recorre cada sitio con scroll para disparar las animaciones de entrada; `scripts/check-captures.mjs` (en la compuerta, 18 comprobaciones) falla si una captura tiene bandas en blanco. Arregla la zona vacía de la ficha de AN Asociados. Los carruseles Swiper de AN ya no usan reveal-on-scroll.
+- **FEMAG (femag.com.ar)** pasa a décimo proyecto, sin etiqueta «En desarrollo». No tiene ilustración de tarjeta: usa la captura de portada.
+- **Azul `#020f1f` como base** (tokens `--vogel-ink`, escala navy/deep/slate/raised; Tailwind `vogel.ink`/`vogel.charcoal`). Crema y ámbar siguen; el carbón queda como `vogel-charcoal`. Sin azul brillante como acento de acción.
+- **Logo real de Vogel** en vector (`scripts/derive-vogel-logo.mjs`): símbolo, lockup, favicon, apple-touch-icon, logo PNG y `og-image`. El texto azul del lockup tiene poco contraste sobre el fondo: solo a tamaños grandes.
+- **Compuerta:** `release:gate` 12/12 en verde (78 navegador, 24 axe, 11 movimiento, 6 transiciones, 18 capturas).
+- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permiso de los clientes (incluido FEMAG) para mostrar sus sitios; `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
+
 ## Defectos y límites conocidos
 
 - En las cards de Indufor y Forestal Garuhapé el título de la tarjeta se superpone al nombre que ya trae la ilustración (redundante, legible).
