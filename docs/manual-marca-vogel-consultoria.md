@@ -107,13 +107,13 @@ Los logos OV anteriores permanecen como archivos históricos; no son la identida
 
 Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. El azul es solo base y superficie (decisión del cliente, 2026-10-08): ningún azul vivo como acento ni como botón de acción; sin gradientes multicolor y sin colores ajenos como protagonistas. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
 
-**Fondo del portfolio (Home):** degradé vertical del color de marca del proyecto centrado (abajo) a carbón (arriba), con una onda lenta y un grano leve (~7 %). Es la única excepción a «sin gradientes»: el color pertenece al cliente, no a la interfaz Vogel, y nunca reemplaza al ámbar en acciones. Los colores salen de los logos de cada cliente y se normalizan a un tono oscuro en `src/data/projectColors.json` (`scripts/derive-project-colors.mjs`); el texto sobre el degradado debe mantener 4.5:1 (lo verifica `npm run test:motion`). Amitrac usa azul por decisión expresa: es el color de su marca, independiente de Vogel. Servin LGSM (cian) y H21 (gris pizarra) también siguen su logo.
+**Fondo del portfolio (Home):** degradé vertical del color de marca del proyecto centrado (abajo) a carbón (arriba), con una onda lenta y un grano leve (~7 %). Es la única excepción a «sin gradientes»: el color pertenece al cliente, no a la interfaz Vogel, y nunca reemplaza al ámbar en acciones. Los colores salen de los logos de cada cliente y se normalizan a un tono oscuro en `src/data/projectColors.json` (`scripts/derive-project-colors.mjs`); el texto sobre el degradado debe mantener 4.5:1 (lo verifica `npm run test:motion`). Amitrac usa azul por decisión expresa: es el color de su marca, independiente de Vogel. Servin LGSM (cian), H21 (gris pizarra) y PyFE (azul marino de la interfaz Asiento) siguen su identidad de proyecto.
 
 **Fondo de los destinos** (Soluciones, Recursos, Estudio, Contacto): el mismo degradé con onda y grano, en un único tono de marca, el ámbar de Vogel oscurecido (`#704d1a`, ~27 % de luminosidad), con la mezcla reducida para que el texto atenuado conserve 4.5:1 (en destinos el gris atenuado sube un paso, a `rgb(192 189 173)`). El color transiciona al girar la rueda y hace juego con la luz cálida del retrato de Oscar.
 
 **Oscar Vogel en Estudio:** retrato recortado (fondo eliminado con un modelo de segmentación; facciones y color sin modificar) a la derecha, fijo y sangrando por el borde inferior y derecho como en la fotografía original; en tablet y móvil va en el flujo, bajo el título. El recorte fue solicitado expresamente por el titular el 2026-10-07: la autorización original de la foto decía «sin recorte» y esa condición queda registrada en `src/assets/oscar/provenance.json`.
 
-**Arte de tarjeta:** nueve de los diez proyectos usan ilustraciones generadas con el logo del cliente como portada de tarjeta (`public/projects/<id>/art*.webp`, marcadas `kind: "generated"` en `provenance.json`). Son decorativas: la ficha del proyecto siempre muestra las capturas reales del sitio como evidencia.
+**Arte de tarjeta:** nueve de las trece tarjetas usan ilustraciones generadas con el logo del cliente como portada (`public/projects/<id>/art*.webp`, marcadas `kind: "generated"` en `provenance.json`). FEMAG Desktop, PyFE y Mantenimiento de flotas usan capturas reales de sus aplicaciones; Vogel WhatsApp API usa un esquema conceptual rotulado como tal. El arte es decorativo; las fichas muestran evidencia real o identifican con claridad las ilustraciones.
 
 ## 7. Tipografia
 
@@ -123,14 +123,14 @@ Chillax: lectura 400, navegación y controles 500, CTA 600. Mantener inputs de a
 
 ## 8. Sistema grafico
 
-Capturas reales desktop y mobile como evidencia principal. Home y grilla muestran exclusivamente diez proyectos reales publicados, con imágenes en sus colores originales y sin filtros monocromos. Los servicios viven en Soluciones y el método y el perfil de Oscar en Estudio. FEMAG (femag.com.ar, ingredientes alimentarios de Capioví, Misiones) es un proyecto más del portfolio; su tarjeta usa la captura del sitio con un velo oscuro porque aún no tiene ilustración. Oscar conserva su fotografía real autorizada, sin retoques ni retratos generados.
+Capturas reales como evidencia principal: desktop y mobile para sitios web y aplicaciones web, desktop para aplicaciones de escritorio. Home y grilla muestran trece fichas: el caso forestal de demostración, ocho sitios web publicados, dos aplicaciones de escritorio, una aplicación web en desarrollo y una API de integración. Las imágenes conservan sus colores originales y no llevan filtros monocromos. Los servicios viven en Soluciones y el método y el perfil de Oscar en Estudio. FEMAG Desktop, PyFE y Mantenimiento de flotas usan capturas de demostración o entornos de prueba, sin datos productivos. Vogel WhatsApp API muestra un esquema conceptual, no una captura de consola ni una prueba en vivo. Oscar conserva su fotografía real autorizada, sin retoques ni retratos generados.
 
 Assets y procedencia:
 
 - `src/assets/brand/vogel-simbolo.svg` y `vogel-lockup.svg`: logo oficial vigente.
 - `public/projects/`: derivados WebP públicos del portfolio, con dimensiones en `src/data/projectMedia.json` y procedencia normativa en `public/projects/provenance.json`.
 - `src/assets/cases/`: interfaz forestal real con datos de demostración.
-- `docs/capturas/project-sources-2026-10-06/`: originales locales conservados; no incluir capturas pesadas en Git.
+- `docs/capturas/project-sources-2026-10-09/`: originales locales conservados; no incluir capturas pesadas en Git.
 - `docs/social/`: revisar identidad antes de reutilizar material previo.
 
 El caso forestal conserva Registrar → Revisar → Decidir y sus dos aclaraciones compartidas en `forestCase`. No inventar resultados, fechas, stacks o créditos. No utilizar imágenes generadas como evidencia operativa real.

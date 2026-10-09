@@ -303,10 +303,10 @@ function testHomeStage() {
   assert(app.includes("HomeStage") && app.includes("Preloader"), "App.vue: home stage and preloader must be mounted");
   assert(stage.includes("<h1") && stage.includes("keydown"), "HomeStage.vue: needs a real h1 and keyboard navigation");
   assert(stage.includes("reducedPortfolioMotion"), "HomeStage.vue: wheel glide must respect reduced motion");
-  for (const id of ["forestCase", "webProjects"]) assert(cards.includes(id), `homeCards.js: missing source ${id}`);
+  for (const id of ["forestCase", "portfolioProjects"]) assert(cards.includes(id), `homeCards.js: missing source ${id}`);
   assert(cards.includes("Datos de demostración"), "homeCards.js: the demo case must keep its demonstration label");
   assert(!readProjectFile("src/components/home/InfoPanel.vue").includes("En desarrollo"), "Info: FEMAG is published as a project, so the in-development label must be gone");
-  assert(readProjectFile("src/data/projects.js").includes("femag.com.ar"), "projects.js: FEMAG must point to its published site");
+  assert(readProjectFile("src/data/projects.js").includes("name:'FEMAG Desktop'") && !readProjectFile("src/data/projects.js").includes("femag.com.ar"), "projects.js: FEMAG must be represented as desktop software, not a website");
   assert(content.includes("registro de producción anónimo"), "production-registry case must be explicitly anonymous");
   assert(content.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
 }

@@ -4,7 +4,7 @@ const require=createRequire(import.meta.url);
 const playwright=require('playwright');
 const base=process.env.PORTFOLIO_TEST_URL||'http://127.0.0.1:5198';
 const browser=await playwright.chromium.launch({headless:true});
-const open=async()=>{const context=await browser.newContext({viewport:{width:1440,height:900}});await context.addInitScript(()=>sessionStorage.setItem('vogel-intro','1'));const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));return {context,page,errors};};
+const open=async()=>{const context=await browser.newContext({viewport:{width:1440,height:900}});await context.addInitScript(()=>{sessionStorage.setItem('vogel-intro','1');localStorage.setItem('vogel-home-view','carousel')});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));return {context,page,errors};};
 const leftovers=page=>page.evaluate(()=>({bridges:document.querySelectorAll('.portfolio-image-bridge').length,inline:[...document.querySelectorAll('.project-card')].filter(card=>/transform|position|width|height|left|top/.test((card.getAttribute('style')||'').replace(/--card-shift:[^;]*;?/g,''))).map(card=>card.dataset.projectId)}));
 const ok=label=>console.log('ok - '+label);
 try{
@@ -12,7 +12,7 @@ try{
   await page.goto(base);await page.waitForTimeout(1500);
   await page.locator('[data-project-id="caso-forestal"]').click();await page.waitForSelector('.project-reader');await page.keyboard.press('Escape');await page.waitForSelector('.home-stage:visible');
   await page.getByRole('button',{name:'Vista de grilla'}).click();await page.waitForTimeout(600);
-  assert.equal(await page.locator('.project-card').count(),10);assert.deepEqual(errors,[]);assert.deepEqual(await leftovers(page),{bridges:0,inline:[]});
+  assert.equal(await page.locator('.project-card').count(),13);assert.deepEqual(errors,[]);assert.deepEqual(await leftovers(page),{bridges:0,inline:[]});
   ok('GSAP blocked: open, close and view change work without uncaught errors');await context.close();}
  {const {context,page,errors}=await open();await page.goto(base);await page.waitForTimeout(2500);
   for(let i=0;i<10;i++){await page.getByRole('button',{name:i%2?'Vista de carrusel':'Vista de grilla'}).click({noWaitAfter:true});await page.waitForTimeout(40);}

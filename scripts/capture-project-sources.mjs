@@ -20,7 +20,6 @@ export const projects = [
   ['h21', 'https://h21.ar/'],
   ['amitrac', 'https://amitrac.ar/'],
   ['municipalidad-garuhape', 'https://garuhape.gob.ar/'],
-  ['femag', 'https://femag.com.ar/'], // fecula.com.ar redirige acá
 ];
 const wanted = process.argv.slice(2);
 const list = wanted.length ? projects.filter(([id]) => wanted.includes(id)) : projects;

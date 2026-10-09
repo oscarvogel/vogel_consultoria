@@ -7,7 +7,7 @@ const cardSizes = computed(() => props.compact
 const failed = ref(false);
 // Card art (generated illustration) when available; otherwise the captured cover.
 const media = computed(() => props.card.art
-  ? { src: props.card.art, srcset: `${props.card.artSmall} 640w, ${props.card.art} 1280w`, width: 1280, height: 1280, position: props.card.artPosition }
+  ? { src: props.card.art, srcset: `${props.card.artSmall} 640w, ${props.card.art} 1280w`, width: props.card.artWidth || 1280, height: props.card.artHeight || 1280, position: props.card.artPosition }
   : { src: props.card.image, srcset: props.card.imageSmall ? `${props.card.imageSmall} 800w, ${props.card.image} 1600w` : undefined,
       width: props.card.forest ? 1440 : 1600, height: props.card.forest ? 1151 : 900, position: undefined });
 </script>
@@ -27,9 +27,10 @@ const media = computed(() => props.card.art
 .project-card{position:relative;display:block;flex:none;overflow:hidden;border-radius:12px;background:var(--color-panel);isolation:isolate;color:var(--color-heading);container-type:inline-size}
 .project-art{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .project-art img{width:100%;max-width:none;height:100%;object-fit:cover;object-position:center;transform:translate3d(calc(var(--card-shift,0) * 12px),0,0) scale(1.025)}
-/* Logo plates (e.g. Servin) are shown whole in tall cards: grid and mobile carousel. */
+/* Logo plates and desktop software captures stay whole in every layout. */
 .is-compact .art-contain img{object-fit:contain}
 @media(max-width:767px){.art-contain img{object-fit:contain}}
+.project-card[data-project-id="femag"] .project-art img,.project-card[data-project-id="pyfe"] .project-art img{object-fit:contain}
 .project-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(var(--vogel-navy)/.08),rgb(var(--vogel-navy)/.1) 38%,rgb(var(--vogel-navy)/.78))}
 .project-title{position:absolute;left:24px;top:50%;width:min(calc(100% - 48px),calc(66vw - 48px));margin:0;transform:translateY(-50%);font-size:clamp(32px,3.4vw,48px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;text-wrap:balance;color:#F3F1E2;text-shadow:0 0 6px rgb(var(--vogel-navy)/.7),0 2px 18px rgb(var(--vogel-navy)/.85),0 0 36px rgb(var(--vogel-navy)/.6);overflow-wrap:normal}
 .project-meta{position:absolute;left:24px;bottom:20px;width:min(calc(100% - 48px),calc(66vw - 48px));display:flex;justify-content:space-between;gap:16px;font-size:13px;line-height:1.45;color:#F3F1E2;text-shadow:0 1px 4px rgb(var(--vogel-navy)/.9)}

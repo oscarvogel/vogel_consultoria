@@ -6,6 +6,7 @@ import path from 'node:path';
 const root = process.cwd();
 const site = 'https://vogelconsultoria.com.ar';
 const summaries = JSON.parse(await fs.readFile(path.join(root, 'src/data/projectSummaries.json'), 'utf8'));
+const selectedIds = new Set(process.argv.slice(2));
 const escape = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 // Meta descriptions stay under ~160 characters: keep whole sentences until the limit.
 const shorten = text => {
@@ -19,6 +20,7 @@ const preload = id => id === 'caso-forestal'
   ? '<link rel="preload" as="image" type="image/webp" href="/src/assets/cases/forestal-dashboard-desktop.webp" fetchpriority="high">'
   : `<link rel="preload" as="image" type="image/webp" href="/projects/${id}/cover.webp" imagesrcset="/projects/${id}/cover-800.webp 800w, /projects/${id}/cover.webp 1600w" imagesizes="(max-width: 767px) calc(100vw - 32px), 1277px" fetchpriority="high">`;
 for (const [id, { name, summary }] of Object.entries(summaries)) {
+  if (selectedIds.size && !selectedIds.has(id)) continue;
   const url = `${site}/proyectos/${id}/`;
   const title = `${name} — Vogel Consultoría`;
   const description = shorten(summary);

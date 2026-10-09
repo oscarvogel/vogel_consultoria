@@ -145,20 +145,40 @@
   },
   "femag": {
     "desktop": {
-      "width": 1440,
-      "height": 2600
+      "width": 1920,
+      "height": 1080
     },
     "cover": {
       "width": 1600,
       "height": 900
     },
-    "mobile": {
-      "width": 390,
-      "height": 2200
+    "cover-800": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "pyfe": {
+    "desktop": {
+      "width": 1600,
+      "height": 900
+    },
+    "cover": {
+      "width": 1600,
+      "height": 900
     },
     "cover-800": {
       "width": 800,
       "height": 450
     }
+  },
+  "mantenimiento": {
+    "desktop": { "width": 1440, "height": 900 },
+    "cover": { "width": 1600, "height": 900 },
+    "mobile": { "width": 390, "height": 1087 },
+    "cover-800": { "width": 800, "height": 450 }
+  },
+  "vogel-whatsapp-api": {
+    "cover": { "width": 1600, "height": 900 },
+    "cover-800": { "width": 800, "height": 450 }
   }
 }

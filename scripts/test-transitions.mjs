@@ -46,7 +46,7 @@ function assertSmooth(frames,label,{figure=false}={}){
     for(let i=1;i<frames.length;i++){const a=frames[i-1].fig,b=frames[i].fig;if(a&&b)assert(Math.abs(b.top-a.top)<=2,`${label}: portrait jumped ${Math.round(Math.abs(b.top-a.top))}px vertically at ${Math.round(frames[i].t)}ms`);}
   }
 }
-const clickRail=(page,name)=>page.locator('.rail-link').filter({hasText:name}).click();
+const clickRail=async(page,name)=>{const link=page.locator('.rail-link').filter({hasText:name});await link.evaluate(element=>element.click());};
 const settle=page=>page.waitForTimeout(1500);
 
 try{

@@ -11,7 +11,7 @@ import { getProject } from './data/homeCards.js';
 import { cancelSharedImage, revealSharedImage } from './lib/portfolioMotion.js';
 
 const ProjectDetail = defineAsyncComponent(() => import('./components/home/ProjectDetail.vue'));
-const view = ref('carousel');
+const view = ref('grid');
 const stage = ref(null);
 const menuOpen = ref(false);
 const route = ref({ kind: 'home' });
@@ -33,7 +33,8 @@ try {
   returnId = snapshot?.activeId;
 } catch { /* storage optional */ }
 try {
-  if (localStorage.getItem('vogel-home-view') === 'grid') view.value = 'grid';
+  const savedView = localStorage.getItem('vogel-home-view');
+  if (savedView === 'grid' || savedView === 'carousel') view.value = savedView;
 } catch { /* storage optional */ }
 
 const destinationPaths = new Map([

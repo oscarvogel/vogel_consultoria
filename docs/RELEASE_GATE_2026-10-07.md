@@ -66,11 +66,22 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 ## Iteración posterior: logo real, azul base, FEMAG y capturas completas (2026-10-08)
 
 - **Capturas completas:** `scripts/capture-project-sources.mjs` recorre cada sitio con scroll para disparar las animaciones de entrada; `scripts/check-captures.mjs` (en la compuerta, 18 comprobaciones) falla si una captura tiene bandas en blanco. Arregla la zona vacía de la ficha de AN Asociados. Los carruseles Swiper de AN ya no usan reveal-on-scroll.
-- **FEMAG (femag.com.ar)** pasa a décimo proyecto, sin etiqueta «En desarrollo». No tiene ilustración de tarjeta: usa la captura de portada.
+- **FEMAG Desktop** pasa a décimo proyecto como aplicación de escritorio, con una captura del dashboard en modo demo y sin enlace al sitio de alimentos.
 - **Azul `#020f1f` como base** (tokens `--vogel-ink`, escala navy/deep/slate/raised; Tailwind `vogel.ink`/`vogel.charcoal`). Crema y ámbar siguen; el carbón queda como `vogel-charcoal`. Sin azul brillante como acento de acción.
 - **Logo real de Vogel** en vector (`scripts/derive-vogel-logo.mjs`): símbolo, lockup, favicon, apple-touch-icon, logo PNG y `og-image`. El texto azul del lockup tiene poco contraste sobre el fondo: solo a tamaños grandes.
 - **Compuerta:** `release:gate` 12/12 en verde (78 navegador, 24 axe, 11 movimiento, 6 transiciones, 18 capturas).
-- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permisos de clientes: el equipo confirmó el 2026-10-08 que Vogel tiene autorización de todos (incluido FEMAG, con quien habló Oscar) para mostrar sus sitios; falta guardar la constancia escrita; `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
+- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permisos de clientes: el equipo confirmó el 2026-10-08 que Vogel tiene autorización de todos los proyectos (incluido FEMAG, con quien habló Oscar); falta guardar la constancia escrita; `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
+
+## Iteración 2026-10-09: PyFE
+
+- **PyFE** se agrega como aplicación de escritorio de código abierto, con enlace al repositorio y ficha de facturación electrónica. La captura de Asiento se tomó en el sandbox local con SQLite vacía y homologación, sin emitir ni consultar comprobantes.
+- **Pendiente de origen:** el README de `oscarvogel/pyfe` declara MIT, pero el archivo `LICENSE` contiene GPL-3.0. El portfolio lo presenta como código abierto sin nombrar una licencia hasta reconciliar ambos archivos.
+
+## Actualización de portfolio — Mantenimiento y WhatsApp API
+
+- Se agregan Mantenimiento de flotas (en desarrollo, con capturas de demo) y Vogel WhatsApp API (esquema conceptual documentado, no captura de un servicio en vivo).
+- Las fichas enlazan a sus repositorios; no afirman que Mantenimiento esté terminado ni que la API esté operativa públicamente.
+- La grilla pasa a trece proyectos. Revisión visual local de portada y fichas realizada; falta la compuerta de build y el repaso general antes de publicar.
 
 ## Defectos y límites conocidos
 

@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-09T01:12:48.620Z",
-  "captureMethod": "Browser screenshot fullPage; per-tab CDP viewport override; originals retained locally",
-  "derivativeMethod": "Unaltered colors; top crop and WebP compression; cover resize 1600x900",
+  "capturedAt": "2026-10-09T11:21:42.817Z",
+  "captureMethod": "Web projects: browser fullPage screenshots; desktop software: approved repository demo mode; originals retained locally",
+  "derivativeMethod": "Unaltered colors; web captures top-cropped and compressed as WebP; desktop screenshot preserved and padded on the official ink base where needed",
   "projects": [
     {
       "id": "an-asociados",
@@ -822,88 +822,292 @@
     {
       "id": "femag",
       "status": "captured",
-      "url": "https://femag.com.ar/",
+      "sourceType": "desktop-demo",
+      "sourceRepository": "https://github.com/oscarvogel/femag_desktop",
+      "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+      "sourceFile": "scripts/generate_branding_screenshots.py (local demo capture at 1920x1080)",
+      "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+      "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+      "captureMethod": "Repository screenshot generator; in-memory SQLite, demo_visual user, 1920x1080 window; no production data",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+        "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+        "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "70a69af93a5a8fa79bc00a6930fa3a5f1fb29767afbd4acb4970509b9f8bbf49"
+      },
       "derived": [
         {
           "path": "/projects/femag/desktop.webp",
-          "width": 1440,
-          "height": 2600,
-          "sha256": "7d01e4d16e0a6d58d89d9049e72ebc172f9c84e13692b5d14b48e851b0348b95",
-          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
-          "crop": {
-            "left": 0,
-            "top": 0,
-            "width": 1440,
-            "height": 2600
-          }
+          "width": 1920,
+          "height": 1080,
+          "sha256": "11fad4fc90c91be226743b33ccc288ab7ff7ed458065e9f1ab3ac4e66465bbd2",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Original demo screenshot flattened on the official ink base"
         },
         {
           "path": "/projects/femag/cover.webp",
           "width": 1600,
           "height": 900,
-          "sha256": "eebd3d62d09d4bb823c8c16b43a1db322cb09c3559e5bb30ae6c65285a6e98d6",
-          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
-          "crop": {
-            "left": 0,
-            "top": 0,
-            "width": 1440,
-            "height": 900
-          }
-        },
-        {
-          "path": "/projects/femag/mobile.webp",
-          "width": 390,
-          "height": 2200,
-          "sha256": "192aa5f15290413cc93eb02e289fbb595e022919d4cb12bfb789b903ec516daa",
-          "source": "docs/capturas/project-sources-2026-10-09/femag-mobile.jpg",
-          "crop": {
-            "left": 0,
-            "top": 0,
-            "width": 390,
-            "height": 2200
-          }
+          "sha256": "44ed6422de084d872d4f075aa0fefbcbb22c67078c83a19dde2d367fcc8cf003",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Screenshot contained without cropping in a 16:9 canvas"
         },
         {
           "path": "/projects/femag/cover-800.webp",
           "width": 800,
           "height": 450,
-          "sha256": "9adcad2bab32c92f64ec4dba24bc91636507e6128a55f2eabffa01dfc7bcd942",
-          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
-          "derivedFrom": "/projects/femag/cover.webp",
-          "crop": {
-            "left": 0,
-            "top": 0,
-            "width": 1440,
-            "height": 900
-          }
-        }
-      ],
-      "desktop": {
-        "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
-        "width": 1440,
-        "height": 6113,
-        "sha256": "45409131a3387a3714d50d24388c1c60303c961f8aa459f91e617365aba43274",
-        "viewport": {
-          "dpr": 1,
-          "height": 900,
-          "scrollHeight": 6113,
-          "width": 1440
+          "sha256": "1fd9662e752908f8e748562836da4211c34638a666a6ac431eaf5cc5ad0386e7",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "800px derivative of cover.webp",
+          "derivedFrom": "/projects/femag/cover.webp"
         },
-        "fullHeight": 6113
+        {
+          "path": "/projects/femag/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "51472c520e728af04cd185382737f40aa88ae7c47d46ab72e04b9c15c1cce3d1",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Screenshot contained in a 4:5 card canvas with reserved space for card title"
+        },
+        {
+          "path": "/projects/femag/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "7a6068e632052f3577cba72402093bc1895d010897c4030368b7edd78a9c9899",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "640px derivative of art.webp",
+          "derivedFrom": "/projects/femag/art.webp"
+        }
+      ]
+    },
+    {
+      "id": "pyfe",
+      "status": "captured",
+      "sourceType": "desktop-open-source",
+      "sourceRepository": "https://github.com/oscarvogel/pyfe",
+      "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+      "sourceFile": "tools/armar_sandbox.py + temporary Qt screenshot runner",
+      "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+      "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+      "captureMethod": "Application launched from source in a new SQLite sandbox, homo=S, with fictitious company data; 1600x900 window capture; no ARCA/AFIP service actions invoked",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+        "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+        "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+        "width": 1600,
+        "height": 900,
+        "sha256": "5441662abb2e9e4b22c64c868d2a7999b2f35bd6d5876c3d458d5de7fc2fe868"
+      },
+      "derived": [
+        {
+          "path": "/projects/pyfe/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "02389585c1afb6814289ff7fe9463a4fb50485f3e8fec22c2152a6a0f18ca495",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "Main application window rendered at 1600x900 in the isolated sandbox"
+        },
+        {
+          "path": "/projects/pyfe/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8fe7f89dd4cee3800b4c0558a8e41696e336d51b6bc3e23a6a75875dbe426aff",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "16:9 application screenshot encoded without cropping"
+        },
+        {
+          "path": "/projects/pyfe/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "3ed29e78c94d086ac5dce1bf8d5ea62a474617e98702fc4a4f53c1c43f20d498",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "800px derivative of cover.webp"
+        },
+        {
+          "path": "/projects/pyfe/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "4ab680b90d8348dea9558648edca7c507b8dbd94a4047aa17102965af5b8a798",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "Screenshot composited unchanged on the official ink base in a 4:5 card canvas"
+        },
+        {
+          "path": "/projects/pyfe/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "b489b090ec243bcec6fe9aa5a248e78440537359626b76e6667f6354eb587037",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "640px derivative of art.webp"
+        }
+      ]
+    },
+    {
+      "id": "mantenimiento",
+      "status": "captured",
+      "sourceType": "web-app-demo",
+      "sourceRepository": "https://github.com/oscarvogel/mantenimiento",
+      "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+      "captureMethod": "Repository demo dashboard screenshots; fictitious company, vehicle and service data; no production data",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+        "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+        "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+        "width": 1440,
+        "height": 900
       },
       "mobile": {
-        "source": "docs/capturas/project-sources-2026-10-09/femag-mobile.jpg",
+        "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-mobile.png",
+        "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-mobile.png",
+        "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
         "width": 390,
-        "height": 6537,
-        "sha256": "69925179ea67cad1bf426cd0f12c04c4adc1393467c14e71887ee3d2fdb2ae28",
-        "viewport": {
-          "dpr": 1,
-          "height": 844,
-          "scrollHeight": 6537,
-          "width": 390
+        "height": 1087
+      },
+      "derived": [
+        {
+          "path": "/projects/mantenimiento/desktop.webp",
+          "width": 1440,
+          "height": 900,
+          "sha256": "5c4f663761389929e94b3fa200be30acf122d93c97c65341ab8b0c1993d649e1",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Screenshot from repository demo data, encoded as WebP without edits",
+          "kind": "derived"
         },
-        "fullHeight": 6537
-      }
+        {
+          "path": "/projects/mantenimiento/mobile.webp",
+          "width": 390,
+          "height": 1087,
+          "sha256": "e88bb46e3053c1239bfb0c1604c21b4530284d90dc00e5e7e7baee751475310b",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-mobile.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-mobile.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Mobile repository screenshot, encoded as WebP without edits",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a8598c45a9c6089c6901c16011932fb11ad5a5ea3d8ca30449555178b7196dca",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "16:9 crop of repository demo dashboard screenshot",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "458f4017b52dea69801aed829dd682daef467d484357dc76bc4a41aa497523b5",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "800px derivative of cover.webp",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "688d2a209fbbf26311912a293a91c09196a94b2324cc0ad4e17eef9635f1ea0a",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Dashboard screenshot centered unchanged on navy 4:5 canvas",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/mantenimiento/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "0d52575c3fd73baf2f7652b48b4cd2cc7af08640e12a2757a155acca33303b72",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "640px derivative of art.webp",
+          "kind": "generated"
+        }
+      ]
+    },
+    {
+      "id": "vogel-whatsapp-api",
+      "status": "diagram",
+      "sourceType": "rest-api-integration",
+      "sourceRepository": "https://github.com/oscarvogel/vogel_whatsapp_api",
+      "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+      "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+      "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+      "captureMethod": "Conceptual diagram authored from public integration documentation; not a live API or dashboard capture",
+      "derived": [
+        {
+          "path": "/projects/vogel-whatsapp-api/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "95261b519098eb48761a52c20fd91844bcfbffa213d9470130e12e440fb0aeaa",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "Conceptual integration diagram based on public docs; not a product screenshot",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "5aa8d164fa038a11cd579559700c9594f7d69e41684423f6cb604118169d873b",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "800px derivative of the conceptual integration diagram",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "fe595a82b77892808fa775d7a72be9b8960978141ef561868381a480ad3d6894",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "Decorative node-network illustration inspired by the documented API architecture",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "acd10e65113835d6e3d1091e7e71fe3943fea34693d472f28f991fce24526af8",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "640px derivative of art.webp",
+          "kind": "diagram"
+        }
+      ]
     }
   ],
   "generatedCardArt": [

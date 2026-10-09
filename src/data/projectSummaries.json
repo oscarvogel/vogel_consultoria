@@ -32,8 +32,20 @@
     "summary": "Sitio institucional de la Municipalidad de Garuhapé, Misiones. Presenta autoridades, turismo, historia y las áreas municipales."
   },
   "femag": {
-    "name": "FEMAG",
-    "summary": "Ingredientes alimentarios producidos en Capioví, Misiones (Graef Hnos. SRL). Su sitio presenta fécula de mandioca y almidones, aplicaciones, recetas y un centro técnico."
+    "name": "FEMAG Desktop",
+    "summary": "Aplicación de escritorio para la gestión operativa de FEMAG, una fábrica de fécula de mandioca en Misiones. Centraliza clientes, órdenes de carga, remitos, cuenta corriente y reportes en la red interna."
+  },
+  "pyfe": {
+    "name": "PyFE",
+    "summary": "Aplicación de escritorio de código abierto para facturación electrónica en Argentina. Incluye comprobantes, remitos, padrón, CITI, Libro de IVA, recibos y cuentas corrientes."
+  },
+  "mantenimiento": {
+    "name": "Mantenimiento de flotas",
+    "summary": "Aplicación web responsive para mantenimiento preventivo y correctivo de flotas. Organiza equipos, lecturas, planes de servicio y órdenes de trabajo."
+  },
+  "vogel-whatsapp-api": {
+    "name": "Vogel WhatsApp API",
+    "summary": "API REST para integrar sistemas Vogel con WhatsApp. Gestiona accesos, colas de envío, estados, multimedia, mensajes entrantes y auditoría."
   },
   "caso-forestal": {
     "name": "Sistema Registro de Producción",

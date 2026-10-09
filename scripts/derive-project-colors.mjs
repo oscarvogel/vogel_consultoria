@@ -18,7 +18,10 @@ const sourceFor = async id => {
 const brand = {
   'an-asociados': '#556439', indufor: '#218F52', 'forestal-paraguay': '#008E2E', 'forestal-garuhape': '#008D2E',
   'servin-lgsm': '#45B8DF', 'caso-forestal': '#008D2E', h21: '#636E79', 'municipalidad-garuhape': '#0C6F37',
-  femag: '#C1121F', // rojo del botón y del logo de femag.com.ar (la marca también usa azul marino)
+  femag: '#7c1d24', // tono oscuro del logo FEMAG integrado en la aplicación de escritorio
+  pyfe: '#173b79', // azul oscuro de la interfaz de Asiento (PyFE)
+  mantenimiento: '#163c66', // azul oscuro de la aplicación de flotas
+  'vogel-whatsapp-api': '#078f45', // verde de marca del servicio de mensajería
 };
 // Optional hue window per project, used when the user fixed the family (Amitrac stays blue).
 const hueWindow = { amitrac: [195, 250] };

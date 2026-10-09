@@ -9,6 +9,10 @@ const sourceDirectory = process.argv[2] || 'docs/capturas/project-sources-2026-1
 const measurements = JSON.parse(await fs.readFile(path.join(root, sourceDirectory, 'measurements.json'), 'utf8'));
 const urls = JSON.parse(await fs.readFile(path.join(root, sourceDirectory, 'urls.json'), 'utf8'));
 const hash = async file => crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex');
+const provenancePath = path.join(root, 'public/projects/provenance.json');
+const mediaPath = path.join(root, 'src/data/projectMedia.json');
+const previousProvenance = JSON.parse(await fs.readFile(provenancePath, 'utf8'));
+const previousMedia = JSON.parse(await fs.readFile(mediaPath, 'utf8'));
 const projects = [];
 for (const [index, measurement] of measurements.entries()) {
   const id = measurement.id;
@@ -34,7 +38,16 @@ for (const [index, measurement] of measurements.entries()) {
   }
   projects.push(project);
 }
-await fs.writeFile(path.join(root, 'public/projects/provenance.json'), JSON.stringify({ capturedAt: new Date().toISOString(), captureMethod: 'Browser screenshot fullPage; per-tab CDP viewport override; originals retained locally', derivativeMethod: 'Unaltered colors; top crop and WebP compression; cover resize 1600x900', projects }, null, 2) + '\n');
-console.log(`Prepared ${projects.length} projects and ${projects.length * 3} WebP images.`);
+const capturedIds = new Set(projects.map(project => project.id));
+const retainedProjects = previousProvenance.projects.filter(project => !capturedIds.has(project.id));
+const retainedMedia = Object.fromEntries(Object.entries(previousMedia).filter(([id]) => !capturedIds.has(id)));
+await fs.writeFile(provenancePath, JSON.stringify({
+  capturedAt: new Date().toISOString(),
+  captureMethod: 'Web projects: browser fullPage screenshots; desktop software: approved repository demo mode; originals retained locally',
+  derivativeMethod: 'Unaltered colors; web captures top-cropped and compressed as WebP; desktop software screenshots preserved and padded on brand base where needed',
+  projects: [...projects, ...retainedProjects],
+}, null, 2) + '\n');
+console.log(`Prepared ${projects.length} web projects and retained ${retainedProjects.length} other project sources.`);
 
-await fs.writeFile(path.join(root,'src/data/projectMedia.json'),JSON.stringify(Object.fromEntries(projects.map(p=>[p.id,Object.fromEntries(p.derived.map(d=>[path.basename(d.path,'.webp'),{width:d.width,height:d.height}]))])),null,2)+'\n');
+const generatedMedia = Object.fromEntries(projects.map(project => [project.id, Object.fromEntries(project.derived.map(item => [path.basename(item.path, '.webp'), { width: item.width, height: item.height }]))]));
+await fs.writeFile(mediaPath, JSON.stringify({ ...generatedMedia, ...retainedMedia }, null, 2) + '\n');
