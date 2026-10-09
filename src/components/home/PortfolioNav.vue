@@ -99,12 +99,12 @@ function chooseView(value){emit('update:view',value);close();}
 .rail-wheel{position:absolute;left:0;top:50%;width:280px;height:calc(84px + 216px * var(--spread));transform:translateY(-50%);pointer-events:auto}
 .rail-mark{position:absolute;left:0;top:calc(50% - 29px);width:58px;height:58px;transform-origin:center}
 .rail-link{position:absolute;left:112px;top:calc(50% - 22px);transform-origin:left center;will-change:transform,opacity;display:flex;align-items:center;justify-content:center;min-height:44px;min-width:104px;padding:0 16px;border-radius:4px;font-size:16px;color:var(--color-muted);transition:color 180ms,background-color 180ms}
-.rail-link.is-current{background:#3b3933;color:var(--color-heading)}.rail-link:hover,.rail-link:focus-visible{color:var(--color-heading);background:var(--color-panel)}
+.rail-link.is-current{background:var(--color-raised);color:var(--color-heading)}.rail-link:hover,.rail-link:focus-visible{color:var(--color-heading);background:var(--color-panel)}
 .portfolio-menu-button{display:none}
 .portfolio-mobile-menu{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;justify-content:center;padding:80px 32px;background:var(--color-background)}
 .mobile-menu-close{position:absolute;right:24px;top:24px;display:flex;align-items:center;gap:12px;min-height:44px;padding:0 16px;background:var(--color-panel);border-radius:8px}
 .portfolio-mobile-menu nav{display:grid;gap:4px}.portfolio-mobile-menu nav a{font-size:clamp(24px,7vw,36px);font-family:var(--font-display);font-weight:800;min-height:52px;display:flex;align-items:center}
 .mobile-view-options{display:flex;gap:12px;margin-top:32px}.mobile-view-options button{min-height:44px;padding:0 18px;border:1px solid var(--color-border);border-radius:8px}.mobile-view-options button[aria-pressed=true]{color:var(--color-action);border-color:var(--color-action)}
 @media(min-width:768px) and (max-width:1100px){.rail-wheel{width:220px}.rail-link{left:78px;min-width:92px;font-size:14px}.rail-mark{width:44px;height:44px}}
-@media(max-width:767px){.portfolio-rail{display:none}.portfolio-menu-button{position:fixed;right:24px;top:24px;z-index:60;display:flex;align-items:center;gap:14px;min-height:44px;padding:0 16px;background:#3b3933;color:var(--color-heading);border-radius:4px;font-size:14px}}
+@media(max-width:767px){.portfolio-rail{display:none}.portfolio-menu-button{position:fixed;right:24px;top:24px;z-index:60;display:flex;align-items:center;gap:14px;min-height:44px;padding:0 16px;background:var(--color-raised);color:var(--color-heading);border-radius:4px;font-size:14px}}
 </style>

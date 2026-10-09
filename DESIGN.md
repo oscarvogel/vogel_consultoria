@@ -2,9 +2,11 @@
 name: Vogel Consultoría
 description: Portfolio de estudio con trabajo real y superficies cálidas.
 colors:
+  ink: "#020f1f"
+  deep: "#06162a"
+  slate: "#0c1e36"
+  raised: "#142c4a"
   charcoal: "#161515"
-  deep: "#1C1B1A"
-  slate: "#262523"
   warm-panel: "#3b3933"
   cream: "#F3F1E2"
   muted: "#A8A596"
@@ -54,7 +56,7 @@ spacing:
 components:
   button-primary:
     backgroundColor: "{colors.amber}"
-    textColor: "{colors.charcoal}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.control}"
     padding: "0 22px"
     height: "48px"

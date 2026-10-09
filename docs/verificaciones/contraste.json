@@ -4,67 +4,107 @@
     {
       "foreground": "white",
       "background": "navy",
-      "ratio": 16.05
+      "ratio": 16.95
     },
     {
       "foreground": "gray",
       "background": "navy",
-      "ratio": 16.05
+      "ratio": 16.95
     },
     {
       "foreground": "muted",
       "background": "navy",
+      "ratio": 7.78
+    },
+    {
+      "foreground": "blueLight",
+      "background": "navy",
+      "ratio": 12.67
+    },
+    {
+      "foreground": "white",
+      "background": "deep",
+      "ratio": 16
+    },
+    {
+      "foreground": "gray",
+      "background": "deep",
+      "ratio": 16
+    },
+    {
+      "foreground": "muted",
+      "background": "deep",
+      "ratio": 7.34
+    },
+    {
+      "foreground": "blueLight",
+      "background": "deep",
+      "ratio": 11.96
+    },
+    {
+      "foreground": "white",
+      "background": "slate",
+      "ratio": 14.74
+    },
+    {
+      "foreground": "gray",
+      "background": "slate",
+      "ratio": 14.74
+    },
+    {
+      "foreground": "muted",
+      "background": "slate",
+      "ratio": 6.76
+    },
+    {
+      "foreground": "blueLight",
+      "background": "slate",
+      "ratio": 11.02
+    },
+    {
+      "foreground": "white",
+      "background": "raised",
+      "ratio": 12.42
+    },
+    {
+      "foreground": "gray",
+      "background": "raised",
+      "ratio": 12.42
+    },
+    {
+      "foreground": "muted",
+      "background": "raised",
+      "ratio": 5.7
+    },
+    {
+      "foreground": "blueLight",
+      "background": "raised",
+      "ratio": 9.28
+    },
+    {
+      "foreground": "white",
+      "background": "charcoal",
+      "ratio": 16.05
+    },
+    {
+      "foreground": "gray",
+      "background": "charcoal",
+      "ratio": 16.05
+    },
+    {
+      "foreground": "muted",
+      "background": "charcoal",
       "ratio": 7.37
     },
     {
       "foreground": "blueLight",
-      "background": "navy",
+      "background": "charcoal",
       "ratio": 12
-    },
-    {
-      "foreground": "white",
-      "background": "deep",
-      "ratio": 15.14
-    },
-    {
-      "foreground": "gray",
-      "background": "deep",
-      "ratio": 15.14
-    },
-    {
-      "foreground": "muted",
-      "background": "deep",
-      "ratio": 6.95
-    },
-    {
-      "foreground": "blueLight",
-      "background": "deep",
-      "ratio": 11.32
-    },
-    {
-      "foreground": "white",
-      "background": "slate",
-      "ratio": 13.48
-    },
-    {
-      "foreground": "gray",
-      "background": "slate",
-      "ratio": 13.48
-    },
-    {
-      "foreground": "muted",
-      "background": "slate",
-      "ratio": 6.19
-    },
-    {
-      "foreground": "blueLight",
-      "background": "slate",
-      "ratio": 10.08
     },
     {
       "foreground": "navy",
       "background": "amber",
-      "ratio": 10.91
+      "ratio": 11.53
     },
     {
       "foreground": "white",

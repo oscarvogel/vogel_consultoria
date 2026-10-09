@@ -2,7 +2,7 @@
 // Portfolio backdrop: company colour rising from the bottom into charcoal, a slow wave and a light grain.
 // Pure CSS (no per-frame JS). The colour interpolates through the registered --accent property.
 // `soft` lowers the colour mix on text-heavy pages (destinations) so muted copy keeps its contrast.
-defineProps({ accent: { type: String, default: '#161515' }, active: Boolean, soft: Boolean });
+defineProps({ accent: { type: String, default: '#020f1f' }, active: Boolean, soft: Boolean });
 </script>
 <template>
   <div class="stage-backdrop" :class="{ 'is-idle': !active, 'is-soft': soft }" :style="{ '--accent': accent }" aria-hidden="true">
@@ -12,10 +12,10 @@ defineProps({ accent: { type: String, default: '#161515' }, active: Boolean, sof
   </div>
 </template>
 <style>
-@property --accent { syntax: '<color>'; inherits: true; initial-value: #161515; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #020f1f; }
 .stage-backdrop {
   position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
-  background: linear-gradient(to top, color-mix(in srgb, var(--accent) 62%, #161515) 0%, color-mix(in srgb, var(--accent) 30%, #161515) 34%, #161515 70%);
+  background: linear-gradient(to top, color-mix(in srgb, var(--accent) 62%, rgb(var(--vogel-navy))) 0%, color-mix(in srgb, var(--accent) 30%, rgb(var(--vogel-navy))) 34%, rgb(var(--vogel-navy)) 70%);
   transition: --accent 650ms cubic-bezier(.22, 1, .36, 1);
 }
 /* The swell breathes vertically; the wave inside it flows sideways. One tile = one viewport, so the loop is seamless. */
@@ -33,7 +33,7 @@ defineProps({ accent: { type: String, default: '#161515' }, active: Boolean, sof
   position: absolute; inset: 0; opacity: .07;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.stage-backdrop.is-soft { background: linear-gradient(to top, color-mix(in srgb, var(--accent) 44%, #161515) 0%, color-mix(in srgb, var(--accent) 18%, #161515) 30%, #161515 62%); }
+.stage-backdrop.is-soft { background: linear-gradient(to top, color-mix(in srgb, var(--accent) 44%, rgb(var(--vogel-navy))) 0%, color-mix(in srgb, var(--accent) 18%, rgb(var(--vogel-navy))) 30%, rgb(var(--vogel-navy)) 62%); }
 .stage-backdrop.is-soft .backdrop-wave { opacity: .2; }
 .stage-backdrop.is-soft .backdrop-wave--back { opacity: .12; }
 .stage-backdrop.is-idle .backdrop-swell, .stage-backdrop.is-idle .backdrop-wave { animation-play-state: paused; }

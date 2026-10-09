@@ -30,15 +30,15 @@ const media = computed(() => props.card.art
 /* Logo plates (e.g. Servin) are shown whole in tall cards: grid and mobile carousel. */
 .is-compact .art-contain img{object-fit:contain}
 @media(max-width:767px){.art-contain img{object-fit:contain}}
-.project-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(22 21 21/.08),rgb(22 21 21/.1) 38%,rgb(22 21 21/.78))}
-.project-title{position:absolute;left:24px;top:50%;width:min(calc(100% - 48px),calc(66vw - 48px));margin:0;transform:translateY(-50%);font-size:clamp(32px,3.4vw,48px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;text-wrap:balance;color:#F3F1E2;text-shadow:0 0 6px rgb(22 21 21/.7),0 2px 18px rgb(22 21 21/.85),0 0 36px rgb(22 21 21/.6);overflow-wrap:normal}
-.project-meta{position:absolute;left:24px;bottom:20px;width:min(calc(100% - 48px),calc(66vw - 48px));display:flex;justify-content:space-between;gap:16px;font-size:13px;line-height:1.45;color:#F3F1E2;text-shadow:0 1px 4px rgb(22 21 21/.9)}
+.project-card::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(var(--vogel-navy)/.08),rgb(var(--vogel-navy)/.1) 38%,rgb(var(--vogel-navy)/.78))}
+.project-title{position:absolute;left:24px;top:50%;width:min(calc(100% - 48px),calc(66vw - 48px));margin:0;transform:translateY(-50%);font-size:clamp(32px,3.4vw,48px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;text-wrap:balance;color:#F3F1E2;text-shadow:0 0 6px rgb(var(--vogel-navy)/.7),0 2px 18px rgb(var(--vogel-navy)/.85),0 0 36px rgb(var(--vogel-navy)/.6);overflow-wrap:normal}
+.project-meta{position:absolute;left:24px;bottom:20px;width:min(calc(100% - 48px),calc(66vw - 48px));display:flex;justify-content:space-between;gap:16px;font-size:13px;line-height:1.45;color:#F3F1E2;text-shadow:0 1px 4px rgb(var(--vogel-navy)/.9)}
 .project-meta>span{min-width:0}.project-meta>span:last-child{text-align:right}
 /* Illustrated cards already carry the client's logo in the image: the title sits at the foot, over the scrim, so it never covers it. */
 .has-art .project-title{top:auto;bottom:62px;transform:none}
 .is-compact.has-art .project-title{top:auto;bottom:80px;left:20px}
 /* A bare website capture is usually light: darken the whole image so the white title and captions stay readable. */
-.no-art::after{background:linear-gradient(180deg,rgb(22 21 21/.62),rgb(22 21 21/.7) 45%,rgb(22 21 21/.86))}
+.no-art::after{background:linear-gradient(180deg,rgb(var(--vogel-navy)/.62),rgb(var(--vogel-navy)/.7) 45%,rgb(var(--vogel-navy)/.86))}
 .project-card:focus-visible{outline:3px solid var(--color-focus);outline-offset:-4px}
 .is-compact .project-title{top:20px;transform:none;width:calc(100% - 40px);left:20px;font-size:clamp(19px,7.4cqw,32px);line-height:1;text-align:left}
 .is-compact .project-meta{left:20px;width:calc(100% - 40px);bottom:18px;flex-wrap:wrap;font-size:12px}
