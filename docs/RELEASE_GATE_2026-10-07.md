@@ -70,7 +70,7 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 - **Azul `#020f1f` como base** (tokens `--vogel-ink`, escala navy/deep/slate/raised; Tailwind `vogel.ink`/`vogel.charcoal`). Crema y ámbar siguen; el carbón queda como `vogel-charcoal`. Sin azul brillante como acento de acción.
 - **Logo real de Vogel** en vector (`scripts/derive-vogel-logo.mjs`): símbolo, lockup, favicon, apple-touch-icon, logo PNG y `og-image`. El texto azul del lockup tiene poco contraste sobre el fondo: solo a tamaños grandes.
 - **Compuerta:** `release:gate` 12/12 en verde (78 navegador, 24 axe, 11 movimiento, 6 transiciones, 18 capturas).
-- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permiso de los demás clientes para mostrar sus sitios (FEMAG: Oscar Vogel habló con ellos y tienen su autorización, confirmado de palabra por el equipo el 2026-10-08; falta constancia escrita); `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
+- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permisos de clientes: el equipo confirmó el 2026-10-08 que Vogel tiene autorización de todos (incluido FEMAG, con quien habló Oscar) para mostrar sus sitios; falta guardar la constancia escrita; `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
 
 ## Defectos y límites conocidos
 
@@ -87,7 +87,7 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 1. **Web3Forms:** cuota, orígenes permitidos, hCaptcha/anti-spam y retención en la cuenta real.
 2. **Hosting/CDN:** identificarlo; verificar cabeceras efectivas, HTTPS/HSTS, compresión y caché; desplegar una CSP Report-Only con receptor y repetir los chequeos sobre la URL de staging.
 3. **Política de privacidad** con los datos reales del responsable, finalidad, conservación y ejercicio de derechos.
-4. **Permisos de clientes** para logos y capturas (algunas muestran testimonios o datos de personas) y **rol de Vogel** en cada proyecto; hasta entonces las 9 fichas no se agregaron al sitemap.
+4. **Permisos de clientes:** confirmados de palabra por el equipo (2026-10-08) para todos los proyectos; guardar la constancia escrita. Queda por definir el **rol de Vogel** en cada proyecto y, hasta tener la constancia, las 10 fichas no se agregan al sitemap.
 5. **Licencia de la fuente Ventura:** uso personal; no incluir en ninguna entrega sin licencia comercial.
 6. **Mediciones reales:** Lighthouse/CrUX, lector de pantalla (NVDA/VoiceOver), Safari y un dispositivo táctil físico.
 7. **PrimeVue 4** (MIT) quedó instalado con su resolver de Vite, sin tema ni plugin y sin uso; decidir si se adopta o se desinstala. El MCP configurado en `.mcp.json` es la versión 5.0.2 (licencia PrimeUI); la 4.5.5 no arranca con el SDK de MCP actual.
