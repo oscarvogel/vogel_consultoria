@@ -216,7 +216,7 @@ function testInfoPanelMenu() {
 
 function testNavbarBrandAndViewToggle() {
   const navbar = readProjectFile("src/components/Navbar.vue");
-  assert(navbar.includes("vogel-v-amber.svg"), "Navbar.vue: missing brand mark");
+  assert(navbar.includes("vogel-simbolo.svg"), "Navbar.vue: missing brand mark");
   assert(navbar.includes("aria-pressed") && navbar.includes("update:view"), "Navbar.vue: carousel/grid toggle must expose its state");
   assert(!navbar.includes("backdrop-filter:"), "Navbar.vue: obsolete glass treatment");
 }

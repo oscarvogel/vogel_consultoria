@@ -91,7 +91,7 @@ onUnmounted(() => {
               <div class="absolute inset-x-8 top-8 grid gap-3 rounded-3xl border border-white/10 bg-white p-5">
                 <img src="/logo-cpce.png" alt="CPCE Misiones" class="mx-auto h-14 w-auto object-contain" />
                 <div class="h-px bg-slate-200"></div>
-                <img src="/logo-vogel-amber.svg" alt="Vogel Consultoría" class="mx-auto h-16 w-auto object-contain" />
+                <img src="/logo-vogel.png" alt="Vogel Consultoría" class="mx-auto h-16 w-auto object-contain" />
               </div>
               <div class="absolute inset-x-8 bottom-8 rounded-3xl border border-vogel-blue/35 bg-vogel-blue/15 p-6">
                 <p class="text-sm font-semibold tracking-[0.12em] text-vogel-amber">27/05/2026 · 18:00 - 20:00</p>

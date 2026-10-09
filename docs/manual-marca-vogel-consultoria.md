@@ -81,12 +81,14 @@ Portfolio de estudio: escenario casi negro cálido, texto crema, un carrusel hor
 
 ## 5. Logo
 
-La versión principal vigente es la V ámbar vectorial, acompañada por la palabra de marca aprobada. Mantener el asset oficial sin redibujarlo; cuando el wordmark se renderice como texto de interfaz, utilizar Chillax con el espaciado actual.
+El logo oficial es el de la empresa: la «C» y la «V» entrelazadas con dos nodos ámbar, y la leyenda VOGEL CONSULTORIA. Existe en dos variantes vectoriales sin fondo, pensadas para superficies oscuras (el blanco no se ve sobre claro): el símbolo y el lockup (símbolo + leyenda). Se generan desde el original del cliente con `scripts/derive-vogel-logo.mjs`. El azul del trazo y de «CONSULTORIA» tiene poco contraste sobre el azul tinta: el lockup se usa a 24 px de alto de leyenda o más; por debajo, usar el símbolo. Cuando el wordmark se renderice como texto de interfaz, utilizar Chillax con el espaciado actual.
 
 Assets oficiales vigentes:
 
-- `src/assets/brand/vogel-v-amber.svg`
-- `public/logo-vogel-amber.svg`
+- `src/assets/brand/vogel-simbolo.svg` (símbolo)
+- `src/assets/brand/vogel-lockup.svg` (símbolo + leyenda)
+- `src/assets/brand/vogel-logo-source.png` (original del cliente)
+- `public/logo-vogel.svg` (favicon), `public/logo-vogel.png`, `public/apple-touch-icon.png`, `public/og-image.png`
 
 Los logos OV anteriores permanecen como archivos históricos; no son la identidad para nuevas piezas. Mantener proporciones del SVG, nitidez, contraste y un margen libre mínimo del 10% de su ancho. No deformar, añadir sombras duras, efectos 3D ni contenedores recargados. El vector es la primera opción para UI y formatos escalables.
 
@@ -125,7 +127,7 @@ Capturas reales desktop y mobile como evidencia principal. Home y grilla muestra
 
 Assets y procedencia:
 
-- `src/assets/brand/vogel-v-amber.svg`: V oficial vigente.
+- `src/assets/brand/vogel-simbolo.svg` y `vogel-lockup.svg`: logo oficial vigente.
 - `public/projects/`: derivados WebP públicos del portfolio, con dimensiones en `src/data/projectMedia.json` y procedencia normativa en `public/projects/provenance.json`.
 - `src/assets/cases/`: interfaz forestal real con datos de demostración.
 - `docs/capturas/project-sources-2026-10-06/`: originales locales conservados; no incluir capturas pesadas en Git.
@@ -305,7 +307,7 @@ Palabras utiles:
 ### Presentaciones
 
 - Formato: 16:9.
-- Portada con fondo carbón, V ámbar, titulares en Archivo Variable expandida, texto/UI en Chillax y visual técnico.
+- Portada con fondo azul tinta, logo oficial, titulares en Archivo Variable expandida, texto/UI en Chillax y visual técnico.
 - Slides internas con mucho aire, maximo 3 ideas por slide.
 - Usar ambar solo para destacar el concepto principal.
 
@@ -321,7 +323,7 @@ Palabras utiles:
 Usar este prompt como base y adaptar formato, mensaje y destino:
 
 ```text
-Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar azul tinta #020f1f, paneles #0c1e36 y #142c4a, crema #F3F1E2, metadata cálida #A8A596 y ámbar #FFBC54 como único acento. Archivo Variable expandida 125%, peso 800, mayúsculas en titulares; Chillax en lectura/UI. Logo vigente: V ámbar SVG oficial. Presentar tecnología aplicada con evidencia real y composición sobria; las capturas de proyectos conservan sus colores originales.
+Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar azul tinta #020f1f, paneles #0c1e36 y #142c4a, crema #F3F1E2, metadata cálida #A8A596 y ámbar #FFBC54 como único acento. Archivo Variable expandida 125%, peso 800, mayúsculas en titulares; Chillax en lectura/UI. Logo vigente: símbolo/lockup SVG oficial de Vogel. Presentar tecnología aplicada con evidencia real y composición sobria; las capturas de proyectos conservan sus colores originales.
 
 Mensaje principal: "[TITULAR]"
 Bajada: "[BAJADA]"
@@ -333,7 +335,7 @@ Usar jerarquia clara, mucho contraste, logo de Vogel Consultoria con buen margen
 
 ## 15. Checklist antes de publicar una pieza
 
-- La V ámbar oficial se ve nítida y no está deformada.
+- El logo oficial se ve nítido y no está deformada.
 - La pieza usa carbón como base visual, Archivo Variable expandida en titulares y Chillax en lectura/UI.
 - El ambar aparece como acento, no como color dominante.
 - El titular se entiende en pocos segundos.
