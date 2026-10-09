@@ -105,6 +105,7 @@ function New-CurlArgs {
   )
 
   $curlArgs = @("--fail", "--show-error", "--silent", "--config", $CurlConfigPath)
+  $curlArgs += "--ftp-skip-pasv-ip"
 
   if ($Config["FTP_SSL_REQD"] -eq "true") {
     $curlArgs += "--ssl-reqd"
