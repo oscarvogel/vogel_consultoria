@@ -70,7 +70,7 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 - **Azul `#020f1f` como base** (tokens `--vogel-ink`, escala navy/deep/slate/raised; Tailwind `vogel.ink`/`vogel.charcoal`). Crema y ámbar siguen; el carbón queda como `vogel-charcoal`. Sin azul brillante como acento de acción.
 - **Logo real de Vogel** en vector (`scripts/derive-vogel-logo.mjs`): símbolo, lockup, favicon, apple-touch-icon, logo PNG y `og-image`. El texto azul del lockup tiene poco contraste sobre el fondo: solo a tamaños grandes.
 - **Compuerta:** `release:gate` 12/12 en verde (78 navegador, 24 axe, 11 movimiento, 6 transiciones, 18 capturas).
-- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permiso de los clientes (incluido FEMAG) para mostrar sus sitios; `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
+- **Pendientes nuevos:** héroe móvil de AN Asociados sin foto; tarjeta de FEMAG sin ilustración; JS inicial en 89/90 KB del presupuesto; revisar el logo sobre cada fondo de proyecto; permiso de los demás clientes para mostrar sus sitios (FEMAG: Oscar Vogel habló con ellos y tienen su autorización, confirmado de palabra por el equipo el 2026-10-08; falta constancia escrita); `vogel-v-amber.svg` y `logo-vogel-amber.svg` quedan sin uso.
 
 ## Defectos y límites conocidos
 
