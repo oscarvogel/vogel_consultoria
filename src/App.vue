@@ -22,7 +22,7 @@ const browsing = ref(false);
 // Destinations share one brand backdrop: the dark amber of the Vogel accent (#FFBC54 at ~27% lightness).
 const DESTINATION_ACCENT = '#704d1a';
 const backdropAccent = computed(() => route.value.kind === 'destination' ? DESTINATION_ACCENT
-  : (route.value.kind === 'home' && getProject(centredProject.value)?.accent) || '#161515');
+  : (route.value.kind === 'home' && getProject(centredProject.value)?.accent) || '#020f1f');
 let snapshot = null;
 let returnFocus = null;
 let bridge = null;

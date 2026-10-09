@@ -361,7 +361,19 @@ function testAboutCvSection() {
   assert(fs.statSync(cvPath).size > 5000, "public/cv-jose-oscar-vogel.pdf: CV asset looks unexpectedly small");
 }
 
+function testBluePalette() {
+  const tokens = readProjectFile("src/styles/tokens.css");
+  assert(/--vogel-ink:\s*2 15 31;/.test(tokens), "tokens.css: --vogel-ink must be #020f1f (2 15 31)");
+  assert(/--vogel-navy:\s*2 15 31;/.test(tokens), "tokens.css: the page background (navy) must be the blue base");
+  assert(/--vogel-charcoal:\s*22 21 21;/.test(tokens), "tokens.css: the previous charcoal must stay available as charcoal");
+  const tailwind = readProjectFile("tailwind.config.js");
+  for (const name of ["ink", "raised", "charcoal"]) assert(tailwind.includes(`${name}: "rgb(var(--vogel-${name}) / <alpha-value>)"`), `tailwind.config.js: vogel.${name} must accept opacity`);
+  const sources = ["src/App.vue", "src/components/home/StageBackdrop.vue", "src/components/home/ProjectCard.vue", "src/components/home/ProjectDetail.vue", "src/components/Navbar.vue", "src/components/home/PortfolioNav.vue", "src/components/home/InfoPanel.vue"];
+  for (const file of sources) assert(!/#161515|rgb\(22 21 21|#3b3933|#262523/i.test(readProjectFile(file)), `${file}: hard-coded charcoal/warm grey; use the colour variables`);
+}
+
 const tests = [
+  ["blue palette and Tailwind colours", testBluePalette],
   ["service data", testServiceData],
   ["HTML entrypoints and JSON-LD", testHtmlEntrypoints],
   ["Vite inputs", testViteInputs],

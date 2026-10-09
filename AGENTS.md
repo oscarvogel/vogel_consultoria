@@ -59,7 +59,7 @@ Core brand rules to preserve:
 - Communicate clarity, confidence, precision, modernity, and practical closeness.
 - Use a professional, direct, business-oriented tone.
 - Avoid generic digital-transformation language, empty AI hype, exaggerated promises, childish icons, and off-brand colors.
-- Use the official palette: charcoal (`#161515`) as the base, cream (`#F3F1E2`) for text, warm gray for metadata, and amber (`#FFBC54`) as the only accent. No blues.
+- Use the official palette: deep blue ink (`#020f1f`, the client's request) as the base, cream (`#F3F1E2`) for text, warm gray for metadata, and amber (`#FFBC54`) as the only accent. The previous charcoal (`#161515`) stays available as `charcoal` (Tailwind `vogel-charcoal`). Blue is a base and surface colour only: no bright blue accents or blue action buttons.
 - Use official typography: Archivo Variable (expanded width, weight 800, uppercase) for headings and Chillax for body/UI.
 - Visuals should evoke dashboards, data, process flows, automation, applied AI, and business management, presented as large cards in a studio-portfolio carousel (reference: coreastudios.com).
 - Every conversion-oriented piece should have a clear CTA and pass the checklist in section 15 of the manual before delivery.

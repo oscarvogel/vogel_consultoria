@@ -213,7 +213,7 @@ function renderPrivacySettingsButton() {
   button.style.padding = "0 12px";
   button.style.border = "1px solid var(--color-border)";
   button.style.borderRadius = "6px";
-  button.style.background = "var(--color-panel, #262523)";
+  button.style.background = "var(--color-panel, #0c1e36)";
   button.style.color = "var(--color-text, #F3F1E2)";
   button.style.font = "500 12px/1.2 'Chillax', Arial, sans-serif";
   button.style.cursor = "pointer";

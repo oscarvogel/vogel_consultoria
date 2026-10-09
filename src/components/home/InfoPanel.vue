@@ -178,9 +178,9 @@ function trap(event) {
 
 .is-portfolio .info-sheet{width:100%;padding:88px 24px 48px max(44vw,24px);border:0;background:var(--color-background)}
 .is-portfolio .info-sheet::before{content:"";position:fixed;inset:0 0 auto;height:82px;background:var(--color-background);z-index:1}
-.is-portfolio .info-close{position:fixed;right:24px;top:20px;margin:0;background:#3b3933}
-.is-portfolio .info-block{padding:32px;background:#262523;border:0;border-radius:12px;margin-bottom:24px;scroll-margin-top:88px}
-.is-portfolio .info-lead{background:#3b3933;min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.is-portfolio .info-close{position:fixed;right:24px;top:20px;margin:0;background:var(--color-raised)}
+.is-portfolio .info-block{padding:32px;background:var(--color-panel);border:0;border-radius:12px;margin-bottom:24px;scroll-margin-top:88px}
+.is-portfolio .info-lead{background:var(--color-raised);min-height:280px;display:flex;flex-direction:column;justify-content:center}
 .is-portfolio .info-statement{font-size:clamp(25px,3vw,48px)}
 .is-portfolio .info-statement--sm{font-size:clamp(20px,2vw,30px)}
 @media(max-width:767px){.is-portfolio .info-sheet{padding:88px 16px 32px}.is-portfolio .info-block{padding:24px}.info-person{grid-template-columns:1fr}.info-person img{width:120px}.info-list a{font-size:16px}}

@@ -8,13 +8,17 @@
   src: url("/fonts/chillax-variable.woff2") format("woff2");
 }
 
-/* Canales RGB para que Tailwind pueda aplicar opacidad. Los nombres --vogel-* se conservan; los valores son carbón, crema y ámbar. */
+/* Canales RGB para que Tailwind pueda aplicar opacidad. Los nombres --vogel-* se conservan; los valores son azul base, crema y ámbar (carbón disponible como charcoal). */
 :root {
-  --vogel-navy: 22 21 21; --vogel-deep: 28 27 26; --vogel-slate: 38 37 35;
+  /* Base azul #020f1f (pedido del cliente). navy/deep/slate conservan sus nombres históricos pero ahora son la escala azul;
+     el carbón anterior sigue disponible como charcoal*. */
+  --vogel-ink: 2 15 31; --vogel-navy: 2 15 31; --vogel-deep: 6 22 42; --vogel-slate: 12 30 54; --vogel-raised: 20 44 74;
+  --vogel-charcoal: 22 21 21; --vogel-charcoal-deep: 28 27 26; --vogel-charcoal-slate: 38 37 35; --vogel-charcoal-raised: 59 57 51;
   --vogel-gray: 243 241 226; --vogel-muted: 168 165 150; --vogel-white: 243 241 226;
   --vogel-amber: 255 188 84;
   --vogel-blue: 70 68 62; --vogel-bright: 98 95 86; --vogel-blueLight: 214 210 190;
   --color-background: rgb(var(--vogel-navy)); --color-surface: rgb(var(--vogel-deep)); --color-panel: rgb(var(--vogel-slate));
+  --color-raised: rgb(var(--vogel-raised));
   --color-heading: rgb(var(--vogel-white)); --color-text: rgb(var(--vogel-gray)); --color-muted: rgb(var(--vogel-muted));
   --color-link: rgb(var(--vogel-amber)); --color-action: rgb(var(--vogel-amber)); --color-action-text: rgb(var(--vogel-navy));
   --color-border: rgb(var(--vogel-gray) / .16); --color-focus: rgb(var(--vogel-amber)); --color-error: #fecaca; --color-success: rgb(var(--vogel-blueLight));

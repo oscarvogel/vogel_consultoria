@@ -94,15 +94,16 @@ Los logos OV anteriores permanecen como archivos históricos; no son la identida
 
 | Nombre | HEX | Uso |
 |---|---:|---|
-| Carbón | `#161515` | Fondo del sitio |
-| Deep | `#1C1B1A` | Superficies |
-| Slate | `#262523` | Paneles mates, botones secundarios, tarjetas sin imagen |
-| Warm panel | `#3b3933` | Panel destacado de Info y controles del rail |
+| Azul tinta (ink) | `#020f1f` | Fondo del sitio (pedido del cliente; token `--vogel-ink`, Tailwind `vogel-ink`) |
+| Deep | `#06162a` | Superficies |
+| Slate | `#0c1e36` | Paneles, botones secundarios, campos de formulario |
+| Raised | `#142c4a` | Panel destacado de Info, controles del rail y botón Info (`--color-raised`) |
+| Carbón | `#161515` | El fondo anterior; sigue disponible como `vogel-charcoal` (y `charcoal-deep`, `charcoal-slate`, `charcoal-raised`) |
 | Crema | `#F3F1E2` | Titulares y texto de lectura; bordes con opacidad |
 | Muted | `#A8A596` | Metadata y descripciones |
 | Vogel Amber | `#FFBC54` | Único acento: acciones, enlaces, foco, contador, punto del reloj |
 
-Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. Sin azules, sin gradientes multicolor y sin colores ajenos como protagonistas. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
+Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. El azul es solo base y superficie (decisión del cliente, 2026-10-08): ningún azul vivo como acento ni como botón de acción; sin gradientes multicolor y sin colores ajenos como protagonistas. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
 
 **Fondo del portfolio (Home):** degradé vertical del color de marca del proyecto centrado (abajo) a carbón (arriba), con una onda lenta y un grano leve (~7 %). Es la única excepción a «sin gradientes»: el color pertenece al cliente, no a la interfaz Vogel, y nunca reemplaza al ámbar en acciones. Los colores salen de los logos de cada cliente y se normalizan a un tono oscuro en `src/data/projectColors.json` (`scripts/derive-project-colors.mjs`); el texto sobre el degradado debe mantener 4.5:1 (lo verifica `npm run test:motion`). Amitrac usa azul por decisión expresa: es el color de su marca, independiente de Vogel. Servin LGSM (cian) y H21 (gris pizarra) también siguen su logo.
 
@@ -320,7 +321,7 @@ Palabras utiles:
 Usar este prompt como base y adaptar formato, mensaje y destino:
 
 ```text
-Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar carbón #161515, paneles mates #262523 y #3b3933, crema #F3F1E2, metadata cálida #A8A596 y ámbar #FFBC54 como único acento. Archivo Variable expandida 125%, peso 800, mayúsculas en titulares; Chillax en lectura/UI. Logo vigente: V ámbar SVG oficial. Presentar tecnología aplicada con evidencia real y composición sobria; las capturas de proyectos conservan sus colores originales.
+Crear una pieza visual para Vogel Consultoria, consultoría tecnológica premium para empresas argentinas. Usar azul tinta #020f1f, paneles #0c1e36 y #142c4a, crema #F3F1E2, metadata cálida #A8A596 y ámbar #FFBC54 como único acento. Archivo Variable expandida 125%, peso 800, mayúsculas en titulares; Chillax en lectura/UI. Logo vigente: V ámbar SVG oficial. Presentar tecnología aplicada con evidencia real y composición sobria; las capturas de proyectos conservan sus colores originales.
 
 Mensaje principal: "[TITULAR]"
 Bajada: "[BAJADA]"
