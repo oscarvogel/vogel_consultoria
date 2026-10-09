@@ -316,6 +316,21 @@ if (-not $Execute) {
   exit 0
 }
 
+if ($protocol -eq "ftp" -and $config["FTP_SSL_REQD"] -eq "true") {
+  $python = (Get-Command python.exe -ErrorAction Stop).Source
+  $ftpsUploader = Join-Path $PSScriptRoot "deploy-ftp-ftps.py"
+
+  & $python $ftpsUploader --env $resolvedEnvFile --source $outputPath
+
+  if ($LASTEXITCODE -ne 0) {
+    throw "Fallo la publicacion FTPS."
+  }
+
+  Write-Host ""
+  Write-Host "==> Deploy completado"
+  exit 0
+}
+
 $curl = (Get-Command curl.exe -ErrorAction Stop).Source
 $tempCurlConfig = New-TemporaryFile
 
