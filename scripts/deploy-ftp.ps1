@@ -190,7 +190,7 @@ function Upload-FileChunked {
   )
 
   $bytes = [System.IO.File]::ReadAllBytes($LocalPath)
-  $chunkSize = 4096
+  $chunkSize = 65536
   $chunkCount = [Math]::Ceiling($bytes.Length / $chunkSize)
   $chunkDir = Join-Path ([System.IO.Path]::GetTempPath()) ("vogel-upload-" + [guid]::NewGuid().ToString("N"))
 
