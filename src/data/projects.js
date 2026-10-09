@@ -21,7 +21,7 @@ export const webProjects = [
  cover: `/projects/${project.id}/cover.webp`,
  alt: `Portada del sitio web de ${project.name}.`,
  description: projectSummaries[project.id].summary,
- context: 'Capturas del sitio público tomadas el 6 de octubre de 2026; puede haber cambiado desde entonces. “Ver sitio” abre su versión actual.',
+ context: 'Capturas del sitio público tomadas a comienzos de octubre de 2026; puede haber cambiado desde entonces. “Ver sitio” abre su versión actual.',
  gallery: [
    {...projectMedia[project.id].desktop,src:`/projects/${project.id}/desktop.webp`,alt:`Página completa del sitio de ${project.name} en escritorio.`,label:'Escritorio'},
    {...projectMedia[project.id].mobile,src:`/projects/${project.id}/mobile.webp`,alt:`Página completa del sitio de ${project.name} en teléfono.`,label:'Móvil'},

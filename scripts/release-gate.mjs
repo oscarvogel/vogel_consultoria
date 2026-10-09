@@ -31,6 +31,7 @@ try{
     ['contrast tokens','npm run test:contrast'],
     ['build integrity and image hashes','node scripts/verify-portfolio-build.mjs',{}],
     ['weight budgets','npm run test:budgets',{ok:o=>count(o,/^ok /gm)}],
+    ['project captures have no blank bands','node scripts/check-captures.mjs',{ok:o=>count(o,/^ok /gm)}],
     ['production dependency audit','npm audit --omit=dev --audit-level=high'],
   ];
   passed=true;

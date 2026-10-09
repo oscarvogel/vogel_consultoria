@@ -18,6 +18,7 @@
     "test:motion": "node scripts/test-motion.mjs",
     "test:transitions": "node scripts/test-transitions.mjs",
     "test:budgets": "node scripts/check-budgets.mjs",
+    "test:captures": "node scripts/check-captures.mjs",
     "test:crawl": "node scripts/test-crawl.mjs",
     "release:gate": "node scripts/release-gate.mjs",
     "capture:sheets": "node scripts/contact-sheet.mjs"
