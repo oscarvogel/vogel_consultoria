@@ -87,7 +87,7 @@ Revisión visual manual de las capturas vigentes: hojas `sheet-*.png` en `docs/c
 1. **Web3Forms:** cuota, orígenes permitidos, hCaptcha/anti-spam y retención en la cuenta real.
 2. **Hosting/CDN:** identificarlo; verificar cabeceras efectivas, HTTPS/HSTS, compresión y caché; desplegar una CSP Report-Only con receptor y repetir los chequeos sobre la URL de staging.
 3. **Política de privacidad** con los datos reales del responsable, finalidad, conservación y ejercicio de derechos.
-4. **Permisos de clientes:** confirmados de palabra por el equipo (2026-10-08) para todos los proyectos; guardar la constancia escrita. Queda por definir el **rol de Vogel** en cada proyecto y, hasta tener la constancia, las 10 fichas no se agregan al sitemap.
+4. **Permisos de clientes:** confirmados de palabra por el equipo (2026-10-08) para todos los proyectos; guardar la constancia escrita. Queda por definir el **rol de Vogel** en cada proyecto Las 10 fichas ya están en el sitemap.
 5. **Licencia de la fuente Ventura:** uso personal; no incluir en ninguna entrega sin licencia comercial.
 6. **Mediciones reales:** Lighthouse/CrUX, lector de pantalla (NVDA/VoiceOver), Safari y un dispositivo táctil físico.
 7. **PrimeVue 4** (MIT) quedó instalado con su resolver de Vite, sin tema ni plugin y sin uso; decidir si se adopta o se desinstala. El MCP configurado en `.mcp.json` es la versión 5.0.2 (licencia PrimeUI); la 4.5.5 no arranca con el SDK de MCP actual.
