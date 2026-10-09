@@ -142,7 +142,7 @@ const currentPage = computed(() => destinations[props.page] || StudioDestination
   [data-destination="studio"] .destination-method-list li + li { border-top: 1px solid var(--color-border); }
   [data-destination="studio"] .destination-method-list h3 { margin: 0; }
   /* z-index -1 keeps the figure behind the text of the same stacking context (the inner container). */
-  .studio-portrait { position: fixed; right: 0; bottom: 0; z-index: -1; width: var(--fig-w); height: var(--fig-h); margin: 0; }
+  .studio-portrait { position: fixed; right: -64px; bottom: 0; z-index: -1; width: var(--fig-w); height: var(--fig-h); margin: 0; }
   .studio-portrait img { height: 100%; object-fit: contain; object-position: right bottom; }
 }
 </style>

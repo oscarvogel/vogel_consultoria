@@ -15,7 +15,8 @@ export const webProjects = [
  {id:'servin-lgsm',name:'Servin LGSM',type:'Servicios',url:'https://servinlgsm.com.ar/',logo:servinLogo},
  {id:'h21',name:'H21',type:'Comercial',url:'https://h21.ar/',logo:'/clients/h21.svg'},
  {id:'amitrac',name:'Amitrac',type:'Transporte',url:'https://amitrac.ar/',logo:'/clients/amitrac.svg'},
- {id:'municipalidad-garuhape',name:'Municipalidad de Garuhapé',type:'Institucional',url:'https://garuhape.gob.ar/',logo:municipalityLogo}
+ {id:'municipalidad-garuhape',name:'Municipalidad de Garuhapé',type:'Institucional',url:'https://garuhape.gob.ar/',logo:municipalityLogo},
+ {id:'femag',name:'FEMAG',type:'Alimentos',url:'https://femag.com.ar/'} // fecula.com.ar redirige a este dominio
 ].map(project => ({
  ...project, available: true,
  cover: `/projects/${project.id}/cover.webp`,

@@ -31,6 +31,10 @@
     "name": "Municipalidad de Garuhapé",
     "summary": "Sitio institucional de la Municipalidad de Garuhapé, Misiones. Presenta autoridades, turismo, historia y las áreas municipales."
   },
+  "femag": {
+    "name": "FEMAG",
+    "summary": "Ingredientes alimentarios producidos en Capioví, Misiones (Graef Hnos. SRL). Su sitio presenta fécula de mandioca y almidones, aplicaciones, recetas y un centro técnico."
+  },
   "caso-forestal": {
     "name": "Sistema Registro de Producción",
     "summary": "Sistema de registro de producción anónimo: del registro de producción en campo a un dashboard operativo. Interfaz real con datos de demostración; las cifras no representan resultados de un cliente."

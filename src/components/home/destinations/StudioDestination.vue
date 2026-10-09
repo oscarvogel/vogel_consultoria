@@ -35,13 +35,6 @@ import { oscarProfile } from '../../../data/oscar.js';
           <a class="destination-text-link" :href="oscarProfile.cv" target="_blank" rel="noopener noreferrer">Ver CV <span aria-hidden="true">↗</span></a>
         </div>
       </section>
-
-      <section class="destination-section" aria-labelledby="studio-femag-title" v-animateonscroll.once="{ enterClass: 'vogel-rise', threshold: .12 }">
-        <div class="destination-status">
-          <h3 id="studio-femag-title">FEMAG <span>· En desarrollo</span></h3>
-          <p>Proyecto en desarrollo. Su presentación estará disponible cuando exista material publicado.</p>
-        </div>
-      </section>
     </div>
   </main>
 </template>

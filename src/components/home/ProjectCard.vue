@@ -12,7 +12,7 @@ const media = computed(() => props.card.art
       width: props.card.forest ? 1440 : 1600, height: props.card.forest ? 1151 : 900, position: undefined });
 </script>
 <template>
-  <a class="project-card" :class="{ 'is-compact': compact, 'image-unavailable': failed, 'has-art': !!card.art }" :href="card.href" :data-project-id="card.id"
+  <a class="project-card" :class="{ 'is-compact': compact, 'image-unavailable': failed, 'has-art': !!card.art, 'no-art': !card.art }" :href="card.href" :data-project-id="card.id"
     :data-analytics-cta="card.cta" data-analytics-funnel="lead_journey" data-analytics-step="home">
     <span class="project-art" :class="{ 'art-contain': card.artFit === 'contain' }" :style="card.artBackground && { background: card.artBackground }" aria-hidden="true">
       <img v-if="!failed" :src="media.src" :srcset="media.srcset" :sizes="media.srcset ? cardSizes : undefined" alt="" :width="media.width" :height="media.height" :style="media.position && { objectPosition: media.position }"
@@ -37,6 +37,8 @@ const media = computed(() => props.card.art
 /* Illustrated cards already carry the client's logo in the image: the title sits at the foot, over the scrim, so it never covers it. */
 .has-art .project-title{top:auto;bottom:62px;transform:none}
 .is-compact.has-art .project-title{top:auto;bottom:80px;left:20px}
+/* A bare website capture is usually light: darken the whole image so the white title and captions stay readable. */
+.no-art::after{background:linear-gradient(180deg,rgb(22 21 21/.62),rgb(22 21 21/.7) 45%,rgb(22 21 21/.86))}
 .project-card:focus-visible{outline:3px solid var(--color-focus);outline-offset:-4px}
 .is-compact .project-title{top:20px;transform:none;width:calc(100% - 40px);left:20px;font-size:clamp(19px,7.4cqw,32px);line-height:1;text-align:left}
 .is-compact .project-meta{left:20px;width:calc(100% - 40px);bottom:18px;flex-wrap:wrap;font-size:12px}
