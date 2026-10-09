@@ -1,7 +1,7 @@
 {
   "an-asociados": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -9,7 +9,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {
@@ -19,7 +19,7 @@
   },
   "indufor": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -37,7 +37,7 @@
   },
   "forestal-paraguay": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -45,7 +45,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {
@@ -55,7 +55,7 @@
   },
   "forestal-garuhape": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -63,7 +63,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {
@@ -73,7 +73,7 @@
   },
   "servin-lgsm": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -81,7 +81,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {
@@ -91,7 +91,7 @@
   },
   "h21": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -99,7 +99,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {
@@ -109,7 +109,7 @@
   },
   "amitrac": {
     "desktop": {
-      "width": 1425,
+      "width": 1440,
       "height": 2600
     },
     "cover": {
@@ -117,7 +117,7 @@
       "height": 900
     },
     "mobile": {
-      "width": 375,
+      "width": 390,
       "height": 2200
     },
     "cover-800": {

@@ -4,7 +4,8 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
-const sourceDirectory = 'docs/capturas/project-sources-2026-10-06';
+// Folder written by scripts/capture-project-sources.mjs; pass another one as the first argument.
+const sourceDirectory = process.argv[2] || 'docs/capturas/project-sources-2026-10-09';
 const measurements = JSON.parse(await fs.readFile(path.join(root, sourceDirectory, 'measurements.json'), 'utf8'));
 const urls = JSON.parse(await fs.readFile(path.join(root, sourceDirectory, 'urls.json'), 'utf8'));
 const hash = async file => crypto.createHash('sha256').update(await fs.readFile(file)).digest('hex');
