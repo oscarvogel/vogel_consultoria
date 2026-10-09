@@ -77,10 +77,10 @@ components:
 
 **Creative North Star: "Portfolio de estudio"**
 
-La identidad coloca evidencia real en primer plano: imágenes amplias, titulares extendidos, navegación legible y superficies cálidas. La V oficial identifica una consultoría premium que explica tecnología con precisión y cercanía práctica.
+La identidad coloca evidencia real en primer plano: imágenes amplias, titulares extendidos, navegación legible y superficies cálidas. El logo oficial (C+V con nodos) identifica una consultoría premium que explica tecnología con precisión y cercanía práctica.
 
 **Key Characteristics:**
-- V ámbar oficial y una sola voz tipográfica.
+- Logo oficial vectorial y una sola voz tipográfica.
 - Carbón dominante, crema de lectura y ámbar reservado a acción y foco.
 - Capturas originales a color, con procedencia y estados honestos.
 - Continuidad entre galería, Info y lectores de proyecto.
@@ -142,13 +142,13 @@ Soluciones, Recursos, Estudio y Contacto son rutas propias que comparten el enca
 ## Do's and Don'ts
 
 ### Do
-- **Do** usar el SVG oficial de la V ámbar sin deformarlo.
+- **Do** usar el SVG oficial del logo (símbolo o lockup) sin deformarlo.
 - **Do** conservar el foco visible y controles legibles.
 - **Do** identificar datos de demostración y conservar procedencia de capturas.
 - **Do** mostrar FEMAG como un proyecto más del portfolio (sitio publicado en femag.com.ar), sin etiqueta de «En desarrollo».
 
 ### Don't
-- **Don't** añadir azules a la identidad, vidrio o gradientes multicolor.
+- **Don't** usar un azul brillante como acento de acción (el azul tinta #020f1f es la base; el ámbar sigue siendo el único acento), vidrio o gradientes multicolor.
 - **Don't** convertir datos de demostración en resultados comerciales.
 - **Don't** aplicar monocromo a las capturas reales del portfolio.
 - **Don't** introducir WebGL, videos o mockups de dispositivos en esta implementación.

@@ -1,6 +1,6 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue';
-import logoVogel from '../../assets/brand/vogel-v-amber.svg';
+import logoVogel from '../../assets/brand/vogel-simbolo.svg';
 
 // Cortina breve de marca. Solo en la primera visita de la sesión y nunca con movimiento reducido.
 let raf = 0, timer = 0;
@@ -28,7 +28,7 @@ onMounted(() => {
 </script>
 <template>
   <div v-if="visible" class="preloader" :class="{ 'is-leaving': leaving }" aria-hidden="true">
-    <img :src="logoVogel" alt="" width="44" height="44" />
+    <img :src="logoVogel" alt="" width="54" height="44" />
     <span>{{ String(count).padStart(3, '0') }}</span>
   </div>
 </template>

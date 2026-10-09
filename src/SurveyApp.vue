@@ -5,7 +5,7 @@
     <header class="border-b border-white/10 bg-vogel-navy" role="banner">
       <div class="section-shell flex h-20 items-center justify-between">
         <a href="/" class="flex items-center gap-3" aria-label="Volver a Vogel Consultoría">
-          <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-10" loading="eager" decoding="async" />
+          <img :src="logoVogel" alt="Logo Vogel Consultoría" class="h-10 w-auto" loading="eager" decoding="async" />
           <div>
             <p class="text-sm font-semibold uppercase tracking-[0.12em] text-vogel-gray">Vogel Consultoría</p>
             <p class="hidden text-xs text-vogel-gray/70 sm:block">Recursos para estudios contables</p>
@@ -193,7 +193,7 @@
 
 <script setup>
 import { onMounted, onUnmounted, ref } from "vue";
-import logoVogel from "./assets/brand/vogel-v-amber.svg";
+import logoVogel from "./assets/brand/vogel-simbolo.svg";
 import { useScrollReveal } from "./composables/useScrollReveal.js";
 useScrollReveal();
 

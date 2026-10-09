@@ -46,6 +46,8 @@ Before creating or editing branded material:
    - `src/assets/brand/logo-vogel-generated.webp`
    - `src/assets/brand/logo-vogel-generated.png`
    - `src/assets/logo-vogel.webp`
+   - `src/assets/brand/vogel-simbolo.svg`, `src/assets/brand/vogel-lockup.svg`
+   - `public/logo-vogel.svg`
    - `src/assets/logo-vogel.png`
    - `public/logo-vogel.png`
    - `src/assets/hero/network-intelligence.webp`
