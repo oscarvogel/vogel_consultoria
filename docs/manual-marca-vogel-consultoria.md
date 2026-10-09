@@ -110,7 +110,7 @@ Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus
 
 **Oscar Vogel en Estudio:** retrato recortado (fondo eliminado con un modelo de segmentación; facciones y color sin modificar) a la derecha, fijo y sangrando por el borde inferior y derecho como en la fotografía original; en tablet y móvil va en el flujo, bajo el título. El recorte fue solicitado expresamente por el titular el 2026-10-07: la autorización original de la foto decía «sin recorte» y esa condición queda registrada en `src/assets/oscar/provenance.json`.
 
-**Arte de tarjeta:** los nueve proyectos usan ilustraciones generadas con el logo del cliente como portada de tarjeta (`public/projects/<id>/art*.webp`, marcadas `kind: "generated"` en `provenance.json`). Son decorativas: la ficha del proyecto siempre muestra las capturas reales del sitio como evidencia.
+**Arte de tarjeta:** nueve de los diez proyectos usan ilustraciones generadas con el logo del cliente como portada de tarjeta (`public/projects/<id>/art*.webp`, marcadas `kind: "generated"` en `provenance.json`). Son decorativas: la ficha del proyecto siempre muestra las capturas reales del sitio como evidencia.
 
 ## 7. Tipografia
 
@@ -120,7 +120,7 @@ Chillax: lectura 400, navegación y controles 500, CTA 600. Mantener inputs de a
 
 ## 8. Sistema grafico
 
-Capturas reales desktop y mobile como evidencia principal. Home y grilla muestran exclusivamente nueve proyectos reales publicados, con imágenes en sus colores originales y sin filtros monocromos. Los servicios viven en Soluciones y el método, el perfil de Oscar y FEMAG en Estudio; FEMAG aparece allí únicamente como «En desarrollo». Oscar conserva su fotografía real autorizada, sin retoques ni retratos generados.
+Capturas reales desktop y mobile como evidencia principal. Home y grilla muestran exclusivamente diez proyectos reales publicados, con imágenes en sus colores originales y sin filtros monocromos. Los servicios viven en Soluciones y el método y el perfil de Oscar en Estudio. FEMAG (femag.com.ar, ingredientes alimentarios de Capioví, Misiones) es un proyecto más del portfolio; su tarjeta usa la captura del sitio con un velo oscuro porque aún no tiene ilustración. Oscar conserva su fotografía real autorizada, sin retoques ni retratos generados.
 
 Assets y procedencia:
 

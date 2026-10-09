@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-09T00:41:33.170Z",
+  "capturedAt": "2026-10-09T01:12:48.620Z",
   "captureMethod": "Browser screenshot fullPage; per-tab CDP viewport override; originals retained locally",
   "derivativeMethod": "Unaltered colors; top crop and WebP compression; cover resize 1600x900",
   "projects": [
@@ -817,6 +817,92 @@
           "width": 390
         },
         "fullHeight": 3791
+      }
+    },
+    {
+      "id": "femag",
+      "status": "captured",
+      "url": "https://femag.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/femag/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "7d01e4d16e0a6d58d89d9049e72ebc172f9c84e13692b5d14b48e851b0348b95",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/femag/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "eebd3d62d09d4bb823c8c16b43a1db322cb09c3559e5bb30ae6c65285a6e98d6",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/femag/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "192aa5f15290413cc93eb02e289fbb595e022919d4cb12bfb789b903ec516daa",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/femag/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "9adcad2bab32c92f64ec4dba24bc91636507e6128a55f2eabffa01dfc7bcd942",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
+          "derivedFrom": "/projects/femag/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/femag-desktop.jpg",
+        "width": 1440,
+        "height": 6113,
+        "sha256": "45409131a3387a3714d50d24388c1c60303c961f8aa459f91e617365aba43274",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 6113,
+          "width": 1440
+        },
+        "fullHeight": 6113
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/femag-mobile.jpg",
+        "width": 390,
+        "height": 6537,
+        "sha256": "69925179ea67cad1bf426cd0f12c04c4adc1393467c14e71887ee3d2fdb2ae28",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6537,
+          "width": 390
+        },
+        "fullHeight": 6537
       }
     }
   ],

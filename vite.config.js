@@ -44,6 +44,7 @@ export default defineConfig({
         portfolio7: "proyectos/h21/index.html",
         portfolio8: "proyectos/amitrac/index.html",
         portfolio9: "proyectos/municipalidad-garuhape/index.html",
+        portfolio10: "proyectos/femag/index.html",
         iaLegacy: "ia.html",
         inteligenciaArtificial: "inteligencia-artificial/index.html",
         encuestaContadores: "encuesta-contadores/index.html",

@@ -165,7 +165,7 @@ function testPortfolioDestinations() {
   assert(app.includes("['servicios', '/soluciones/#servicios']") && app.includes("['metodologia', '/estudio/#metodologia']"), "legacy Info hashes must map to their new destination");
   assert(solutions.includes("capabilities") && solutions.includes("alsoServices"), "Solutions must reuse capability data");
   assert(resourcesPage.includes("from '../../../data/resources.js'") && resourcesPage.includes("resource.path"), "Resources must reuse published resource data and routes");
-  assert(studio.includes("methodSteps") && studio.includes("oscarProfile") && studio.includes("FEMAG"), "Studio must reuse method and profile data and keep FEMAG status");
+  assert(studio.includes("methodSteps") && studio.includes("oscarProfile") && !studio.includes("En desarrollo"), "Studio must reuse method and profile data and no longer carry the FEMAG in-development label");
   assert(contact.includes("useContactForm") && contact.includes('id=\"contacto\"') && contact.includes('type=\"tel\"'), "Contact must reuse the form and retain its optional phone field");
 }
 
@@ -304,8 +304,9 @@ function testHomeStage() {
   assert(stage.includes("<h1") && stage.includes("keydown"), "HomeStage.vue: needs a real h1 and keyboard navigation");
   assert(stage.includes("reducedPortfolioMotion"), "HomeStage.vue: wheel glide must respect reduced motion");
   for (const id of ["forestCase", "webProjects"]) assert(cards.includes(id), `homeCards.js: missing source ${id}`);
-  assert(!cards.includes("FEMAG") && cards.includes("Datos de demostración"), "homeCards.js: gallery must contain published projects only");
-  assert(readProjectFile("src/components/home/InfoPanel.vue").includes("FEMAG · En desarrollo"), "Info: FEMAG must carry its development label");
+  assert(cards.includes("Datos de demostración"), "homeCards.js: the demo case must keep its demonstration label");
+  assert(!readProjectFile("src/components/home/InfoPanel.vue").includes("En desarrollo"), "Info: FEMAG is published as a project, so the in-development label must be gone");
+  assert(readProjectFile("src/data/projects.js").includes("femag.com.ar"), "projects.js: FEMAG must point to its published site");
   assert(content.includes("registro de producción anónimo"), "production-registry case must be explicitly anonymous");
   assert(content.includes("Equipo, proceso, tiempos y producción"), "forest case must explain the recorded operational data");
 }

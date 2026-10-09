@@ -32,7 +32,7 @@ const cards = [forestProject, ...webProjects.filter(project => project.available
 // Display order: neighbouring projects must not share a backdrop colour (greens, cool blues and the olive are interleaved).
 // The first card stays the Sistema Registro de Producción: index.html preloads its art as the LCP image.
 // scripts/test-motion.mjs fails if two neighbours are less than 30° apart in hue.
-export const displayOrder = ['caso-forestal', 'amitrac', 'indufor', 'an-asociados', 'forestal-paraguay', 'h21', 'forestal-garuhape', 'servin-lgsm', 'municipalidad-garuhape'];
+export const displayOrder = ['caso-forestal', 'amitrac', 'indufor', 'an-asociados', 'forestal-paraguay', 'h21', 'forestal-garuhape', 'servin-lgsm', 'femag', 'municipalidad-garuhape'];
 export const homeCards = [...cards].sort((a, b) => {
   const position = id => { const at = displayOrder.indexOf(id); return at === -1 ? displayOrder.length : at; };
   return position(a.id) - position(b.id);

@@ -124,11 +124,6 @@ function trap(event) {
           </ul>
         </section>
 
-
-        <section id="femag" tabindex="-1" class="info-block">
-          <h2 class="info-label">FEMAG · En desarrollo</h2>
-          <p>Proyecto en desarrollo. Su presentación estará disponible cuando exista material publicado.</p>
-        </section>
         <footer class="info-foot">
           <a href="https://portal.vogelconsultoria.com.ar" target="_blank" rel="noopener noreferrer" data-analytics-cta="navbar_portal_access_desktop">Ingresar al portal</a>
           <a href="https://www.instagram.com/vogelconsultoria.ar/" target="_blank" rel="noopener noreferrer" data-analytics-cta="footer_instagram" data-analytics-funnel="social_follow" data-analytics-step="footer">Instagram</a>

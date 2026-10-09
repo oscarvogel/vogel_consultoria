@@ -42,7 +42,7 @@ function assertSmooth(frames,label,{figure=false}={}){
   if(figure){
     const seen=frames.filter(f=>f.fig&&f.fig.opacity>0.02);
     assert(seen.length>3,`${label}: the portrait never became visible`);
-    for(const f of frames.filter(f=>f.fig)){assert(f.fig.bottom<=f.innerHeight+1,`${label}: portrait bottom at ${Math.round(f.fig.bottom)}px, below the ${f.innerHeight}px viewport (frame ${Math.round(f.t)}ms)`);assert(f.fig.right<=f.innerWidth+60,`${label}: portrait far outside the viewport`);}
+    for(const f of frames.filter(f=>f.fig)){assert(f.fig.bottom<=f.innerHeight+1,`${label}: portrait bottom at ${Math.round(f.fig.bottom)}px, below the ${f.innerHeight}px viewport (frame ${Math.round(f.t)}ms)`);assert(f.fig.right<=f.innerWidth+130,`${label}: portrait far outside the viewport (it bleeds 64px by design, plus 48px of entrance slide)`);}
     for(let i=1;i<frames.length;i++){const a=frames[i-1].fig,b=frames[i].fig;if(a&&b)assert(Math.abs(b.top-a.top)<=2,`${label}: portrait jumped ${Math.round(Math.abs(b.top-a.top))}px vertically at ${Math.round(frames[i].t)}ms`);}
   }
 }

@@ -123,7 +123,7 @@ Controles del rail discretos (4px), acciones y campos (8px), tarjetas y paneles 
 Primario ámbar plano y texto carbón; secundario mate o de borde fino. Hover legible, foco visible ámbar y área mínima de 44px; acciones del formulario de 48px.
 
 ### Cards / Containers
-Enlaces HTML reales con título y categoría. Imágenes reales a color, sin filtro monocromo. La falla de imagen conserva título, vínculo y estado explícito. La grilla muestra los mismos nueve proyectos.
+Enlaces HTML reales con título y categoría. Imágenes reales a color, sin filtro monocromo. La falla de imagen conserva título, vínculo y estado explícito. La grilla muestra los mismos diez proyectos.
 
 ### Inputs / Fields
 Labels persistentes, fondo Deep, borde fino y foco visible. Teléfono opcional. Errores y éxito mantienen lectura y foco.
@@ -143,7 +143,7 @@ Soluciones, Recursos, Estudio y Contacto son rutas propias que comparten el enca
 - **Do** usar el SVG oficial de la V ámbar sin deformarlo.
 - **Do** conservar el foco visible y controles legibles.
 - **Do** identificar datos de demostración y conservar procedencia de capturas.
-- **Do** mantener FEMAG únicamente en Info como «En desarrollo».
+- **Do** mostrar FEMAG como un proyecto más del portfolio (sitio publicado en femag.com.ar), sin etiqueta de «En desarrollo».
 
 ### Don't
 - **Don't** añadir azules a la identidad, vidrio o gradientes multicolor.
