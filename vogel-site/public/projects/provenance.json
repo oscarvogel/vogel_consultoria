@@ -1,0 +1,1131 @@
+{
+  "capturedAt": "2026-10-09T11:21:42.817Z",
+  "captureMethod": "Web projects: browser fullPage screenshots; desktop software: approved repository demo mode; originals retained locally",
+  "derivativeMethod": "Unaltered colors; web captures top-cropped and compressed as WebP; desktop screenshot preserved and padded on the official ink base where needed",
+  "projects": [
+    {
+      "id": "an-asociados",
+      "status": "captured",
+      "url": "https://anasociados.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/an-asociados/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "a223c2ddfa2bec62ac3fe069b7768913a29806768ee95b8a439be37f1d6467dd",
+          "source": "docs/capturas/project-sources-2026-10-09/an-asociados-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/an-asociados/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "95cd4dcacac96fe2f2eb17fa703a6018f34009e53dbc2a84a6816a3d911d4824",
+          "source": "docs/capturas/project-sources-2026-10-09/an-asociados-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/an-asociados/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "060a95d59b040ee74bae5eaa6852b4c17ce334e7161a226cfada1110a24c773c",
+          "source": "docs/capturas/project-sources-2026-10-09/an-asociados-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/an-asociados/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "d35baca5cf1101d90c958684c527145e437d4c743a137f87e9c405395c623b9f",
+          "source": "docs/capturas/project-sources-2026-10-09/an-asociados-desktop.jpg",
+          "derivedFrom": "/projects/an-asociados/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/an-asociados/art.webp",
+          "width": 1280,
+          "height": 960,
+          "sha256": "aeddc5552e3c84a93e34f13644dd1ba0ceb66860ceef4a38a4abd23b7d374d59",
+          "source": "src/assets/anasociados-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/an-asociados/art-800.webp",
+          "width": 640,
+          "height": 480,
+          "sha256": "7c126a784a9859668d394329d5ef9a768025eab1c7759e7d37d3cf93b7becab9",
+          "source": "src/assets/anasociados-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/an-asociados-desktop.jpg",
+        "width": 1440,
+        "height": 3530,
+        "sha256": "98cf5c6c6f8e181d96b7ea2a6843079ee8d9589f66bb357dd8527e3b6409efed",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 3530,
+          "width": 1440
+        },
+        "fullHeight": 3530
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/an-asociados-mobile.jpg",
+        "width": 390,
+        "height": 5158,
+        "sha256": "4af5dfd7c61359cf4d97a61b56b5757a807a21d78682006cc101b8b91ed1c601",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 5158,
+          "width": 390
+        },
+        "fullHeight": 5158
+      }
+    },
+    {
+      "id": "indufor",
+      "status": "captured",
+      "url": "https://indufor.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/indufor/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "93edbb80b8a0f39602f6363a202e28c3d2e1167ee36f5b0600821404729b93ad",
+          "source": "docs/capturas/project-sources-2026-10-09/indufor-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/indufor/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5153ebc26b55e20ebb73e16da73e6b17c4d5d01e6977dd6f73ff6f9c9362d62f",
+          "source": "docs/capturas/project-sources-2026-10-09/indufor-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/indufor/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "9532a3de0d5ceb6a87ee60eda87ca463c1952416e79722a05b0fd07325098ebd",
+          "source": "docs/capturas/project-sources-2026-10-09/indufor-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/indufor/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "eb80ab2e1854927bf67c1297ea262d0f58e195933f0c6668d981c4570a28eeb2",
+          "source": "docs/capturas/project-sources-2026-10-09/indufor-desktop.jpg",
+          "derivedFrom": "/projects/indufor/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/indufor/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "9d41995ffa08e9ef31cf4b09546993e5d626fa28de9e567e214b78e9b5f8c0da",
+          "source": "src/assets/indufor-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/indufor/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "b79f6d4c47ea16dc157e01a2b8095e6fa74778b7708e1c89d9f1f227489b58c9",
+          "source": "src/assets/indufor-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/indufor-desktop.jpg",
+        "width": 1440,
+        "height": 4598,
+        "sha256": "d5877e6f9d633d990bf238b4f4ba7321ebb89ec92428da7d82ea2c56c8460e14",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 4598,
+          "width": 1440
+        },
+        "fullHeight": 4598
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/indufor-mobile.jpg",
+        "width": 390,
+        "height": 6445,
+        "sha256": "3536a357d3eff97b3a4b811adbe52aacf9695e529378e10c9bc8b13002c57396",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6445,
+          "width": 390
+        },
+        "fullHeight": 6445
+      }
+    },
+    {
+      "id": "forestal-paraguay",
+      "status": "captured",
+      "url": "https://forestalparaguay.com/",
+      "derived": [
+        {
+          "path": "/projects/forestal-paraguay/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "12749befbe82d160be4c95858f24f2424ce5f4b0be408bfcf40484da1d8b1a75",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8f1f84104367294a6725ac01075e16a9924ae2ad305b4ce174f8d8b36a4f18c9",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "132363a24e1e9d64c58d664e8411a0ae65cb5f5132cf26fbff7e0e2c355c230e",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "0837701785655071fcb7914ce9cda61ae26ddf4871cb6b03c08539a3267a5a2f",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-desktop.jpg",
+          "derivedFrom": "/projects/forestal-paraguay/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-paraguay/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "3481db875b4a5066a1e6f4d2a0965af7a3d0014670c322e17ce3d57b9adfa04f",
+          "source": "src/assets/forestal-paraguay-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/forestal-paraguay/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "7773bfecb884e8096565ad01cc075c648a4667487257b99bf98eb62ae77bd4a6",
+          "source": "src/assets/forestal-paraguay-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-desktop.jpg",
+        "width": 1440,
+        "height": 3698,
+        "sha256": "05c8e822f2a34fd3ed9fba40453849cf591d2594f4a78a7a2a289e82363d0313",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 3698,
+          "width": 1440
+        },
+        "fullHeight": 3698
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/forestal-paraguay-mobile.jpg",
+        "width": 390,
+        "height": 6304,
+        "sha256": "1941b3a78e0a7164335ec754b6d15069778afb768fce2e8404f2e56f14626a07",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6304,
+          "width": 390
+        },
+        "fullHeight": 6304
+      }
+    },
+    {
+      "id": "forestal-garuhape",
+      "status": "captured",
+      "url": "https://forestalgaruhape.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/forestal-garuhape/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "dba765164cf0180d279f31778b7d36dda80d5a0f6deadecbcbc590a1a3e82dcb",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "91923994be1b821cf604282d04996fe4967d9705444f75e66c93fcc7a5acdbb3",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "9a79bf06e398c77d2f17021f11ef8fd34a5ec71bf4b3766b243371185dbbbd8f",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "b15ad219abb65f3450c39e87f3ad831fa171f425b531e0a7e8f17930c61aef6a",
+          "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-desktop.jpg",
+          "derivedFrom": "/projects/forestal-garuhape/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/forestal-garuhape/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "598ddf5f238ee0447841779e7db0e560ae6d720989c96dba23438b8d38bef529",
+          "source": "src/assets/forestal-garuhap-sistema.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/forestal-garuhape/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "21742e2ffa7204c2616e56d4d1e0e73604c097c79995eeb71a394452b6537293",
+          "source": "src/assets/forestal-garuhap-sistema.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-desktop.jpg",
+        "width": 1440,
+        "height": 6003,
+        "sha256": "957ab7e18409b5aaa91979556dab374484b590318ec6691997d1a298898f7bab",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 6003,
+          "width": 1440
+        },
+        "fullHeight": 6003
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/forestal-garuhape-mobile.jpg",
+        "width": 390,
+        "height": 11101,
+        "sha256": "677b811cf7eeb0870f7adce60bff346ceed9397f87e37ceada1fce6e498a6b63",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 11101,
+          "width": 390
+        },
+        "fullHeight": 11101
+      }
+    },
+    {
+      "id": "servin-lgsm",
+      "status": "captured",
+      "url": "https://servinlgsm.com.ar/",
+      "derived": [
+        {
+          "path": "/projects/servin-lgsm/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "7826747c95a0ebd2706dd1d4b098d2d15ab11071f5e1aff1816620cbd239b87c",
+          "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "26c8bf0a6536636ceee167e765cc707de15e55ab3523648e47aa0303e3e8334a",
+          "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "9fc6b2dee7d124f9b21f5f246a4f6b1137c04d8c4e64e47d1eb8c9dd61ed3f8b",
+          "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "25b68f640b141408ed70b79f4f2805ed6778ab95c4845ae3ddb25bc05429cf3b",
+          "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-desktop.jpg",
+          "derivedFrom": "/projects/servin-lgsm/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/servin-lgsm/art.webp",
+          "width": 1280,
+          "height": 1280,
+          "sha256": "347dc96e5b94a3b64d0fd6304b6274a5feb0e3ee5790f5b1862ea9dc7205854f",
+          "source": "src/assets/servin-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/servin-lgsm/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "aa217dcb27088a7445924f7d35596643576b9482b837447eea7db14b2cadb197",
+          "source": "src/assets/servin-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-desktop.jpg",
+        "width": 1440,
+        "height": 5005,
+        "sha256": "955adb37dd06fd4b16382e5d30a16541c809cc3a8dd0cc493c49525dc5656a0a",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 5005,
+          "width": 1440
+        },
+        "fullHeight": 5005
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/servin-lgsm-mobile.jpg",
+        "width": 390,
+        "height": 6544,
+        "sha256": "d33edc99fc90fe7c9a05cf6a31424e1a2eddcac8671c41ded96b1a1e58fe39f1",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 6544,
+          "width": 390
+        },
+        "fullHeight": 6544
+      }
+    },
+    {
+      "id": "h21",
+      "status": "captured",
+      "url": "https://h21.ar/",
+      "derived": [
+        {
+          "path": "/projects/h21/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "68f787ff4dc9b36733d0e9d8d896ec1c43a23c2edd1ea07c2bc363ab9ce13e2b",
+          "source": "docs/capturas/project-sources-2026-10-09/h21-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/h21/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1e2fc3b7a5e1d682c6fcc1f809c79fa8ef9d4b7c07814816384ee1a156762453",
+          "source": "docs/capturas/project-sources-2026-10-09/h21-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/h21/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "2a33afde35f89ea1efb0f3beb541acd43bff799c18284966e38f9fed3389b498",
+          "source": "docs/capturas/project-sources-2026-10-09/h21-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/h21/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "f7f4b64dc607bbd7faba1a511706b0e36eb479c6334e6c25c8eb7b1f3b4dfda5",
+          "source": "docs/capturas/project-sources-2026-10-09/h21-desktop.jpg",
+          "derivedFrom": "/projects/h21/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/h21/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "218621927fcf8c851b9db9bb5e4e9217e27310ab9b27bb8d8656717055171cd1",
+          "source": "src/assets/H21-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/h21/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "6690540a66f34d108b291bf38ff538f4a921256c3b34d3d1f264c3fa837bfc16",
+          "source": "src/assets/H21-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/h21-desktop.jpg",
+        "width": 1440,
+        "height": 6699,
+        "sha256": "b75f596d59f4042b6fd6a236502fa3e1fe70b97ca5ced18f71ed156715912bd5",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 6699,
+          "width": 1440
+        },
+        "fullHeight": 6699
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/h21-mobile.jpg",
+        "width": 390,
+        "height": 11586,
+        "sha256": "d92def82240a3c5f2fc1785e66867bdc078c8d8c0d9dd5f5bcdb7e5d469e75d2",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 11586,
+          "width": 390
+        },
+        "fullHeight": 11586
+      }
+    },
+    {
+      "id": "amitrac",
+      "status": "captured",
+      "url": "https://amitrac.ar/",
+      "derived": [
+        {
+          "path": "/projects/amitrac/desktop.webp",
+          "width": 1440,
+          "height": 2600,
+          "sha256": "6a2bbd8c5cc65e99beb88192f211438cab7634d73a780b568670954240e8c111",
+          "source": "docs/capturas/project-sources-2026-10-09/amitrac-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2600
+          }
+        },
+        {
+          "path": "/projects/amitrac/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "ab2b04e5f49d3970ccb66649f6e779a3834ed68222960eafa0cc2149314a25f8",
+          "source": "docs/capturas/project-sources-2026-10-09/amitrac-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/amitrac/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "2882cf14b63e890031f806b94f3b459c377267252f9dbe5485bfa6235e560c91",
+          "source": "docs/capturas/project-sources-2026-10-09/amitrac-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/amitrac/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "2f4b32d8e41e32313ac8a7b05fa86ecb9387c8505d71d80739e2c2be682d3941",
+          "source": "docs/capturas/project-sources-2026-10-09/amitrac-desktop.jpg",
+          "derivedFrom": "/projects/amitrac/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/amitrac/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "0e3b24c0a7781c1497758cda116931d0917c21807ad0ffa7337c262198d2d2e8",
+          "source": "src/assets/amitrac-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/amitrac/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "8905d41d2fbf8b9151d06f2d598c52c8ae0573005c7cc43039bd966cc67c0fe7",
+          "source": "src/assets/amitrac-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/amitrac-desktop.jpg",
+        "width": 1440,
+        "height": 2949,
+        "sha256": "1a7667b69037e6f174d17f86e36a094707d9234058510d7377a7c7620a73c474",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 2949,
+          "width": 1440
+        },
+        "fullHeight": 2949
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/amitrac-mobile.jpg",
+        "width": 390,
+        "height": 5708,
+        "sha256": "cab656986b91a871a46d3197d7d8daac7200cfce25a84f7a46a874bc21329ca4",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 5708,
+          "width": 390
+        },
+        "fullHeight": 5708
+      }
+    },
+    {
+      "id": "municipalidad-garuhape",
+      "status": "captured",
+      "url": "https://garuhape.gob.ar/",
+      "derived": [
+        {
+          "path": "/projects/municipalidad-garuhape/desktop.webp",
+          "width": 1440,
+          "height": 2577,
+          "sha256": "67988f35f0f87768ca7e8eca194e085e3d1f78ad6000eccb57cbc2db37041607",
+          "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 2577
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "305cc638f315f9620fb2275dd0f7986a4ef01eebbce5eeb8d28413c7307fd73e",
+          "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-desktop.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/mobile.webp",
+          "width": 390,
+          "height": 2200,
+          "sha256": "cda949d514ba7fb7419bbcdd12a78bf5add860e6a501ee56ccc6362f5784a216",
+          "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-mobile.jpg",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 390,
+            "height": 2200
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "c856948ea8be111463b3a02a2dc0b7005d6cd0b8d11c1b6e27213fd2d964e3c4",
+          "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-desktop.jpg",
+          "derivedFrom": "/projects/municipalidad-garuhape/cover.webp",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1440,
+            "height": 900
+          }
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/art.webp",
+          "width": 1254,
+          "height": 1254,
+          "sha256": "920d8838b3a7e88d5a51c00c0ed50b9c018ddd02f8c7defac724ec397fc5d1c8",
+          "source": "src/assets/garuhape-card.png",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/municipalidad-garuhape/art-800.webp",
+          "width": 640,
+          "height": 640,
+          "sha256": "6c3debc37b676004d265a34c1b48d56dcdfe77c77ecd750d1852d59c2fb31dc1",
+          "source": "src/assets/garuhape-card.png",
+          "kind": "generated"
+        }
+      ],
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-desktop.jpg",
+        "width": 1440,
+        "height": 2577,
+        "sha256": "2434de15610cdf63e1c959d9cadd523d2aec429b5fa8a0287023ed9add76b47b",
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "scrollHeight": 2577,
+          "width": 1440
+        },
+        "fullHeight": 2577
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/municipalidad-garuhape-mobile.jpg",
+        "width": 392,
+        "height": 3791,
+        "sha256": "d6c943507e86e3639002a25a8128ff8678b3bbbbd662edf983d140feaae5859a",
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "scrollHeight": 3791,
+          "width": 390
+        },
+        "fullHeight": 3791
+      }
+    },
+    {
+      "id": "femag",
+      "status": "captured",
+      "sourceType": "desktop-demo",
+      "sourceRepository": "https://github.com/oscarvogel/femag_desktop",
+      "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+      "sourceFile": "scripts/generate_branding_screenshots.py (local demo capture at 1920x1080)",
+      "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+      "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+      "captureMethod": "Repository screenshot generator; in-memory SQLite, demo_visual user, 1920x1080 window; no production data",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+        "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+        "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+        "width": 1920,
+        "height": 1080,
+        "sha256": "70a69af93a5a8fa79bc00a6930fa3a5f1fb29767afbd4acb4970509b9f8bbf49"
+      },
+      "derived": [
+        {
+          "path": "/projects/femag/desktop.webp",
+          "width": 1920,
+          "height": 1080,
+          "sha256": "11fad4fc90c91be226743b33ccc288ab7ff7ed458065e9f1ab3ac4e66465bbd2",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Original demo screenshot flattened on the official ink base"
+        },
+        {
+          "path": "/projects/femag/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "44ed6422de084d872d4f075aa0fefbcbb22c67078c83a19dde2d367fcc8cf003",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Screenshot contained without cropping in a 16:9 canvas"
+        },
+        {
+          "path": "/projects/femag/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "1fd9662e752908f8e748562836da4211c34638a666a6ac431eaf5cc5ad0386e7",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "800px derivative of cover.webp",
+          "derivedFrom": "/projects/femag/cover.webp"
+        },
+        {
+          "path": "/projects/femag/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "51472c520e728af04cd185382737f40aa88ae7c47d46ab72e04b9c15c1cce3d1",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "Screenshot contained in a 4:5 card canvas with reserved space for card title"
+        },
+        {
+          "path": "/projects/femag/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "7a6068e632052f3577cba72402093bc1895d010897c4030368b7edd78a9c9899",
+          "source": "docs/capturas/project-sources-2026-10-09/femag-desktop-dashboard.png",
+          "sourceUrl": "https://github.com/oscarvogel/femag_desktop/blob/c759623351a506caea99a02f2e7788b1d71c214a/scripts/generate_branding_screenshots.py",
+          "sourceCommit": "c759623351a506caea99a02f2e7788b1d71c214a",
+          "method": "640px derivative of art.webp",
+          "derivedFrom": "/projects/femag/art.webp"
+        }
+      ]
+    },
+    {
+      "id": "pyfe",
+      "status": "captured",
+      "sourceType": "desktop-open-source",
+      "sourceRepository": "https://github.com/oscarvogel/pyfe",
+      "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+      "sourceFile": "tools/armar_sandbox.py + temporary Qt screenshot runner",
+      "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+      "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+      "captureMethod": "Application launched from source in a new SQLite sandbox, homo=S, with fictitious company data; 1600x900 window capture; no ARCA/AFIP service actions invoked",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+        "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+        "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+        "width": 1600,
+        "height": 900,
+        "sha256": "5441662abb2e9e4b22c64c868d2a7999b2f35bd6d5876c3d458d5de7fc2fe868"
+      },
+      "derived": [
+        {
+          "path": "/projects/pyfe/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "02389585c1afb6814289ff7fe9463a4fb50485f3e8fec22c2152a6a0f18ca495",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "Main application window rendered at 1600x900 in the isolated sandbox"
+        },
+        {
+          "path": "/projects/pyfe/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8fe7f89dd4cee3800b4c0558a8e41696e336d51b6bc3e23a6a75875dbe426aff",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "16:9 application screenshot encoded without cropping"
+        },
+        {
+          "path": "/projects/pyfe/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "3ed29e78c94d086ac5dce1bf8d5ea62a474617e98702fc4a4f53c1c43f20d498",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "800px derivative of cover.webp"
+        },
+        {
+          "path": "/projects/pyfe/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "4ab680b90d8348dea9558648edca7c507b8dbd94a4047aa17102965af5b8a798",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "Screenshot composited unchanged on the official ink base in a 4:5 card canvas"
+        },
+        {
+          "path": "/projects/pyfe/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "b489b090ec243bcec6fe9aa5a248e78440537359626b76e6667f6354eb587037",
+          "source": "docs/capturas/project-sources-2026-10-09/pyfe-desktop-demo.png",
+          "sourceUrl": "https://github.com/oscarvogel/pyfe/blob/fbcdca32b44e44927dbbba1c0979f3fcc085085a/tools/armar_sandbox.py",
+          "sourceCommit": "fbcdca32b44e44927dbbba1c0979f3fcc085085a",
+          "method": "640px derivative of art.webp"
+        }
+      ]
+    },
+    {
+      "id": "mantenimiento",
+      "status": "captured",
+      "sourceType": "web-app-demo",
+      "sourceRepository": "https://github.com/oscarvogel/mantenimiento",
+      "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+      "captureMethod": "Repository demo dashboard screenshots; fictitious company, vehicle and service data; no production data",
+      "desktop": {
+        "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+        "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+        "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+        "width": 1440,
+        "height": 900
+      },
+      "mobile": {
+        "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-mobile.png",
+        "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-mobile.png",
+        "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+        "width": 390,
+        "height": 1087
+      },
+      "derived": [
+        {
+          "path": "/projects/mantenimiento/desktop.webp",
+          "width": 1440,
+          "height": 900,
+          "sha256": "5c4f663761389929e94b3fa200be30acf122d93c97c65341ab8b0c1993d649e1",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Screenshot from repository demo data, encoded as WebP without edits",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/mobile.webp",
+          "width": 390,
+          "height": 1087,
+          "sha256": "e88bb46e3053c1239bfb0c1604c21b4530284d90dc00e5e7e7baee751475310b",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-mobile.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-mobile.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Mobile repository screenshot, encoded as WebP without edits",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a8598c45a9c6089c6901c16011932fb11ad5a5ea3d8ca30449555178b7196dca",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "16:9 crop of repository demo dashboard screenshot",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "458f4017b52dea69801aed829dd682daef467d484357dc76bc4a41aa497523b5",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "800px derivative of cover.webp",
+          "kind": "derived"
+        },
+        {
+          "path": "/projects/mantenimiento/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "688d2a209fbbf26311912a293a91c09196a94b2324cc0ad4e17eef9635f1ea0a",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "Dashboard screenshot centered unchanged on navy 4:5 canvas",
+          "kind": "generated"
+        },
+        {
+          "path": "/projects/mantenimiento/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "0d52575c3fd73baf2f7652b48b4cd2cc7af08640e12a2757a155acca33303b72",
+          "source": "docs/capturas/project-sources-2026-10-09/mantenimiento-dashboard-desktop.png",
+          "sourceUrl": "https://github.com/oscarvogel/mantenimiento/blob/30b6894bf20cce28699bd0453963fef8bc2c96cc/docs/screenshots/ui/dashboard-desktop.png",
+          "sourceCommit": "30b6894bf20cce28699bd0453963fef8bc2c96cc",
+          "method": "640px derivative of art.webp",
+          "kind": "generated"
+        }
+      ]
+    },
+    {
+      "id": "vogel-whatsapp-api",
+      "status": "diagram",
+      "sourceType": "rest-api-integration",
+      "sourceRepository": "https://github.com/oscarvogel/vogel_whatsapp_api",
+      "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+      "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+      "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+      "captureMethod": "Conceptual diagram authored from public integration documentation; not a live API or dashboard capture",
+      "derived": [
+        {
+          "path": "/projects/vogel-whatsapp-api/cover.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "95261b519098eb48761a52c20fd91844bcfbffa213d9470130e12e440fb0aeaa",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "Conceptual integration diagram based on public docs; not a product screenshot",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/cover-800.webp",
+          "width": 800,
+          "height": 450,
+          "sha256": "5aa8d164fa038a11cd579559700c9594f7d69e41684423f6cb604118169d873b",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "800px derivative of the conceptual integration diagram",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/art.webp",
+          "width": 1280,
+          "height": 1600,
+          "sha256": "fe595a82b77892808fa775d7a72be9b8960978141ef561868381a480ad3d6894",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "Decorative node-network illustration inspired by the documented API architecture",
+          "kind": "diagram"
+        },
+        {
+          "path": "/projects/vogel-whatsapp-api/art-800.webp",
+          "width": 640,
+          "height": 800,
+          "sha256": "acd10e65113835d6e3d1091e7e71fe3943fea34693d472f28f991fce24526af8",
+          "source": "public/projects/vogel-whatsapp-api/diagram.svg",
+          "sourceUrl": "https://github.com/oscarvogel/vogel_whatsapp_api/blob/f5f79fd76e8f9ef9061021fd422d11ba77bc4a71/docs/INTEGRACION_SISTEMAS.md",
+          "sourceCommit": "f5f79fd76e8f9ef9061021fd422d11ba77bc4a71",
+          "method": "640px derivative of art.webp",
+          "kind": "diagram"
+        }
+      ]
+    }
+  ],
+  "generatedCardArt": [
+    {
+      "path": "/projects/caso-forestal/art.webp",
+      "width": 1280,
+      "height": 965,
+      "sha256": "38756c488dfa70229582a45f751d7e85969f9f09fa4e6b75bfbdf968595ffc5b",
+      "source": "src/assets/forestal-garuhape-card.png",
+      "kind": "generated"
+    },
+    {
+      "path": "/projects/caso-forestal/art-800.webp",
+      "width": 640,
+      "height": 483,
+      "sha256": "bbb020fca90d2e8aed184a29c516081799873e5ddb456b463a1b95480649c2e8",
+      "source": "src/assets/forestal-garuhape-card.png",
+      "kind": "generated"
+    }
+  ]
+}
