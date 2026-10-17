@@ -61,7 +61,11 @@ Core brand rules to preserve:
 - Communicate clarity, confidence, precision, modernity, and practical closeness.
 - Use a professional, direct, business-oriented tone.
 - Avoid generic digital-transformation language, empty AI hype, exaggerated promises, childish icons, and off-brand colors.
-- Use the official palette: deep blue ink (`#020f1f`, the client's request) as the base, cream (`#F3F1E2`) for text, warm gray for metadata, and amber (`#FFBC54`) as the only accent. The previous charcoal (`#161515`) stays available as `charcoal` (Tailwind `vogel-charcoal`). Blue is a base and surface colour only: no bright blue accents or blue action buttons.
+- Use the official palette: deep blue ink (`#020f1f`, the client's request) as the base, cream (`#F3F1E2`) for text, warm gray for metadata, and amber (`#FFBC54`) as the only accent. The previous charcoal (`#161515`) stays available as `charcoal` (Tailwind `vogel-charcoal`). The logo blue (`#0B61C8`, lit variant `#2F7DFF`) and logo amber (`#F5AC05`) are the colours of the light pillar and signal details in the React site (see "Dirección vigente 2026-10-15" in the manual); blue is never a button or action colour.
 - Use official typography: Archivo Variable (expanded width, weight 800, uppercase) for headings and Chillax for body/UI.
 - Visuals should evoke dashboards, data, process flows, automation, applied AI, and business management, presented as large cards in a studio-portfolio carousel (reference: coreastudios.com).
 - Every conversion-oriented piece should have a clear CTA and pass the checklist in section 15 of the manual before delivery.
+
+## React site
+
+The React rebuild lives in `vogel-site/` (see `vogel-site/README.md`). The Vue site at the repository root is untouched and is still what `scripts/deploy-ftp.ps1` publishes.

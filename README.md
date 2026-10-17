@@ -1,5 +1,7 @@
 # Vogel Consultoria Landing
 
+> **Sitio en React:** la nueva versión del sitio vive en la carpeta [`vogel-site/`](vogel-site/) (React 19 + React Router + Tailwind 4). Ver [`vogel-site/README.md`](vogel-site/README.md). El resto del repositorio es el sitio Vue actual.
+
 Landing page corporativa desarrollada con Vue 3, Vite y Tailwind CSS.
 
 ## Mejoras implementadas (Mayo 2026)
