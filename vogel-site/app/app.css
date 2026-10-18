@@ -1,0 +1,187 @@
+@import "@fontsource-variable/archivo/wdth.css";
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Chillax";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/chillax-variable.woff2") format("woff2");
+}
+
+/* Vogel brand (docs/manual-marca-vogel-consultoria.md): deep blue ink base, cream text, amber as the only accent.
+   Blue is surface only: never a bright blue accent or action. */
+@theme {
+  --color-ink: #020f1f;
+  --color-deep: #06162a;
+  --color-slate: #0c1e36;
+  --color-raised: #142c4a;
+  --color-charcoal: #161515;
+  --color-cream: #f3f1e2;
+  --color-muted: #a8a596;
+  --color-amber: #ffbc54;
+  --color-ink-dark: #020f1f;
+  --color-ink-dark-muted: #5a5f66;
+  --color-line: rgb(243 241 226 / 0.16);
+  --color-line-dark: rgb(2 15 31 / 0.14);
+
+  --font-display: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Chillax", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --ease-vogel-out: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-vogel: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Names the consent banner in lib/analytics.js (ported as-is from the Vue site) styles itself with. */
+:root {
+  --color-border: var(--color-line);
+  --color-panel: var(--color-slate);
+  --color-text: var(--color-cream);
+  --color-action: var(--color-amber);
+  --color-action-text: var(--color-ink-dark);
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    scrollbar-color: var(--color-slate) var(--color-ink);
+    accent-color: var(--color-amber);
+  }
+  /* Transparent so the fixed light pillar (z -10) shows through; the ink lives on <html>. */
+  body {
+    background: transparent;
+  }
+  /* Manual: Archivo expanded, weight 800, uppercase for headings. */
+  h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-stretch: 125%;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.035em;
+    line-height: 0.9;
+  }
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink-dark);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+  }
+}
+
+/* Small metadata labels: tiny uppercase next to giant headlines. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Secondary link: quiet rule, a full rule draws over it on hover. */
+@utility ink-link {
+  --rule: color-mix(in oklab, currentColor 35%, transparent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding-bottom: 0.35em;
+  background:
+    linear-gradient(currentColor, currentColor) left bottom / 0% 1px no-repeat,
+    linear-gradient(var(--rule), var(--rule)) left bottom / 100% 1px no-repeat;
+  transition: background-size 0.6s var(--ease-vogel-out);
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px, 100% 1px;
+  }
+}
+
+/* Primary action: amber on ink; hover wipes cream in from the left. */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background:
+    linear-gradient(var(--color-cream), var(--color-cream)) left / 0% 100% no-repeat,
+    var(--color-amber);
+  color: var(--color-ink-dark);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: background-size 0.6s var(--ease-vogel-out);
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 100%;
+  }
+  &:active {
+    transform: translateY(1px) scale(0.98);
+  }
+}
+
+/* Uppercase headings run at line-height 0.9, so a line mask would clip Ñ/Á accents: extend it upward without moving the text. */
+.split-line-mask {
+  padding-top: 0.18em;
+  margin-top: -0.18em;
+}
+
+/* Panels of the HUD direction: translucent ink over the pillar, with a hairline edge. */
+@utility glass {
+  background: rgb(2 15 31 / 0.5);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(14px) saturate(1.25);
+}
+
+/* Film grain over the whole page: noise tile shifted in steps, so it costs a compositor translate and nothing else. */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.085;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .95 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(5) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* First-screen entrances run in CSS so they start with the first paint instead of waiting for JavaScript
+   (a JS-hidden headline delays LCP). Stagger with style={stagger(n)}. */
+@keyframes intro-rise {
+  from { opacity: 0; transform: translateY(0.5em); }
+}
+/* Starts partly inside its mask: a fully clipped headline doesn't count as painted, which pushes LCP back. */
+@keyframes intro-line {
+  from { transform: translateY(55%); opacity: 0; }
+}
+.intro {
+  animation: intro-rise 1s var(--ease-vogel-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+.intro-line {
+  display: block;
+  animation: intro-line 1.15s var(--ease-vogel-out) both;
+  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain { animation: none; }
+  .intro, .intro-line { animation: none; }
+  [class*="animate-"] { animation: none !important; }
+}

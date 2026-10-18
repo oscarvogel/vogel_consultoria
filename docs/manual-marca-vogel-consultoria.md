@@ -3,6 +3,21 @@
 Version: 2026-10-06
 
 Actualización autorizada: la decisión explícita del usuario reemplaza logo, tipografía y paleta de la web anterior. La dirección vigente autorizada toma la composición de Corea y la adapta a la identidad Vogel; las capturas de comparación se conservan localmente fuera de Git. Las secciones 4–9 y 14–15 fijan la identidad vigente; el posicionamiento y la voz empresarial mantienen su alcance original. El baseline se conserva en `docs/history/paisaje-datos-2026-10-04/`.
+## Dirección vigente 2026-10-15: HUD futurista con light-pillar (sitio React, `vogel-site/`)
+
+Decisión del titular (pedido de la familia: «algo futurista, con los colores del logo»). **Esta sección prevalece sobre las secciones 4, 6 y 9 donde difieran.** Esas secciones describen el portfolio Vue/Corea, que queda archivado en la rama `archive/vue-site`.
+
+- **Concepto:** el sitio es una interfaz de instrumento, como los dashboards que Vogel construye. Un único **light-pillar** (reactbits LightPillar, WebGL) fijo detrás de todo el sitio recorre las secciones con el scroll y viaja entre páginas, de modo que el lector nunca pierde el hilo.
+- **Colores del logo:** azul eléctrico `#0B61C8` (con `#2F7DFF` como variante luminosa sobre fondo oscuro) y ámbar `#F5AC05` (el ámbar del símbolo). Estos dos son el color del pilar, del logo eléctrico y de los detalles de luz. **El azul vivo es ahora un color de marca permitido para luz y señal** (revoca la restricción del 2026-10-08); sigue prohibido como botón de acción: las acciones son ámbar plano.
+- **Superficie:** todo oscuro (azul tinta `#020f1f`). Se eliminan las bandas crema. Los bloques de contenido son **paneles de vidrio** (`.glass`: tinta translúcida al 50 %, blur y borde de línea) y el texto de lectura va en crema. Excepción: el iframe de la encuesta (Google Forms) va en un panel crema porque el formulario es claro.
+- **Grano:** capa de grano de película fija sobre todo el sitio (~8,5 % de opacidad, ruido SVG animado en pasos; quieto con movimiento reducido).
+- **Lenguaje HUD:** etiquetas en monoespaciada mayúscula con tracking amplio (`[01] CONSULTORÍA TECNOLÓGICA`, `// SOLUCIONES`), grilla de líneas finas y esquinas de visor en las aperturas, lecturas con cifras reales (proyectos, soluciones, años; nunca inventadas) y reloj ART.
+- **Logo eléctrico:** el símbolo oficial en SVG puro (`ElectricMark`: mismos tres paths de `vogel-simbolo.svg`) con contorno que chisporrotea y brillo en capas; no se usa canvas (deja un recuadro visible).
+- **Tipografía:** sin cambios (Archivo expandida 125 %/800/mayúsculas en titulares; Chillax en lectura) más la pila monoespaciada del sistema (`ui-monospace`) para las etiquetas HUD.
+- **Movimiento:** el pilar interpola entre «estaciones» definidas por sección (`app/lib/pillar.ts`); las transiciones entre páginas usan un velo de vidrio con línea ámbar de barrido, el destino en grande y una barra de progreso, mientras el pilar se infla y se reubica (`app/lib/transition.ts`). Cada frontera entre secciones es un recorrido largo, nunca un corte.
+- **Accesibilidad y movimiento reducido:** con `prefers-reduced-motion` el pilar queda fijo, el grano quieto, sin escenas fijadas ni velo. El pilar no puede reducir el contraste del texto por debajo de 4.5:1 (se verifica con axe en puntos de máximo brillo). En teléfonos el pilar se renderiza a baja resolución y más tenue.
+- **Reglas de uso del pilar:** nunca detrás de bloques densos de lectura a máxima intensidad; ganancia global 62 % de intensidad; sin segundo pilar ni otros fondos WebGL en el mismo viewport.
+
 Sitio de referencia: https://vogelconsultoria.com.ar/
 Uso principal: guia para crear piezas visuales, landings, publicaciones, presentaciones, documentos comerciales y material institucional de Vogel Consultoria.
 
@@ -105,7 +120,7 @@ Los logos OV anteriores permanecen como archivos históricos; no son la identida
 | Muted | `#A8A596` | Metadata y descripciones |
 | Vogel Amber | `#FFBC54` | Único acento: acciones, enlaces, foco, contador, punto del reloj |
 
-Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. El azul es solo base y superficie (decisión del cliente, 2026-10-08): ningún azul vivo como acento ni como botón de acción; sin gradientes multicolor y sin colores ajenos como protagonistas. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
+Fuente normativa: `src/styles/tokens.css`. Los canales `--vogel-*` conservan sus nombres históricos con estos valores. El fondo oscuro domina; el ámbar se concentra en acción y señales. CTA principal en ámbar plano con texto carbón. Desde 2026-10-15 el azul del logo es color de luz y señal (pilar, logo eléctrico, etiquetas), nunca de botón de acción; las acciones siguen en ámbar. El resto (sin colores ajenos como protagonistas) se mantiene. Las capturas del portfolio conservan los colores originales del proyecto; la restricción de acento corresponde a la interfaz Vogel.
 
 **Fondo del portfolio (Home):** degradé vertical del color de marca del proyecto centrado (abajo) a carbón (arriba), con una onda lenta y un grano leve (~7 %). Es la única excepción a «sin gradientes»: el color pertenece al cliente, no a la interfaz Vogel, y nunca reemplaza al ámbar en acciones. Los colores salen de los logos de cada cliente y se normalizan a un tono oscuro en `src/data/projectColors.json` (`scripts/derive-project-colors.mjs`); el texto sobre el degradado debe mantener 4.5:1 (lo verifica `npm run test:motion`). Amitrac usa azul por decisión expresa: es el color de su marca, independiente de Vogel. Servin LGSM (cian), H21 (gris pizarra) y PyFE (azul marino de la interfaz Asiento) siguen su identidad de proyecto.
 

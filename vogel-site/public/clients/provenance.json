@@ -1,0 +1,16 @@
+{
+  "retrieved": "2026-10-04",
+  "context": "Logos de proyectos web existentes. Seis trazados vectoriales derivados de raster oficiales, más dos SVG aportados por el usuario. No indican resultados cuantitativos ni avales de otros servicios.",
+  "processing": "SVG con paths, sin imágenes raster incrustadas. VTracer spline/stacked, precisión de color 6 y capas 16; Indufor precisión 4/capas 32 para limitar ruido JPEG; H21 ajuste de curvas sobre muestra interpolada 3x, precisión 5/capas 24. viewBox ajustado al contenido con 2,5% de margen, conservando proporciones. No son archivos vectoriales originales de las marcas.",
+  "sources": {
+    "an-asociados.svg": "https://anasociados.com.ar/assets/images/logo_almada_neri.png",
+    "indufor.svg": "https://indufor.com.ar/assets/images/logo_indufor.jpeg",
+    "forestal-paraguay.svg": "https://forestalparaguay.com/assets/images/fgpy.png",
+    "forestal-garuhape.svg": "https://forestalgaruhape.com.ar/images/logo-30.png",
+    "h21.svg": "https://h21.ar/assets/images/logo.png",
+    "amitrac.svg": "https://amitrac.ar/assets/images/logo_amitrac.png"
+  },
+  "provided_assets": ["src/assets/servin-servicios-informaticos.svg", "src/assets/municipalidad-garuhape-misiones.svg"],
+  "reproduction": "python scripts/vectorize-client-logos.py <carpeta-con-originales>",
+  "limitation": "La vectorización aproxima contornos y colores de raster, especialmente textos pequeños y detalles del camión de Amitrac. H21 tiene una fuente original de solo 189px de ancho. Forestal Garuhapé conserva la variante de aniversario publicada por su sitio. Los originales de Servin y Municipalidad aportados por el usuario no se modificaron."
+}
