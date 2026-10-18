@@ -342,7 +342,7 @@ $files = Get-ChildItem -LiteralPath $outputPath -Recurse -File | Sort-Object `
 Write-Host ""
 Write-Host "==> Resumen"
 Write-Host "Archivos a subir: $($files.Count)"
-Write-Host "Orden seguro: assets primero, HTML al final"
+Write-Host "Orden seguro: assets primero, HTML despues, .htaccess al final"
 
 if (-not $Execute) {
   Write-Host "Modo dry-run. Agrega -Execute para copiar a produccion."
