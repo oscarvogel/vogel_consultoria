@@ -1,5 +1,9 @@
 param(
   [string]$EnvFile = ".env.deploy-ftp.local",
+  # vue   = sitio Vue de la raiz (comportamiento anterior, default).
+  # react = sitio React de vogel-site/ (npm run build + build/client prerenderizado).
+  [ValidateSet("vue", "react")]
+  [string]$Site = "vue",
   [switch]$Execute,
   [switch]$SkipBuild
 )
@@ -275,24 +279,53 @@ $user = Require-Value -Values $config -Key "FTP_USER"
 $password = Require-Value -Values $config -Key "FTP_PASSWORD"
 $remoteDir = Require-Value -Values $config -Key "FTP_REMOTE_DIR"
 $port = $config["FTP_PORT"]
-$outputDir = $config["BUILD_OUTPUT"]
-if ([string]::IsNullOrWhiteSpace($outputDir)) {
-  $outputDir = "dist"
+# Que se compila y que se sube. react ignora BUILD_OUTPUT a proposito: su carpeta de
+# salida es siempre vogel-site/build/client, para que no se pueda publicar por error
+# una build vieja de otro sitio.
+$siteDefinition = if ($Site -eq "react") {
+  @{
+    BuildDir  = Join-Path $projectRoot "vogel-site"
+    OutputDir = "vogel-site\build\client"
+  }
+} else {
+  $vueOutputDir = $config["BUILD_OUTPUT"]
+  if ([string]::IsNullOrWhiteSpace($vueOutputDir)) {
+    $vueOutputDir = "dist"
+  }
+  @{
+    BuildDir  = $projectRoot
+    OutputDir = $vueOutputDir
+  }
 }
 
-$outputPath = Join-Path $projectRoot $outputDir
+$buildDir = $siteDefinition.BuildDir
+$outputPath = Join-Path $projectRoot $siteDefinition.OutputDir
 
 Write-Host "==> Deploy FTP Vogel"
+Write-Host "Sitio:    $Site"
 Write-Host "Proyecto: $projectRoot"
-Write-Host "Salida: $outputPath"
-Write-Host "Destino: ${protocol}://${hostName}/$remoteDir"
+Write-Host "Build:    $buildDir"
+Write-Host "Salida:   $outputPath"
+Write-Host "Destino:  ${protocol}://${hostName}/$remoteDir"
 
 if (-not $SkipBuild) {
   Write-Host ""
-  Write-Host "==> Build"
-  Push-Location $projectRoot
+  Write-Host "==> Build ($Site)"
+
+  if (-not (Test-Path -LiteralPath (Join-Path $buildDir "package.json"))) {
+    throw "No hay package.json en la carpeta de build: $buildDir"
+  }
+
+  if (-not (Test-Path -LiteralPath (Join-Path $buildDir "node_modules"))) {
+    throw "Faltan las dependencias de '$Site'. Correr 'npm install' en: $buildDir"
+  }
+
+  Push-Location $buildDir
   try {
     npm run build
+    if ($LASTEXITCODE -ne 0) {
+      throw "Fallo el build de '$Site' (npm run build salio con codigo $LASTEXITCODE)."
+    }
   } finally {
     Pop-Location
   }
