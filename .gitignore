@@ -1,5 +1,7 @@
 node_modules/
 dist/
+__pycache__/
+*.pyc
 public/fonts/clash-display-variable.woff2
 public/fonts/chillax-variable.woff2
 # Visual QA evidence stays local; production demo captures live under src/assets.
