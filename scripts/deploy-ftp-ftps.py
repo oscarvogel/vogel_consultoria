@@ -28,6 +28,25 @@ def connect(values: dict[str, str], context: ssl.SSLContext, remote_root: str) -
     return ftp
 
 
+def upload_rank(path: Path) -> tuple[int, int, str]:
+    """Orden de subida: primero los assets, despues el HTML, y .htaccess al final.
+
+    El .htaccess va ultimo a proposito. Es la configuracion del servidor, y este
+    deploy nunca borra: durante la subida conviven los archivos viejos y los
+    nuevos. Si el .htaccess se sube antes que el contenido, las redirecciones
+    y el ErrorDocument 404 pasan a aplicar antes de que existan las paginas a
+    las que apuntan, y en esa ventana los 404 devuelven error del servidor en
+    lugar de la pagina de "no encontrado".
+    """
+    name = path.name.lower()
+    key = path.as_posix().lower()
+    if name == ".htaccess":
+        return (2, 0, key)
+    if path.suffix.lower() == ".html":
+        return (1, 0, key)
+    return (0, 0, key)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--env", required=True, type=Path, help="FTP settings file")
@@ -47,7 +66,7 @@ def main() -> int:
     source = args.source.resolve()
     remote_root = values.get("FTP_REMOTE_DIR", "/").strip("/")
     files = [path for path in source.rglob("*") if path.is_file()]
-    files.sort(key=lambda path: (path.suffix.lower() == ".html", path.as_posix().lower()))
+    files.sort(key=upload_rank)
 
     ftp = connect(values, context, remote_root)
     try:
