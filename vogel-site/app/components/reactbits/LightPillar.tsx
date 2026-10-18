@@ -253,6 +253,32 @@ const INTRO_SECONDS = 2.1;
 const PULSE_LIFE = 1.4;
 const MIN_SCALE = 0.25;
 
+/**
+ * Vogel: the pillar is a raymarched volumetric shader drawn on a canvas as wide as the document
+ * (150vw). On a software rasterizer (SwiftShader, llvmpipe, WARP) or on an old integrated Intel UHD,
+ * a single frame can take long enough to trip the GPU watchdog: the browser kills the GPU process and
+ * the tab reloads mid-scroll, which throws the reader back to the top. These tiers detect that
+ * hardware and render less of it, without touching the result on a real GPU.
+ *
+ * maxPixels caps the canvas backing store (the compositing cost, which grows with the screen).
+ * scale caps the raymarch field, which is the expensive part: it is sampled at view.width * scale
+ * and then upsampled onto the canvas.
+ */
+type GpuTier = 'software' | 'weak' | 'normal';
+
+const GPU_TIERS: Record<GpuTier, { maxDpr: number; maxPixels: number; scale: number | null }> = {
+  software: { maxDpr: 1, maxPixels: 900_000, scale: 0.25 },
+  weak: { maxDpr: 1, maxPixels: 1_400_000, scale: 0.35 },
+  normal: { maxDpr: 2, maxPixels: 2_600_000, scale: null }
+};
+
+function classifyGpu(renderer: string): GpuTier {
+  if (/swiftshader|llvmpipe|softpipe|software|basic render|warp|mesa offscreen|paravirtual/i.test(renderer)) return 'software';
+  if (/intel\(r\)\s*(uhd|hd|iris)\s*graphics?\s*[3-6]\d\d/i.test(renderer)) return 'weak';
+  if (/intel[^\n]*(uhd|hd) graphics/i.test(renderer)) return 'weak';
+  return 'normal';
+}
+
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 const ease = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
@@ -371,15 +397,31 @@ const LightPillar = ({
     });
     if (!container || !canvas || !gl) return undefined;
 
+    // Vogel: know what we are drawing on before we start drawing.
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+    const rendererName = debugInfo ? String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '') : '';
+    const tier = GPU_TIERS[classifyGpu(rendererName)];
+
     const floatTargets = !!gl.getExtension('EXT_color_buffer_float');
     const marchProgram = link(gl, MARCH);
     const compositeProgram = link(gl, COMPOSITE);
     if (!marchProgram || !compositeProgram) return undefined;
 
+    // Vogel: a lost context has to stop the render loop. Keeping it alive on a dead context burns
+    // CPU every frame and can make the browser kill the GPU process, which reloads the tab and
+    // throws the reader back to the top of the page. The restore rebuilds through `generation`.
+    let contextLost = false;
     const onContextLost = (event: Event) => {
       event.preventDefault();
+      contextLost = true;
+      cancelAnimationFrame(raf);
+      raf = 0;
+      last = 0;
     };
-    const onContextRestored = () => setGeneration(value => value + 1);
+    const onContextRestored = () => {
+      contextLost = false;
+      setGeneration(value => value + 1);
+    };
     canvas.addEventListener('webglcontextlost', onContextLost);
     canvas.addEventListener('webglcontextrestored', onContextRestored);
 
@@ -456,12 +498,23 @@ const LightPillar = ({
     };
 
     const render = () => {
+      if (contextLost) return;
       const s = settingsRef.current;
-      const scale = Math.max(MIN_SCALE, s.scale * state.governor);
-      const fieldWidth = Math.max(1, Math.round(view.width * scale));
-      const fieldHeight = Math.max(1, Math.round(view.height * scale));
+      // The tier only ever reduces: an explicit resolution prop still wins over the tier's cap.
+      const baseScale = tier.scale === null ? s.scale : Math.min(s.scale, tier.scale);
+      const scale = Math.max(MIN_SCALE, baseScale * state.governor);
+      let fieldWidth = Math.max(1, Math.round(view.width * scale));
+      let fieldHeight = Math.max(1, Math.round(view.height * scale));
+      // The field is upsampled onto the canvas, so a field bigger than the canvas is pure waste:
+      // raymarching pixels nobody sees. On a 4K screen that was 3.1 MP of volumetrics for a 2.6 MP
+      // canvas. Cap it at the canvas.
+      const canvasPixels = canvas.width * canvas.height;
+      if (fieldWidth * fieldHeight > canvasPixels) {
+        const k = Math.sqrt(canvasPixels / (fieldWidth * fieldHeight));
+        fieldWidth = Math.max(1, Math.round(fieldWidth * k));
+        fieldHeight = Math.max(1, Math.round(fieldHeight * k));
+      }
       sizeTarget(fieldWidth, fieldHeight);
-
       const grow = ease(state.intro);
       const rise = easeOut(state.intro);
       const tilt = ((s.pillarRotation + state.lean) * Math.PI) / 180;
@@ -542,7 +595,7 @@ const LightPillar = ({
 
     const frame = (now: number) => {
       raf = 0;
-      if (!visible || document.hidden) return;
+      if (!visible || document.hidden || contextLost) return;
       const s = settingsRef.current;
       const dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
       if (last) tune((now - last) / 1000);
@@ -577,18 +630,30 @@ const LightPillar = ({
     };
 
     const wake = () => {
+      if (contextLost) return;
       if (!raf && visible && !document.hidden) raf = requestAnimationFrame(frame);
     };
 
     const resize = () => {
       const width = Math.max(1, container.clientWidth);
       const height = Math.max(1, container.clientHeight);
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const ratio = Math.min(window.devicePixelRatio || 1, tier.maxDpr);
+      // The container is 150vw wide, so the backing store explodes on a big screen (a 4K display
+      // asks for 11520x4320). Cap the total pixels and keep the aspect ratio: the pillar is a soft
+      // glow, nobody can tell, and the compositing cost drops with it.
+      let pixelWidth = Math.max(1, Math.round(width * ratio));
+      let pixelHeight = Math.max(1, Math.round(height * ratio));
+      const overflow = (pixelWidth * pixelHeight) / tier.maxPixels;
+      if (overflow > 1) {
+        const k = 1 / Math.sqrt(overflow);
+        pixelWidth = Math.max(1, Math.round(pixelWidth * k));
+        pixelHeight = Math.max(1, Math.round(pixelHeight * k));
+      }
       view.width = width;
       view.height = height;
       view.ratio = ratio;
-      canvas.width = Math.max(1, Math.round(width * ratio));
-      canvas.height = Math.max(1, Math.round(height * ratio));
+      canvas.width = pixelWidth;
+      canvas.height = pixelHeight;
       if (!raf) render();
       wake();
     };
